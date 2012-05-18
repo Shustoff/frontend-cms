@@ -36,9 +36,9 @@
                 <div class="row one">
                     <div class="span16 top">
                         <p>Ваш браузер: {userAgent}</p>
-                        <p>Название сата: {title}</p>
-                        <p>На сайте: {guest} гостей</p>
-                        <p>Email пользователя: {email} <span id="logout">x</span></p>
+                        <p>Название сайта: {site.title}</p>
+                        <p>На сайте: {guest.num} гостей</p>
+                        <p>Email пользователя: {user.email} <span id="logout">x</span></p>
                     </div>
                 </div>
                 <div class="row two">
@@ -47,11 +47,11 @@
                     </div>
                     <div class="span11">
                         <ul class="menu">
-                            <li><a target="_blank" href="#">Главная</a></li>
-                            <li><a target="_blank" href="#">Настройки</a></li>
-                            <li><a target="_blank" href="#">Страницы</a></li>
-                            <li><a target="_blank" href="#">Пользователи</a></li>
-                            <li><a target="_blank" href="#">Модули</a></li>
+                            <li><a href="#">Главная</a></li>
+                            <li><a href="#">Настройки</a></li>
+                            <li><a href="#">Страницы</a></li>
+                            <li><a href="#">Пользователи</a></li>
+                            <li><a href="#">Модули</a></li>
                         </ul>
                     </div>
                 </div>
@@ -197,16 +197,16 @@
                 <div class="row">
                     <h1>Инструменты: </h1>
                     <ul class="tools">
-                        <li><a target="_blank" href="#"><img src=""/></a></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li><a href="#" target="_blank"><?=HTML::image('assets/img/add.png');?></a></li>
+                        <li><a href="#" target="_blank"><?=HTML::image('assets/img/addcat.png');?></a></li>
+                        <li><a href="#" target="_blank"><?=HTML::image('assets/img/mail.png');?></a></li>
+                        <li><a href="#" target="_blank"><?=HTML::image('assets/img/user.png');?></a></li>
+                        <li><a href="#" target="_blank"><?=HTML::image('assets/img/rss.png');?></a></li>
+                        <li><a href="#" target="_blank"><?=HTML::image('assets/img/stats.png');?></a></li>
+                        <li><a href="#" target="_blank"><?=HTML::image('assets/img/info.png');?></a></li>
+                        <li><a href="#" target="_blank"><?=HTML::image('assets/img/youtube.png');?></a></li>
+                        <li><a href="#" target="_blank"><?=HTML::image('assets/img/image.png');?></a></li>
+                        <li><a href="#" target="_blank"><?=HTML::image('assets/img/trash.png');?></a></li>
                     </ul>
                 </div>
             </div>
