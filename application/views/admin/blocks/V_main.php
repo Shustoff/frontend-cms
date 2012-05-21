@@ -133,12 +133,12 @@
         <ul class="tools">
             <li>
                 <a target="_blank" href="#">
-                    <?=HTML::image('assets/img/addpage.png');?>
+                    <?=HTML::image('assets/img/add.png');?>
                 </a>
             </li>
             <li>
                 <a target="_blank" href="#">
-                    <?=HTML::image('assets/img/addcatalog.png');?>
+                    <?=HTML::image('assets/img/addcat.png');?>
                 </a>
             </li>
             <li>
@@ -148,7 +148,7 @@
             </li>
             <li>
                 <a target="_blank" href="#">
-                    <?=HTML::image('assets/img/adduser.png');?>
+                    <?=HTML::image('assets/img/user.png');?>
                 </a>
             </li>
             <li>
@@ -175,7 +175,7 @@
             </li>
             <li>
                 <a target="_blank" href="#">
-                    <?=HTML::image('assets/img/addimage.png');?>
+                    <?=HTML::image('assets/img/image.png');?>
                 </a>
             </li>
             <li>

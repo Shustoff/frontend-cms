@@ -81,6 +81,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  */
 Kohana::init(array(
 	'base_url'   => '/front-end',
+    'index_file' => ''
 ));
 
 /**
@@ -112,12 +113,13 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 
-Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))')
+Route::set('admin', 'admin(/<action>)', array('action' => '(options|pages|users|modules)'))
 	->defaults(array(
         'directory' => 'admin',
-		'controller' => 'main',
+        'controller' => 'main',
 		'action'     => 'index',
 	));
+
 
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
