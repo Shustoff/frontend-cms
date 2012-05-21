@@ -5,11 +5,11 @@
     <!--Мета-теги-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Админка Front-end CMS">
+    <meta name="description" content="<?php echo $admindesc; ?>">
     <meta name="keywords" content="frontend cms, админка, кохана, framework, kohana">
     <meta name="copyright" content="Frontend cms created">
     <meta name="robots" content=“index,follow”>
-    <title>Front-end CMS</title>
+    <title><?php echo $admintitle; ?></title>
     <!--Стили-->
     <?php echo HTML::style('assets/css/bootstrap.css');
           echo HTML::style('assets/css/jquery-ui-1.8.16.custom.css');?>
@@ -47,10 +47,10 @@
                     <div class="span11">
                         <ul class="menu">
                             <li><a href="<?php echo URL::site('admin'); ?>">Главная</a></li>
-                            <li><a href="<?php echo URL::site(); ?>">Настройки</a></li>
-                            <li><a href="<?php echo URL::site(); ?>">Страницы</a></li>
-                            <li><a href="<?php echo URL::site(); ?>">Пользователи</a></li>
-                            <li><a href="<?php echo URL::site(); ?>">Модули</a></li>
+                            <li><a href="<?php echo URL::site('admin/options'); ?>">Настройки</a></li>
+                            <li><a href="<?php echo URL::site('admin/pages'); ?>">Страницы</a></li>
+                            <li><a href="<?php echo URL::site('admin/users'); ?>">Пользователи</a></li>
+                            <li><a href="<?php echo URL::site('admin/modules'); ?>">Модули</a></li>
                         </ul>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
             <div class="tooltip span16">
                 <h3>Заголовок подсказки</h3>
                 <p>Текст подсказки</p>
-                <span class="close">X</span>
+                <span class="close" onclick="$('.tooltip').hide();">X</span>
             </div>
         </div>
 
