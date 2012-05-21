@@ -11,20 +11,19 @@
     <meta name="robots" content=“index,follow”>
     <title>Front-end CMS</title>
     <!--Стили-->
-    <?=HTML::style('assets/css/normalize.css');
-       HTML::style('assets/css/bootstrap.css');
-       HTML::style('assets/css/jquery-ui-1.8.16.custom.css');
-       HTML::style('assets/css/styles.less'); ?>
+    <?php echo HTML::style('assets/css/bootstrap.css');
+          echo HTML::style('assets/css/jquery-ui-1.8.16.custom.css');?>
+    <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/styles.less">
     <!--Скрипты-->
-    <?=HTML::script('assets/js/less-1.3.0.min.js');
-       HTML::script('assets/js/jquery-1.7.2.js');
-       HTML::script('assets/js/bootstrap.min.js');
-       HTML::script('assets/js/jquery-ui-1.8.16.custom.min.js');
-       HTML::script('assets/js/modernizr-2.5.3.js');
-       HTML::script('assets/js/underscore.js');
-       HTML::script('assets/js/backbone.js');
-       HTML::script('assets/js/json2.js');
-       HTML::script('assets/js/user.js'); ?>
+    <?php echo HTML::script('assets/js/less-1.3.0.min.js');
+        echo HTML::script('assets/js/jquery-1.7.2.js');
+        echo HTML::script('assets/js/bootstrap.min.js');
+        echo HTML::script('assets/js/jquery-ui-1.8.16.custom.min.js');
+        echo HTML::script('assets/js/modernizr-2.5.3.js');
+        echo HTML::script('assets/js/underscore.js');
+        echo HTML::script('assets/js/backbone.js');
+        echo HTML::script('assets/js/json2.js');
+        echo HTML::script('assets/js/user.js'); ?>
     <!--Фавикон-->
     <?=HTML::link('assets/img/favicon.ico', array('rel'=>'ico', 'type'=>'image/x-icon'))?>
     <?=HTML::link('assets/img/favicon.ico', array('rel'=>'shortcut icon', 'type'=>'image/x-icon'))?>
