@@ -10,7 +10,6 @@ var Template = {
         var template = _.template(topTemplate);
         $('.top').html(template({
                 sitename: "Админ-панель",
-                browser: navigator.appCodeName,
                 ipadress: ipadress,
                 email: "dima116@rambler.ru"
         }));
