@@ -113,7 +113,7 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 
-Route::set('admin', 'admin(/<action>)', array('action' => '(options|pages|users|modules)'))
+Route::set('admin', 'admin(/<action>)', array('action' => '(options|pages|users|modules|addpage|addcatalog|sendemail|adduser|addrss|stats|info|trash)'))
 	->defaults(array(
         'directory' => 'admin',
         'controller' => 'main',
