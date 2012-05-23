@@ -39,4 +39,44 @@ class Controller_Admin_Main extends Controller_Template {
         $this->template->main = View::factory('admin/blocks/V_modules');
     }
 
+    public function action_addpage()
+    {
+        $this->template->main = View::factory('admin/blocks/V_addpage');
+    }
+
+    public function action_addcatalog()
+    {
+        $this->template->main = View::factory('admin/blocks/V_addcatalog');
+    }
+
+    public function action_sendemail()
+    {
+        $this->template->main = View::factory('admin/blocks/V_sendemail');
+    }
+
+    public function action_adduser()
+    {
+        $this->template->main = View::factory('admin/blocks/V_adduser');
+    }
+
+    public function action_addrss()
+    {
+        $this->template->main = View::factory('admin/blocks/V_addrss');
+    }
+
+    public function action_stats()
+    {
+        $this->template->main = View::factory('admin/blocks/V_stats');
+    }
+
+    public function action_info()
+    {
+        $this->template->main = View::factory('admin/blocks/V_info');
+    }
+
+    public function action_trash()
+    {
+        $this->template->main = View::factory('admin/blocks/V_trash');
+    }
+
 } // End Welcome
