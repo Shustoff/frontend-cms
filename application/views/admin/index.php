@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content=“no-index,no-follow”>
-    <title>Админ-панель</title>
+    <title>Администраторский раздел</title>
 
     <!--Стили-->
     <?php echo HTML::style('assets/css/jquery-ui-1.8.16.custom.css');
@@ -39,9 +39,8 @@
                 <div class="row one">
                     <div class="span12 top">
                        <p>Название сайта: {{sitename}}</p>
-                       <p>Ваш браузер: {{browser}}</p>
                        <p>Ваш IP адрес: {{ipadress}}</p>
-                       <p>Ваш email: {{email}} <a href="#">(Выйти)</a></p>
+                       <p>Ваш email: {{email}} <a href="#">(выйти)</a></p>
                     </div>
                 </div>
                 <div class="row two">
