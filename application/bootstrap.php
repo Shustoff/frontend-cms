@@ -80,7 +80,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  caching     enable or disable internal caching                 FALSE
  */
 Kohana::init(array(
-	'base_url'   => '/front-end',
+	'base_url'   => '/frontend',
     'index_file' => ''
 ));
 
@@ -113,7 +113,7 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 
-Route::set('admin', 'admin(/<action>)', array('action' => '(options|pages|users|modules)'))
+Route::set('admin', 'admin(/<action>)', array('action' => '(options|pages|users|modules|addpage|addcatalog|adduser|addmodule|addrss|sendemail|stats|trash)'))
 	->defaults(array(
         'directory' => 'admin',
         'controller' => 'main',
