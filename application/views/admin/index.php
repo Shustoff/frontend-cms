@@ -11,14 +11,15 @@
     <meta name="robots" content=“index,follow”>
     <title><?php echo $admintitle; ?></title>
     <!--Стили-->
-    <?php echo HTML::style('assets/css/bootstrap.css');
-          echo HTML::style('assets/css/jquery-ui-1.8.16.custom.css');?>
+    <?php echo HTML::style('assets/css/jquery-ui-1.8.16.custom.css');
+          echo HTML::style('assets/css/bootstrap.css');
+          echo HTML::style('assets/css/temp.css');?>
     <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/styles.less">
     <!--Скрипты-->
     <?php echo HTML::script('assets/js/less-1.3.0.min.js');
           echo HTML::script('assets/js/jquery-1.7.2.js');
           echo HTML::script('assets/js/jquery-ui-1.8.16.custom.min.js');
-          echo HTML::script('assets/js/bootstrap.min.js');
+          echo HTML::script('assets/js/bootstrap.js');
           echo HTML::script('assets/js/modernizr-2.5.3.js');
           echo HTML::script('assets/js/underscore.js');
           echo HTML::script('assets/js/backbone.js');
