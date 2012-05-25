@@ -2196,3 +2196,26 @@
 #1 /Applications/MAMP/htdocs/frontend/system/classes/kohana/request.php(1138): Kohana_Request_Client->execute(Object(Request))
 #2 /Applications/MAMP/htdocs/frontend/index.php(109): Kohana_Request->execute()
 #3 {main}
+2012-05-25 20:32:50 --- ERROR: ErrorException [ 8 ]: Undefined variable: main ~ APPPATH/views/admin/index.php [ 119 ]
+2012-05-25 20:32:50 --- STRACE: ErrorException [ 8 ]: Undefined variable: main ~ APPPATH/views/admin/index.php [ 119 ]
+--
+#0 /Applications/MAMP/htdocs/frontend/application/views/admin/index.php(119): Kohana_Core::error_handler(8, 'Undefined varia...', '/Applications/M...', 119, Array)
+#1 /Applications/MAMP/htdocs/frontend/system/classes/kohana/view.php(61): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/frontend/system/classes/kohana/view.php(343): Kohana_View::capture('/Applications/M...', Array)
+#3 /Applications/MAMP/htdocs/frontend/system/classes/kohana/controller/template.php(44): Kohana_View->render()
+#4 [internal function]: Kohana_Controller_Template->after()
+#5 /Applications/MAMP/htdocs/frontend/system/classes/kohana/request/client/internal.php(121): ReflectionMethod->invoke(Object(Controller_Admin_Main))
+#6 /Applications/MAMP/htdocs/frontend/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#7 /Applications/MAMP/htdocs/frontend/system/classes/kohana/request.php(1138): Kohana_Request_Client->execute(Object(Request))
+#8 /Applications/MAMP/htdocs/frontend/index.php(109): Kohana_Request->execute()
+#9 {main}
+2012-05-25 20:38:08 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/images/ui-icons_222222_256x240.png ~ SYSPATH/classes/kohana/request.php [ 1126 ]
+2012-05-25 20:38:08 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/images/ui-bg_glass_75_ffffff_1x400.png ~ SYSPATH/classes/kohana/request.php [ 1126 ]
+2012-05-25 20:38:08 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/images/ui-icons_222222_256x240.png ~ SYSPATH/classes/kohana/request.php [ 1126 ]
+--
+#0 /Applications/MAMP/htdocs/frontend/index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-25 20:38:08 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/images/ui-bg_glass_75_ffffff_1x400.png ~ SYSPATH/classes/kohana/request.php [ 1126 ]
+--
+#0 /Applications/MAMP/htdocs/frontend/index.php(109): Kohana_Request->execute()
+#1 {main}
