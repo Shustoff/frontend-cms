@@ -2501,3 +2501,283 @@
 --
 #0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
 #1 {main}
+2012-05-22 22:02:15 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:15 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:38 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:38 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:38 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:38 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:39 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:39 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:40 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:40 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:41 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:41 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:42 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:42 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:42 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:42 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:43 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:43 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:44 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:44 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:44 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:44 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:45 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:45 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:46 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:46 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:47 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:47 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:02:47 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:02:47 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:10:38 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:10:38 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:10:39 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:10:39 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:12:30 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:12:30 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:12:30 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:12:30 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:12:37 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:12:37 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:12:37 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:12:37 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:12:53 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:12:53 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:12:53 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:12:53 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:14:36 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:14:36 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:14:36 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:14:36 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:14:58 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:14:58 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:14:58 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:14:58 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:15:06 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:15:06 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:15:06 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:15:06 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:15:14 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:15:14 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:15:14 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:15:14 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:15:18 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:15:18 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:15:18 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:15:18 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:15:53 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:15:53 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:15:53 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:15:53 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:17:15 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:17:15 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:17:15 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:17:15 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:17:28 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:17:28 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:17:28 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:17:28 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:18:20 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:18:20 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:18:20 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:18:20 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:18:36 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:18:36 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:18:36 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:18:36 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:19:55 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:19:55 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:19:55 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:19:55 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:22:27 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:22:27 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:22:28 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:22:28 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:23:09 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:23:09 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:23:10 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:23:10 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:24:34 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:24:34 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:24:34 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:24:34 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:25:39 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:25:39 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:25:39 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:25:39 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:26:00 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:26:00 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:26:01 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:26:01 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-05-22 22:26:28 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-05-22 22:26:28 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/help.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\front-end\index.php(109): Kohana_Request->execute()
+#1 {main}
