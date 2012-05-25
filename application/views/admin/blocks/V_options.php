@@ -124,7 +124,7 @@
                 </div>
                 <div class="control-group database">
                     <h3>Настройки базы данных:</h3>
-                    <small class="smaller">(хранятся в config / database.php)</small>
+                    <small class="smaller">(хранятся в application / config / database.php)</small>
                     <div class="control-group">
                         <label for="host" class="control-label">Хост: </label>
                         <div class="controls">
