@@ -49,11 +49,12 @@
                     </div>
                     <div class="span8">
                         <ul class="menu">
-                            <li><a href="<?php echo URL::site('admin'); ?>">Главная</a></li>
-                            <li><a href="#" onclick="aRequest.request();">Настройки</a></li>
-                            <li><a href="<?php echo URL::site('admin/pages'); ?>">Страницы</a></li>
-                            <li><a href="<?php echo URL::site('admin/users'); ?>">Пользователи</a></li>
-                            <li><a href="<?php echo URL::site('admin/modules'); ?>">Модули</a></li>
+                            <li><a href="#" onclick="Ajax.index();">Главная</a></li>
+                            <li><a href="#" onclick="Ajax.options();">Настройки</a></li>
+                            <li><a href="#" onclick="Ajax.pages();">Страницы</a></li>
+                            <li><a href="#" onclick="Ajax.catalogs();">Каталоги</a></li>
+                            <li><a href="#" onclick="Ajax.users();">Пользователи</a></li>
+                            <li><a href="#" onclick="Ajax.modules();">Модули</a></li>
                         </ul>
                     </div>
                 </div>
@@ -67,6 +68,52 @@
             </div>
         </div>
 
+        <div class="row maintools">
+            <div class="span8 offset3">
+                <ul class="tools">
+                    <li>
+                        <a href="#" onclick="Ajax.addpage();">
+                            <?=HTML::image('assets/img/add.png');?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="Ajax.addcatalog();">
+                            <?=HTML::image('assets/img/addcat.png');?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="Ajax.sendemail();">
+                            <?=HTML::image('assets/img/email.png');?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="Ajax.adduser();">
+                            <?=HTML::image('assets/img/user.png');?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="Ajax.addrss();">
+                            <?=HTML::image('assets/img/rss.png');?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="Ajax.stats();">
+                            <?=HTML::image('assets/img/stats.png');?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="Ajax.info();">
+                            <?=HTML::image('assets/img/info.png');?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="Ajax.trash();">
+                            <?=HTML::image('assets/img/trash.png');?>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <div class="row">
             <div class="span12 main">
                 <?php echo $main; ?>
@@ -76,7 +123,7 @@
         <div class="row">
             <div class="span12 footer">
                 <p>Front-end CMS based on Kohana Framework v3.2</p>
-                <a href="http://kohanaframework.org" target="_blank">www.kohanaframework.org</a>
+                <a href="http://kohanaframework.org" class="kohcopy" target="_blank">www.kohanaframework.org</a>
                 <p id="copyright">Created for fun :)</p>
                 <a href="#" class="helper"><?=HTML::image('assets/img/help.png');?></a>
             </div>
