@@ -124,34 +124,35 @@
                 </div>
                 <div class="control-group database">
                     <h3>Настройки базы данных:</h3>
+                    <small class="smaller">(хранятся в config / database.php)</small>
                     <div class="control-group">
                         <label for="host" class="control-label">Хост: </label>
                         <div class="controls">
-                           <input type="text" id="host" class="input-large">
+                           <span id="host" class="input-large uneditable-input"><?=$hostname;?></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="basename" class="control-label">Название БД: </label>
                         <div class="controls">
-                           <input type="text" id="basename" class="input-large">
+                           <span id="basename" class="input-large uneditable-input"><?=$database;?></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="prefix" class="control-label">Префикс БД: </label>
                         <div class="controls">
-                           <input type="text" id="prefix" class="input-large">
+                           <span id="prefix" class="input-large uneditable-input"><?=$prefix;?></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="username" class="control-label">Имя пользователя: </label>
                         <div class="controls">
-                           <input type="text" id="username" class="input-large">
+                           <span id="username" class="input-large uneditable-input"><?=$username;?></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="password" class="control-label">Пароль: </label>
                         <div class="controls">
-                           <input type="text" id="password" class="input-large">
+                           <span id="password" class="input-large uneditable-input"><?=$password;?></span>
                         </div>
                     </div>
                 </div>
