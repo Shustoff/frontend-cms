@@ -5,13 +5,6 @@ class Controller_Admin_Main extends Controller_Template {
     public function before()
     {
         parent::before();
-
-        $config = Kohana::$config->load('admin_config');
-        $admintitle = $config->get('admintitle');
-        $admindesc = $config->get('desc');
-
-        View::bind_global('admintitle', $admintitle);
-        View::bind_global('admindesc', $admindesc);
     }
 
 	public function action_index()

@@ -50,7 +50,7 @@
                     <div class="span8">
                         <ul class="menu">
                             <li><a href="<?php echo URL::site('admin'); ?>">Главная</a></li>
-                            <li><a href="<?php echo URL::site('admin/options'); ?>">Настройки</a></li>
+                            <li><a href="#" onclick="aRequest.request();">Настройки</a></li>
                             <li><a href="<?php echo URL::site('admin/pages'); ?>">Страницы</a></li>
                             <li><a href="<?php echo URL::site('admin/users'); ?>">Пользователи</a></li>
                             <li><a href="<?php echo URL::site('admin/modules'); ?>">Модули</a></li>
