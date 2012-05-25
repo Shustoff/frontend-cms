@@ -6,9 +6,9 @@
             <th>Название</th>
             <th>Описание</th>
             <th>Каталог</th>
-            <th width="50">Состояние</th>
             <th>Автор</th>
             <th>Дата создания</th>
+            <th width="50">Состояние</th>
             <th width="50">Удалить</th>
         </tr>
     </thead>
@@ -18,9 +18,9 @@
             <td><a href="#">Название статьи...</a></td>
             <td>Описание статьи...</td>
             <td>Каталог</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Автор</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
@@ -28,9 +28,9 @@
             <td><a href="#">Название статьи...</a></td>
             <td>Описание статьи...</td>
             <td>Каталог</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Автор</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
@@ -38,9 +38,9 @@
             <td><a href="#">Название статьи...</a></td>
             <td>Описание статьи...</td>
             <td>Каталог</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Автор</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
@@ -48,9 +48,9 @@
             <td><a href="#">Название статьи...</a></td>
             <td>Описание статьи...</td>
             <td>Каталог</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Автор</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
@@ -58,9 +58,9 @@
             <td><a href="#">Название статьи...</a></td>
             <td>Описание статьи...</td>
             <td>Каталог</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Автор</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
@@ -68,9 +68,9 @@
             <td><a href="#">Название статьи...</a></td>
             <td>Описание статьи...</td>
             <td>Каталог</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Автор</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
@@ -78,9 +78,9 @@
             <td><a href="#">Название статьи...</a></td>
             <td>Описание статьи...</td>
             <td>Каталог</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Автор</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
@@ -88,9 +88,9 @@
             <td><a href="#">Название статьи...</a></td>
             <td>Описание статьи...</td>
             <td>Каталог</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Автор</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
@@ -98,9 +98,9 @@
             <td><a href="#">Название статьи...</a></td>
             <td>Описание статьи...</td>
             <td>Каталог</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Автор</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
@@ -108,9 +108,9 @@
             <td><a href="#">Название статьи...</a></td>
             <td>Описание статьи...</td>
             <td>Каталог</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Автор</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
     </tbody>

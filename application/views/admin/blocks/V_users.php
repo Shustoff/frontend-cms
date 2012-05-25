@@ -5,9 +5,9 @@
             <th>ID</th>
             <th>Email</th>
             <th>Пароль</th>
-            <th width="50">Состояние</th>
             <th width="130">Роль</th>
             <th>Дата регистрации</th>
+            <th width="50">Состояние</th>
             <th width="50">Удалить</th>
         </tr>
     </thead>
@@ -16,90 +16,90 @@
             <td>1</td>
             <td><a href="#">Email пользователя...</a></td>
             <td>Пароль пользователя...</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Роль</td>
             <td>Дата регистрации</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>2</td>
             <td><a href="#">Email пользователя...</a></td>
             <td>Пароль пользователя...</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Роль</td>
             <td>Дата регистрации</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>3</td>
             <td><a href="#">Email пользователя...</a></td>
             <td>Пароль пользователя...</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Роль</td>
             <td>Дата регистрации</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>4</td>
             <td><a href="#">Email пользователя...</a></td>
             <td>Пароль пользователя...</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Роль</td>
             <td>Дата регистрации</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>5</td>
             <td><a href="#">Email пользователя...</a></td>
             <td>Пароль пользователя...</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Роль</td>
             <td>Дата регистрации</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>6</td>
             <td><a href="#">Email пользователя...</a></td>
             <td>Пароль пользователя...</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Роль</td>
             <td>Дата регистрации</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>7</td>
             <td><a href="#">Email пользователя...</a></td>
             <td>Пароль пользователя...</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Роль</td>
             <td>Дата регистрации</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>8</td>
             <td><a href="#">Email пользователя...</a></td>
             <td>Пароль пользователя...</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Роль</td>
             <td>Дата регистрации</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>9</td>
             <td><a href="#">Email пользователя...</a></td>
             <td>Пароль пользователя...</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Роль</td>
             <td>Дата регистрации</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>10</td>
             <td><a href="#">Email пользователя...</a></td>
             <td>Пароль пользователя...</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Роль</td>
             <td>Дата регистрации</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
     </tbody>

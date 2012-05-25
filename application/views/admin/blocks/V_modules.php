@@ -5,9 +5,9 @@
             <th>ID</th>
             <th>Название</th>
             <th>Примечание</th>
-            <th width="50">Состояние</th>
             <th>Создатель</th>
             <th>Дата создания</th>
+            <th width="50">Состояние</th>
             <th width="50">Удалить</th>
         </tr>
     </thead>
@@ -16,90 +16,90 @@
             <td>1</td>
             <td><a href="#">Название модуля...</a></td>
             <td>Примечание...</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Создатель</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>2</td>
             <td><a href="#">Название модуля...</a></td>
             <td>Примечание...</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Создатель</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>3</td>
             <td><a href="#">Название модуля...</a></td>
             <td>Примечание...</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Создатель</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>4</td>
             <td><a href="#">Название модуля...</a></td>
             <td>Примечание...</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Создатель</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>5</td>
             <td><a href="#">Название модуля...</a></td>
             <td>Примечание...</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Создатель</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>6</td>
             <td><a href="#">Название модуля...</a></td>
             <td>Примечание...</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Создатель</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>7</td>
             <td><a href="#">Название модуля...</a></td>
             <td>Примечание...</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Создатель</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>8</td>
             <td><a href="#">Название модуля...</a></td>
             <td>Примечание...</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Создатель</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>9</td>
             <td><a href="#">Название модуля...</a></td>
             <td>Примечание...</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td>Создатель</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
         <tr>
             <td>10</td>
             <td><a href="#">Название модуля...</a></td>
             <td>Примечание...</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td>Создатель</td>
             <td>Дата создания</td>
+            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
             <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
         </tr>
     </tbody>
