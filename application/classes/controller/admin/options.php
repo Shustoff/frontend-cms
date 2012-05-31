@@ -23,13 +23,6 @@ class Controller_Admin_Options extends Controller {
         $this->response->body($view);
     }
 
-    public function action_save()
-    {
-
-
-
-    }
-
 
 
 } // End Welcome

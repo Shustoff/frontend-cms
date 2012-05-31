@@ -1,30 +1,30 @@
 <div class="row">
-    <?php foreach($options as $option): ?>
     <div class="span6">
-        <form class="form-horizontal" >
+        <form class="form-horizontal" action="" method="post" name="formoptions">
+        <?php foreach($options as $option): ?>
             <fieldset>
                 <div class="control-group">
                     <label for="sitename" class="control-label">Название сайта: </label>
                     <div class="controls">
-                       <input type="text" id="sitename" class="input-xlarge" value="<?=$option['sitename'];?>">
+                       <input type="text" id="sitename" name="sitename" class="input-xlarge" value="<?=$option['sitename'];?>">
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="desc" class="control-label">Описание сайта: </label>
                     <div class="controls">
-                        <textarea id="desc" cols="20" rows="3" class="input-xlarge"><?=$option['description'];?></textarea>
+                        <textarea id="desc" cols="20" rows="3" name="description" class="input-xlarge"><?=$option['description'];?></textarea>
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="keywords" class="control-label">Ключевые слова: </label>
                     <div class="controls">
-                        <textarea id="keywords" cols="20" rows="3" class="input-xlarge"><?=$option['keywords'];?></textarea>
+                        <textarea id="keywords" cols="20" name="keywords" rows="3" class="input-xlarge"><?=$option['keywords'];?></textarea>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label">Мета-тег robots: </label>
                     <div class="controls docs-input-sizes">
-                        <select class="span3" id="robots" name="robots[]">
+                        <select class="span3" id="robots" name="robots">
                             <option value="0" <?=$option['robots'] == 0 ? 'selected' : ''?>>Index, Follow</option>
                             <option value="1" <?=$option['robots'] == 1 ? 'selected' : ''?>>Index, No Follow</option>
                             <option value="2" <?=$option['robots'] == 2 ? 'selected' : ''?>>No Index, Follow</option>
@@ -35,32 +35,31 @@
                 <div class="control-group">
                     <label for="email" class="control-label">E-mail сайта: </label>
                     <div class="controls">
-                       <input type="text" id="email" class="input-xlarge" value="<?=$option['email'];?>">
+                       <input type="text" id="email" name="email" class="input-xlarge" value="<?=$option['email'];?>">
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="sender" class="control-label">Отправитель: </label>
                     <div class="controls">
-                       <input type="text" id="sender" class="input-xlarge" value="<?=$option['email_from'];?>">
+                       <input type="text" id="sender" name="email_from" class="input-xlarge" value="<?=$option['email_from'];?>">
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="copyright" class="control-label">Копирайт: </label>
                     <div class="controls">
-                        <textarea id="copyright" cols="20" rows="3" class="input-xlarge"><?=$option['copyright'];?></textarea>
+                        <textarea id="copyright" cols="20" rows="3" name="copyright" class="input-xlarge"><?=$option['copyright'];?></textarea>
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="404page" class="control-label">404 страница: </label>
                     <div class="controls">
-                        <textarea id="404page" cols="20" rows="3" class="input-xlarge"><?=$option['404page'];?></textarea>
+                        <textarea id="404page" cols="20" rows="3" name="404page" class="input-xlarge"><?=$option['404page'];?></textarea>
                     </div>
                 </div>
             </fieldset>
-
     </div>
-    <div class="span5">
 
+    <div class="span5">
             <fieldset>
                 <div class="control-group">
                     <label class="control-label">Включен ли сайт: </label>
@@ -70,7 +69,7 @@
                             Да
                         </label>
                         <label class="radio inline">
-                            <input type="radio" id="siteon0" value="0" name="siteon" <?=$option['status'] == 0 ? 'checked' : ''?>>
+                            <input type="radio" id="siteon0" value="0" name="status" <?=$option['status'] == 0 ? 'checked' : ''?>>
                             Нет
                         </label>
                     </div>
@@ -118,7 +117,7 @@
                     <label for="session" class="control-label">Время жизни сессии: </label>
                     <div class="controls">
                        <div class="input-append">
-                           <input type="text" id="session" class="input-small" value="<?=$option['session'];?>">
+                           <input type="text" id="session" name="session" class="input-small" value="<?=$option['session'];?>">
                            <span class="add-on">мин.</span>
                        </div>
                     </div>
@@ -160,11 +159,10 @@
                 </div>
                 <div class="control-group">
                     <div class="controls">
-                        <button class="btn btn-success">Сохранить настройки сайта</button>
+                        <input class="btn btn-success" type="submit" name="saveoptions" value="Сохранить настройки сайта">
                     </div>
                 </div>
             </fieldset>
         </form>
     </div>
-
 </div>
