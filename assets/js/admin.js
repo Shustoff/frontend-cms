@@ -1,4 +1,6 @@
 $(function(){
+
+    // Настройки шаблонизатора
     _.templateSettings = {
         interpolate: /\{\{(.+?)\}\}/g
     };

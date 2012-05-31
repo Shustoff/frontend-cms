@@ -34,32 +34,31 @@
     <?=HTML::link('assets/img/favicon.ico', array('rel'=>'shortcut icon', 'type'=>'image/x-icon'))?>
 </head>
 <body>
-        <div class="row container">
-            <div class="header">
-                <div class="row one">
-                    <div class="span12 top">
-                       <p>Название сайта: {{sitename}}</p>
-                       <p>Ваш IP адрес: {{ipadress}}</p>
-                       <p>Ваш email: {{email}} <a href="#">(выйти)</a></p>
-                    </div>
-                </div>
-                <div class="row two">
-                    <div class="span3">
-                        <h1 class="logo">Front-end CMS</h1>
-                    </div>
-                    <div class="span8">
-                        <ul class="menu">
-                            <li><a href="#" onclick="Ajax.index();">Главная</a></li>
-                            <li><a href="#" onclick="Ajax.options();">Настройки</a></li>
-                            <li><a href="#" onclick="Ajax.pages();">Страницы</a></li>
-                            <li><a href="#" onclick="Ajax.catalogs();">Каталоги</a></li>
-                            <li><a href="#" onclick="Ajax.users();">Пользователи</a></li>
-                            <li><a href="#" onclick="Ajax.modules();">Модули</a></li>
-                        </ul>
-                    </div>
+    <div class="row container">
+        <div class="header">
+            <div class="row one">
+                <div class="span12 top">
+                   <p>Название сайта: {{sitename}}</p>
+                   <p>Ваш IP адрес: {{ipadress}}</p>
+                   <p>Ваш email: {{email}} <a href="#">(выйти)</a></p>
                 </div>
             </div>
-
+            <div class="row two">
+                <div class="span3">
+                    <h1 class="logo">Front-end CMS</h1>
+                </div>
+                <div class="span8">
+                    <ul class="menu">
+                        <li><a href="#" onclick="Ajax.index();">Главная</a></li>
+                        <li><a href="#" onclick="Ajax.options();">Настройки</a></li>
+                        <li><a href="#" onclick="Ajax.pages();">Страницы</a></li>
+                        <li><a href="#" onclick="Ajax.catalogs();">Каталоги</a></li>
+                        <li><a href="#" onclick="Ajax.users();">Пользователи</a></li>
+                        <li><a href="#" onclick="Ajax.modules();">Модули</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="hint span12">
                 <h3>Заголовок подсказки</h3>
@@ -67,7 +66,6 @@
                 <span class="close" onclick="$('.hint').hide();">X</span>
             </div>
         </div>
-
         <div class="row maintools">
             <div class="span8 offset3">
                 <ul class="tools">
@@ -114,19 +112,18 @@
                 </ul>
             </div>
         </div>
-        <div class="row">
-            <div class="span12 main">
-                <?php echo $main; ?>
-            </div>
+    <div class="row">
+        <div class="span12 main">
+            <?php echo $main; ?>
         </div>
-
-        <div class="row">
-            <div class="span12 footer">
-                <p>Front-end CMS based on Kohana Framework v3.2</p>
-                <a href="http://kohanaframework.org" class="kohcopy" target="_blank">www.kohanaframework.org</a>
-                <p id="copyright">Created for fun :)</p>
-                <a href="#" class="helper"><?=HTML::image('assets/img/help.png');?></a>
-            </div>
+    </div>
+    <div class="row">
+        <div class="span12 footer">
+            <p>Front-end CMS based on Kohana Framework v3.2</p>
+            <a href="http://kohanaframework.org" class="kohcopy" target="_blank">www.kohanaframework.org</a>
+            <p id="copyright">Created for fun :)</p>
+            <a href="#" class="helper"><?=HTML::image('assets/img/help.png');?></a>
         </div>
+    </div>
 </body>
 </html>
