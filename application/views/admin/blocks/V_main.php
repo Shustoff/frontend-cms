@@ -124,6 +124,7 @@
         </table>
     </div>
 </div>
+
 <hr class="line">
 <div class="row search">
     <div class="span3"><p class="big">Поиск по страницам:</p></div>

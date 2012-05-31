@@ -10,15 +10,26 @@ class Controller_Admin_Options extends Controller {
         $username = Kohana::$config->load('database.default.connection.username');
         $password = Kohana::$config->load('database.default.connection.password');
 
+        $options = Model::factory('Options')->get_all();
+
         $view = View::factory('admin/blocks/V_options')
                         ->set('hostname', $hostname)
                         ->set('database', $database)
                         ->set('prefix', $prefix)
                         ->set('username', $username)
-                        ->set('password', $password);
+                        ->set('password', $password)
+                        ->set('options', $options);
 
         $this->response->body($view);
     }
+
+    public function action_save()
+    {
+
+
+
+    }
+
 
 
 } // End Welcome

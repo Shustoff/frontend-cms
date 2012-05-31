@@ -1,75 +1,76 @@
 <div class="row">
+    <?php foreach($options as $option): ?>
     <div class="span6">
-        <form class="form-horizontal">
+        <form class="form-horizontal" >
             <fieldset>
                 <div class="control-group">
                     <label for="sitename" class="control-label">Название сайта: </label>
                     <div class="controls">
-                       <input type="text" id="sitename" class="input-xlarge">
+                       <input type="text" id="sitename" class="input-xlarge" value="<?=$option['sitename'];?>">
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="desc" class="control-label">Описание сайта: </label>
                     <div class="controls">
-                        <textarea id="desc" cols="20" rows="3" class="input-xlarge"></textarea>
+                        <textarea id="desc" cols="20" rows="3" class="input-xlarge"><?=$option['description'];?></textarea>
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="keywords" class="control-label">Ключевые слова: </label>
                     <div class="controls">
-                        <textarea id="keywords" cols="20" rows="3" class="input-xlarge"></textarea>
+                        <textarea id="keywords" cols="20" rows="3" class="input-xlarge"><?=$option['keywords'];?></textarea>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label">Мета-тег robots: </label>
                     <div class="controls docs-input-sizes">
-                        <select class="span3" id="robots">
-                            <option>Index, Follow</option>
-                            <option>Index, No Follow</option>
-                            <option>No Index, Follow</option>
-                            <option>No Index, No Follow</option>
+                        <select class="span3" id="robots" name="robots[]">
+                            <option value="0" <?=$option['robots'] == 0 ? 'selected' : ''?>>Index, Follow</option>
+                            <option value="1" <?=$option['robots'] == 1 ? 'selected' : ''?>>Index, No Follow</option>
+                            <option value="2" <?=$option['robots'] == 2 ? 'selected' : ''?>>No Index, Follow</option>
+                            <option value="3" <?=$option['robots'] == 3 ? 'selected' : ''?>>No Index, No Follow</option>
                         </select>
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="email" class="control-label">E-mail сайта: </label>
                     <div class="controls">
-                       <input type="text" id="email" class="input-xlarge">
+                       <input type="text" id="email" class="input-xlarge" value="<?=$option['email'];?>">
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="sender" class="control-label">Отправитель: </label>
                     <div class="controls">
-                       <input type="text" id="sender" class="input-xlarge">
+                       <input type="text" id="sender" class="input-xlarge" value="<?=$option['email_from'];?>">
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="copyright" class="control-label">Копирайт: </label>
                     <div class="controls">
-                        <textarea id="copyright" cols="20" rows="3" class="input-xlarge"></textarea>
+                        <textarea id="copyright" cols="20" rows="3" class="input-xlarge"><?=$option['copyright'];?></textarea>
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="404page" class="control-label">404 страница: </label>
                     <div class="controls">
-                        <textarea id="404page" cols="20" rows="3" class="input-xlarge"></textarea>
+                        <textarea id="404page" cols="20" rows="3" class="input-xlarge"><?=$option['404page'];?></textarea>
                     </div>
                 </div>
             </fieldset>
-        </form>
+
     </div>
     <div class="span5">
-        <form class="form-horizontal">
+
             <fieldset>
                 <div class="control-group">
                     <label class="control-label">Включен ли сайт: </label>
                     <div class="controls">
                         <label class="radio inline">
-                            <input type="radio" id="siteon1" value="option1" name="siteon" checked>
+                            <input type="radio" id="siteon1" value="1" name="siteon" <?=$option['status'] == 1 ? 'checked' : ''?>>
                             Да
                         </label>
                         <label class="radio inline">
-                            <input type="radio" id="siteon0" value="option2" name="siteon">
+                            <input type="radio" id="siteon0" value="0" name="siteon" <?=$option['status'] == 0 ? 'checked' : ''?>>
                             Нет
                         </label>
                     </div>
@@ -78,11 +79,11 @@
                     <label class="control-label">Используем .htaccess: </label>
                     <div class="controls">
                         <label class="radio inline">
-                            <input type="radio" id="htaccess1" value="option1" name="htaccess" checked>
+                            <input type="radio" id="htaccess1" value="1" name="htaccess" <?=$option['htaccess'] == 1 ? 'checked' : ''?>>
                             Да
                         </label>
                         <label class="radio inline">
-                            <input type="radio" id="htaccess0" value="option2" name="htaccess">
+                            <input type="radio" id="htaccess0" value="0" name="htaccess" <?=$option['htaccess'] == 0 ? 'checked' : ''?>>
                             Нет
                         </label>
                     </div>
@@ -91,11 +92,11 @@
                     <label class="control-label">Включить отладку: </label>
                     <div class="controls">
                         <label class="radio inline">
-                            <input type="radio" id="debug1" value="option1" name="debug">
+                            <input type="radio" id="debug1" value="1" name="debug" <?=$option['debug'] == 1 ? 'checked' : ''?>>
                             Да
                         </label>
                         <label class="radio inline">
-                            <input type="radio" id="debug0" value="option2" name="debug" checked>
+                            <input type="radio" id="debug0" value="0" name="debug" <?=$option['debug'] == 0 ? 'checked' : ''?>>
                             Нет
                         </label>
                     </div>
@@ -104,11 +105,11 @@
                     <label class="control-label">Кэширование: </label>
                     <div class="controls">
                         <label class="radio inline">
-                            <input type="radio" id="cache1" value="option1" name="cache">
+                            <input type="radio" id="cache1" value="1" name="cache" <?=$option['cache'] == 1 ? 'checked' : ''?>>
                             Да
                         </label>
                         <label class="radio inline">
-                            <input type="radio" id="cache0" value="option2" name="cache" checked>
+                            <input type="radio" id="cache0" value="0" name="cache" <?=$option['cache'] == 0 ? 'checked' : ''?>>
                             Нет
                         </label>
                     </div>
@@ -117,11 +118,12 @@
                     <label for="session" class="control-label">Время жизни сессии: </label>
                     <div class="controls">
                        <div class="input-append">
-                           <input type="text" id="session" class="input-small">
+                           <input type="text" id="session" class="input-small" value="<?=$option['session'];?>">
                            <span class="add-on">мин.</span>
                        </div>
                     </div>
                 </div>
+                <?php endforeach; ?>
                 <div class="control-group database">
                     <h3>Настройки базы данных:</h3>
                     <small class="smaller">(хранятся в application / config / database.php)</small>
@@ -163,6 +165,6 @@
                 </div>
             </fieldset>
         </form>
-
     </div>
+
 </div>
