@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Admin_Options extends Controller {
+class Controller_Admin_Options extends Controller_App {
 
     public function action_index()
     {
@@ -22,7 +22,5 @@ class Controller_Admin_Options extends Controller {
 
         $this->response->body($view);
     }
-
-
 
 } // End Welcome

@@ -16,6 +16,7 @@
     <!--Передаем переменные из php в JS-->
     <script>
         var ipadress = '<?=$_SERVER['REMOTE_ADDR'];?>';
+        var email = '<?=$email;?>';
     </script>
 
     <!--Скрипты-->
@@ -38,9 +39,11 @@
         <div class="header">
             <div class="row one">
                 <div class="span12 top">
-                   <p>Название сайта: {{sitename}}</p>
-                   <p>Ваш IP адрес: {{ipadress}}</p>
-                   <p>Ваш email: {{email}} <a href="#">(выйти)</a></p>
+                   <p>Название сайта: <strong class="sitename">{{sitename}}</strong></p>
+                   <p>Ваш IP адрес: <strong>{{ipadress}}</strong></p>
+                   <p>Здравствуйте: <strong>{{email}}</strong>
+                      <a href="<?=URL::site('/admin/auth/logout'); ?>" title="Выйти"><?=HTML::image('assets/img/delete.png');?></a>
+                   </p>
                 </div>
             </div>
             <div class="row two">
@@ -49,12 +52,12 @@
                 </div>
                 <div class="span8">
                     <ul class="menu">
-                        <li><a href="#" onclick="Ajax.index();">Главная</a></li>
-                        <li><a href="#" onclick="Ajax.options();">Настройки</a></li>
-                        <li><a href="#" onclick="Ajax.pages();">Страницы</a></li>
-                        <li><a href="#" onclick="Ajax.catalogs();">Каталоги</a></li>
-                        <li><a href="#" onclick="Ajax.users();">Пользователи</a></li>
-                        <li><a href="#" onclick="Ajax.modules();">Модули</a></li>
+                        <li><a href="#home" onclick="Ajax.index();">Главная</a></li>
+                        <li><a href="#options" onclick="Ajax.options();">Настройки</a></li>
+                        <li><a href="#pages" onclick="Ajax.pages();">Страницы</a></li>
+                        <li><a href="#catalogs" onclick="Ajax.catalogs();">Каталоги</a></li>
+                        <li><a href="#users" onclick="Ajax.users();">Пользователи</a></li>
+                        <li><a href="#modules" onclick="Ajax.modules();">Модули</a></li>
                     </ul>
                 </div>
             </div>
@@ -70,42 +73,42 @@
             <div class="span8 offset3">
                 <ul class="tools">
                     <li>
-                        <a href="#" onclick="Ajax.addpage();">
+                        <a href="#addpage" onclick="Ajax.addpage();">
                             <?=HTML::image('assets/img/add.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="Ajax.addcatalog();">
+                        <a href="#addcatalog" onclick="Ajax.addcatalog();">
                             <?=HTML::image('assets/img/addcat.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="Ajax.sendemail();">
+                        <a href="#email" onclick="Ajax.sendemail();">
                             <?=HTML::image('assets/img/email.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="Ajax.adduser();">
+                        <a href="#adduser" onclick="Ajax.adduser();">
                             <?=HTML::image('assets/img/user.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="Ajax.addrss();">
+                        <a href="#rss" onclick="Ajax.addrss();">
                             <?=HTML::image('assets/img/rss.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="Ajax.stats();">
+                        <a href="#stats" onclick="Ajax.stats();">
                             <?=HTML::image('assets/img/stats.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="Ajax.info();">
+                        <a href="#info" onclick="Ajax.info();">
                             <?=HTML::image('assets/img/info.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="Ajax.trash();">
+                        <a href="#trash" onclick="Ajax.trash();">
                             <?=HTML::image('assets/img/trash.png');?>
                         </a>
                     </li>

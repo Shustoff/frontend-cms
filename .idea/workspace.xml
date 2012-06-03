@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63c28fa4-32e0-4a84-9184-938f30b9154c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/classes/model/LICENSE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/temp.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend_2012-05-25.sql" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/bootstrap.php" afterPath="$PROJECT_DIR$/application/bootstrap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/classes/controller/admin/options.php" afterPath="$PROJECT_DIR$/application/classes/controller/admin/options.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/blocks/V_main.php" afterPath="$PROJECT_DIR$/application/views/admin/blocks/V_main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/blocks/V_options.php" afterPath="$PROJECT_DIR$/application/views/admin/blocks/V_options.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/index.php" afterPath="$PROJECT_DIR$/application/views/admin/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/styles.less" afterPath="$PROJECT_DIR$/assets/css/styles.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/admin.js" afterPath="$PROJECT_DIR$/assets/js/admin.js" />
     </list>
     <ignored path="front-end.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,18 +26,9 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="options.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/classes/model/options.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="options.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/classes/controller/admin/options.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="0" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.8517699">
+            <state line="8" column="27" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -65,7 +46,16 @@
       <file leaf-file-name="V_options.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/admin/blocks/V_options.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="38" selection-start="123" selection-end="123" vertical-scroll-proportion="-2.1290324">
+            <state line="13" column="22" selection-start="699" selection-end="699" vertical-scroll-proportion="-7.586207">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/bootstrap.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="82" column="28" selection-start="2459" selection-end="2459" vertical-scroll-proportion="0.22459893">
               <folding />
             </state>
           </provider>
@@ -91,7 +81,6 @@
         <option value="$PROJECT_DIR$/application/classes/controller/admin/modules.php" />
         <option value="$PROJECT_DIR$/application/classes/controller/admin/catalogs.php" />
         <option value="$PROJECT_DIR$/application/classes/controller/admin/email.php" />
-        <option value="$PROJECT_DIR$/application/bootstrap.php" />
         <option value="$PROJECT_DIR$/assets/js/admin.js" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/views/admin/index.php" />
@@ -102,14 +91,16 @@
         <option value="$PROJECT_DIR$/application/classes/controller/admin/main.php" />
         <option value="$PROJECT_DIR$/application/classes/model/options.php" />
         <option value="$PROJECT_DIR$/application/classes/controller/admin/options.php" />
+        <option value="$PROJECT_DIR$/application/bootstrap.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="1920" />
-    <option name="height" value="997" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -137,7 +128,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -152,12 +142,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
+              <option name="myItemId" value="front-end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front-end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front-end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -174,34 +179,28 @@
   </component>
   <component name="PublishConfig">
     <servers>
-      <server id="1161c30c-938a-48e7-8aa9-3656d44e126c">
+      <server id="04ac7d24-ad71-4cd1-b4a0-67d8cc6610fe">
         <serverdata />
       </server>
-      <server id="255ea337-6a4f-4bdb-b9e5-56a02407772f">
+      <server id="2a2f8c53-102a-4813-9960-cfad44b0bfd1">
         <serverdata />
       </server>
-      <server id="3c0bc4dd-7479-40a9-81dd-8b32f066a39e">
+      <server id="2ba50e3d-691d-46a6-b723-cf029750cf45">
         <serverdata />
       </server>
-      <server id="4379f546-d399-4fb7-826c-344829bbdce1">
+      <server id="51553d36-4b51-4821-9738-3279413487af">
         <serverdata />
       </server>
-      <server id="7322799d-0c16-42a9-ad41-38c9d88f897a">
+      <server id="7e5c6abf-a2c1-471f-b9c3-bfe6ab1cf359">
         <serverdata />
       </server>
-      <server id="b24dbd91-c26f-4b31-87ee-ff7b71a6e275">
+      <server id="9799ad06-47a2-4877-9c96-58776af23174">
         <serverdata />
       </server>
-      <server id="b37e45c6-5d04-40a7-9c39-665ac9aa92b6">
+      <server id="daee6070-77a8-44e2-8267-508adb41bad3">
         <serverdata />
       </server>
-      <server id="cf826d2f-0883-40e8-b161-bde3fbd83d5e">
-        <serverdata />
-      </server>
-      <server id="ed3c9fd8-e6a2-432a-a9b0-6e52c69e91c1">
-        <serverdata />
-      </server>
-      <server id="fe825cd5-cd7d-4f62-832c-e2fb1254b41c">
+      <server id="e1636652-0002-4378-a285-0ec86e868d03">
         <serverdata />
       </server>
     </servers>
@@ -250,8 +249,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="997" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988358" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -259,7 +258,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17022412" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21024546" sideWeight="0.6701164" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22465315" sideWeight="0.9914071" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16988418" sideWeight="0.9914071" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24839126" sideWeight="0.32729626" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -268,8 +267,8 @@
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988358" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988358" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
@@ -383,42 +382,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/styles.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="29" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="23" column="29" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/bootstrap.php">
+    <entry file="file://$PROJECT_DIR$/application/classes/controller/admin/options.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="22" selection-start="2844" selection-end="2844" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/classes/model/options.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/blocks/V_options.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="38" selection-start="123" selection-end="123" vertical-scroll-proportion="-2.1290324">
+        <state line="8" column="27" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/classes/controller/admin/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="23" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0">
+        <state line="2" column="23" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/blocks/V_options.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="22" selection-start="699" selection-end="699" vertical-scroll-proportion="-7.586207">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/classes/controller/admin/options.php">
+    <entry file="file://$PROJECT_DIR$/application/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.8517699">
+        <state line="82" column="28" selection-start="2459" selection-end="2459" vertical-scroll-proportion="0.22459893">
           <folding />
         </state>
       </provider>

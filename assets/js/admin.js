@@ -11,9 +11,9 @@ $(function(){
             var topTemplate = $('.top').html();
             var template = _.template(topTemplate);
             $('.top').html(template({
-                    sitename: "Админ-панель",
+                    sitename: "Просто сайт",
                     ipadress: ipadress,
-                    email: "dima116@rambler.ru"
+                    email: email
             }));
         }
     };

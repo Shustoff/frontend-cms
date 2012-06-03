@@ -12,6 +12,10 @@ a {
     text-decoration: underline;
 }
 
+a:link {
+    background-color: transparent !important;
+}
+
 p {
     font-size: @mainfont;
 }
@@ -40,6 +44,16 @@ p {
 
     #logout {
         cursor: pointer;
+    }
+
+    .sitename {
+        margin-bottom: -4px;
+        display: inline-block;
+        max-width: 300px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: left;
     }
 }
 
@@ -346,4 +360,23 @@ table {
     font-size: 10px;
     margin: -15px 0px 20px 100px;
     display: block;
+}
+
+/* Форма входа в админку */
+.adminka {
+    #login {
+        width: 250px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h3 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .alert-error {
+        margin-top: 20px !important;
+        text-align: center;
+    }
 }
