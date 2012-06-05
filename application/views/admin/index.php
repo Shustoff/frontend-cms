@@ -17,6 +17,7 @@
     <script>
         var ipadress = '<?=$_SERVER['REMOTE_ADDR'];?>';
         var email = '<?=$email;?>';
+        var sitename = '<?=$sitename;?>';
     </script>
 
     <!--Скрипты-->
@@ -52,12 +53,12 @@
                 </div>
                 <div class="span8">
                     <ul class="menu">
-                        <li><a href="#home" onclick="Ajax.index();">Главная</a></li>
-                        <li><a href="#options" onclick="Ajax.options();">Настройки</a></li>
-                        <li><a href="#pages" onclick="Ajax.pages();">Страницы</a></li>
-                        <li><a href="#catalogs" onclick="Ajax.catalogs();">Каталоги</a></li>
-                        <li><a href="#users" onclick="Ajax.users();">Пользователи</a></li>
-                        <li><a href="#modules" onclick="Ajax.modules();">Модули</a></li>
+                        <li><a href="#home" onclick="req.index();">Главная</a></li>
+                        <li><a href="#options" onclick="req.options();">Настройки</a></li>
+                        <li><a href="#pages" onclick="req.pages();">Страницы</a></li>
+                        <li><a href="#catalogs" onclick="req.catalogs();">Каталоги</a></li>
+                        <li><a href="#users" onclick="req.users();">Пользователи</a></li>
+                        <li><a href="#modules" onclick="req.modules();">Модули</a></li>
                     </ul>
                 </div>
             </div>
@@ -73,42 +74,42 @@
             <div class="span8 offset3">
                 <ul class="tools">
                     <li>
-                        <a href="#addpage" onclick="Ajax.addpage();">
+                        <a href="#addpage" onclick="req.addpage();">
                             <?=HTML::image('assets/img/add.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#addcatalog" onclick="Ajax.addcatalog();">
+                        <a href="#addcatalog" onclick="req.addcatalog();">
                             <?=HTML::image('assets/img/addcat.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#email" onclick="Ajax.sendemail();">
+                        <a href="#email" onclick="req.sendemail();">
                             <?=HTML::image('assets/img/email.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#adduser" onclick="Ajax.adduser();">
+                        <a href="#adduser" onclick="req.adduser();">
                             <?=HTML::image('assets/img/user.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#rss" onclick="Ajax.addrss();">
+                        <a href="#rss" onclick="req.addrss();">
                             <?=HTML::image('assets/img/rss.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#stats" onclick="Ajax.stats();">
+                        <a href="#stats" onclick="req.stats();">
                             <?=HTML::image('assets/img/stats.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#info" onclick="Ajax.info();">
+                        <a href="#info" onclick="req.info();">
                             <?=HTML::image('assets/img/info.png');?>
                         </a>
                     </li>
                     <li>
-                        <a href="#trash" onclick="Ajax.trash();">
+                        <a href="#trash" onclick="req.trash();">
                             <?=HTML::image('assets/img/trash.png');?>
                         </a>
                     </li>

@@ -21,6 +21,9 @@ class Controller_Admin_Main extends Controller_Template {
         $email = Auth::instance()->get_user();
         View::bind_global('email', $email);
 
+        $sitename = ORM::factory('options', 1)->sitename;
+        View::bind_global('sitename', $sitename);
+
         $this->template->main = View::factory('admin/blocks/V_main');
 	}
 

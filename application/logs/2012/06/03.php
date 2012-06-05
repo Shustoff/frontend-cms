@@ -1189,3 +1189,138 @@
 #9 C:\wamp\www\frontend\system\classes\kohana\request.php(1138): Kohana_Request_Client->execute(Object(Request))
 #10 C:\wamp\www\frontend\index.php(109): Kohana_Request->execute()
 #11 {main}
+2012-06-03 22:54:12 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+2012-06-03 22:54:12 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+--
+#0 C:\wamp\www\frontend\application\views\admin\blocks\V_options.php(4): Kohana_Core::error_handler(2, 'Invalid argumen...', 'C:\wamp\www\fro...', 4, Array)
+#1 C:\wamp\www\frontend\system\classes\kohana\view.php(61): include('C:\wamp\www\fro...')
+#2 C:\wamp\www\frontend\system\classes\kohana\view.php(343): Kohana_View::capture('C:\wamp\www\fro...', Array)
+#3 C:\wamp\www\frontend\system\classes\kohana\view.php(228): Kohana_View->render()
+#4 C:\wamp\www\frontend\system\classes\kohana\response.php(160): Kohana_View->__toString()
+#5 C:\wamp\www\frontend\application\classes\controller\admin\options.php(23): Kohana_Response->body(Object(View))
+#6 [internal function]: Controller_Admin_Options->action_index()
+#7 C:\wamp\www\frontend\system\classes\kohana\request\client\internal.php(118): ReflectionMethod->invoke(Object(Controller_Admin_Options))
+#8 C:\wamp\www\frontend\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#9 C:\wamp\www\frontend\system\classes\kohana\request.php(1138): Kohana_Request_Client->execute(Object(Request))
+#10 C:\wamp\www\frontend\index.php(109): Kohana_Request->execute()
+#11 {main}
+2012-06-03 22:54:12 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+2012-06-03 22:54:12 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+--
+#0 C:\wamp\www\frontend\application\views\admin\blocks\V_options.php(4): Kohana_Core::error_handler(2, 'Invalid argumen...', 'C:\wamp\www\fro...', 4, Array)
+#1 C:\wamp\www\frontend\system\classes\kohana\view.php(61): include('C:\wamp\www\fro...')
+#2 C:\wamp\www\frontend\system\classes\kohana\view.php(343): Kohana_View::capture('C:\wamp\www\fro...', Array)
+#3 C:\wamp\www\frontend\system\classes\kohana\view.php(228): Kohana_View->render()
+#4 C:\wamp\www\frontend\system\classes\kohana\response.php(160): Kohana_View->__toString()
+#5 C:\wamp\www\frontend\application\classes\controller\admin\options.php(23): Kohana_Response->body(Object(View))
+#6 [internal function]: Controller_Admin_Options->action_index()
+#7 C:\wamp\www\frontend\system\classes\kohana\request\client\internal.php(118): ReflectionMethod->invoke(Object(Controller_Admin_Options))
+#8 C:\wamp\www\frontend\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#9 C:\wamp\www\frontend\system\classes\kohana\request.php(1138): Kohana_Request_Client->execute(Object(Request))
+#10 C:\wamp\www\frontend\index.php(109): Kohana_Request->execute()
+#11 {main}
+2012-06-03 22:54:12 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+2012-06-03 22:54:12 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+--
+#0 C:\wamp\www\frontend\application\views\admin\blocks\V_options.php(4): Kohana_Core::error_handler(2, 'Invalid argumen...', 'C:\wamp\www\fro...', 4, Array)
+#1 C:\wamp\www\frontend\system\classes\kohana\view.php(61): include('C:\wamp\www\fro...')
+#2 C:\wamp\www\frontend\system\classes\kohana\view.php(343): Kohana_View::capture('C:\wamp\www\fro...', Array)
+#3 C:\wamp\www\frontend\system\classes\kohana\view.php(228): Kohana_View->render()
+#4 C:\wamp\www\frontend\system\classes\kohana\response.php(160): Kohana_View->__toString()
+#5 C:\wamp\www\frontend\application\classes\controller\admin\options.php(23): Kohana_Response->body(Object(View))
+#6 [internal function]: Controller_Admin_Options->action_index()
+#7 C:\wamp\www\frontend\system\classes\kohana\request\client\internal.php(118): ReflectionMethod->invoke(Object(Controller_Admin_Options))
+#8 C:\wamp\www\frontend\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#9 C:\wamp\www\frontend\system\classes\kohana\request.php(1138): Kohana_Request_Client->execute(Object(Request))
+#10 C:\wamp\www\frontend\index.php(109): Kohana_Request->execute()
+#11 {main}
+2012-06-03 22:54:12 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+2012-06-03 22:54:12 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+--
+#0 C:\wamp\www\frontend\application\views\admin\blocks\V_options.php(4): Kohana_Core::error_handler(2, 'Invalid argumen...', 'C:\wamp\www\fro...', 4, Array)
+#1 C:\wamp\www\frontend\system\classes\kohana\view.php(61): include('C:\wamp\www\fro...')
+#2 C:\wamp\www\frontend\system\classes\kohana\view.php(343): Kohana_View::capture('C:\wamp\www\fro...', Array)
+#3 C:\wamp\www\frontend\system\classes\kohana\view.php(228): Kohana_View->render()
+#4 C:\wamp\www\frontend\system\classes\kohana\response.php(160): Kohana_View->__toString()
+#5 C:\wamp\www\frontend\application\classes\controller\admin\options.php(23): Kohana_Response->body(Object(View))
+#6 [internal function]: Controller_Admin_Options->action_index()
+#7 C:\wamp\www\frontend\system\classes\kohana\request\client\internal.php(118): ReflectionMethod->invoke(Object(Controller_Admin_Options))
+#8 C:\wamp\www\frontend\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#9 C:\wamp\www\frontend\system\classes\kohana\request.php(1138): Kohana_Request_Client->execute(Object(Request))
+#10 C:\wamp\www\frontend\index.php(109): Kohana_Request->execute()
+#11 {main}
+2012-06-03 22:54:13 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+2012-06-03 22:54:13 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+--
+#0 C:\wamp\www\frontend\application\views\admin\blocks\V_options.php(4): Kohana_Core::error_handler(2, 'Invalid argumen...', 'C:\wamp\www\fro...', 4, Array)
+#1 C:\wamp\www\frontend\system\classes\kohana\view.php(61): include('C:\wamp\www\fro...')
+#2 C:\wamp\www\frontend\system\classes\kohana\view.php(343): Kohana_View::capture('C:\wamp\www\fro...', Array)
+#3 C:\wamp\www\frontend\system\classes\kohana\view.php(228): Kohana_View->render()
+#4 C:\wamp\www\frontend\system\classes\kohana\response.php(160): Kohana_View->__toString()
+#5 C:\wamp\www\frontend\application\classes\controller\admin\options.php(23): Kohana_Response->body(Object(View))
+#6 [internal function]: Controller_Admin_Options->action_index()
+#7 C:\wamp\www\frontend\system\classes\kohana\request\client\internal.php(118): ReflectionMethod->invoke(Object(Controller_Admin_Options))
+#8 C:\wamp\www\frontend\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#9 C:\wamp\www\frontend\system\classes\kohana\request.php(1138): Kohana_Request_Client->execute(Object(Request))
+#10 C:\wamp\www\frontend\index.php(109): Kohana_Request->execute()
+#11 {main}
+2012-06-03 22:54:39 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+2012-06-03 22:54:39 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+--
+#0 C:\wamp\www\frontend\application\views\admin\blocks\V_options.php(4): Kohana_Core::error_handler(2, 'Invalid argumen...', 'C:\wamp\www\fro...', 4, Array)
+#1 C:\wamp\www\frontend\system\classes\kohana\view.php(61): include('C:\wamp\www\fro...')
+#2 C:\wamp\www\frontend\system\classes\kohana\view.php(343): Kohana_View::capture('C:\wamp\www\fro...', Array)
+#3 C:\wamp\www\frontend\system\classes\kohana\view.php(228): Kohana_View->render()
+#4 C:\wamp\www\frontend\system\classes\kohana\response.php(160): Kohana_View->__toString()
+#5 C:\wamp\www\frontend\application\classes\controller\admin\options.php(23): Kohana_Response->body(Object(View))
+#6 [internal function]: Controller_Admin_Options->action_index()
+#7 C:\wamp\www\frontend\system\classes\kohana\request\client\internal.php(118): ReflectionMethod->invoke(Object(Controller_Admin_Options))
+#8 C:\wamp\www\frontend\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#9 C:\wamp\www\frontend\system\classes\kohana\request.php(1138): Kohana_Request_Client->execute(Object(Request))
+#10 C:\wamp\www\frontend\index.php(109): Kohana_Request->execute()
+#11 {main}
+2012-06-03 22:54:40 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+2012-06-03 22:54:40 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+--
+#0 C:\wamp\www\frontend\application\views\admin\blocks\V_options.php(4): Kohana_Core::error_handler(2, 'Invalid argumen...', 'C:\wamp\www\fro...', 4, Array)
+#1 C:\wamp\www\frontend\system\classes\kohana\view.php(61): include('C:\wamp\www\fro...')
+#2 C:\wamp\www\frontend\system\classes\kohana\view.php(343): Kohana_View::capture('C:\wamp\www\fro...', Array)
+#3 C:\wamp\www\frontend\system\classes\kohana\view.php(228): Kohana_View->render()
+#4 C:\wamp\www\frontend\system\classes\kohana\response.php(160): Kohana_View->__toString()
+#5 C:\wamp\www\frontend\application\classes\controller\admin\options.php(23): Kohana_Response->body(Object(View))
+#6 [internal function]: Controller_Admin_Options->action_index()
+#7 C:\wamp\www\frontend\system\classes\kohana\request\client\internal.php(118): ReflectionMethod->invoke(Object(Controller_Admin_Options))
+#8 C:\wamp\www\frontend\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#9 C:\wamp\www\frontend\system\classes\kohana\request.php(1138): Kohana_Request_Client->execute(Object(Request))
+#10 C:\wamp\www\frontend\index.php(109): Kohana_Request->execute()
+#11 {main}
+2012-06-03 22:54:40 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+2012-06-03 22:54:40 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+--
+#0 C:\wamp\www\frontend\application\views\admin\blocks\V_options.php(4): Kohana_Core::error_handler(2, 'Invalid argumen...', 'C:\wamp\www\fro...', 4, Array)
+#1 C:\wamp\www\frontend\system\classes\kohana\view.php(61): include('C:\wamp\www\fro...')
+#2 C:\wamp\www\frontend\system\classes\kohana\view.php(343): Kohana_View::capture('C:\wamp\www\fro...', Array)
+#3 C:\wamp\www\frontend\system\classes\kohana\view.php(228): Kohana_View->render()
+#4 C:\wamp\www\frontend\system\classes\kohana\response.php(160): Kohana_View->__toString()
+#5 C:\wamp\www\frontend\application\classes\controller\admin\options.php(23): Kohana_Response->body(Object(View))
+#6 [internal function]: Controller_Admin_Options->action_index()
+#7 C:\wamp\www\frontend\system\classes\kohana\request\client\internal.php(118): ReflectionMethod->invoke(Object(Controller_Admin_Options))
+#8 C:\wamp\www\frontend\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#9 C:\wamp\www\frontend\system\classes\kohana\request.php(1138): Kohana_Request_Client->execute(Object(Request))
+#10 C:\wamp\www\frontend\index.php(109): Kohana_Request->execute()
+#11 {main}
+2012-06-03 22:54:40 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+2012-06-03 22:54:40 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH\views\admin\blocks\V_options.php [ 4 ]
+--
+#0 C:\wamp\www\frontend\application\views\admin\blocks\V_options.php(4): Kohana_Core::error_handler(2, 'Invalid argumen...', 'C:\wamp\www\fro...', 4, Array)
+#1 C:\wamp\www\frontend\system\classes\kohana\view.php(61): include('C:\wamp\www\fro...')
+#2 C:\wamp\www\frontend\system\classes\kohana\view.php(343): Kohana_View::capture('C:\wamp\www\fro...', Array)
+#3 C:\wamp\www\frontend\system\classes\kohana\view.php(228): Kohana_View->render()
+#4 C:\wamp\www\frontend\system\classes\kohana\response.php(160): Kohana_View->__toString()
+#5 C:\wamp\www\frontend\application\classes\controller\admin\options.php(23): Kohana_Response->body(Object(View))
+#6 [internal function]: Controller_Admin_Options->action_index()
+#7 C:\wamp\www\frontend\system\classes\kohana\request\client\internal.php(118): ReflectionMethod->invoke(Object(Controller_Admin_Options))
+#8 C:\wamp\www\frontend\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#9 C:\wamp\www\frontend\system\classes\kohana\request.php(1138): Kohana_Request_Client->execute(Object(Request))
+#10 C:\wamp\www\frontend\index.php(109): Kohana_Request->execute()
+#11 {main}
