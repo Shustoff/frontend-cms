@@ -11,7 +11,7 @@ class Controller_Admin_Auth extends Controller {
         }
         else
         {
-            if ($_POST)
+            if ( $_POST )
             {
                 $email = Arr::get($_POST, 'email', '');
                 $pass = Arr::get($_POST, 'pass', '');
