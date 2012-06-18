@@ -9,9 +9,9 @@
     <title>Администраторский раздел</title>
 
     <!--Стили-->
-    <?php echo HTML::style('assets/css/jquery-ui-1.8.16.custom.css'),
-                 HTML::style('assets/css/bootstrap.css');?>
-          <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/styles.less">
+    <link rel="stylesheet" type="text/css" href="<?=URL::base();?>assets/css/jquery-ui-1.8.16.custom.css">
+    <link rel="stylesheet" type="text/css" href="<?=URL::base();?>assets/css/bootstrap.css">
+    <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/styles.less">
 
     <!--Передаем переменные из php в JS-->
     <script>
@@ -21,19 +21,18 @@
     </script>
 
     <!--Скрипты-->
-    <?php echo HTML::script('assets/js/less-1.3.0.min.js'),
-                HTML::script('assets/js/jquery-1.7.2.js'),
-                HTML::script('assets/js/jquery-ui-1.8.16.custom.min.js'),
-                HTML::script('assets/js/bootstrap.min.js'),
-                HTML::script('assets/js/modernizr-2.5.3.js'),
-                HTML::script('assets/js/underscore.js'),
-                HTML::script('assets/js/backbone.js'),
-                HTML::script('assets/js/json2.js'),
-                HTML::script('assets/js/admin.js'); ?>
+    <script src="<?=URL::base();?>assets/js/less-1.3.0.js"></script>
+    <script src="<?=URL::base();?>assets/js/jquery-1.7.2.js"></script>
+    <script src="<?=URL::base();?>assets/js/jquery-ui.js"></script>
+    <script src="<?=URL::base();?>assets/js/bootstrap.js"></script>
+    <script src="<?=URL::base();?>assets/js/modernizr-2.5.3.js"></script>
+    <script src="<?=URL::base();?>assets/js/underscore.js"></script>
+    <script src="<?=URL::base();?>assets/js/backbone.js"></script>
+    <script src="<?=URL::base();?>assets/js/json2.js"></script>
+    <script src="<?=URL::base();?>assets/js/admin.js"></script>
 
     <!--Фавикон-->
-    <?=HTML::link('assets/img/favicon.ico', array('rel'=>'ico', 'type'=>'image/x-icon'))?>
-    <?=HTML::link('assets/img/favicon.ico', array('rel'=>'shortcut icon', 'type'=>'image/x-icon'))?>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
 </head>
 <body>
     <div class="row container">
@@ -43,7 +42,9 @@
                    <p>Название сайта: <strong class="sitename">{{sitename}}</strong></p>
                    <p>Ваш IP адрес: <strong>{{ipadress}}</strong></p>
                    <p>Здравствуйте: <strong>{{email}}</strong>
-                      <a href="<?=URL::site('/admin/auth/logout'); ?>" title="Выйти"><?=HTML::image('assets/img/delete.png');?></a>
+                      <a href="<?=URL::site('/admin/auth/logout'); ?>" title="Выйти">
+                          <img src="<?=URL::base();?>assets/img/delete.png" alt="">
+                      </a>
                    </p>
                 </div>
             </div>
@@ -75,42 +76,42 @@
                 <ul class="tools">
                     <li>
                         <a href="#addpage" onclick="req.addpage();">
-                            <?=HTML::image('assets/img/add.png');?>
+                            <img src="<?=URL::base();?>assets/img/add.png" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="#addcatalog" onclick="req.addcatalog();">
-                            <?=HTML::image('assets/img/addcat.png');?>
+                            <img src="<?=URL::base();?>assets/img/addcat.png" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="#email" onclick="req.sendemail();">
-                            <?=HTML::image('assets/img/email.png');?>
+                            <img src="<?=URL::base();?>assets/img/email.png" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="#adduser" onclick="req.adduser();">
-                            <?=HTML::image('assets/img/user.png');?>
+                            <img src="<?=URL::base();?>assets/img/user.png" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="#rss" onclick="req.addrss();">
-                            <?=HTML::image('assets/img/rss.png');?>
+                            <img src="<?=URL::base();?>assets/img/rss.png" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="#stats" onclick="req.stats();">
-                            <?=HTML::image('assets/img/stats.png');?>
+                            <img src="<?=URL::base();?>assets/img/stats.png" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="#info" onclick="req.info();">
-                            <?=HTML::image('assets/img/info.png');?>
+                            <img src="<?=URL::base();?>assets/img/info.png" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="#trash" onclick="req.trash();">
-                            <?=HTML::image('assets/img/trash.png');?>
+                            <img src="<?=URL::base();?>assets/img/trash.png" alt="">
                         </a>
                     </li>
                 </ul>
@@ -126,7 +127,9 @@
             <p>Front-end CMS based on Kohana Framework v3.2</p>
             <a href="http://kohanaframework.org" class="kohcopy" target="_blank">www.kohanaframework.org</a>
             <p id="copyright">Created for fun :)</p>
-            <a href="#" class="helper"><?=HTML::image('assets/img/help.png');?></a>
+            <a href="#" class="helper">
+                <img src="<?=URL::base();?>assets/img/help.png" alt="">
+            </a>
         </div>
     </div>
 </body>
