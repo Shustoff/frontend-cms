@@ -1,47 +1,55 @@
-# ************************************************************
-# Sequel Pro SQL dump
-# Версия 3408
-#
-# http://www.sequelpro.com/
-# http://code.google.com/p/sequel-pro/
-#
-# Адрес: localhost (MySQL 5.5.9)
-# Схема: frontend
-# Время создания: 2012-05-31 15:37:38 +0000
-# ************************************************************
+-- phpMyAdmin SQL Dump
+-- version 3.3.9.2
+-- http://www.phpmyadmin.net
+--
+-- Хост: localhost
+-- Время создания: Июн 20 2012 г., 21:42
+-- Версия сервера: 5.5.9
+-- Версия PHP: 5.3.6
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+--
+-- База данных: `frontend`
+--
 
-# Дамп таблицы catalogs
-# ------------------------------------------------------------
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `catalogs`;
+--
+-- Структура таблицы `catalogs`
+--
 
 CREATE TABLE `catalogs` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `catname` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `alias` varchar(255) NOT NULL,
   `catdesc` text NOT NULL,
-  `catparent` int(10) NOT NULL,
+  `catparent` int(10) DEFAULT NULL,
   `date` date NOT NULL,
   `status` int(3) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `catparent` (`catparent`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
+--
+-- Дамп данных таблицы `catalogs`
+--
 
+INSERT INTO `catalogs` VALUES(1, 'Каталог номер 1', 'catalog1', 'Описание каталога номер 1', NULL, '2012-06-20', 1);
+INSERT INTO `catalogs` VALUES(2, 'Каталог номер 2', 'catalog2', 'Описание каталога номер 2', NULL, '2012-06-20', 1);
+INSERT INTO `catalogs` VALUES(3, 'Каталог номер 3', 'catalog3', 'Описание каталога номер 3', NULL, '2012-06-20', 1);
 
-# Дамп таблицы emails
-# ------------------------------------------------------------
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `emails`;
+--
+-- Структура таблицы `emails`
+--
 
 CREATE TABLE `emails` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -50,14 +58,18 @@ CREATE TABLE `emails` (
   `text` text NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Дамп данных таблицы `emails`
+--
 
 
+-- --------------------------------------------------------
 
-# Дамп таблицы modules
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `modules`;
+--
+-- Структура таблицы `modules`
+--
 
 CREATE TABLE `modules` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -67,16 +79,21 @@ CREATE TABLE `modules` (
   `date` date NOT NULL,
   `status` int(3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Дамп данных таблицы `modules`
+--
 
 
+-- --------------------------------------------------------
 
-# Дамп таблицы options
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `options`;
+--
+-- Структура таблицы `options`
+--
 
 CREATE TABLE `options` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
   `sitename` varchar(255) NOT NULL DEFAULT 'Имя сайта',
   `description` text NOT NULL,
   `keywords` varchar(300) NOT NULL DEFAULT 'ключевые, слова, тут',
@@ -84,61 +101,73 @@ CREATE TABLE `options` (
   `email` varchar(50) NOT NULL DEFAULT 'admin@example.ru',
   `email_from` varchar(50) NOT NULL DEFAULT 'Вася Пупкин',
   `copyright` text NOT NULL,
-  `404page` text NOT NULL,
+  `page404` text NOT NULL,
   `status` int(1) NOT NULL DEFAULT '1',
   `htaccess` int(1) NOT NULL DEFAULT '0',
   `debug` int(1) NOT NULL DEFAULT '0',
   `cache` int(1) NOT NULL DEFAULT '0',
-  `session` int(10) NOT NULL DEFAULT '30'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `session` int(10) NOT NULL DEFAULT '30',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
-LOCK TABLES `options` WRITE;
-/*!40000 ALTER TABLE `options` DISABLE KEYS */;
+--
+-- Дамп данных таблицы `options`
+--
 
-INSERT INTO `options` (`sitename`, `description`, `keywords`, `robots`, `email`, `email_from`, `copyright`, `404page`, `status`, `htaccess`, `debug`, `cache`, `session`)
-VALUES
-	('Имя сайта','Описание сайта','ключевые, слова, тут',0,'admin@example.ru','Вася Пупкин','Все права никому не принадлежат.','Запрошенная вами страница на существует.',1,0,0,0,30);
+INSERT INTO `options` VALUES(1, 'Имя сайта', 'Описание сайта', 'ключевые, слова, тут', 0, 'admin@example.ru', 'Вася Пупкин', 'Все права никому не принадлежат.', 'Запрошенная вами страница на существует.', 1, 0, 0, 0, 65);
 
-/*!40000 ALTER TABLE `options` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
-
-# Дамп таблицы pages
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `pages`;
+--
+-- Структура таблицы `pages`
+--
 
 CREATE TABLE `pages` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `pagename` varchar(255) NOT NULL,
+  `alias` varchar(255) NOT NULL,
   `pagedesc` text NOT NULL,
-  `catalog` int(10) NOT NULL,
-  `author` int(10) NOT NULL,
+  `catalog_id` int(10) NOT NULL,
+  `author_id` int(10) NOT NULL,
   `date` date NOT NULL,
   `status` int(2) NOT NULL,
+  `intrash` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
+--
+-- Дамп данных таблицы `pages`
+--
 
+INSERT INTO `pages` VALUES(1, 'Супер страница 1', 'super-stranica-1', 'Это описание супер страницы номер 1 ', 1, 1, '2012-06-20', 1, 0);
+INSERT INTO `pages` VALUES(2, 'Супер страница 2', 'super-stranica-2', 'Это описание супер страницы номер 2 Это описание супер страницы номер 2 ', 2, 2, '2012-06-19', 1, 0);
+INSERT INTO `pages` VALUES(3, 'Супер страница 3', 'super-stranica-3', 'Это описание супер страницы номер 3', 2, 3, '2012-06-20', 1, 0);
+INSERT INTO `pages` VALUES(4, 'Супер страница 4', 'super-stranica-4', 'Это описание супер страницы номер 4', 1, 1, '2012-06-20', 1, 0);
+INSERT INTO `pages` VALUES(5, 'Супер страница 5', 'super-stranica-5', 'Это описание супер страницы номер 5', 1, 2, '2012-06-20', 1, 0);
 
-# Дамп таблицы tooltips
-# ------------------------------------------------------------
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `tooltips`;
+--
+-- Структура таблицы `tooltips`
+--
 
 CREATE TABLE `tooltips` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `head` varchar(255) NOT NULL,
   `text` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Дамп данных таблицы `tooltips`
+--
 
 
+-- --------------------------------------------------------
 
-# Дамп таблицы trash
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `trash`;
+--
+-- Структура таблицы `trash`
+--
 
 CREATE TABLE `trash` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -147,30 +176,33 @@ CREATE TABLE `trash` (
   `date` date NOT NULL,
   `retrive` int(3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Дамп данных таблицы `trash`
+--
 
 
+-- --------------------------------------------------------
 
-# Дамп таблицы users
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `users`;
+--
+-- Структура таблицы `users`
+--
 
 CREATE TABLE `users` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(20) NOT NULL,
   `role` int(5) NOT NULL,
   `status` int(3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
+--
+-- Дамп данных таблицы `users`
+--
 
-
-
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+INSERT INTO `users` VALUES(1, 'Админ', 'admin@admin.ru', 'f865b53623b121fd34ee', 1, 1);
+INSERT INTO `users` VALUES(2, 'Модератор', 'moderator@admin.ru', 'd51dbad1f77edc715837', 2, 1);
+INSERT INTO `users` VALUES(3, 'Манагер', 'manager@admin.ru', 'manager123', 3, 1);

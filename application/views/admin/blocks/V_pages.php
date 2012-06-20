@@ -1,4 +1,5 @@
 <h3>Все страницы</h3>
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -21,19 +22,22 @@
                 <td><?=$page->catalogs->name;?></td>
                 <td><?=$page->users->name;?></td>
                 <td><?=$page->date;?></td>
-                <form action="" method="post" id="status">
-                    <td>
-                        <input type="hidden" name="hidden" value="12345">
-                        <a href="#" onclick="req.status();">
-                            <?=$page->status == 1 ? "<img src='assets/img/published.png'>" : "<img src='assets/img/not-published.png'>"; ?>
-                        </a>
-                    </td>
-                </form>
+                <td>
+                    <form action="" method="post" id="cngstatus<?=$page->id;?>">
+                        <input type="hidden" name="idpage" value="<?=$page->id;?>">
+                        <?php if ($page->status == 1) : ?>
+                             <a href="#" onclick='req.off(this);'><img src='assets/img/published.png'></a>
+                        <? else : ?>
+                             <a href="#" onclick='req.on(this);'><img src='assets/img/not-published.png'></a>
+                        <? endif; ?>
+                    </form>
+                </td>
                 <td><a href="#"><img src='<?=URL::base()?>assets/img/delete.png'></a></td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
+
 <div class="row">
     <div class="span4">
         <div class="control-group">

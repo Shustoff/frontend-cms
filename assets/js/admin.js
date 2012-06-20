@@ -58,16 +58,28 @@ $(function(){
             });
         },
 
-        status: function() {
-            $.post("/frontend/admin/pages/status", $("#status").serialize());
+        on: function(that) {
+            var name = $(that).parent();
+            $.post("/frontend/admin/pages/on", $(name).serialize(), function(){
+                $(that).replaceWith("<a href='#' onclick='req.off(this);'><img src='assets/img/published.png'>");
+            });
+        },
+
+        off: function(that) {
+            var name = $(that).parent();
+            $.post("/frontend/admin/pages/off", $(name).serialize(), function(){
+                $(that).replaceWith("<a href='#' onclick='req.on(this);'><img src='assets/img/not-published.png'>");
+            });
         }
     };
 
     // Проверка измененных полей в настройках
     function checkOptions() {
+
         function rem() {
             $('.btn-success').removeAttr('disabled').val('Сохранить настройки сайта');
         }
+
         $('input[type=text], textarea').live('keydown', rem);
         $('input[type=radio], select').live('change', rem);
     }
