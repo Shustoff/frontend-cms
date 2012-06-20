@@ -56,6 +56,10 @@ $(function(){
                 $('.btn-success').attr('disabled', 'disabled').val('Настройки сохранены');
                 $('.sitename').text($('#sitename').val());
             });
+        },
+
+        status: function() {
+            $.post("/frontend/admin/pages/status", $("#status").serialize());
         }
     };
 
