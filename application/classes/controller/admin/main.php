@@ -27,4 +27,5 @@ class Controller_Admin_Main extends Controller_Template {
         $this->template->main = View::factory('admin/blocks/V_main');
 	}
 
+
 } // End Welcome

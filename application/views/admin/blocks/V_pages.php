@@ -13,106 +13,25 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td><a href="#">Название статьи...</a></td>
-            <td>Описание статьи...</td>
-            <td>Каталог</td>
-            <td>Автор</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><a href="#">Название статьи...</a></td>
-            <td>Описание статьи...</td>
-            <td>Каталог</td>
-            <td>Автор</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><a href="#">Название статьи...</a></td>
-            <td>Описание статьи...</td>
-            <td>Каталог</td>
-            <td>Автор</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td><a href="#">Название статьи...</a></td>
-            <td>Описание статьи...</td>
-            <td>Каталог</td>
-            <td>Автор</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td><a href="#">Название статьи...</a></td>
-            <td>Описание статьи...</td>
-            <td>Каталог</td>
-            <td>Автор</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td><a href="#">Название статьи...</a></td>
-            <td>Описание статьи...</td>
-            <td>Каталог</td>
-            <td>Автор</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td><a href="#">Название статьи...</a></td>
-            <td>Описание статьи...</td>
-            <td>Каталог</td>
-            <td>Автор</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td><a href="#">Название статьи...</a></td>
-            <td>Описание статьи...</td>
-            <td>Каталог</td>
-            <td>Автор</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td><a href="#">Название статьи...</a></td>
-            <td>Описание статьи...</td>
-            <td>Каталог</td>
-            <td>Автор</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td><a href="#">Название статьи...</a></td>
-            <td>Описание статьи...</td>
-            <td>Каталог</td>
-            <td>Автор</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
+        <?php foreach($pages as $page) : ?>
+            <tr>
+                <td><?=$page->id;?></td>
+                <td class="pagename"><a href="#"><?=$page->pagename;?></a></td>
+                <td class="pagedesc"><?=$page->pagedesc;?></td>
+                <td><?=$page->catalogs->name;?></td>
+                <td><?=$page->users->name;?></td>
+                <td><?=$page->date;?></td>
+                <form action="" method="post" id="status">
+                    <td>
+                        <input type="hidden" name="hidden" value="12345">
+                        <a href="#" onclick="req.status();">
+                            <?=$page->status == 1 ? "<img src='assets/img/published.png'>" : "<img src='assets/img/not-published.png'>"; ?>
+                        </a>
+                    </td>
+                </form>
+                <td><a href="#"><img src='<?=URL::base()?>assets/img/delete.png'></a></td>
+            </tr>
+        <?php endforeach; ?>
     </tbody>
 </table>
 <div class="row">

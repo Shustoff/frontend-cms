@@ -12,10 +12,6 @@ a {
     text-decoration: underline;
 }
 
-a:link {
-    background-color: transparent !important;
-}
-
 p {
     font-size: @mainfont;
 }
@@ -24,7 +20,7 @@ p {
     border: 2px solid @color;
     border-top: none;
     margin: 0 auto;
-    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px;
     background-color: #E3EEE3;
 }
 
@@ -208,6 +204,18 @@ table {
     tbody {
         background-color: #fff;
     }
+
+    .pagedesc,
+    .pagename {
+        max-width: 100px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .pagename {
+        max-width: 200px;
+    }
 }
 
 .datetable {
@@ -258,7 +266,7 @@ table {
     }
 }
 
-/* Временные стили */
+/* Перенесены из css */
 .control-label {
     float: left;
     text-align: right !important;
@@ -282,6 +290,10 @@ table {
 .pagination {
     text-align: center;
     margin-top: 0px;
+    
+    a {
+        background-color: #F5F5F5;
+    }
 }
 
 .delete_table img {
@@ -314,7 +326,8 @@ table {
     margin-right: 20px;
 }
 
-#metadesc, #keywords {height: 60px;}
+#metadesc,
+#keywords {height: 60px;}
 
 .savecat {
     margin-left: 100px;
@@ -327,16 +340,17 @@ table {
     margin-left: 50px;
     padding-bottom: 10px;
     margin-bottom: 10px;
-}
 
-.managerole h3 {
-    text-align: center;
-    margin: 10px 0px;
-}
+    h3 {
+        text-align: center;
+        margin: 10px 0px;
+    }
 
-.managerole .control-label {
-    width: 200px;
-    margin-right: 20px;
+    .control-label {
+        width: 200px;
+        margin-right: 20px;
+    }
+
 }
 
 .systemmod {
@@ -350,8 +364,10 @@ table {
 .rsska {margin-left: -20px;}
 .iconrss {display: block; margin: 10px 0px;}
 
-.timeout label {width: 50px;}
-.timeout .controls {margin-left: 80px;}
+.timeout {
+    label {width: 50px;}
+    .controls {margin-left: 80px;}
+}
 
 .rss,
 .saverss {padding-left: 80px;}
