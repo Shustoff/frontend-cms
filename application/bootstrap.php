@@ -106,20 +106,12 @@ Kohana::modules(array(
 	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
-    'pagination' => MODPATH.'pagination'
 	));
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
-
-Route::set('admin', 'admin(/controller(/<page>))', array('page' => '[0-9]+'))
-    ->defaults(array(
-        'directory' => 'admin',
-        'controller' => 'pages',
-        'action' => 'index'
-));
 
 Route::set('admin', 'admin(/<controller>(/<action>))')
 	->defaults(array(

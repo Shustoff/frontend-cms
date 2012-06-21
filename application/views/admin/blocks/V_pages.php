@@ -1,5 +1,4 @@
 <h3>Все страницы</h3>
-
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -26,9 +25,9 @@
                     <form action="" method="post" id="cngstatus<?=$page->id;?>">
                         <input type="hidden" name="idpage" value="<?=$page->id;?>">
                         <?php if ($page->status == 1) : ?>
-                             <a href="#" onclick='req.off(this);'><img src='assets/img/published.png'></a>
+                             <a href="#" onclick='req.off(this); return false;'><img src='assets/img/published.png'></a>
                         <? else : ?>
-                             <a href="#" onclick='req.on(this);'><img src='assets/img/not-published.png'></a>
+                             <a href="#" onclick='req.on(this); return false; '><img src='assets/img/not-published.png'></a>
                         <? endif; ?>
                     </form>
                 </td>
@@ -83,11 +82,12 @@
     <div class="span12">
         <div class="pagination">
             <ul>
-                <?php for ($i=1; $i <= $countpages; $i++ ) : ?>
+                <?php for ($i = 1; $i <= $countpages; $i++ ) : ?>
                 <li>
                     <form action="" method="post" id="pagination<?php echo $i; ?>">
                         <input type="hidden" name="offset" id="offset" value="">
-                        <input type="hidden" name="limitpages" class="limpages" value="">
+                        <input type="hidden" name="limitpages" id="limitpages" value="">
+                        <input type="hidden" name="sortby" id="sortby" value="">
                         <a href="#" class="pageN" name="pagination" onclick="req.pagination(this);"><?php echo $i; ?></a>
                     </form>
                 </li>
