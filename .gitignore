@@ -1,4 +1,4 @@
 .gitignore
-*.DS_STORE
+.DS_STORE
 .idea
 frontendcms.rp

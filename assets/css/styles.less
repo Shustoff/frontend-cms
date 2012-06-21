@@ -294,13 +294,26 @@ table {
 .pagination {
     text-align: center;
     margin-top: 0px;
+    height: 100% !important;
+    margin-bottom: 0px;
     
     a {
         background-color: #F5F5F5;
+        &:hover {
+            background-color: #5BB75B;
+            background-image: -moz-linear-gradient(center top , #62C462, #51A351);
+            color: #fff;
+        }
     }
 
     form {
         display: inline;
+    }
+
+    span {
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 10px;
     }
 }
 

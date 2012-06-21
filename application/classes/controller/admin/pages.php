@@ -5,19 +5,27 @@ class Controller_Admin_Pages extends Controller_App {
     public function action_index()
     {
         isset($_POST['sortby']) ? $sortby =  $_POST['sortby'] : $sortby = 'id';
-        isset($_POST['limitpages']) ? $limit = $_POST['limitpages'] : $limit = '5';
+        isset($_POST['limitpages']) ? $limitpages = $_POST['limitpages'] : $limitpages = '5';
         isset($_POST['offset']) ? $offset = $_POST['offset'] : $offset = '0';
 
         $allpages = ORM::factory('pages')->where('intrash', '=', '0')->find_all();
 
-        $pages = ORM::factory('pages')->where('intrash', '=', '0')->order_by($sortby)->offset($offset)->limit($limit)->find_all();
+        $pages = ORM::factory('pages')
+            ->where('intrash', '=', '0')
+            ->order_by($sortby)
+            ->offset($offset)
+            ->limit($limitpages)
+            ->find_all();
 
-        $countpages = $allpages->count() / $pages->count();
+        $countpages = $allpages->count() / $limitpages;
         $countpages = ceil($countpages);
 
+        if ($countpages <= 1) $countpages = NULL;
+
+
         $view = View::factory('admin/blocks/V_pages')
-                ->set('pages', $pages)
-                ->set('countpages', $countpages);
+                ->bind('pages', $pages)
+                ->bind('countpages', $countpages);
 
         $this->response->body($view);
     }
