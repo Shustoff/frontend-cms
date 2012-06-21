@@ -106,6 +106,7 @@ Kohana::modules(array(
 	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+    'pagination' => MODPATH.'pagination'
 	));
 
 /**
@@ -113,13 +114,19 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 
+Route::set('admin', 'admin(/controller(/<page>))', array('page' => '[0-9]+'))
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'pages',
+        'action' => 'index'
+));
+
 Route::set('admin', 'admin(/<controller>(/<action>))')
 	->defaults(array(
         'directory' => 'admin',
         'controller' => 'main',
 		'action'     => 'index',
 	));
-
 
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
