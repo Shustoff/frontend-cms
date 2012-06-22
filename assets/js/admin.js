@@ -75,71 +75,71 @@ $(function(){
         intrash: function(that) {
             var name = $(that).parent();
             $.post("/frontend/admin/pages/intrash", $(name).serialize(), function(){
-                $(name).parents('tr').remove();
+                $(name).parents('tr').fadeOut(300);
             });
         },
 
         // Сортировка страниц
-        sortPages: function() {
+        sortPages: function(table) {
             // Сохраняет сортировку между запросами
-            var sortPages = $('#select1 option:selected').text();
-            localStorage.setItem('sortPages', sortPages);
+            var sortby = $('#select1 option:selected').text();
+            localStorage.setItem('sortby', sortby);
             // Сохраняем кол-во страниц при выводе между запросами
-            var limitPages = $('#select2 option:selected').text();
-            localStorage.setItem('limitPages', limitPages);
+            var limit = $('#select2 option:selected').text();
+            localStorage.setItem('limit', limit);
 
-            $.post("/frontend/admin/pages/", $("#savepages").serialize(), function(data) {
+            $.post("/frontend/admin/" + table, $("#save").serialize(), function(data) {
                 $('.main').empty().append(data);
                 $('#select1 option').each(function() {
-                    if ( $(this).text() === localStorage.getItem('sortPages') ) {
+                    if ( $(this).text() === localStorage.getItem('sortby') ) {
                         $(this).attr('selected', 'selected');
-                        localStorage.removeItem('sortPages');
+                        localStorage.removeItem('sortby');
                     }
                 });
                 $('#select2 option').each(function() {
-                    if ( $(this).text() === localStorage.getItem('limitPages') ) {
+                    if ( $(this).text() === localStorage.getItem('limit') ) {
                         $(this).attr('selected', 'selected');
-                        localStorage.removeItem('limitPages');
+                        localStorage.removeItem('limit');
                     }
                 });
             });
         },
 
         // Пагинация
-        pagination: function(that) {
+        pagination: function(table, selfpage) {
             // Сохраняет сортировку между запросами
-            var sortPages = $('#select1 option:selected').text();
-            localStorage.setItem('sortPages', sortPages);
+            var sortby = $('#select1 option:selected').text();
+            localStorage.setItem('sortby', sortby);
             // Сохраняем кол-во страниц при выводе между запросами
-            var limitPages = $('#select2 option:selected').text();
-            localStorage.setItem('limitPages', limitPages);
+            var limit = $('#select2 option:selected').text();
+            localStorage.setItem('limit', limit);
             // Количество текущих отображаемых страниц
             var count = $('.pageedit').index() + 1;
             // Номер текущей страницы, начиная с нуля
-            var thispage = $(that).text() - 1;
+            var thispage = $(selfpage).text() - 1;
             // Получаем номер откуда начинать вывод страниц
             var offset = thispage * parseInt( $('#select2 option:selected').text() );
             // Имя текущей формы для отправки
-            var name = "#" + $(that).parents('form').attr('id');
+            var name = "#" + $(selfpage).parents('form').attr('id');
             // Устанавливаем значения скрытого поля в начальный номер вывода страниц
             $(name).children('input#offset').val(offset);
             // Устанавливаем значения скрытого поля в значение сортировки
             $(name).children('input#sortby').val( $('#select1 option:selected').val() );
             // Устанавливаем значение cкрытого поля в лимит страниц для вывода
-            $(name).children('input#limitpages').val(localStorage.getItem('limitPages'));
+            $(name).children('input#limit').val(localStorage.getItem('limit'));
 
-            $.post("/frontend/admin/pages/", $(name).serialize(), function(data) {
+            $.post("/frontend/admin/" + table, $(name).serialize(), function(data) {
                 $('.main').empty().append(data);
                 $('#select1 option').each(function() {
-                    if ( $(this).text() === localStorage.getItem('sortPages') ) {
+                    if ( $(this).text() === localStorage.getItem('sortby') ) {
                         $(this).attr('selected', 'selected');
-                        localStorage.removeItem('sortPages');
+                        localStorage.removeItem('sortby');
                     }
                 });
                 $('#select2 option').each(function() {
-                    if ( $(this).text() === localStorage.getItem('limitPages') ) {
+                    if ( $(this).text() === localStorage.getItem('limit') ) {
                         $(this).attr('selected', 'selected');
-                        localStorage.removeItem('limitPages');
+                        localStorage.removeItem('limit');
                     }
                 });
             });

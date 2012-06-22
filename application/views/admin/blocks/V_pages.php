@@ -18,7 +18,7 @@
                 <td><?=$page->id;?></td>
                 <td class="pagename"><a href="#"><?=$page->pagename;?></a></td>
                 <td class="pagedesc"><?=$page->pagedesc;?></td>
-                <td><?=$page->catalogs->name;?></td>
+                <td><?=$page->catalogs->catname;?></td>
                 <td><?=$page->users->name;?></td>
                 <td><?=$page->date;?></td>
                 <td>
@@ -42,7 +42,7 @@
     </tbody>
 </table>
 
-<form action="" method="post" id="savepages">
+<form action="" method="post" id="save">
 <div class="row">
     <div class="span4">
         <div class="control-group">
@@ -62,7 +62,7 @@
         <div class="control-group">
             <label class="control-label" for="select2">Выводить по:</label>
             <div class="controls">
-                <select id="select2" name="limitpages" class="input-medium">
+                <select id="select2" name="limit" class="input-medium">
                     <option>5</option>
                     <option>10</option>
                     <option>15</option>
@@ -73,7 +73,7 @@
         </div>
     </div>
     <div class="span3 savepages">
-        <a class="btn btn-success" onclick="req.sortPages();">Применить настройки</a>
+        <a class="btn btn-success" onclick="req.sortPages('pages');">Применить настройки</a>
     </div>
 </div>
 </form>
@@ -82,13 +82,13 @@
     <div class="span12">
         <div class="pagination">
             <ul>
-                <?php for ($i = 1; $i <= $countpages; $i++ ) : ?>
+                <?php for ($i = 1; $i <= $count; $i++ ) : ?>
                 <li>
                     <form action="" method="post" id="pagination<?php echo $i; ?>">
                         <input type="hidden" name="offset" id="offset" value="">
-                        <input type="hidden" name="limitpages" id="limitpages" value="">
+                        <input type="hidden" name="limit" id="limit" value="">
                         <input type="hidden" name="sortby" id="sortby" value="">
-                        <a href="#" class="pageN" name="pagination" onclick="req.pagination(this);"><?php echo $i; ?></a>
+                        <a href="#" class="pageN" name="pagination" onclick="req.pagination('pages',this);"><?php echo $i; ?></a>
                     </form>
                 </li>
                 <? endfor; ?>
