@@ -14,7 +14,6 @@ class Model_Pages extends ORM {
             'model' => 'users',
             'foreign_key' => 'author_id'
         )
-
     );
 
 }

@@ -12,109 +12,47 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td><a href="#">Название каталога...</a></td>
-            <td>Описание каталога...</td>
-            <td>Родительский каталог</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><a href="#">Название каталога...</a></td>
-            <td>Описание каталога...</td>
-            <td>Родительский каталог</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><a href="#">Название каталога...</a></td>
-            <td>Описание каталога...</td>
-            <td>Родительский каталог</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td><a href="#">Название каталога...</a></td>
-            <td>Описание каталога...</td>
-            <td>Родительский каталог</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td><a href="#">Название каталога...</a></td>
-            <td>Описание каталога...</td>
-            <td>Родительский каталог</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td><a href="#">Название каталога...</a></td>
-            <td>Описание каталога...</td>
-            <td>Родительский каталог</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td><a href="#">Название каталога...</a></td>
-            <td>Описание каталога...</td>
-            <td>Родительский каталог</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td><a href="#">Название каталога...</a></td>
-            <td>Описание каталога...</td>
-            <td>Родительский каталог</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td><a href="#">Название каталога...</a></td>
-            <td>Описание каталога...</td>
-            <td>Родительский каталог</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td><a href="#">Название каталога...</a></td>
-            <td>Описание каталога...</td>
-            <td>Родительский каталог</td>
-            <td>Дата создания</td>
-            <td><a href="#"><?=HTML::image('assets/img/not-published.png');?></a></td>
-            <td><a href="#"><?=HTML::image('assets/img/delete.png');?></a></td>
-        </tr>
+        <?php foreach($catalogs as $catalog) : ?>
+            <tr class="pageedit">
+                <td><?=$catalog->id;?></td>
+                <td class="pagename"><a href="#"><?=$catalog->catname;?></a></td>
+                <td class="pagedesc"><?=$catalog->catdesc;?></td>
+                <td><?=$catalog->catalogs->catname;?></td>
+                <td><?=$catalog->date;?></td>
+                <td>
+                    <form action="" method="post" id="cngstatus<?=$catalog->id;?>">
+                        <input type="hidden" name="idpage" value="<?=$catalog->id;?>">
+                        <?php if ($catalog->status == 1) : ?>
+                             <a href="#" onclick='req.off(this); return false;'><img src='assets/img/published.png'></a>
+                        <? else : ?>
+                             <a href="#" onclick='req.on(this); return false;'><img src='assets/img/not-published.png'></a>
+                        <? endif; ?>
+                    </form>
+                </td>
+                <td>
+                    <form action="" method="post" id="intrash<?=$catalog->id;?>">
+                        <input type="hidden" name="intrash" value="<?=$catalog->id;?>">
+                        <a href="#" onclick="req.intrash(this);"><img src='<?=URL::base()?>assets/img/delete.png'></a>
+                    </form>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+
     </tbody>
 </table>
+
+<form action="" method="post" id="save">
 <div class="row">
     <div class="span4">
         <div class="control-group">
             <label class="control-label" for="select1">Сортировать по:</label>
             <div class="controls">
-                <select id="select1" class="input-medium">
-                    <option>ID</option>
-                    <option>Названию</option>
-                    <option>Описанию</option>
-                    <option>Родительскому каталогу</option>
-                    <option>Дате</option>
+                <select id="select1" name="sortby" class="input-medium">
+                    <option value="id">ID</option>
+                    <option value="catname">Названию</option>
+                    <option value="catdesc">Описанию</option>
+                    <option value="parent_id">Родительскому каталогу</option>
+                    <option value="date">Дате</option>
                 </select>
             </div>
         </div>
@@ -123,33 +61,36 @@
         <div class="control-group">
             <label class="control-label" for="select2">Выводить по:</label>
             <div class="controls">
-                <select id="select2" class="input-medium">
+                <select id="select2" name="limit" class="input-medium">
+                    <option>5</option>
                     <option>10</option>
+                    <option>15</option>
                     <option>20</option>
-                    <option>30</option>
-                    <option>40</option>
-                    <option>50</option>
+                    <option>25</option>
                 </select>
             </div>
         </div>
     </div>
     <div class="span3 savepages">
-        <button class="btn btn-success">Сохранить настройки</button>
+        <a class="btn btn-success" onclick="req.sortPages('catalogs');">Применить настройки</a>
     </div>
 </div>
+</form>
+
 <div class="row">
     <div class="span12">
         <div class="pagination">
             <ul>
-            <li><a href="#">Предыдущая</a></li>
-            <li class="active">
-                <a href="#">1</a>
-            </li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">Следующая</a></li>
+                <?php for ($i = 1; $i <= $count; $i++ ) : ?>
+                <li>
+                    <form action="" method="post" id="pagination<?php echo $i; ?>">
+                        <input type="hidden" name="offset" id="offset" value="">
+                        <input type="hidden" name="limit" id="limit" value="">
+                        <input type="hidden" name="sortby" id="sortby" value="">
+                        <a href="#" class="pageN" name="pagination" onclick="req.pagination('catalogs',this);"><?php echo $i; ?></a>
+                    </form>
+                </li>
+                <? endfor; ?>
             </ul>
         </div>
     </div>
