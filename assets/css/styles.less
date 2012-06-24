@@ -4,8 +4,32 @@
 @border: 2px dotted @color;
 @mainfont: 18px;
 
+/* Миксины */
+.bordered (@lt, @rt, @rb, @lb) {
+    -webkit-border-radius: @lt @rt @rb @lb;
+    -o-border-radius: @lt @rt @rb @lb;
+    -moz-border-radius: @lt @rt @rb @lb;
+    border-radius: @lt @rt @rb @lb;
+}
+
+.gradient (@position, @from, @to) {
+    background: -moz-linear-gradient(@position, @from, @to);
+    background: -webkit-linear-gradient(@position, @from, @to);
+    background: -o-linear-gradient(@position, @from, @to);
+    background: -ms-linear-gradient(@position, @from, @to);
+    background: linear-gradient(@position, @from, @to);
+}
+
+
 /* Общие Стили */
-body {font-family: Helvetica;}
+html {
+    min-height: 100%;
+}
+
+body {
+    font-family: Helvetica;
+    .gradient(top, #E3EEE3, #fff);
+}
 
 a {
     color: @color;
@@ -17,10 +41,9 @@ p {
 }
 
 .container {
-    border: 2px solid @color;
-    border-top: none;
-    margin: 0 auto;
-    border-radius: 0px 0px 10px 10px;
+    border: 1px solid @color;
+    margin: 10px auto;
+    .bordered(10px, 10px, 10px, 10px);
     background-color: #E3EEE3;
 }
 
@@ -72,6 +95,7 @@ p {
                 border-bottom: 1px dotted @color;
                 text-decoration: none;
                 font-size: 16px;
+                background-color: transparent !important;
             }
         }
     }
@@ -92,7 +116,7 @@ p {
 /* Тело */
 .hint {
     position: relative;
-    background-color: @bgColor;
+    .gradient(top, #F9F9F9, #F5F5F5);
     text-align: center;
     border-bottom: @border;
     .close {
@@ -109,6 +133,7 @@ p {
     background-color: #E3EEE3;
     width: 920px;
     margin-left: 0px;
+    border-bottom: @border;
 
     .tools li {
         float: left;
@@ -235,42 +260,6 @@ table {
     }
 }
 
-
-
-/* Футер */
-.footer {
-    text-align: center;
-    border-top: @border;
-    * {
-         display: inline-block;
-         font-size: 16px;
-         margin: 10px 20px;
-    }
-
-    a {
-        vertical-align: middle;
-        margin-right: 0px;
-        height: 20px;
-    }
-
-    #copyright {
-        margin-right: -20px;
-    }
-
-    .helper img{
-        margin-top: 0px;
-    }
-
-    .helper {
-        margin: 5px 0px 15px 60px;
-    }
-
-    .kohcopy {
-        margin-top: 10px;
-    }
-}
-
-/* Перенесены из css */
 .control-label {
     float: left;
     text-align: right !important;
@@ -296,7 +285,7 @@ table {
     margin-top: 0px;
     height: 100% !important;
     margin-bottom: 0px;
-    
+
     a {
         background-color: #F5F5F5;
         &:hover {
@@ -403,6 +392,43 @@ p.pagination a {
     margin: -15px 0px 20px 100px;
     display: block;
 }
+
+
+
+
+/* Футер */
+.footer {
+    text-align: center;
+    border-top: @border;
+    * {
+         display: inline-block;
+         font-size: 16px;
+         margin: 10px 20px;
+    }
+
+    a {
+        vertical-align: middle;
+        margin-right: 0px;
+        height: 20px;
+    }
+
+    #copyright {
+        margin-right: -20px;
+    }
+
+    .helper img{
+        margin-top: 0px;
+    }
+
+    .helper {
+        margin: 5px 0px 15px 60px;
+    }
+
+    .kohcopy {
+        margin-top: 10px;
+    }
+}
+
 
 /* Форма входа в админку */
 .adminka {

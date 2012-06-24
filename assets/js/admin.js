@@ -89,7 +89,9 @@ $(function(){
             localStorage.setItem('limit', limit);
 
             $.post("/frontend/admin/" + table, $("#save").serialize(), function(data) {
+                // Добавляем возвращаемые данные в документ
                 $('.main').empty().append(data);
+                 // Сохраняем значение выпадающего списка между переходами по страницам
                 $('#select1 option').each(function() {
                     if ( $(this).text() === localStorage.getItem('sortby') ) {
                         $(this).attr('selected', 'selected');
@@ -129,7 +131,9 @@ $(function(){
             $(name).children('input#limit').val(localStorage.getItem('limit'));
 
             $.post("/frontend/admin/" + table, $(name).serialize(), function(data) {
+                // Добавляем возвращаемые данные в документ
                 $('.main').empty().append(data);
+                // Сохраняем значение выпадающего списка между переходами по страницам
                 $('#select1 option').each(function() {
                     if ( $(this).text() === localStorage.getItem('sortby') ) {
                         $(this).attr('selected', 'selected');
@@ -149,8 +153,12 @@ $(function(){
     // Проверка измененных полей в настройках
     function checkOptions() {
 
-        function rem() {$('.btn-success').removeAttr('disabled').val('Сохранить настройки сайта');}
+        // Делаем кнопку активной
+        function rem() {
+            $('.btn-success').removeAttr('disabled').val('Сохранить настройки сайта');
+        }
 
+        // Проверяем внесены ли изменения в настройки
         $('input[type=text], textarea').live('keydown', rem);
         $('input[type=radio], select').live('change', rem);
     }
