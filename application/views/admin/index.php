@@ -50,7 +50,7 @@
             </div>
             <div class="row two">
                 <div class="span3">
-                    <h1 class="logo">Front-end CMS</h1>
+                    <h1 class="logo">Frontend CMS</h1>
                 </div>
                 <div class="span8">
                     <ul class="menu">
@@ -64,14 +64,14 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+<!--        <div class="row">
             <div class="hint span12">
                 <h3>Заголовок подсказки</h3>
                 <p>Текст подсказки</p>
                 <span class="close" onclick="$('.hint').hide();">X</span>
             </div>
         </div>
-        <div class="row maintools">
+-->        <div class="row maintools">
             <div class="span8 offset3">
                 <ul class="tools">
                     <li>

@@ -1,5 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
-abstract class Controller_App extends Controller {
+class Controller_App extends Controller {
+
     public function before()
     {
         $auth = Auth::instance();
@@ -10,12 +11,45 @@ abstract class Controller_App extends Controller {
         return parent::before();
     }
 
-    public function action_index() {}
+    public function action_main($table) {
+        isset($_POST['sortby']) ? $sortby =  $_POST['sortby'] : $sortby = 'id';
+        isset($_POST['limit']) ? $limit = $_POST['limit'] : $limit = '5';
+        isset($_POST['offset']) ? $offset = $_POST['offset'] : $offset = '0';
 
-    public function action_on() {}
+        $allitems = ORM::factory($table)->where('intrash', '=', '0')->find_all();
 
-    public function action_off() {}
+        $items = ORM::factory($table)
+            ->where('intrash', '=', '0')
+            ->order_by($sortby)
+            ->offset($offset)
+            ->limit($limit)
+            ->find_all();
 
-    public function action_intrash() {}
+        $count = $allitems->count() / $limit;
+        $count = ceil($count);
+
+        if ($count <= 1) $count = NULL;
+
+        $view = View::factory('admin/blocks/V_' . $table)
+                ->bind($table, $items)
+                ->bind('count', $count);
+
+        $this->response->body($view);
+    }
+
+    public function action_on($table)
+    {
+        ORM::factory($table, $_POST['idpage'])->set('status', 1)->save();
+    }
+
+    public function action_off($table)
+    {
+        ORM::factory($table, $_POST['idpage'])->set('status', 0)->save();
+    }
+
+    public function action_intrash($table)
+    {
+        ORM::factory($table, $_POST['intrash'])->set('intrash', 1)->save();
+    }
 
 }
