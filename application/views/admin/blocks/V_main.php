@@ -1,79 +1,6 @@
 <div class="row">
     <div class="span6">
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>Пользователи</th>
-                    <th>IP адрес</th>
-                    <th>Email</th>
-                    <th>Роль</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1.</td>
-                    <td>127.0.0.1</td>
-                    <td>admin@admin.ru</td>
-                    <td>администратор</td>
-                </tr>
-                <tr>
-                    <td>2.</td>
-                    <td>127.0.0.1</td>
-                    <td>admin@admin.ru</td>
-                    <td>администратор</td>
-                </tr>
-                <tr>
-                    <td>3.</td>
-                    <td>127.0.0.1</td>
-                    <td>admin@admin.ru</td>
-                    <td>администратор</td>
-                </tr>
-                <tr>
-                    <td>4.</td>
-                    <td>127.0.0.1</td>
-                    <td>admin@admin.ru</td>
-                    <td>администратор</td>
-                </tr>
-                <tr>
-                    <td>5.</td>
-                    <td>127.0.0.1</td>
-                    <td>admin@admin.ru</td>
-                    <td>администратор</td>
-                </tr>
-                <tr>
-                    <td>6.</td>
-                    <td>127.0.0.1</td>
-                    <td>admin@admin.ru</td>
-                    <td>администратор</td>
-                </tr>
-                <tr>
-                    <td>7.</td>
-                    <td>127.0.0.1</td>
-                    <td>admin@admin.ru</td>
-                    <td>администратор</td>
-                </tr>
-                <tr>
-                    <td>8.</td>
-                    <td>127.0.0.1</td>
-                    <td>admin@admin.ru</td>
-                    <td>администратор</td>
-                </tr>
-                <tr>
-                    <td>9.</td>
-                    <td>127.0.0.1</td>
-                    <td>admin@admin.ru</td>
-                    <td>администратор</td>
-                </tr>
-                <tr>
-                    <td>10.</td>
-                    <td>127.0.0.1</td>
-                    <td>admin@admin.ru</td>
-                    <td>администратор</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="span5 right-table">
+        <h3>Последние добавленные страницы: </h3>
         <table class="table table-bordered table-striped table2">
             <thead>
                 <tr>
@@ -81,48 +8,36 @@
                     <th>Название страницы</th>
                 </tr>
             </thead>
-            <tr>
-                <td>01-01-1900</td>
-                <td>Название страницы...</td>
-            </tr>
-            <tr>
-                <td>01-01-1900</td>
-                <td>Название страницы...</td>
-            </tr>
-            <tr>
-                <td>01-01-1900</td>
-                <td>Название страницы...</td>
-            </tr>
-            <tr>
-                <td>01-01-1900</td>
-                <td>Название страницы...</td>
-            </tr>
-            <tr>
-                <td>01-01-1900</td>
-                <td>Название страницы...</td>
-            </tr>
-            <tr>
-                <td>01-01-1900</td>
-                <td>Название страницы...</td>
-            </tr>
-            <tr>
-                <td>01-01-1900</td>
-                <td>Название страницы...</td>
-            </tr>
-            <tr>
-                <td>01-01-1900</td>
-                <td>Название страницы...</td>
-            </tr>
-            <tr>
-                <td>01-01-1900</td>
-                <td>Название страницы...</td>
-            </tr>
-            <tr>
-                <td>01-01-1900</td>
-                <td>Название страницы...</td>
-            </tr>
+            <tbody>
+            <?php foreach($pages as $page) : ?>
+                <tr>
+                    <td><?=$page->date;?></td>
+                    <td><a href="#"><?=$page->pagename;?></a></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
         </table>
     </div>
+    <div class="span5 right-table">
+        <h3>Последние добавленные каталоги: </h3>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="datetable">Дата создания</th>
+                    <th>Название каталога</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($catalogs as $catalog) : ?>
+                <tr>
+                    <td><?=$catalog->date;?></td>
+                    <td><a href="#"><?=$catalog->catname;?></a></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
 </div>
 
 <hr class="line">
