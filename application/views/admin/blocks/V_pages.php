@@ -19,15 +19,15 @@
                 <td class="pagename"><a href="#"><?=$page->pagename;?></a></td>
                 <td class="pagedesc"><?=$page->pagedesc;?></td>
                 <td><?=$page->catalogs->catname;?></td>
-                <td><?=$page->users->name;?></td>
+                <td><?=$page->users->email;?></td>
                 <td><?=$page->date;?></td>
                 <td>
                     <form action="" method="post" id="cngstatus<?=$page->id;?>">
                         <input type="hidden" name="idpage" value="<?=$page->id;?>">
                         <?php if ($page->status == 1) : ?>
-                             <a href="#" onclick='req.off(this); return false;'><img src='assets/img/published.png'></a>
+                             <a href="#" onclick='req.off(this); return false;'><img src='<?=URL::base()?>assets/img/published.png'></a>
                         <? else : ?>
-                             <a href="#" onclick='req.on(this); return false; '><img src='assets/img/not-published.png'></a>
+                             <a href="#" onclick='req.on(this); return false; '><img src='<?=URL::base()?>assets/img/not-published.png'></a>
                         <? endif; ?>
                     </form>
                 </td>

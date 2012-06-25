@@ -24,7 +24,12 @@ class Controller_Admin_Main extends Controller_Template {
         $sitename = ORM::factory('options', 1)->sitename;
         View::bind_global('sitename', $sitename);
 
-        $this->template->main = View::factory('admin/blocks/V_main');
+        $pages = ORM::factory('pages')->order_by('date', 'DESC')->limit(10)->find_all();
+        $catalogs = ORM::factory('catalogs')->order_by('date', 'DESC')->limit(10)->find_all();
+
+        $this->template->main = View::factory('admin/blocks/V_main')
+                ->bind('pages', $pages)
+                ->bind('catalogs', $catalogs);
 	}
 
 

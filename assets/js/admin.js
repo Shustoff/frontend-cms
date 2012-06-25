@@ -147,6 +147,13 @@ $(function(){
                     }
                 });
             });
+        },
+
+        recovery:  function(that) {
+            var name = $(that).parent();
+            $.post("/frontend/admin/trash/recovery", $(name).serialize(), function(){
+                $(name).parents('tr').fadeOut(300);
+            });
         }
     };
 
