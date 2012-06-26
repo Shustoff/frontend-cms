@@ -32,7 +32,7 @@
                 <td>
                     <form action="" method="post" id="intrash<?=$catalog->id;?>">
                         <input type="hidden" name="intrash" value="<?=$catalog->id;?>">
-                        <a href="#" onclick="req.intrash(this);"><img src='<?=URL::base()?>assets/img/delete.png'></a>
+                        <a href="#" onclick="req.intrash('catalogs', this);"><img src='<?=URL::base()?>assets/img/delete.png'></a>
                     </form>
                 </td>
             </tr>

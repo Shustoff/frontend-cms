@@ -26,8 +26,8 @@
                 </td>
                 <td>
                     <form action="" method="post" id="intrash<?=$item['item_id'];?>">
-                        <input type="hidden" name="intrash" value="<?=$item['item_id'];?>">
-                        <a href="#" onclick="req.intrash(this);"><img src='<?=URL::base()?>assets/img/delete.png'></a>
+                        <input type="hidden" name="item_name" value="<?=$item['item_name'];?>">
+                        <a href="#" onclick="req.deleteItem(this);"><img src='<?=URL::base()?>assets/img/delete.png'></a>
                     </form>
                 </td>
             </tr>
@@ -82,7 +82,7 @@
                         <a href="#" class="pageN" name="pagination" onclick="req.pagination('trash',this);"><?php echo $i; ?></a>
                     </form>
                 </li>
-                <? endfor; ?>
+                <?php endfor; ?>
             </ul>
         </div>
     </div>

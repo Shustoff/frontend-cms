@@ -24,6 +24,7 @@
     <script src="<?=URL::base();?>assets/js/less-1.3.0.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery-1.7.2.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery-ui.js"></script>
+    <script src="<?=URL::base();?>assets/js/jquery.ui.datepicker-ru.js"></script>
     <script src="<?=URL::base();?>assets/js/bootstrap.js"></script>
     <script src="<?=URL::base();?>assets/js/modernizr-2.5.3.js"></script>
     <script src="<?=URL::base();?>assets/js/underscore.js"></script>
@@ -72,46 +73,56 @@
             </div>
         </div>
 -->        <div class="row maintools">
-            <div class="span8 offset3">
+            <div class="span8 offset2">
                 <ul class="tools">
                     <li>
                         <a href="#addpage" onclick="req.addpage();">
-                            <img src="<?=URL::base();?>assets/img/add.png" alt="">
+                            <img src="<?=URL::base();?>assets/img/add.png" alt="" title="Добавить страницу">
                         </a>
                     </li>
                     <li>
                         <a href="#addcatalog" onclick="req.addcatalog();">
-                            <img src="<?=URL::base();?>assets/img/addcat.png" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#email" onclick="req.sendemail();">
-                            <img src="<?=URL::base();?>assets/img/email.png" alt="">
+                            <img src="<?=URL::base();?>assets/img/addcat.png" alt="" title="Добавить каталог">
                         </a>
                     </li>
                     <li>
                         <a href="#adduser" onclick="req.adduser();">
-                            <img src="<?=URL::base();?>assets/img/user.png" alt="">
+                            <img src="<?=URL::base();?>assets/img/user.png" alt="" title="Добавить пользователя">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#addrole" onclick="">
+                            <img src="<?=URL::base();?>assets/img/addrole.png" alt="" title="Добавить роль">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#addmodule" onclick="">
+                            <img src="<?=URL::base();?>assets/img/addmodule.png" alt="" title="Добавить модуль">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#email" onclick="req.sendemail();">
+                            <img src="<?=URL::base();?>assets/img/email.png" alt="" title="Отправить сообщение">
                         </a>
                     </li>
                     <li>
                         <a href="#rss" onclick="req.addrss();">
-                            <img src="<?=URL::base();?>assets/img/rss.png" alt="">
+                            <img src="<?=URL::base();?>assets/img/rss.png" alt="" title="Добавить RSS-ленту">
                         </a>
                     </li>
                     <li>
                         <a href="#stats" onclick="req.stats();">
-                            <img src="<?=URL::base();?>assets/img/stats.png" alt="">
+                            <img src="<?=URL::base();?>assets/img/stats.png" alt="" title="Просмотреть статистику сайта">
                         </a>
                     </li>
                     <li>
                         <a href="#info" onclick="req.info();">
-                            <img src="<?=URL::base();?>assets/img/info.png" alt="">
+                            <img src="<?=URL::base();?>assets/img/info.png" alt="" title="Информация о сервере">
                         </a>
                     </li>
                     <li>
                         <a href="#trash" onclick="req.trash();">
-                            <img src="<?=URL::base();?>assets/img/trash.png" alt="">
+                            <img src="<?=URL::base();?>assets/img/trash.png" alt="" title="Корзина">
                         </a>
                     </li>
                 </ul>

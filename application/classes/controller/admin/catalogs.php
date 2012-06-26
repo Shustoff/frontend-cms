@@ -22,9 +22,31 @@ class Controller_Admin_Catalogs extends Controller_App {
         parent::action_intrash($table);
     }
 
+    public function action_search($table = 'catalogs', $field = 'catname')
+    {
+        parent::action_search($table, $field);
+    }
+
     public function action_addcatalog()
     {
-        echo View::factory('admin/blocks/V_addcatalog');
+        $catalogs = ORM::factory('catalogs')->find_all();
+
+        $view = View::factory('admin/blocks/V_addcatalog')
+            ->bind('catalogs', $catalogs);
+
+        $this->response->body($view);
+    }
+
+    public function action_add()
+    {
+        ORM::factory('catalogs')
+            ->set('catname', $_POST['catname'])
+            ->set('alias', $_POST['alias'])
+            ->set('catdesc', $_POST['catdesc'])
+            ->set('date', $_POST['date'])
+            ->set('parent_id', $_POST['parent_id'])
+            ->set('status', $_POST['status'])
+            ->save();
     }
 
 } // End Welcome
