@@ -52,4 +52,14 @@ class Controller_App extends Controller {
         ORM::factory($table, $_POST['intrash'])->set('intrash', 1)->save();
     }
 
+    public function action_search($table, $field)
+    {
+        $count = NULL;
+        $items = ORM::factory($table)->where($field, 'LIKE', '%'.$_POST['searchitem'].'%')->find_all();
+        $view = View::factory('admin/blocks/V_' . $table)
+                ->bind($table, $items)
+                ->bind('count', $count);
+        $this->response->body($view);
+    }
+
 }

@@ -4,7 +4,6 @@
         <tr>
             <th>ID</th>
             <th>Название</th>
-            <th>Описание</th>
             <th>Каталог</th>
             <th>Автор</th>
             <th>Дата создания</th>
@@ -17,7 +16,6 @@
             <tr class="pageedit">
                 <td><?=$page->id;?></td>
                 <td class="pagename"><a href="#"><?=$page->pagename;?></a></td>
-                <td class="pagedesc"><?=$page->pagedesc;?></td>
                 <td><?=$page->catalogs->catname;?></td>
                 <td><?=$page->users->email;?></td>
                 <td><?=$page->date;?></td>
@@ -34,7 +32,7 @@
                 <td>
                     <form action="" method="post" id="intrash<?=$page->id;?>">
                         <input type="hidden" name="intrash" value="<?=$page->id;?>">
-                        <a href="#" onclick="req.intrash(this);"><img src='<?=URL::base()?>assets/img/delete.png'></a>
+                        <a href="#" onclick="req.intrash('pages',this);"><img src='<?=URL::base()?>assets/img/delete.png'></a>
                     </form>
                 </td>
             </tr>

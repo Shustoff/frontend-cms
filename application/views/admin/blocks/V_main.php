@@ -42,17 +42,48 @@
 
 <hr class="line">
 <div class="row search">
-    <div class="span3"><p class="big">Поиск по страницам:</p></div>
-    <div class="span6"><input type="text" class="search-query search-input" placeholder="Поиск..."></div>
-    <div class="span2"><input type="button" value="Поиск" class="btn"></div>
+    <div class="span3">
+        <p class="big">Поиск по страницам:</p>
+    </div>
+    <form method="post" action="" id="searchpages">
+        <div class="span6">
+            <input type="text" class="search-query search-input" name="searchitem" placeholder="Поиск...">
+        </div>
+        <div class="span2">
+            <a href="#" onclick="req.searchItems('pages');" class="btn">Поиск</a>
+        </div>
+    </form>
 </div>
 <div class="row search">
     <div class="span3"><p class="big">Поиск по каталогам:</p></div>
-    <div class="span6"><input type="text" class="search-query search-input" placeholder="Поиск..."></div>
-    <div class="span2"><input type="button" value="Поиск" class="btn"></div>
+    <form method="post" action="" id="searchcatalogs">
+        <div class="span6">
+            <input type="text" class="search-query search-input" name="searchitem" placeholder="Поиск...">
+        </div>
+        <div class="span2">
+            <a href="#" onclick="req.searchItems('catalogs');" class="btn">Поиск</a>
+        </div>
+    </form>
 </div>
 <div class="row search">
     <div class="span3"><p class="big">Поиск по пользователям:</p></div>
-    <div class="span6"><input type="text" class="search-query search-input" placeholder="Поиск..."></div>
-    <div class="span2"><input type="button" value="Поиск" class="btn"></div>
+    <form method="post" action="" id="searchusers">
+        <div class="span6">
+            <input type="text" class="search-query search-input" name="searchitem" placeholder="Поиск...">
+        </div>
+        <div class="span2">
+            <a href="#" onclick="req.searchItems('users');" class="btn">Поиск</a>
+        </div>
+    </form>
+</div>
+<div class="row search">
+    <div class="span3"><p class="big">Поиск по модулям:</p></div>
+    <form method="post" action="" id="searchmodules">
+        <div class="span6">
+            <input type="text" class="search-query search-input" name="searchitem" placeholder="Поиск...">
+        </div>
+        <div class="span2">
+            <a href="#" onclick="req.searchItems('modules');" class="btn">Поиск</a>
+        </div>
+    </form>
 </div>

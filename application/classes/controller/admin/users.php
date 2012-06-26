@@ -22,11 +22,36 @@ class Controller_Admin_Users extends Controller_App {
         parent::action_intrash($table);
     }
 
-    public function action_adduser()
+    public function action_search($table = 'users', $field = 'email')
     {
-        echo View::factory('admin/blocks/V_adduser');
+        parent::action_search($table, $field);
     }
 
+    public function action_adduser()
+    {
+        $roles = ORM::factory('roles')->find_all();
+
+        $view = View::factory('admin/blocks/V_adduser')
+            ->bind('roles', $roles);
+
+        $this->response->body($view);
+    }
+
+    public function action_add()
+    {
+        // Хэшируем пароль
+        $password = sha1($_POST['password']);
+
+        ORM::factory('users')
+            ->set('email', $_POST['email'])
+            ->set('password', $password)
+            ->set('firstname', $_POST['firstname'])
+            ->set('lastname', $_POST['lastname'])
+            ->set('datereg', $_POST['datereg'])
+            ->set('role_id', $_POST['role_id'])
+            ->set('status', $_POST['status'])
+            ->save();
+    }
 
 
 } // End Welcome

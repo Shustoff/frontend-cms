@@ -51,13 +51,18 @@ class Controller_Admin_Trash extends Controller_App {
 
     public function action_recovery()
     {
-        ORM::factory('catalogs', '*')->where('catname', '=', $_POST["item_name"])->set('intrash', 0)->save();
-        ORM::factory('pages', '*')->where('pagename', '=', $_POST["item_name"])->set('intrash', 0)->save();
+        DB::update('pages')->set(array('intrash' => 0))->where('pagename', '=', $_POST["item_name"])->execute();
+        DB::update('catalogs')->set(array('intrash' => 0))->where('catname', '=', $_POST["item_name"])->execute();
+        DB::update('users')->set(array('intrash' => 0))->where('email', '=', $_POST["item_name"])->execute();
+        DB::update('modules')->set(array('intrash' => 0))->where('name', '=', $_POST["item_name"])->execute();
     }
 
     public function action_delete()
     {
-
+        DB::delete('pages')->where('pagename', '=', $_POST["item_name"])->execute();
+        DB::delete('catalogs')->where('catname', '=', $_POST["item_name"])->execute();
+        DB::delete('users')->where('email', '=', $_POST["item_name"])->execute();
+        DB::delete('modules')->where('name', '=', $_POST["item_name"])->execute();
     }
 
 

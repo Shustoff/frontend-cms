@@ -51,6 +51,7 @@ $(function(){
 
         trash: function() {$(".main").load("/frontend/admin/trash");},
 
+        // Сохранить настройки
         saveoptions: function() {
             $.post("/frontend/admin/options/save", $("#saveoptions").serialize(), function() {
                 $('.btn-success').attr('disabled', 'disabled').val('Настройки сохранены');
@@ -58,6 +59,7 @@ $(function(){
             });
         },
 
+        // Опубликовать
         on: function(that) {
             var name = $(that).parent();
             $.post("/frontend/admin/pages/on", $(name).serialize(), function(){
@@ -65,6 +67,7 @@ $(function(){
             });
         },
 
+        // Не опубликовать
         off: function(that) {
             var name = $(that).parent();
             $.post("/frontend/admin/pages/off", $(name).serialize(), function(){
@@ -72,9 +75,10 @@ $(function(){
             });
         },
 
-        intrash: function(that) {
+        // Добавить в корзину
+        intrash: function(table, that) {
             var name = $(that).parent();
-            $.post("/frontend/admin/pages/intrash", $(name).serialize(), function(){
+            $.post("/frontend/admin/" + table + "/intrash", $(name).serialize(), function(){
                 $(name).parents('tr').fadeOut(300);
             });
         },
@@ -149,10 +153,32 @@ $(function(){
             });
         },
 
+        // Восстановление из корзины
         recovery:  function(that) {
             var name = $(that).parent();
             $.post("/frontend/admin/trash/recovery", $(name).serialize(), function(){
                 $(name).parents('tr').fadeOut(300);
+            });
+        },
+
+        // Удаление из корзины
+        deleteItem: function(that) {
+            var name = $(that).parent();
+            $.post("/frontend/admin/trash/delete", $(name).serialize(), function(){
+                $(name).parents('tr').fadeOut(300);
+            });
+        },
+
+        // Поиск
+        searchItems: function(table) {
+            $.post("/frontend/admin/" + table + "/search", $('#search' + table).serialize(), function(data){
+                $('.main').empty().append(data);
+            });
+        },
+
+        addItem: function(table) {
+            $.post("/frontend/admin/" + table + "/add", $('#additem').serialize(), function(){
+                $(".main").empty().load("/frontend/admin/" + table);
             });
         }
     };
