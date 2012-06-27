@@ -27,7 +27,7 @@ class Controller_Admin_Pages extends Controller_App {
         parent::action_search($table, $field);
     }
 
-    public function action_addpage()
+    public function action_addpages()
     {
         $catalogs = ORM::factory('catalogs')->find_all();
 
@@ -55,6 +55,5 @@ class Controller_Admin_Pages extends Controller_App {
             ->set('status', $_POST['status'])
             ->save();
     }
-
 
 } // End Welcome

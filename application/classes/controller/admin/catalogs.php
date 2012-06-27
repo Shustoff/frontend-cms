@@ -27,7 +27,7 @@ class Controller_Admin_Catalogs extends Controller_App {
         parent::action_search($table, $field);
     }
 
-    public function action_addcatalog()
+    public function action_addcatalogs()
     {
         $catalogs = ORM::factory('catalogs')->find_all();
 

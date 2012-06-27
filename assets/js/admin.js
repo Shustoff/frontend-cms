@@ -29,19 +29,23 @@ $(function(){
 
         pages: function() {$(".main").load("/frontend/admin/pages");},
 
-        addpage: function() {$(".main").load("/frontend/admin/pages/addpage");},
+        addpages: function() {$(".main").load("/frontend/admin/pages/addpages");},
 
         catalogs: function() {$(".main").load("/frontend/admin/catalogs");},
 
-        addcatalog: function() {$(".main").load("/frontend/admin/catalogs/addcatalog");},
+        addcatalogs: function() {$(".main").load("/frontend/admin/catalogs/addcatalogs");},
 
         users: function() {$(".main").load("/frontend/admin/users");},
 
-        adduser: function() {$(".main").load("/frontend/admin/users/adduser");},
+        addusers: function() {$(".main").load("/frontend/admin/users/addusers");},
+
+        addroles: function() {$(".main").load("/frontend/admin/roles/addroles");},
 
         modules: function() {$(".main").load("/frontend/admin/modules");},
 
-        sendemail: function() {$(".main").load("/frontend/admin/email");},
+        addmodules: function() {$(".main").load("/frontend/admin/modules/addmodules");},
+
+        email: function() {$(".main").load("/frontend/admin/email");},
 
         stats: function() {$(".main").load("/frontend/admin/stats")},
 
@@ -176,9 +180,18 @@ $(function(){
             });
         },
 
+        // Добавляем материал (страницу, каталог, пользователя, модуль, роль)
         addItem: function(table) {
             $.post("/frontend/admin/" + table + "/add", $('#additem').serialize(), function(){
-                $(".main").empty().load("/frontend/admin/" + table);
+                $(".main").empty().load("/frontend/admin/" + table + "/add" + table);
+            });
+        },
+
+        // Отправляем сообщение
+        sendEmail: function() {
+            $('#sendemailbtn').text('Сообщение отправляется...').attr('onclick', 'return false;').addClass('disabled');
+            $.post("/frontend/admin/email/send", $('#email').serialize(), function() {
+                $('#sendemailbtn').text('Сообщение отправлено!');
             });
         }
     };
@@ -187,9 +200,7 @@ $(function(){
     function checkOptions() {
 
         // Делаем кнопку активной
-        function rem() {
-            $('.btn-success').removeAttr('disabled').val('Сохранить настройки сайта');
-        }
+        function rem() {$('.btn-success').removeAttr('disabled').val('Сохранить настройки сайта');}
 
         // Проверяем внесены ли изменения в настройки
         $('input[type=text], textarea').live('keydown', rem);
