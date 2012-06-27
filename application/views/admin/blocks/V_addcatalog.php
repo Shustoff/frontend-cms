@@ -30,6 +30,7 @@
             <label class="control-label w200" for="pagecatalog">Родительский каталог:</label>
             <div class="controls">
                 <select id="pagecatalog" class="input-medium" name="parent_id">
+                    <option value="0">Нету</option>
                     <?php foreach($catalogs as $catalog) : ?>
                         <option value="<?=$catalog->id; ?>">
                             <?=$catalog->catname; ?>

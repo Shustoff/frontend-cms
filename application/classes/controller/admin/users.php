@@ -27,7 +27,7 @@ class Controller_Admin_Users extends Controller_App {
         parent::action_search($table, $field);
     }
 
-    public function action_adduser()
+    public function action_addusers()
     {
         $roles = ORM::factory('roles')->find_all();
 

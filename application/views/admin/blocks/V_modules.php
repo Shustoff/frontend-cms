@@ -4,7 +4,6 @@
         <tr>
             <th>ID</th>
             <th>Название</th>
-            <th>Примечание</th>
             <th>Создатель</th>
             <th>Дата создания</th>
             <th width="50">Состояние</th>
@@ -16,7 +15,6 @@
             <tr class="pageedit">
                 <td><?=$module->id;?></td>
                 <td class="pagename"><a href="#"><?=$module->name;?></a></td>
-                <td class="pagedesc"><?=$module->desc;?></td>
                 <td><?=$module->users->email;?></td>
                 <td><?=$module->date;?></td>
                 <td>

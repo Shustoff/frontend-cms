@@ -76,32 +76,32 @@
             <div class="span8 offset2">
                 <ul class="tools">
                     <li>
-                        <a href="#addpage" onclick="req.addpage();">
+                        <a href="#addpage" onclick="req.addpages();">
                             <img src="<?=URL::base();?>assets/img/add.png" alt="" title="Добавить страницу">
                         </a>
                     </li>
                     <li>
-                        <a href="#addcatalog" onclick="req.addcatalog();">
+                        <a href="#addcatalog" onclick="req.addcatalogs();">
                             <img src="<?=URL::base();?>assets/img/addcat.png" alt="" title="Добавить каталог">
                         </a>
                     </li>
                     <li>
-                        <a href="#adduser" onclick="req.adduser();">
+                        <a href="#adduser" onclick="req.addusers();">
                             <img src="<?=URL::base();?>assets/img/user.png" alt="" title="Добавить пользователя">
                         </a>
                     </li>
                     <li>
-                        <a href="#addrole" onclick="">
+                        <a href="#addrole" onclick="req.addroles();">
                             <img src="<?=URL::base();?>assets/img/addrole.png" alt="" title="Добавить роль">
                         </a>
                     </li>
                     <li>
-                        <a href="#addmodule" onclick="">
+                        <a href="#addmodule" onclick="req.addmodules();">
                             <img src="<?=URL::base();?>assets/img/addmodule.png" alt="" title="Добавить модуль">
                         </a>
                     </li>
                     <li>
-                        <a href="#email" onclick="req.sendemail();">
+                        <a href="#email" onclick="req.email();">
                             <img src="<?=URL::base();?>assets/img/email.png" alt="" title="Отправить сообщение">
                         </a>
                     </li>
@@ -135,9 +135,9 @@
     </div>
     <div class="row">
         <div class="span12 footer">
-            <p>Front-end CMS based on Kohana Framework v3.2</p>
+            <p>Frontend CMS based on Kohana Framework v3.2</p>
             <a href="http://kohanaframework.org" class="kohcopy" target="_blank">www.kohanaframework.org</a>
-            <p id="copyright">Created for fun :)</p>
+            <p id="copyright">kohana 2012 &copy;</p>
             <a href="#" class="helper">
                 <img src="<?=URL::base();?>assets/img/help.png" alt="">
             </a>
