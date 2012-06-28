@@ -4,9 +4,9 @@ class Controller_Admin_Trash extends Controller_App {
 
     public function action_index()
     {
-        isset($_POST['sortby']) ? $sortby =  $_POST['sortby'] : $sortby = 'item_id';
-        isset($_POST['limit']) ? $limit = $_POST['limit'] : $limit = '5';
-        isset($_POST['offset']) ? $offset = $_POST['offset'] : $offset = '0';
+        $sortby = Arr::get($_POST, 'sortby', 'item_id');
+        $limit = Arr::get($_POST, 'limit', '5');
+        $offset = Arr::get($_POST, 'offset', '0');
 
         // Находим все записи которые "не в корзине"
         $allpages = DB::select('id')->from('pages')->where('intrash', '=', '1');

@@ -16,7 +16,7 @@
     <!--Передаем переменные из php в JS-->
     <script>
         var ipadress = '<?=$_SERVER['REMOTE_ADDR'];?>';
-        var email = '<?=$email;?>';
+        var email = '<?=$username->username;?>';
         var sitename = '<?=$sitename;?>';
     </script>
 
@@ -106,7 +106,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#rss" onclick="req.addrss();">
+                        <a href="<?=URL::base();?>admin/rss" onclick="">
                             <img src="<?=URL::base();?>assets/img/rss.png" alt="" title="Добавить RSS-ленту">
                         </a>
                     </li>

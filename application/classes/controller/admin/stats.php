@@ -4,7 +4,27 @@ class Controller_Admin_Stats extends Controller_App {
 
     public function action_index()
     {
-        echo View::factory('admin/blocks/V_stats');
+        $pages = ORM::factory('pages')->find_all()->count();
+        $catalogs = ORM::factory('catalogs')->find_all()->count();
+        $users = ORM::factory('users')->find_all()->count();
+        $modules = ORM::factory('modules')->find_all()->count();
+        $mails = ORM::factory('mails')->find_all()->count();
+
+        $allpages = DB::select('id')->from('pages')->where('intrash', '=', '1');
+        $allcatalogs = DB::select('id')->union($allpages)->from('catalogs')->where('intrash', '=', '1');
+        $allusers = DB::select('id')->union($allcatalogs)->from('users')->where('intrash', '=', '1');
+        $trashitems = DB::select('id')->union($allusers)->from('modules')->where('intrash', '=', '1')->execute()->count();
+
+        $view = View::factory('admin/blocks/V_stats')
+                    ->set('pages', $pages)
+                    ->set('catalogs', $catalogs)
+                    ->set('users', $users)
+                    ->set('modules', $modules)
+                    ->set('mails', $mails)
+                    ->set('trashitems', $trashitems);
+
+        $this->response->body($view);
     }
 
-} // End Welcome
+
+}

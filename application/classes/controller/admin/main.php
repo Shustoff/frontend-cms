@@ -7,7 +7,7 @@ class Controller_Admin_Main extends Controller_Template {
     public function before()
     {
         $auth = Auth::instance();
-        if (!$auth->logged_in())
+        if ( ! $auth->logged_in())
         {
             $this->request->redirect('admin/auth');
         }
@@ -18,8 +18,8 @@ class Controller_Admin_Main extends Controller_Template {
     // Вывод главной страницы админки
 	public function action_index()
 	{
-        $email = Auth::instance()->get_user();
-        View::bind_global('email', $email);
+        $username = Auth::instance()->get_user();
+        View::bind_global('username', $username);
 
         $sitename = ORM::factory('options', 1)->sitename;
         View::bind_global('sitename', $sitename);
