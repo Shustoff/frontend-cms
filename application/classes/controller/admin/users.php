@@ -27,6 +27,7 @@ class Controller_Admin_Users extends Controller_App {
         parent::action_search($table, $field);
     }
 
+    // Грузим вид добавления пользователя
     public function action_addusers()
     {
         $roles = ORM::factory('roles')->find_all();
@@ -37,18 +38,15 @@ class Controller_Admin_Users extends Controller_App {
         $this->response->body($view);
     }
 
+    // Добавляем пользователя в БД
     public function action_add()
     {
-        // Хэшируем пароль
-        $password = sha1($_POST['password']);
-
-        ORM::factory('users')
+        ORM::factory('user')
             ->set('email', $_POST['email'])
-            ->set('password', $password)
+            ->set('password', $_POST['password'])
             ->set('firstname', $_POST['firstname'])
             ->set('lastname', $_POST['lastname'])
             ->set('datereg', $_POST['datereg'])
-            ->set('role_id', $_POST['role_id'])
             ->set('status', $_POST['status'])
             ->save();
     }

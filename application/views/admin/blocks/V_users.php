@@ -17,7 +17,7 @@
                 <td><?=$user->id;?></td>
                 <td class="pagename"><a href="#"><?=$user->email;?></a></td>
                 <td class="pagedesc"><?=$user->password;?></td>
-                <td><?=$user->roles->rolename;?></td>
+                <td><?=$user->roles->description?></td>
                 <td><?=$user->datereg;?></td>
                 <td>
                     <form action="" method="post" id="cngstatus<?=$user->id;?>">

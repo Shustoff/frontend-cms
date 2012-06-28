@@ -11,10 +11,11 @@ class Controller_App extends Controller {
         return parent::before();
     }
 
+    // Вывод итемов
     public function action_main($table) {
-        isset($_POST['sortby']) ? $sortby =  $_POST['sortby'] : $sortby = 'id';
-        isset($_POST['limit']) ? $limit = $_POST['limit'] : $limit = '5';
-        isset($_POST['offset']) ? $offset = $_POST['offset'] : $offset = '0';
+        $sortby = Arr::get($_POST, 'sortby', 'id');
+        $limit = Arr::get($_POST, 'limit', '5');
+        $offset = Arr::get($_POST, 'offset', '0');
 
         $allitems = ORM::factory($table)->where('intrash', '=', '0')->find_all();
 
@@ -37,21 +38,25 @@ class Controller_App extends Controller {
         $this->response->body($view);
     }
 
+    // Опубликовать
     public function action_on($table)
     {
         ORM::factory($table, $_POST['idpage'])->set('status', 1)->save();
     }
 
+    // Не опубликовать
     public function action_off($table)
     {
         ORM::factory($table, $_POST['idpage'])->set('status', 0)->save();
     }
 
+    // В корзину
     public function action_intrash($table)
     {
         ORM::factory($table, $_POST['intrash'])->set('intrash', 1)->save();
     }
 
+    // Поиск
     public function action_search($table, $field)
     {
         $count = NULL;

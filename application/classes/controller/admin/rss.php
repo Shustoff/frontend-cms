@@ -2,17 +2,12 @@
 
 class Controller_Admin_Rss extends Controller_App {
 
+    // Создаем RSS-поток из таблицы
     public function action_index()
-    {
-        $view = View::factory('admin/blocks/V_addrss');
-        $this->response->body($view);
-    }
-
-    public function action_addrss()
     {
         $pages = ORM::factory('pages')->find_all();
 
-        $info = array('title' => 'rss подписка на страницы');
+        $info = array('title' => 'RSS подписка на страницы');
 
         $all = array();
 
@@ -20,11 +15,13 @@ class Controller_Admin_Rss extends Controller_App {
             array_push($all, array(
                 'title' => $page->pagename,
                 'description' => $page->content,
-                'pubDate' => $page->date
+                'pubDate' => $page->date,
+                'link' => '/page'
             ));
         }
 
-        echo Feed::create($info, $all);
-
+        $feed = Feed::create($info, $all);
+        $this->response->body($feed);
     }
+
 } // End Welcome
