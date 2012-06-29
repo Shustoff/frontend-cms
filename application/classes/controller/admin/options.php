@@ -9,7 +9,7 @@ class Controller_Admin_Options extends Controller_App {
         $username = Kohana::$config->load('database.default.connection.username');
         $password = Kohana::$config->load('database.default.connection.password');
 
-        $options = ORM::factory('options')->find_all();
+        $options = ORM::factory('option')->find_all();
 
         $view = View::factory('admin/blocks/V_options')
                         ->set('hostname', $hostname)
@@ -24,7 +24,7 @@ class Controller_Admin_Options extends Controller_App {
 
     public function action_save()
     {
-        ORM::factory('options', 1)->values($_POST)->save();
+        ORM::factory('option', 1)->values($_POST)->save();
     }
 
 

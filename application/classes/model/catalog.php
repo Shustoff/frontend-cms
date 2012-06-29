@@ -1,12 +1,12 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Model_Catalogs extends ORM {
+class Model_Catalog extends ORM {
 
     protected $_table_name = 'catalogs';
 
     protected $_belongs_to = array(
         'catalogs' => array(
-            'model' => 'catalogs',
+            'model' => 'catalog',
             'foreign_key' => 'parent_id'
         )
     );

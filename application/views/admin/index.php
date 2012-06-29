@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content=“no-index,no-follow”>
-    <title>Администраторский раздел</title>
+    <title>Админка</title>
 
     <!--Стили-->
     <link rel="stylesheet" type="text/css" href="<?=URL::base();?>assets/css/jquery-ui-1.8.16.custom.css">

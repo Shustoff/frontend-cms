@@ -4,7 +4,7 @@
         <tr>
             <th>ID</th>
             <th>Email</th>
-            <th>Пароль</th>
+            <th>Логин</th>
             <th width="130">Роль</th>
             <th>Дата регистрации</th>
             <th width="50">Состояние</th>
@@ -16,8 +16,10 @@
             <tr class="pageedit">
                 <td><?=$user->id;?></td>
                 <td class="pagename"><a href="#"><?=$user->email;?></a></td>
-                <td class="pagedesc"><?=$user->password;?></td>
-                <td><?=$user->roles->description?></td>
+                <td class="pagedesc"><?=$user->username;?></td>
+                <td>
+                    <?php foreach ($user->roles->find_all() as $role) {echo "$role->name ";} ?>
+                </td>
                 <td><?=$user->datereg;?></td>
                 <td>
                     <form action="" method="post" id="cngstatus<?=$user->id;?>">

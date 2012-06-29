@@ -4,32 +4,32 @@ class Controller_Admin_Catalogs extends Controller_App {
 
     public function action_index()
     {
-        parent::action_main($table = 'catalogs');
+        parent::action_main($model = 'catalog');
     }
 
-    public function action_on($table = 'catalogs')
+    public function action_on($model = 'catalog')
     {
-        parent::action_on($table);
+        parent::action_on($model);
     }
 
-    public function action_off($table = 'catalogs')
+    public function action_off($model = 'catalog')
     {
-        parent::action_main($table);
+        parent::action_main($model);
     }
 
-    public function action_intrash($table = 'catalogs')
+    public function action_intrash($model = 'catalog')
     {
-        parent::action_intrash($table);
+        parent::action_intrash($model);
     }
 
-    public function action_search($table = 'catalogs', $field = 'catname')
+    public function action_search($model = 'catalog', $field = 'catname')
     {
-        parent::action_search($table, $field);
+        parent::action_search($model, $field);
     }
 
     public function action_addcatalogs()
     {
-        $catalogs = ORM::factory('catalogs')->find_all();
+        $catalogs = ORM::factory('catalog')->find_all();
 
         $view = View::factory('admin/blocks/V_addcatalog')
             ->bind('catalogs', $catalogs);
@@ -39,7 +39,7 @@ class Controller_Admin_Catalogs extends Controller_App {
 
     public function action_add()
     {
-        ORM::factory('catalogs')
+        ORM::factory('catalog')
             ->set('catname', $_POST['catname'])
             ->set('alias', $_POST['alias'])
             ->set('catdesc', $_POST['catdesc'])

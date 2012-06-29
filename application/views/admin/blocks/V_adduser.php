@@ -44,7 +44,7 @@
                 <select id="role" class="input-xlarge" name="role_id">
                     <?php foreach($roles as $role) : ?>
                         <option value="<?=$role->id; ?>">
-                            <?=$role->rolename; ?>
+                            <?=$role->name; ?>
                         </option>
                     <?php endforeach; ?>
                 </select>

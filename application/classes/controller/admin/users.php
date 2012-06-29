@@ -4,33 +4,33 @@ class Controller_Admin_Users extends Controller_App {
 
     public function action_index()
     {
-        parent::action_main($table = 'users');
+        parent::action_main($model = 'user');
     }
 
-    public function action_on($table = 'users')
+    public function action_on($model = 'user')
     {
-        parent::action_on($table);
+        parent::action_on($model);
     }
 
-    public function action_off($table = 'users')
+    public function action_off($model = 'user')
     {
-        parent::action_main($table);
+        parent::action_main($model);
     }
 
-    public function action_intrash($table = 'users')
+    public function action_intrash($model = 'user')
     {
-        parent::action_intrash($table);
+        parent::action_intrash($model);
     }
 
-    public function action_search($table = 'users', $field = 'email')
+    public function action_search($model = 'user', $field = 'email')
     {
-        parent::action_search($table, $field);
+        parent::action_search($model, $field);
     }
 
     // Грузим вид добавления пользователя
     public function action_addusers()
     {
-        $roles = ORM::factory('roles')->find_all();
+        $roles = ORM::factory('role')->find_all();
 
         $view = View::factory('admin/blocks/V_adduser')
             ->bind('roles', $roles);
