@@ -4,11 +4,11 @@ class Controller_Admin_Stats extends Controller_App {
 
     public function action_index()
     {
-        $pages = ORM::factory('pages')->find_all()->count();
-        $catalogs = ORM::factory('catalogs')->find_all()->count();
-        $users = ORM::factory('users')->find_all()->count();
-        $modules = ORM::factory('modules')->find_all()->count();
-        $mails = ORM::factory('mails')->find_all()->count();
+        $pages = ORM::factory('page')->find_all()->count();
+        $catalogs = ORM::factory('catalog')->find_all()->count();
+        $users = ORM::factory('user')->find_all()->count();
+        $modules = ORM::factory('module')->find_all()->count();
+        $mails = ORM::factory('email')->find_all()->count();
 
         $allpages = DB::select('id')->from('pages')->where('intrash', '=', '1');
         $allcatalogs = DB::select('id')->union($allpages)->from('catalogs')->where('intrash', '=', '1');

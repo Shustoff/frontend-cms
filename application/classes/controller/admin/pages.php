@@ -4,35 +4,35 @@ class Controller_Admin_Pages extends Controller_App {
 
     public function action_index()
     {
-        parent::action_main($table = 'pages');
+        parent::action_main($model = 'page');
     }
 
-    public function action_on($table = 'pages')
+    public function action_on($model = 'page')
     {
-        parent::action_on($table);
+        parent::action_on($model);
     }
 
-    public function action_off($table = 'pages')
+    public function action_off($model = 'page')
     {
-        parent::action_main($table);
+        parent::action_main($model);
     }
 
-    public function action_intrash($table = 'pages')
+    public function action_intrash($model = 'page')
     {
-        parent::action_intrash($table);
+        parent::action_intrash($model);
     }
 
-    public function action_search($table = 'pages', $field = 'pagename')
+    public function action_search($model = 'page', $field = 'pagename')
     {
-        parent::action_search($table, $field);
+        parent::action_search($model, $field);
     }
 
     public function action_addpages()
     {
-        $catalogs = ORM::factory('catalogs')->find_all();
+        $catalogs = ORM::factory('catalog')->find_all();
 
         $email = Auth::instance()->get_user();
-        $author_id = ORM::factory('users')->where('email', '=', $email)->find();
+        $author_id = ORM::factory('user')->where('email', '=', $email)->find();
 
         $view = View::factory('admin/blocks/V_addpage')
             ->bind('catalogs', $catalogs)
@@ -43,7 +43,7 @@ class Controller_Admin_Pages extends Controller_App {
 
     public function action_add()
     {
-        ORM::factory('pages')
+        ORM::factory('page')
             ->set('pagename', $_POST['pagename'])
             ->set('alias', $_POST['alias'])
             ->set('content', $_POST['content'])

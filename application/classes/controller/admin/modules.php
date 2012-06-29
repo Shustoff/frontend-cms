@@ -4,33 +4,33 @@ class Controller_Admin_Modules extends Controller_App {
 
     public function action_index()
     {
-        parent::action_main($table = 'modules');
+        parent::action_main($model = 'module');
     }
 
-    public function action_on($table = 'modules')
+    public function action_on($model = 'module')
     {
-        parent::action_on($table);
+        parent::action_on($model);
     }
 
-    public function action_off($table = 'modules')
+    public function action_off($model = 'module')
     {
-        parent::action_main($table);
+        parent::action_main($model);
     }
 
-    public function action_search($table = 'modules', $field = 'name')
+    public function action_search($model = 'module', $field = 'name')
     {
-        parent::action_search($table, $field);
+        parent::action_search($model, $field);
     }
 
-    public function action_intrash($table = 'modules')
+    public function action_intrash($model = 'module')
     {
-        parent::action_intrash($table);
+        parent::action_intrash($model);
     }
 
     public function action_addmodules()
     {
         $email = Auth::instance()->get_user();
-        $author_id = ORM::factory('users')->where('email', '=', $email)->find();
+        $author_id = ORM::factory('user')->where('email', '=', $email)->find();
 
         $view = View::factory('admin/blocks/V_addmodule')
                 ->bind('author_id', $author_id);
@@ -40,7 +40,7 @@ class Controller_Admin_Modules extends Controller_App {
 
     public function action_add()
     {
-        ORM::factory('modules')
+        ORM::factory('module')
             ->set('name', $_POST['name'])
             ->set('systemname', $_POST['systemname'])
             ->set('content', $_POST['content'])

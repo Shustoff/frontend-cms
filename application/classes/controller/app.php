@@ -12,14 +12,14 @@ class Controller_App extends Controller {
     }
 
     // Вывод итемов
-    public function action_main($table) {
+    public function action_main($model) {
         $sortby = Arr::get($_POST, 'sortby', 'id');
         $limit = Arr::get($_POST, 'limit', '5');
         $offset = Arr::get($_POST, 'offset', '0');
 
-        $allitems = ORM::factory($table)->where('intrash', '=', '0')->find_all();
+        $allitems = ORM::factory($model)->where('intrash', '=', '0')->find_all();
 
-        $items = ORM::factory($table)
+        $items = ORM::factory($model)
             ->where('intrash', '=', '0')
             ->order_by($sortby)
             ->offset($offset)
@@ -31,38 +31,38 @@ class Controller_App extends Controller {
 
         if ($count <= 1) $count = NULL;
 
-        $view = View::factory('admin/blocks/V_' . $table)
-                ->bind($table, $items)
+        $view = View::factory('admin/blocks/V_' . $model . 's')
+                ->bind($model . 's', $items)
                 ->bind('count', $count);
 
         $this->response->body($view);
     }
 
     // Опубликовать
-    public function action_on($table)
+    public function action_on($model)
     {
-        ORM::factory($table, $_POST['idpage'])->set('status', 1)->save();
+        ORM::factory($model, $_POST['idpage'])->set('status', 1)->save();
     }
 
     // Не опубликовать
-    public function action_off($table)
+    public function action_off($model)
     {
-        ORM::factory($table, $_POST['idpage'])->set('status', 0)->save();
+        ORM::factory($model, $_POST['idpage'])->set('status', 0)->save();
     }
 
     // В корзину
-    public function action_intrash($table)
+    public function action_intrash($model)
     {
-        ORM::factory($table, $_POST['intrash'])->set('intrash', 1)->save();
+        ORM::factory($model, $_POST['intrash'])->set('intrash', 1)->save();
     }
 
     // Поиск
-    public function action_search($table, $field)
+    public function action_search($model, $field)
     {
         $count = NULL;
-        $items = ORM::factory($table)->where($field, 'LIKE', '%'.$_POST['searchitem'].'%')->find_all();
-        $view = View::factory('admin/blocks/V_' . $table)
-                ->bind($table, $items)
+        $items = ORM::factory($model)->where($field, 'LIKE', '%'.$_POST['searchitem'].'%')->find_all();
+        $view = View::factory('admin/blocks/V_' . $model . 's')
+                ->bind($model, $items)
                 ->bind('count', $count);
         $this->response->body($view);
     }
