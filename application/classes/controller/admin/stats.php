@@ -10,7 +10,7 @@ class Controller_Admin_Stats extends Controller_App {
             if ($role->name === 'login')
                 $permission = FALSE;
             else
-                $role->stats === 0 ? $permission = FALSE : $permission = TRUE;
+                $role->stats == 0 ? $permission = FALSE : $permission = TRUE;
         }
         if ( ! $permission) die('Вам запрещен доступ к этой странице');
     }

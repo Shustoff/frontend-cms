@@ -9,7 +9,7 @@ class Controller_Admin_Options extends Controller_App {
             if ($role->name === 'login')
                 $permission = FALSE;
             else
-                $role->opts === 0 ? $permission = FALSE : $permission = TRUE;
+                $role->opts == 0 ? $permission = FALSE : $permission = TRUE;
         }
         if ( ! $permission) die('Вам запрещен доступ к этой странице');
     }

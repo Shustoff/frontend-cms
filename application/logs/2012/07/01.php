@@ -720,3 +720,18 @@
 --
 #0 [internal function]: Kohana_Core::shutdown_handler()
 #1 {main}
+2012-07-01 22:42:36 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/ui-bg_glass_75_ffffff_1x400.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+2012-07-01 22:42:36 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/img/ui-bg_glass_75_ffffff_1x400.png ~ SYSPATH\classes\kohana\request.php [ 1126 ]
+--
+#0 C:\wamp\www\frontend\index.php(109): Kohana_Request->execute()
+#1 {main}
+2012-07-01 22:58:28 --- ERROR: ErrorException [ 4096 ]: Object of class Database_MySQL_Result could not be converted to string ~ APPPATH\classes\controller\admin\pages.php [ 8 ]
+2012-07-01 22:58:28 --- STRACE: ErrorException [ 4096 ]: Object of class Database_MySQL_Result could not be converted to string ~ APPPATH\classes\controller\admin\pages.php [ 8 ]
+--
+#0 C:\wamp\www\frontend\application\classes\controller\admin\pages.php(8): Kohana_Core::error_handler(4096, 'Object of class...', 'C:\wamp\www\fro...', 8, Array)
+#1 [internal function]: Controller_Admin_Pages->before()
+#2 C:\wamp\www\frontend\system\classes\kohana\request\client\internal.php(103): ReflectionMethod->invoke(Object(Controller_Admin_Pages))
+#3 C:\wamp\www\frontend\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#4 C:\wamp\www\frontend\system\classes\kohana\request.php(1138): Kohana_Request_Client->execute(Object(Request))
+#5 C:\wamp\www\frontend\index.php(109): Kohana_Request->execute()
+#6 {main}

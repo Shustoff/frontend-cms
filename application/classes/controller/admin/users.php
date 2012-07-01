@@ -10,7 +10,7 @@ class Controller_Admin_Users extends Controller_App {
             if ($role->name === 'login')
                 $permission = FALSE;
             else
-                $role->users === 0 ? $permission = FALSE : $permission = TRUE;
+                $role->users == 0 ? $permission = FALSE : $permission = TRUE;
         }
         if ( ! $permission) die('Вам запрещен доступ к этой странице');
     }
