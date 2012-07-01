@@ -10,7 +10,7 @@ class Controller_Admin_Trash extends Controller_App {
             if ($role->name === 'login')
                 $permission = FALSE;
             else
-                $role->trash === 0 ? $permission = FALSE : $permission = TRUE;
+                $role->trash == 0 ? $permission = FALSE : $permission = TRUE;
         }
         if ( ! $permission) die('Вам запрещен доступ к этой странице');
     }

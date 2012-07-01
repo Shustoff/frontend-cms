@@ -5,15 +5,17 @@ class Controller_Admin_Auth extends Controller {
     // Логинимся
     public function action_index()
     {
-        if (Auth::instance()->logged_in('admin')) {$this->request->redirect('admin');}
-
+        if (Auth::instance()->logged_in())
+        {
+            $this->request->redirect('admin');
+        }
         if ($_POST)
         {
             $data = Arr::extract($_POST, array('username', 'password', 'remember'));
             $status = Auth::instance()->login($data['username'], $data['password'], (bool) $data['remember']);
             if ($status)
             {
-                if(Auth::instance()->logged_in('admin')) {
+                if(Auth::instance()->logged_in(array('name' => 'admin', 'name' => 'manager'))) {
                     $this->request->redirect('admin');
                 }
                 else

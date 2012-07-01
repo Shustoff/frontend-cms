@@ -4,7 +4,7 @@ class Controller_App extends Controller {
     public function before()
     {
         $auth = Auth::instance();
-        if (!$auth->logged_in('admin'))
+        if (!$auth->logged_in())
         {
             $this->request->redirect('admin/auth');
         }
