@@ -7,7 +7,7 @@
             <th>Создатель</th>
             <th>Дата создания</th>
             <th width="50">Состояние</th>
-            <th width="50">Удалить</th>
+            <th width="80">В корзину</th>
         </tr>
     </thead>
     <tbody>
@@ -21,9 +21,9 @@
                     <form action="" method="post" id="cngstatus<?=$module->id;?>">
                         <input type="hidden" name="idpage" value="<?=$module->id;?>">
                         <?php if ($module->status == 1) : ?>
-                             <a href="#" onclick='req.off(this); return false;'><img src='<?=URL::base()?>assets/img/published.png'></a>
+                             <a href="#" onclick="req.off('modules',this); return false;"><img src='<?=URL::base()?>assets/img/published.png'></a>
                         <? else : ?>
-                             <a href="#" onclick='req.on(this); return false;'><img src='<?=URL::base()?>assets/img/not-published.png'></a>
+                             <a href="#" onclick="req.on('modules',this); return false;"><img src='<?=URL::base()?>assets/img/not-published.png'></a>
                         <? endif; ?>
                     </form>
                 </td>

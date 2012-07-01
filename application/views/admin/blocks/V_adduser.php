@@ -3,17 +3,17 @@
 <div class="row">
     <div class="span6">
         <div class="control-group">
-            <label class="control-label" for="email">Email:</label>
+            <label class="control-label" for="username">Логин:</label>
             <div class="controls">
-                <input type="text" id="email" name="email" class="input-xlarge">
+                <input type="text" id="username" name="username" class="input-xlarge">
             </div>
         </div>
     </div>
     <div class="span5 aliasright">
         <div class="control-group">
-            <label class="control-label" for="password">Пароль</label>
+            <label class="control-label" for="email">Email:</label>
             <div class="controls">
-                <input type="text" id="password" name="password" class="input-xlarge">
+                <input type="text" id="email" name="email" class="input-xlarge">
             </div>
         </div>
     </div>
@@ -21,13 +21,25 @@
 <div class="row">
     <div class="span6">
         <div class="control-group">
-            <label class="control-label" for="username">Имя:</label>
+            <label class="control-label" for="password">Пароль</label>
             <div class="controls">
-                <input type="text" id="username" name="firstname" class="input-xlarge">
+                <input type="password" id="password" name="password" class="input-xlarge">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="passwordconfirm">Повтор пароля</label>
+            <div class="controls">
+                <input type="password" id="passwordconfirm" name="password_confirm" class="input-xlarge">
             </div>
         </div>
     </div>
     <div class="span5 aliasright">
+        <div class="control-group">
+            <label class="control-label" for="firstname">Имя:</label>
+            <div class="controls">
+                <input type="text" id="firstname" name="firstname" class="input-xlarge">
+            </div>
+        </div>
         <div class="control-group">
             <label class="control-label" for="surname">Фамилия</label>
             <div class="controls">
@@ -39,12 +51,12 @@
 <div class="row">
     <div class="span6">
         <div class="control-group">
-            <label class="control-label" for="username">Группа:</label>
+            <label class="control-label" for="role">Группа:</label>
             <div class="controls">
-                <select id="role" class="input-xlarge" name="role_id">
+                <select id="role" class="input-xlarge" name="role_name">
                     <?php foreach($roles as $role) : ?>
-                        <option value="<?=$role->id; ?>">
-                            <?=$role->name; ?>
+                        <option value="<?=$role->name; ?>">
+                            <?=$role->description; ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
@@ -58,7 +70,7 @@
     </script>
     <div class="span5 aliasright">
         <div class="control-group">
-            <label class="control-label" for="metadesc">Дата создания:</label>
+            <label class="control-label" for="datepicker">Дата создания:</label>
             <div class="controls">
                 <input id="datepicker" type="text" name="datereg" class="input-small">
                 <input type="hidden" name="status" value="1">

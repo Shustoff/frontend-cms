@@ -3,7 +3,7 @@
     <div class="row">
         <div class="span6">
             <div class="control-group">
-                <label class="control-label" for="pagename">Тема: </label>
+                <label class="control-label">Тема: </label>
                 <div class="controls">
                     <input type="text" id="subject" name="subject" class="input-xlarge">
                 </div>
@@ -28,7 +28,8 @@
     <div class="row">
         <div class="span11 htmlcode">
             <h3 class="htmlcodelabel">Сообщение:</h3>
-            <textarea id="html-code" class="auto" name="message"></textarea>
+            <textarea id="editor" class="auto" name="editor"></textarea>
+            <script>editor = CKEDITOR.editor.replace('editor');</script>
         </div>
     </div>
     <div class="row">
@@ -61,7 +62,10 @@
         <div class="span3 savecat">
             <div class="control-group">
                 <input type="hidden" name="from" value="<?=$author_id->email;?>">
-                <a class="btn btn-success" id="sendemailbtn" href="#" onclick="req.sendEmail();">Отправить сообщение</a>
+                <input type="hidden" id="content" name="content" value="">
+                <a class="btn btn-success" id="sendemailbtn" href="#" onclick="req.initEditor(); req.sendEmail();">
+                    Отправить сообщение
+                </a>
             </div>
         </div>
     </div>

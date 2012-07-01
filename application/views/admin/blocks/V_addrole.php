@@ -2,11 +2,19 @@
 <div class="row">
     <h3>Добавить роль</h3>
     <div class="span11">
-        <div class="span5 offset3">
+        <div class="span5">
             <div class="control-group">
                 <label class="control-label">Название роли:</label>
                 <div class="controls">
-                    <input type="text" name="rolename" class="input-large">
+                    <input type="text" name="name" class="input-large">
+                </div>
+            </div>
+        </div>
+        <div class="span5">
+            <div class="control-group">
+                <label class="control-label">Описание роли:</label>
+                <div class="controls">
+                    <input type="text" name="description" class="input-large">
                 </div>
             </div>
         </div>
@@ -74,7 +82,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Просмотр статистики:</label>
+                <label class="control-label">Доступ к статистике:</label>
                 <div class="controls">
                     <label class="radio inline">
                         <input type="radio" value="1" name="stats">Да
@@ -96,9 +104,24 @@
                 </div>
             </div>
             <div class="control-group">
+                <label class="control-label">Доступ к корзине:</label>
                 <div class="controls">
-                    <a class="btn btn-success addrole" href="#" onclick="req.addItem('roles');">Добавить роль</a>
+                    <label class="radio inline">
+                        <input type="radio" value="1" name="trash">Да
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" value="0" name="trash">Нет
+                    </label>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="span5 offset6">
+        <div class="control-group">
+            <div class="controls">
+                <a class="btn btn-success addrole" href="#" onclick="req.addItem('roles');">Добавить роль</a>
             </div>
         </div>
     </div>

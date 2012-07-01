@@ -2,6 +2,19 @@
 
 class Controller_Admin_Modules extends Controller_App {
 
+    public function before()
+    {
+        $roles = Auth::instance()->get_user()->roles->find_all();
+        foreach ($roles as $role)
+        {
+            if ($role->name === 'login')
+                $permission = FALSE;
+            else
+                $role->mods === 0 ? $permission = FALSE : $permission = TRUE;
+        }
+        if ( ! $permission) die('Вам запрещен доступ к этой странице');
+    }
+
     public function action_index()
     {
         parent::action_main($model = 'module');
@@ -14,7 +27,7 @@ class Controller_Admin_Modules extends Controller_App {
 
     public function action_off($model = 'module')
     {
-        parent::action_main($model);
+        parent::action_off($model);
     }
 
     public function action_search($model = 'module', $field = 'name')

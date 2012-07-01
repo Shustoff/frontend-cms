@@ -25,7 +25,8 @@
 <div class="row">
     <div class="span11 htmlcode">
         <h3 class="htmlcodelabel">Код модуля:</h3>
-        <textarea id="html-code" class="auto" name="content"></textarea>
+        <textarea id="editor" class="auto" name="editor"></textarea>
+        <script>editor = CKEDITOR.editor.replace('editor');</script>
     </div>
 </div>
 <div class="row">
@@ -54,7 +55,8 @@
         <div class="control-group">
             <input type="hidden" name="user_id" value="<?=$author_id;?>">
             <input type="hidden" name="status" value="1">
-            <a class="btn btn-success" href="#" onclick="req.addItem('modules');">Добавить модуль</a>
+            <input type="hidden" id="content" name="content" value="">
+            <a class="btn btn-success" href="#" onclick="req.initEditor();req.addItem('modules');">Добавить модуль</a>
         </div>
     </div>
 </div>

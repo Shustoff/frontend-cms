@@ -2,6 +2,19 @@
 
 class Controller_Admin_Catalogs extends Controller_App {
 
+    public function before()
+    {
+        $roles = Auth::instance()->get_user()->roles->find_all();
+        foreach ($roles as $role)
+        {
+            if ($role->name === 'login')
+                $permission = FALSE;
+            else
+                $role->cats === 0 ? $permission = FALSE : $permission = TRUE;
+        }
+        if ( ! $permission) die('Вам запрещен доступ к этой странице');
+    }
+
     public function action_index()
     {
         parent::action_main($model = 'catalog');
@@ -14,7 +27,7 @@ class Controller_Admin_Catalogs extends Controller_App {
 
     public function action_off($model = 'catalog')
     {
-        parent::action_main($model);
+        parent::action_off($model);
     }
 
     public function action_intrash($model = 'catalog')
@@ -42,7 +55,7 @@ class Controller_Admin_Catalogs extends Controller_App {
         ORM::factory('catalog')
             ->set('catname', $_POST['catname'])
             ->set('alias', $_POST['alias'])
-            ->set('catdesc', $_POST['catdesc'])
+            ->set('catdesc', $_POST['content'])
             ->set('date', $_POST['date'])
             ->set('parent_id', $_POST['parent_id'])
             ->set('status', $_POST['status'])

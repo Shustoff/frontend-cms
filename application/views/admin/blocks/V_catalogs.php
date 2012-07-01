@@ -4,11 +4,11 @@
         <tr>
             <th>ID</th>
             <th>Название</th>
-            <th>Описание</th>
+            <th>Алиас</th>
             <th>Родительский Каталог</th>
             <th>Дата создания</th>
             <th width="50">Состояние</th>
-            <th width="50">Удалить</th>
+            <th width="80">В корзину</th>
         </tr>
     </thead>
     <tbody>
@@ -16,23 +16,29 @@
             <tr class="pageedit">
                 <td><?=$catalog->id;?></td>
                 <td class="pagename"><a href="#"><?=$catalog->catname;?></a></td>
-                <td class="pagedesc"><?=$catalog->catdesc;?></td>
+                <td class="pagedesc"><?=$catalog->alias;?></td>
                 <td><?=$catalog->catalogs->catname;?></td>
                 <td><?=$catalog->date;?></td>
                 <td>
                     <form action="" method="post" id="cngstatus<?=$catalog->id;?>">
                         <input type="hidden" name="idpage" value="<?=$catalog->id;?>">
                         <?php if ($catalog->status == 1) : ?>
-                             <a href="#" onclick='req.off(this); return false;'><img src='<?=URL::base()?>assets/img/published.png'></a>
+                             <a href="#" onclick="req.off('catalogs', this); return false;">
+                                 <img src='<?=URL::base()?>assets/img/published.png'>
+                             </a>
                         <? else : ?>
-                             <a href="#" onclick='req.on(this); return false;'><img src='<?=URL::base()?>assets/img/not-published.png'></a>
+                             <a href="#" onclick="req.on('catalogs',this); return false;">
+                                 <img src='<?=URL::base()?>assets/img/not-published.png'>
+                             </a>
                         <? endif; ?>
                     </form>
                 </td>
                 <td>
                     <form action="" method="post" id="intrash<?=$catalog->id;?>">
                         <input type="hidden" name="intrash" value="<?=$catalog->id;?>">
-                        <a href="#" onclick="req.intrash('catalogs', this);"><img src='<?=URL::base()?>assets/img/delete.png'></a>
+                        <a href="#" onclick="req.intrash('catalogs', this);">
+                            <img src='<?=URL::base()?>assets/img/delete.png'>
+                        </a>
                     </form>
                 </td>
             </tr>
@@ -71,7 +77,7 @@
         </div>
     </div>
     <div class="span3 savepages">
-        <a class="btn btn-success" onclick="req.sortPages('catalogs');">Применить настройки</a>
+        <a class="btn btn-success" onclick="req.sortItems('catalogs');">Применить настройки</a>
     </div>
 </div>
 </form>
