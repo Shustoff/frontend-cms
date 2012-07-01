@@ -2,6 +2,19 @@
 
 class Controller_Admin_Users extends Controller_App {
 
+    public function before()
+    {
+        $roles = Auth::instance()->get_user()->roles->find_all();
+        foreach ($roles as $role)
+        {
+            if ($role->name === 'login')
+                $permission = FALSE;
+            else
+                $role->users === 0 ? $permission = FALSE : $permission = TRUE;
+        }
+        if ( ! $permission) die('Вам запрещен доступ к этой странице');
+    }
+
     public function action_index()
     {
         parent::action_main($model = 'user');
@@ -14,7 +27,7 @@ class Controller_Admin_Users extends Controller_App {
 
     public function action_off($model = 'user')
     {
-        parent::action_main($model);
+        parent::action_off($model);
     }
 
     public function action_intrash($model = 'user')
@@ -41,14 +54,23 @@ class Controller_Admin_Users extends Controller_App {
     // Добавляем пользователя в БД
     public function action_add()
     {
-        ORM::factory('user')
-            ->set('email', $_POST['email'])
-            ->set('password', $_POST['password'])
-            ->set('firstname', $_POST['firstname'])
-            ->set('lastname', $_POST['lastname'])
-            ->set('datereg', $_POST['datereg'])
-            ->set('status', $_POST['status'])
-            ->save();
+        try {
+            $user = ORM::factory('user');
+            $user->create_user($_POST, NULL)
+                 ->add('roles', ORM::factory('role', array('name' => 'login')));
+
+            // Проверяем роль пользователя при регистрации
+            if ($_POST['role_name'] !== 'login')
+            {
+                $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
+            }
+
+            $user->save();
+        }
+        catch (ORM_Validation_Exception $e)
+        {
+            print_r($errors = $e->errors());
+        }
     }
 
 

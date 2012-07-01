@@ -2,6 +2,19 @@
 
 class Controller_Admin_Email extends Controller_App {
 
+    public function before()
+    {
+        $roles = Auth::instance()->get_user()->roles->find_all();
+        foreach ($roles as $role)
+        {
+            if ($role->name === 'login')
+                $permission = FALSE;
+            else
+                $role->mails === 0 ? $permission = FALSE : $permission = TRUE;
+        }
+        if ( ! $permission) die('Вам запрещен доступ к этой странице');
+    }
+
     public function action_index()
     {
         $users = ORM::factory('user')->find_all();
@@ -25,7 +38,7 @@ class Controller_Admin_Email extends Controller_App {
         $to = $_POST['to'];
         $subject = $_POST['subject'];
         $from = $_POST['from'];
-        $message = $_POST['message'];
+        $message = $_POST['content'];
         $saveemail = $_POST['saveemail'];
         $date = $_POST['date'];
 

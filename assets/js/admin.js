@@ -29,7 +29,9 @@ $(function(){
 
         pages: function() {$(".main").load("/frontend/admin/pages");},
 
-        addpages: function() {$(".main").load("/frontend/admin/pages/addpages");},
+        addpages: function() {
+            $(".main").load("/frontend/admin/pages/addpages");
+        },
 
         catalogs: function() {$(".main").load("/frontend/admin/catalogs");},
 
@@ -49,8 +51,6 @@ $(function(){
 
         stats: function() {$(".main").load("/frontend/admin/stats")},
 
-        addrss: function() {$(".main").load("/frontend/admin/rss");},
-
         info: function() {$(".main").load("/frontend/admin/info");},
 
         trash: function() {$(".main").load("/frontend/admin/trash");},
@@ -64,18 +64,24 @@ $(function(){
         },
 
         // Опубликовать
-        on: function(that) {
-            var name = $(that).parent();
-            $.post("/frontend/admin/pages/on", $(name).serialize(), function(){
-                $(that).replaceWith("<a href='#' onclick='req.off(this); return false;'><img src='assets/img/published.png'>");
+        on: function(table, that) {
+            var formname = $(that).parent();
+            thisTable = table;
+            $.post("/frontend/admin/" + table + "/on", $(formname).serialize(), function(){
+                $(that).replaceWith(
+                    "<a href='#' onclick='req.off(thisTable, this); return false;'><img src='assets/img/published.png'></a>"
+                );
             });
         },
 
         // Не опубликовать
-        off: function(that) {
-            var name = $(that).parent();
-            $.post("/frontend/admin/pages/off", $(name).serialize(), function(){
-                $(that).replaceWith("<a href='#' onclick='req.on(this); return false;'><img src='assets/img/not-published.png'>");
+        off: function(table, that) {
+            var formname = $(that).parent();
+            thisTable = table;
+            $.post("/frontend/admin/" + table + "/off", $(formname).serialize(), function(){
+                $(that).replaceWith(
+                    "<a href='#' onclick='req.on(thisTable, this); return false;'><img src='assets/img/not-published.png'></a>"
+                );
             });
         },
 
@@ -88,7 +94,7 @@ $(function(){
         },
 
         // Сортировка страниц
-        sortPages: function(table) {
+        sortItems: function(table) {
             // Сохраняет сортировку между запросами
             var sortby = $('#select1 option:selected').text();
             localStorage.setItem('sortby', sortby);
@@ -193,6 +199,10 @@ $(function(){
             $.post("/frontend/admin/email/send", $('#email').serialize(), function() {
                 $('#sendemailbtn').text('Сообщение отправлено!');
             });
+        },
+
+        initEditor: function() {
+            $('#content').val(editor.getData());
         }
     };
 
@@ -206,4 +216,6 @@ $(function(){
         $('input[type=text], textarea').live('keydown', rem);
         $('input[type=radio], select').live('change', rem);
     }
+
+
 });

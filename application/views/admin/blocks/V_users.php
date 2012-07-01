@@ -8,7 +8,7 @@
             <th width="130">Роль</th>
             <th>Дата регистрации</th>
             <th width="50">Состояние</th>
-            <th width="50">Удалить</th>
+            <th width="80">В корзину</th>
         </tr>
     </thead>
     <tbody>
@@ -25,9 +25,9 @@
                     <form action="" method="post" id="cngstatus<?=$user->id;?>">
                         <input type="hidden" name="idpage" value="<?=$user->id;?>">
                         <?php if ($user->status == 1) : ?>
-                             <a href="#" onclick='req.off(this); return false;'><img src='<?=URL::base()?>assets/img/published.png'></a>
+                             <a href="#" onclick="req.off('users', this); return false;"><img src='<?=URL::base()?>assets/img/published.png'></a>
                         <? else : ?>
-                             <a href="#" onclick='req.on(this); return false;'><img src='<?=URL::base()?>assets/img/not-published.png'></a>
+                             <a href="#" onclick="req.on('users', this); return false;"><img src='<?=URL::base()?>assets/img/not-published.png'></a>
                         <? endif; ?>
                     </form>
                 </td>

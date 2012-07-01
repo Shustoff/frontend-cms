@@ -21,7 +21,8 @@
 <div class="row">
     <div class="span11 htmlcode">
         <h3 class="htmlcodelabel">Описание каталога:</h3>
-        <textarea id="html-code" class="auto" name="catdesc"></textarea>
+        <textarea id="editor" class="auto" name="editor"></textarea>
+        <script>editor = CKEDITOR.editor.replace('editor');</script>
     </div>
 </div>
 <div class="row">
@@ -38,6 +39,7 @@
                     <?php endforeach; ?>
                 </select>
                 <input type="hidden" name="status" value="1">
+                <input type="hidden" id="content" name="content" value="">
             </div>
         </div>
     </div>
@@ -56,7 +58,7 @@
     </div>
     <div class="span2 savecat">
         <div class="control-group">
-            <a class="btn btn-success" href="#" onclick="req.addItem('catalogs');">Сохранить каталог</a>
+            <a class="btn btn-success" href="#" onclick="req.initEditor(); req.addItem('catalogs');">Сохранить каталог</a>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@
             <th>Автор</th>
             <th>Дата создания</th>
             <th width="50">Состояние</th>
-            <th width="50">Удалить</th>
+            <th width="80">В корзину</th>
         </tr>
     </thead>
     <tbody>
@@ -23,16 +23,22 @@
                     <form action="" method="post" id="cngstatus<?=$page->id;?>">
                         <input type="hidden" name="idpage" value="<?=$page->id;?>">
                         <?php if ($page->status == 1) : ?>
-                             <a href="#" onclick='req.off(this); return false;'><img src='<?=URL::base()?>assets/img/published.png'></a>
+                             <a href="#" onclick="req.off('pages', this); return false;">
+                                 <img src='<?=URL::base()?>assets/img/published.png'>
+                             </a>
                         <? else : ?>
-                             <a href="#" onclick='req.on(this); return false; '><img src='<?=URL::base()?>assets/img/not-published.png'></a>
+                             <a href="#" onclick="req.on('pages', this); return false;">
+                                 <img src='<?=URL::base()?>assets/img/not-published.png'>
+                             </a>
                         <? endif; ?>
                     </form>
                 </td>
                 <td>
                     <form action="" method="post" id="intrash<?=$page->id;?>">
                         <input type="hidden" name="intrash" value="<?=$page->id;?>">
-                        <a href="#" onclick="req.intrash('pages',this);"><img src='<?=URL::base()?>assets/img/delete.png'></a>
+                        <a href="#" onclick="req.intrash('pages',this);">
+                            <img src='<?=URL::base()?>assets/img/delete.png'>
+                        </a>
                     </form>
                 </td>
             </tr>
@@ -71,7 +77,7 @@
         </div>
     </div>
     <div class="span3 savepages">
-        <a class="btn btn-success" onclick="req.sortPages('pages');">Применить настройки</a>
+        <a class="btn btn-success" onclick="req.sortItems('pages');">Применить настройки</a>
     </div>
 </div>
 </form>
@@ -86,7 +92,9 @@
                         <input type="hidden" name="offset" id="offset" value="">
                         <input type="hidden" name="limit" id="limit" value="">
                         <input type="hidden" name="sortby" id="sortby" value="">
-                        <a href="#" class="pageN" name="pagination" onclick="req.pagination('pages',this);"><?php echo $i; ?></a>
+                        <a href="#" class="pageN" name="pagination" onclick="req.pagination('pages',this);">
+                            <?php echo $i; ?>
+                        </a>
                     </form>
                 </li>
                 <? endfor; ?>

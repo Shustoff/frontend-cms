@@ -16,7 +16,7 @@
     <!--Передаем переменные из php в JS-->
     <script>
         var ipadress = '<?=$_SERVER['REMOTE_ADDR'];?>';
-        var email = '<?=$username->username;?>';
+        var email = '<?=$user->username;?>';
         var sitename = '<?=$sitename;?>';
     </script>
 
@@ -30,6 +30,7 @@
     <script src="<?=URL::base();?>assets/js/underscore.js"></script>
     <script src="<?=URL::base();?>assets/js/backbone.js"></script>
     <script src="<?=URL::base();?>assets/js/json2.js"></script>
+    <script src="<?=URL::base();?>assets/ckeditor/ckeditor.js"></script>
     <script src="<?=URL::base();?>assets/js/admin.js"></script>
 
     <!--Фавикон-->
@@ -137,9 +138,8 @@
         <div class="span12 footer">
             <p>Frontend CMS based on Kohana Framework v3.2</p>
             <a href="http://kohanaframework.org" class="kohcopy" target="_blank">www.kohanaframework.org</a>
-            <p id="copyright">kohana 2012 &copy;</p>
             <a href="#" class="helper">
-                <img src="<?=URL::base();?>assets/img/help.png" alt="">
+                <img src="<?=URL::base();?>assets/img/help.png" alt=""><span>Помощь</span>
             </a>
         </div>
     </div>

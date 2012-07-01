@@ -21,7 +21,8 @@
 <div class="row">
     <div class="span11 htmlcode">
         <h3 class="htmlcodelabel">HTML-код:</h3>
-        <textarea id="html-code" name="content" class="auto"></textarea>
+        <textarea id="editor" name="editor" class="auto">&nbsp;</textarea>
+        <script>editor = CKEDITOR.editor.replace('editor');</script>
     </div>
 </div>
 <div class="row">
@@ -61,13 +62,14 @@
                         </option>
                     <?php endforeach; ?>
                 </select>
-                <input type="hidden" name="author_id" value="<?=$author_id;?>">
+                <input type="hidden" name="author_id" value="<?=$user_id;?>">
                 <input type="hidden" name="status" value="1">
+                <input type="hidden" id="content" name="content" value="">
             </div>
         </div>
         <div class="control-group">
             <div class="controls">
-                <a class="btn btn-success" href="#" onclick="req.addItem('pages');">Сохранить страницу</a>
+                <a class="btn btn-success" href="#" onclick="req.initEditor();req.addItem('pages');">Сохранить страницу</a>
             </div>
         </div>
     </div>

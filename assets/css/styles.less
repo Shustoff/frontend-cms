@@ -226,6 +226,10 @@ p {
     .addrole {
         margin-left: 40px;
     }
+
+    #cke_editor {
+        margin-left: 10px;
+    }
 }
 
 table {
@@ -409,7 +413,7 @@ p.pagination a {
 .footer {
     text-align: center;
     border-top: @border;
-    * {
+    p, a {
          display: inline-block;
          font-size: 16px;
          margin: 10px 20px;
@@ -421,20 +425,20 @@ p.pagination a {
         height: 20px;
     }
 
-    #copyright {
-        margin-right: -20px;
-    }
-
-    .helper img{
-        margin-top: 0px;
-    }
-
     .helper {
-        margin: 5px 0px 15px 60px;
+        margin: -12px 0px 0px 60px;
+        text-decoration: none;
+        span {
+            margin-left: 5px;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
     }
+
 
     .kohcopy {
-        margin-top: 10px;
+        margin-top: 7px;
     }
 }
 
@@ -453,7 +457,8 @@ p.pagination a {
     }
 
     .alert-error {
-        margin-top: 20px !important;
+        margin-top: 0px;
         text-align: center;
+        border-radius: 10px 10px 0px 0px;
     }
 }
