@@ -14,7 +14,14 @@
         <?php foreach($modules as $module) : ?>
             <tr class="pageedit">
                 <td><?=$module->id;?></td>
-                <td class="pagename"><a href="#"><?=$module->name;?></a></td>
+                <td class="pagename">
+                    <form action="" method="post" name="edititem" id="edititem">
+                        <input type="hidden" value="<?=$module->id;?>" name="id">
+                        <a href="#" onclick="req.editItem('modules',<?=$module->id;?>);">
+                            <?=$module->name;?>
+                        </a>
+                    </form>
+                </td>
                 <td><?=$module->users->email;?></td>
                 <td><?=$module->date;?></td>
                 <td>

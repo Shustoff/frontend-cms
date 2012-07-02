@@ -5,7 +5,7 @@
         <div class="control-group">
             <label class="control-label" for="pagename">Заголовок страницы</label>
             <div class="controls">
-                <input type="text" id="pagename" name="pagename" class="input-xlarge">
+                <input type="text" id="pagename" name="pagename" class="input-xlarge" value="">
             </div>
         </div>
     </div>
@@ -13,7 +13,7 @@
         <div class="control-group">
             <label class="control-label" for="alias">Алиас страницы</label>
             <div class="controls">
-                <input type="text" id="alias" name="alias" class="input-xlarge">
+                <input type="text" id="alias" name="alias" class="input-xlarge" value="">
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
 <div class="row">
     <div class="span11 htmlcode">
         <h3 class="htmlcodelabel">HTML-код:</h3>
-        <textarea id="editor" name="editor" class="auto">&nbsp;</textarea>
+        <textarea id="editor" class="auto"></textarea>
         <script>editor = CKEDITOR.editor.replace('editor');</script>
     </div>
 </div>
@@ -49,7 +49,7 @@
         <div class="control-group">
             <label class="control-label" for="metadesc">Дата создания:</label>
             <div class="controls">
-                <input id="datepicker" type="text" name="date" class="input-large">
+                <input id="datepicker" type="text" name="date" class="input-large" value="">
             </div>
         </div>
         <div class="control-group">
@@ -69,7 +69,7 @@
         </div>
         <div class="control-group">
             <div class="controls">
-                <a class="btn btn-success" href="#" onclick="req.initEditor();req.addItem('pages');">Сохранить страницу</a>
+                <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.addItem('pages');return false;">Сохранить</a>
             </div>
         </div>
     </div>

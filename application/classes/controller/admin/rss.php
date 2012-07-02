@@ -24,4 +24,4 @@ class Controller_Admin_Rss extends Controller_App {
         $this->response->body($feed);
     }
 
-} // End Welcome
+}

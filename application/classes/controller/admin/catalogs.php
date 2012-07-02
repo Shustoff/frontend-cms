@@ -44,7 +44,7 @@ class Controller_Admin_Catalogs extends Controller_App {
     {
         $catalogs = ORM::factory('catalog')->find_all();
 
-        $view = View::factory('admin/blocks/V_addcatalog')
+        $view = View::factory('admin/catalogs/V_addcatalog')
             ->bind('catalogs', $catalogs);
 
         $this->response->body($view);
@@ -52,14 +52,27 @@ class Controller_Admin_Catalogs extends Controller_App {
 
     public function action_add()
     {
-        ORM::factory('catalog')
-            ->set('catname', $_POST['catname'])
-            ->set('alias', $_POST['alias'])
-            ->set('catdesc', $_POST['content'])
-            ->set('date', $_POST['date'])
-            ->set('parent_id', $_POST['parent_id'])
-            ->set('status', $_POST['status'])
-            ->save();
+        ORM::factory('catalog')->values($_POST)->save();
     }
+
+    public function action_editcatalogs()
+    {
+        $catalogs = ORM::factory('catalog')->find_all();
+
+        $id = $this->request->param('id');
+        $catalog = ORM::factory('catalog', $id);
+
+        $view = View::factory('admin/catalogs/V_editcatalog')
+            ->bind('catalogs', $catalogs)
+            ->bind('catalog', $catalog);
+
+        $this->response->body($view);
+    }
+
+    public function action_edit()
+    {
+        ORM::factory('catalog', $_POST['id'])->values($_POST)->save();
+    }
+
 
 } // End Welcome

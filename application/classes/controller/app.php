@@ -31,7 +31,7 @@ class Controller_App extends Controller {
 
         if ($count <= 1) $count = NULL;
 
-        $view = View::factory('admin/blocks/V_' . $model . 's')
+        $view = View::factory('admin/'. $model . 's/V_' . $model . 's')
                 ->bind($model . 's', $items)
                 ->bind('count', $count);
 

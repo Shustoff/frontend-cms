@@ -21,6 +21,7 @@
             <form action="" method="post" id="login">
                 <label>E-mail: <input type="text" name="username"></label>
                 <label>Пароль: <input type="password" name="password"></label>
+                <input type="hidden" value="0" name="remember">
                 <input type="submit" value="Войти!" name="auth" class="btn btn-success">
             </form>
         </div>

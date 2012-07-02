@@ -24,13 +24,13 @@ $(function(){
 
         options: function() {
             $(".main").load("/frontend/admin/options");
-            checkOptions();
+            binds.checkOptions();
         },
 
         pages: function() {$(".main").load("/frontend/admin/pages");},
 
         addpages: function() {
-            $(".main").load("/frontend/admin/pages/addpages");
+            $(".main").load("/frontend/admin/pages/addpage");
         },
 
         catalogs: function() {$(".main").load("/frontend/admin/catalogs");},
@@ -58,8 +58,8 @@ $(function(){
         // Сохранить настройки
         saveoptions: function() {
             $.post("/frontend/admin/options/save", $("#saveoptions").serialize(), function() {
-                $('.btn-success').attr('disabled', 'disabled').val('Настройки сохранены');
                 $('.sitename').text($('#sitename').val());
+                binds.disableSave();
             });
         },
 
@@ -186,10 +186,25 @@ $(function(){
             });
         },
 
-        // Добавляем материал (страницу, каталог, пользователя, модуль, роль)
+        // Добавляем материал
         addItem: function(table) {
             $.post("/frontend/admin/" + table + "/add", $('#additem').serialize(), function(){
-                $(".main").empty().load("/frontend/admin/" + table + "/add" + table);
+                binds.disableSave();
+            });
+        },
+
+        // Загружает вид для редактирование материала
+        editItem: function(table, itemId) {
+            $.post("/frontend/admin/" + table + "/edit" + table + "/" + itemId, $('#edititem').serialize(), function(){
+                $(".main").empty().load("/frontend/admin/" + table + "/edit" + table + "/" + itemId);
+                binds.checkOptions();
+            });
+        },
+
+        // Обновляем материал
+        edit: function(table) {
+            $.post("/frontend/admin/" + table + "/edit", $("#edititem").serialize(), function(){
+                binds.disableSave();
             });
         },
 
@@ -201,20 +216,27 @@ $(function(){
             });
         },
 
+        // Добавляем сообщение для отправки
         initEditor: function() {
             $('#content').val(editor.getData());
         }
+
     };
 
-    // Проверка измененных полей в настройках
-    function checkOptions() {
+    // Биндим события на инпуты
+    binds = {
+        // Проверка измененных полей в настройках
+        checkOptions: function() {
+            // Делаем кнопку активной
+            function rem() {$('.btncheck').removeAttr('disabled').text('Сохранить');}
+            // Проверяем внесены ли изменения в настройки
+            $('input[type=text], textarea').live('keydown', rem);
+            $('input[type=radio], select').live('change', rem);
+        },
 
-        // Делаем кнопку активной
-        function rem() {$('.btn-success').removeAttr('disabled').val('Сохранить настройки сайта');}
-
-        // Проверяем внесены ли изменения в настройки
-        $('input[type=text], textarea').live('keydown', rem);
-        $('input[type=radio], select').live('change', rem);
+        disableSave: function() {
+            $('.btncheck').attr('disabled', 'disabled').text('Сохранено');
+        }
     }
 
 

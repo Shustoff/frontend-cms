@@ -1,44 +1,47 @@
-<h3>Все каталоги</h3>
+<h3>Все пользователи</h3>
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Название</th>
-            <th>Алиас</th>
-            <th>Родительский Каталог</th>
-            <th>Дата создания</th>
+            <th>Email</th>
+            <th>Логин</th>
+            <th width="250">Роль</th>
+            <th>Дата регистрации</th>
             <th width="50">Состояние</th>
             <th width="80">В корзину</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach($catalogs as $catalog) : ?>
+        <?php foreach($users as $user) : ?>
             <tr class="pageedit">
-                <td><?=$catalog->id;?></td>
-                <td class="pagename"><a href="#"><?=$catalog->catname;?></a></td>
-                <td class="pagedesc"><?=$catalog->alias;?></td>
-                <td><?=$catalog->catalogs->catname;?></td>
-                <td><?=$catalog->date;?></td>
+                <td><?=$user->id;?></td>
+                <td class="pagename">
+                    <form action="" method="post" name="edititem" id="edititem">
+                        <input type="hidden" value="<?=$user->id;?>" name="id">
+                        <a href="#" onclick="req.editItem('users',<?=$user->id;?>);">
+                            <?=$user->email;?>
+                        </a>
+                    </form>
+                </td>
+                <td class="pagedesc"><?=$user->username;?></td>
                 <td>
-                    <form action="" method="post" id="cngstatus<?=$catalog->id;?>">
-                        <input type="hidden" name="idpage" value="<?=$catalog->id;?>">
-                        <?php if ($catalog->status == 1) : ?>
-                             <a href="#" onclick="req.off('catalogs', this); return false;">
-                                 <img src='<?=URL::base()?>assets/img/published.png'>
-                             </a>
+                    <?php foreach ($user->roles->find_all() as $role) {echo "$role->description, ";} ?>
+                </td>
+                <td><?=$user->datereg;?></td>
+                <td>
+                    <form action="" method="post" id="cngstatus<?=$user->id;?>">
+                        <input type="hidden" name="idpage" value="<?=$user->id;?>">
+                        <?php if ($user->status == 1) : ?>
+                             <a href="#" onclick="req.off('users', this); return false;"><img src='<?=URL::base()?>assets/img/published.png'></a>
                         <? else : ?>
-                             <a href="#" onclick="req.on('catalogs',this); return false;">
-                                 <img src='<?=URL::base()?>assets/img/not-published.png'>
-                             </a>
+                             <a href="#" onclick="req.on('users', this); return false;"><img src='<?=URL::base()?>assets/img/not-published.png'></a>
                         <? endif; ?>
                     </form>
                 </td>
                 <td>
-                    <form action="" method="post" id="intrash<?=$catalog->id;?>">
-                        <input type="hidden" name="intrash" value="<?=$catalog->id;?>">
-                        <a href="#" onclick="req.intrash('catalogs', this);">
-                            <img src='<?=URL::base()?>assets/img/delete.png'>
-                        </a>
+                    <form action="" method="post" id="intrash<?=$user->id;?>">
+                        <input type="hidden" name="intrash" value="<?=$user->id;?>">
+                        <a href="#" onclick="req.intrash('users',this);"><img src='<?=URL::base()?>assets/img/delete.png'></a>
                     </form>
                 </td>
             </tr>
@@ -54,10 +57,8 @@
             <div class="controls">
                 <select id="select1" name="sortby" class="input-medium">
                     <option value="id">ID</option>
-                    <option value="catname">Названию</option>
-                    <option value="catdesc">Описанию</option>
-                    <option value="parent_id">Родительскому каталогу</option>
-                    <option value="date">Дате</option>
+                    <option value="email">Email</option>
+                    <option value="datereg">Дате регистрации</option>
                 </select>
             </div>
         </div>
@@ -77,7 +78,7 @@
         </div>
     </div>
     <div class="span3 savepages">
-        <a class="btn btn-success" onclick="req.sortItems('catalogs');">Применить настройки</a>
+        <a class="btn btn-success" onclick="req.sortItems('users');">Применить настройки</a>
     </div>
 </div>
 </form>
@@ -92,7 +93,7 @@
                         <input type="hidden" name="offset" id="offset" value="">
                         <input type="hidden" name="limit" id="limit" value="">
                         <input type="hidden" name="sortby" id="sortby" value="">
-                        <a href="#" class="pageN" name="pagination" onclick="req.pagination('catalogs',this);"><?php echo $i; ?></a>
+                        <a href="#" class="pageN" name="pagination" onclick="req.pagination('users',this);"><?php echo $i; ?></a>
                     </form>
                 </li>
                 <? endfor; ?>

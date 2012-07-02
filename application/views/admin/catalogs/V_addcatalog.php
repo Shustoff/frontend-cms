@@ -21,7 +21,7 @@
 <div class="row">
     <div class="span11 htmlcode">
         <h3 class="htmlcodelabel">Описание каталога:</h3>
-        <textarea id="editor" class="auto" name="editor"></textarea>
+        <textarea id="editor" class="auto"></textarea>
         <script>editor = CKEDITOR.editor.replace('editor');</script>
     </div>
 </div>
@@ -58,7 +58,7 @@
     </div>
     <div class="span2 savecat">
         <div class="control-group">
-            <a class="btn btn-success" href="#" onclick="req.initEditor(); req.addItem('catalogs');">Сохранить каталог</a>
+            <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.addItem('catalogs');return false;">Сохранить каталог</a>
         </div>
     </div>
 </div>
