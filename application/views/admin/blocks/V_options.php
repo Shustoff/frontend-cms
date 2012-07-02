@@ -153,9 +153,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="control-group">
+                    <div class="control-group offset1">
                         <div class="controls">
-                            <input class="btn btn-success" type="button" onclick="req.saveoptions();" value="Сохранить настройки сайта">
+                            <a class="btn btn-success" href="#" onclick="req.saveoptions(); return false;">Сохранить</a>
                         </div>
                     </div>
         </div>

@@ -74,7 +74,7 @@
             <div class="controls">
                 <input id="datepicker" type="text" name="datereg" class="input-small">
                 <input type="hidden" name="status" value="1">
-                <a class="btn btn-success" href="#" onclick="req.addItem('users');">Добавить</a>
+                <a class="btn btn-success btncheck" href="#" onclick="req.addItem('users');">Добавить</a>
             </div>
         </div>
     </div>

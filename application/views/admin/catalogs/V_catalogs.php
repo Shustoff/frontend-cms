@@ -1,42 +1,49 @@
-<h3>Все страницы</h3>
+<h3>Все каталоги</h3>
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>ID</th>
             <th>Название</th>
-            <th>Каталог</th>
-            <th>Автор</th>
+            <th>Алиас</th>
+            <th>Родительский Каталог</th>
             <th>Дата создания</th>
             <th width="50">Состояние</th>
             <th width="80">В корзину</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach($pages as $page) : ?>
+        <?php foreach($catalogs as $catalog) : ?>
             <tr class="pageedit">
-                <td><?=$page->id;?></td>
-                <td class="pagename"><a href="#"><?=$page->pagename;?></a></td>
-                <td><?=$page->catalogs->catname;?></td>
-                <td><?=$page->users->email;?></td>
-                <td><?=$page->date;?></td>
+                <td><?=$catalog->id;?></td>
+                <td class="pagename">
+                    <form action="" method="post" name="edititem" id="edititem">
+                        <input type="hidden" value="<?=$catalog->id;?>" name="id">
+                        <a href="#" onclick="req.editItem('catalogs',<?=$catalog->id;?>);">
+                            <?=$catalog->catname;?>
+                        </a>
+                    </form>
+                </td>
+                <td class="pagedesc"><?=$catalog->alias;?></td>
+                <td><?=$catalog->catalogs->catname;?></td>
+                <td><?=$catalog->date;?></td>
                 <td>
-                    <form action="" method="post" id="cngstatus<?=$page->id;?>">
-                        <input type="hidden" name="idpage" value="<?=$page->id;?>">
-                        <?php if ($page->status == 1) : ?>
-                             <a href="#" onclick="req.off('pages', this); return false;">
+                    <form action="" method="post" id="cngstatus<?=$catalog->id;?>">
+                        <input type="hidden" name="idpage" value="<?=$catalog->id;?>">
+                        <?php if ($catalog->status == 1) : ?>
+                             <a href="#" onclick="req.off('catalogs', this); return false;">
                                  <img src='<?=URL::base()?>assets/img/published.png'>
                              </a>
                         <? else : ?>
-                             <a href="#" onclick="req.on('pages', this); return false;">
+                             <a href="#" onclick="req.on('catalogs',this); return false;">
                                  <img src='<?=URL::base()?>assets/img/not-published.png'>
                              </a>
                         <? endif; ?>
                     </form>
                 </td>
                 <td>
-                    <form action="" method="post" id="intrash<?=$page->id;?>">
-                        <input type="hidden" name="intrash" value="<?=$page->id;?>">
-                        <a href="#" onclick="req.intrash('pages',this);">
+                    <form action="" method="post" id="intrash<?=$catalog->id;?>">
+                        <input type="hidden" name="intrash" value="<?=$catalog->id;?>">
+                        <a href="#" onclick="req.intrash('catalogs', this);">
                             <img src='<?=URL::base()?>assets/img/delete.png'>
                         </a>
                     </form>
@@ -54,9 +61,9 @@
             <div class="controls">
                 <select id="select1" name="sortby" class="input-medium">
                     <option value="id">ID</option>
-                    <option value="pagename">Названию</option>
-                    <option value="author_id">Автору</option>
-                    <option value="catalog_id">Каталогу</option>
+                    <option value="catname">Названию</option>
+                    <option value="catdesc">Описанию</option>
+                    <option value="parent_id">Родительскому каталогу</option>
                     <option value="date">Дате</option>
                 </select>
             </div>
@@ -77,7 +84,7 @@
         </div>
     </div>
     <div class="span3 savepages">
-        <a class="btn btn-success" onclick="req.sortItems('pages');">Применить настройки</a>
+        <a class="btn btn-success" onclick="req.sortItems('catalogs');">Применить настройки</a>
     </div>
 </div>
 </form>
@@ -92,9 +99,7 @@
                         <input type="hidden" name="offset" id="offset" value="">
                         <input type="hidden" name="limit" id="limit" value="">
                         <input type="hidden" name="sortby" id="sortby" value="">
-                        <a href="#" class="pageN" name="pagination" onclick="req.pagination('pages',this);">
-                            <?php echo $i; ?>
-                        </a>
+                        <a href="#" class="pageN" name="pagination" onclick="req.pagination('catalogs',this);"><?php echo $i; ?></a>
                     </form>
                 </li>
                 <? endfor; ?>

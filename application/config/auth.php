@@ -10,8 +10,8 @@ return array(
 
 	// Username/password combinations for the Auth File driver
 	'users' => array(
-        // 'admin@admin.ru' => '4d5851a0a687e2c5a90a3a1158808fc3c95be1b9cae8975db3bd9884cb6a5fe7'
-		// 'admin' => 'b3154acf3a344170077d11bdb5fff31532f679a1919e716a02',
+        // 'admin' => 'admin123'
+		// 'admin' => 'ac6f6788b30fa58d5fbddad35140bad44b0ce132dec42bf54f160f1ac451722d',
 	),
 
 );

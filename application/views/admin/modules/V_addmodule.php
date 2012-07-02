@@ -56,7 +56,7 @@
             <input type="hidden" name="user_id" value="<?=$author_id;?>">
             <input type="hidden" name="status" value="1">
             <input type="hidden" id="content" name="content" value="">
-            <a class="btn btn-success" href="#" onclick="req.initEditor();req.addItem('modules');">Добавить модуль</a>
+            <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.addItem('modules');">Добавить модуль</a>
         </div>
     </div>
 </div>

@@ -114,7 +114,7 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 
-Route::set('admin', 'admin(/<controller>(/<action>))')
+Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))', array('id' => '.+'))
 	->defaults(array(
         'directory' => 'admin',
         'controller' => 'main',

@@ -42,10 +42,10 @@ class Controller_Admin_Modules extends Controller_App {
 
     public function action_addmodules()
     {
-        $email = Auth::instance()->get_user();
-        $author_id = ORM::factory('user')->where('email', '=', $email)->find();
+        $user = Auth::instance()->get_user();
+        $author_id = ORM::factory('user')->where('email', '=', $user->email)->find();
 
-        $view = View::factory('admin/blocks/V_addmodule')
+        $view = View::factory('admin/modules/V_addmodule')
                 ->bind('author_id', $author_id);
 
         $this->response->body($view);
@@ -53,15 +53,27 @@ class Controller_Admin_Modules extends Controller_App {
 
     public function action_add()
     {
-        ORM::factory('module')
-            ->set('name', $_POST['name'])
-            ->set('systemname', $_POST['systemname'])
-            ->set('content', $_POST['content'])
-            ->set('user_id', $_POST['user_id'])
-            ->set('type', $_POST['type'])
-            ->set('date', $_POST['date'])
-            ->set('status', $_POST['status'])
-            ->save();
+        ORM::factory('module')->values($_POST)->save();
+    }
+
+    public function action_editmodules()
+    {
+        $user = Auth::instance()->get_user();
+        $author_id = ORM::factory('user')->where('email', '=', $user->email)->find();
+
+        $id = $this->request->param('id');
+        $module = ORM::factory('module', $id);
+
+        $view = View::factory('admin/modules/V_editmodule')
+                ->bind('author_id', $author_id)
+                ->bind('module', $module);
+
+        $this->response->body($view);
+    }
+
+    public function action_edit()
+    {
+        ORM::factory('module', $_POST['id'])->values($_POST)->save();
     }
 
 } // End Welcome

@@ -15,7 +15,7 @@ class Controller_Admin_Auth extends Controller {
             $status = Auth::instance()->login($data['username'], $data['password'], (bool) $data['remember']);
             if ($status)
             {
-                if(Auth::instance()->logged_in(array('name' => 'admin', 'name' => 'manager'))) {
+                if (Auth::instance()->logged_in()) {
                     $this->request->redirect('admin');
                 }
                 else
@@ -35,7 +35,7 @@ class Controller_Admin_Auth extends Controller {
     // Разлогиниваемся
     public function action_logout()
     {
-        Auth::instance()->logout();
+        Auth::instance()->logout(TRUE, TRUE);
         $this->request->redirect('admin/auth');
     }
 
