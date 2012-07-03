@@ -25,7 +25,8 @@ class Controller_Admin_Trash extends Controller_App {
         $allpages = DB::select('id')->from('pages')->where('intrash', '=', '1');
         $allcatalogs = DB::select('id')->union($allpages)->from('catalogs')->where('intrash', '=', '1');
         $allusers = DB::select('id')->union($allcatalogs)->from('users')->where('intrash', '=', '1');
-        $allitems = DB::select('id')->union($allusers)->from('modules')->where('intrash', '=', '1')->execute();
+        $allroles = DB::select('id')->union($allusers)->from('roles')->where('intrash', '=', '1');
+        $allitems = DB::select('id')->union($allroles)->from('modules')->where('intrash', '=', '1')->execute();
 
         // Расчитываем пагинацию
         $count = $allitems->count() / $limit;
@@ -49,15 +50,20 @@ class Controller_Admin_Trash extends Controller_App {
                     ->from('users')
                     ->where('intrash', '=', '1');
 
-        $items = DB::select(array('id', 'item_id'),array('name', 'item_name'),array('date', 'item_date'),'status','intrash')
+        $roles = DB::select(array('id', 'item_id'),array('name', 'item_name'),array('date', 'item_date'),'status','intrash')
                     ->union($users)
+                    ->from('roles')
+                    ->where('intrash', '=', '1');
+
+        $items = DB::select(array('id', 'item_id'),array('name', 'item_name'),array('date', 'item_date'),'status','intrash')
+                    ->union($roles)
                     ->from('modules')
                     ->where('intrash', '=', '1')
                     ->execute();
 
         $view = View::factory('admin/blocks/V_trash')
-                ->bind('items', $items)
-                ->bind('count', $count);
+                    ->bind('items', $items)
+                    ->bind('count', $count);
 
         $this->response->body($view);
     }
@@ -67,6 +73,7 @@ class Controller_Admin_Trash extends Controller_App {
         DB::update('pages')->set(array('intrash' => 0))->where('pagename', '=', $_POST["item_name"])->execute();
         DB::update('catalogs')->set(array('intrash' => 0))->where('catname', '=', $_POST["item_name"])->execute();
         DB::update('users')->set(array('intrash' => 0))->where('email', '=', $_POST["item_name"])->execute();
+        DB::update('roles')->set(array('intrash' => 0))->where('name', '=', $_POST["item_name"])->execute();
         DB::update('modules')->set(array('intrash' => 0))->where('name', '=', $_POST["item_name"])->execute();
     }
 
@@ -75,6 +82,7 @@ class Controller_Admin_Trash extends Controller_App {
         DB::delete('pages')->where('pagename', '=', $_POST["item_name"])->execute();
         DB::delete('catalogs')->where('catname', '=', $_POST["item_name"])->execute();
         DB::delete('users')->where('email', '=', $_POST["item_name"])->execute();
+        DB::delete('roles')->where('name', '=', $_POST["item_name"])->execute();
         DB::delete('modules')->where('name', '=', $_POST["item_name"])->execute();
     }
 

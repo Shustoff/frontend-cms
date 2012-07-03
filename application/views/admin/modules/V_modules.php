@@ -76,7 +76,7 @@
         </div>
     </div>
     <div class="span3 savepages">
-        <a class="btn btn-success" onclick="req.sortPages('modules');">Применить настройки</a>
+        <a class="btn btn-success" onclick="req.sortItems('modules');">Применить настройки</a>
     </div>
 </div>
 </form>
@@ -87,11 +87,11 @@
             <ul>
                 <?php for ($i = 1; $i <= $count; $i++ ) : ?>
                 <li>
-                    <form action="" method="post" id="pagination<?php echo $i; ?>">
+                    <form action="" method="post" id="pagination<?=$i;?>">
                         <input type="hidden" name="offset" id="offset" value="">
                         <input type="hidden" name="limit" id="limit" value="">
                         <input type="hidden" name="sortby" id="sortby" value="">
-                        <a href="#" class="pageN" name="pagination" onclick="req.pagination('modules',this);"><?php echo $i; ?></a>
+                        <a href="#" class="pageN" name="pagination" onclick="req.pagination('modules',this);"><?=$i;?></a>
                     </form>
                 </li>
                 <? endfor; ?>

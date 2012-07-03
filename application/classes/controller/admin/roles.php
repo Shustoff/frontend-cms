@@ -15,24 +15,51 @@ class Controller_Admin_Roles extends Controller_App {
         if ( ! $permission) die('Вам запрещен доступ к этой странице');
     }
 
+    public function action_index()
+    {
+        parent::action_main($model = 'role');
+    }
+
+    public function action_on($model = 'role')
+    {
+        parent::action_on($model);
+    }
+
+    public function action_off($model = 'role')
+    {
+        parent::action_off($model);
+    }
+
+    public function action_intrash($model = 'role')
+    {
+        parent::action_intrash($model);
+    }
+
     public function action_addroles()
     {
-        $view = View::factory('admin/blocks/V_addrole');
+        $view = View::factory('admin/roles/V_addrole');
         $this->response->body($view);
     }
 
     public function action_add()
     {
-        ORM::factory('role')
-            ->set('name', $_POST['name'])
-            ->set('description', $_POST['description'])
-            ->set('pages', $_POST['pages'])
-            ->set('cats', $_POST['cats'])
-            ->set('users', $_POST['users'])
-            ->set('mods', $_POST['mods'])
-            ->set('mails', $_POST['mails'])
-            ->set('stats', $_POST['stats'])
-            ->set('opts', $_POST['opts'])
-            ->save();
+        ORM::factory('role')->values($_POST)->save();
     }
+
+    public function action_editroles()
+    {
+        $id = $this->request->param('id');
+        $role = ORM::factory('role', $id);
+
+        $view = View::factory('admin/roles/V_editrole')
+                ->set('role', $role);
+        $this->response->body($view);
+
+    }
+
+    public function action_edit()
+    {
+        ORM::factory('role', $_POST['id'])->values($_POST)->save();
+    }
+
 }

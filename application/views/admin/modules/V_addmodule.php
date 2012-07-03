@@ -25,7 +25,7 @@
 <div class="row">
     <div class="span11 htmlcode">
         <h3 class="htmlcodelabel">Код модуля:</h3>
-        <textarea id="editor" class="auto" name="editor"></textarea>
+        <textarea id="editor" class="auto"></textarea>
         <script>editor = CKEDITOR.editor.replace('editor');</script>
     </div>
 </div>
@@ -39,15 +39,16 @@
         </div>
     </div>
     <div class="span3">
-        <script>
-        	$(function() {
-        		$( "#datepicker" ).datepicker();
-        	});
-        </script>
         <div class="control-group">
             <label class="control-label" for="datepicker">Дата создания:</label>
             <div class="controls">
                 <input id="datepicker" type="text" name="date" class="input-small">
+                <script>
+                    $(function() {
+                        $( "#datepicker" ).datepicker();
+                        date.today("#datepicker");
+                    });
+                </script>
             </div>
         </div>
     </div>

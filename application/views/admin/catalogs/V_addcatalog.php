@@ -44,15 +44,16 @@
         </div>
     </div>
     <div class="span3">
-        <script>
-        	$(function() {
-        		$( "#datepicker" ).datepicker();
-        	});
-        </script>
         <div class="control-group">
             <label class="control-label" for="datepicker">Дата создания:</label>
             <div class="controls">
                 <input id="datepicker" type="text" name="date" class="input-small">
+                <script>
+                    $(function() {
+                        $("#datepicker").datepicker();
+                        date.today("#datepicker");
+                    });
+                </script>
             </div>
         </div>
     </div>

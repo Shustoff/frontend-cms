@@ -51,16 +51,17 @@
                 </div>
             </div>
             <div class="row two">
-                <div class="span3">
-                    <h1 class="logo">Frontend CMS</h1>
+                <div class="span2">
+                    <h1 class="logo">FrontCMS</h1>
                 </div>
-                <div class="span8">
+                <div class="span9">
                     <ul class="menu">
                         <li><a href="#home" onclick="req.index();">Главная</a></li>
                         <li><a href="#options" onclick="req.options();">Настройки</a></li>
                         <li><a href="#pages" onclick="req.pages();">Страницы</a></li>
                         <li><a href="#catalogs" onclick="req.catalogs();">Каталоги</a></li>
                         <li><a href="#users" onclick="req.users();">Пользователи</a></li>
+                        <li><a href="#users" onclick="req.roles();">Группы</a></li>
                         <li><a href="#modules" onclick="req.modules();">Модули</a></li>
                     </ul>
                 </div>
@@ -136,7 +137,7 @@
     </div>
     <div class="row">
         <div class="span12 footer">
-            <p>Frontend CMS based on Kohana Framework v3.2</p>
+            <p>Front CMS based on Kohana Framework v3.2</p>
             <a href="http://kohanaframework.org" class="kohcopy" target="_blank">www.kohanaframework.org</a>
             <a href="#" class="helper">
                 <img src="<?=URL::base();?>assets/img/help.png" alt=""><span>Помощь</span>

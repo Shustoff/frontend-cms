@@ -121,7 +121,14 @@
     <div class="span5 offset6">
         <div class="control-group">
             <div class="controls">
-                <a class="btn btn-success addrole" href="#" onclick="req.addItem('roles');">Добавить роль</a>
+                <input type="hidden" id="datepicker" name="date" value="">
+                <input type="hidden" name="status" value="1">
+                <script>
+                    $(function() {
+                        date.today('#datepicker')
+                    });
+                </script>
+                <a class="btn btn-success addrole btncheck" href="#" onclick="req.addItem('roles');">Добавить роль</a>
             </div>
         </div>
     </div>
