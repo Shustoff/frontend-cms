@@ -63,16 +63,17 @@
             </div>
         </div>
     </div>
-    <script>
-    	$(function() {
-    		$( "#datepicker" ).datepicker();
-    	});
-    </script>
     <div class="span5 aliasright">
         <div class="control-group">
             <label class="control-label" for="datepicker">Дата создания:</label>
             <div class="controls">
                 <input id="datepicker" type="text" name="datereg" class="input-small">
+                <script>
+                    $(function() {
+                        $( "#datepicker" ).datepicker();
+                        date.today("#datepicker");
+                    });
+                </script>
                 <input type="hidden" name="status" value="1">
                 <a class="btn btn-success btncheck" href="#" onclick="req.addItem('users');">Добавить</a>
             </div>

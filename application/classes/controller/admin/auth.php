@@ -5,30 +5,36 @@ class Controller_Admin_Auth extends Controller {
     // Логинимся
     public function action_index()
     {
-        if (Auth::instance()->logged_in())
-        {
-            $this->request->redirect('admin');
-        }
+
+        if (Auth::instance()->logged_in()) {$this->request->redirect('admin');}
+
         if ($_POST)
         {
             $data = Arr::extract($_POST, array('username', 'password', 'remember'));
             $status = Auth::instance()->login($data['username'], $data['password'], (bool) $data['remember']);
             if ($status)
             {
-                if (Auth::instance()->logged_in()) {
-                    $this->request->redirect('admin');
+                $user = ORM::factory('user')->where('username', '=', $data['username'])->find();
+                if ($user->status == 1)
+                {
+                    if (Auth::instance()->logged_in())
+                    {
+                        $this->request->redirect('admin');
+                    }
                 }
                 else
                 {
-                    $faillogin = "<div class='alert alert-error'>У вас недостаточно прав для входа!</div>";
-                    $this->response->body(View::factory('/admin/login')->bind('faillogin', $faillogin));
+                    $faillogin = "<div class='alert alert-error'>Ваш аккаунт не активирован!</div>";
+                    Auth::instance()->logout(TRUE);
                 }
             }
             else
             {
                 $faillogin = "<div class='alert alert-error'>Неправильный email или пароль!</div>";
+                $this->response->body(View::factory('/admin/login')->bind('faillogin', $faillogin));
             }
         }
+
         $this->response->body(View::factory('/admin/login')->bind('faillogin', $faillogin));
     }
 

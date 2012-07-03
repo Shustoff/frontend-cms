@@ -50,6 +50,7 @@
             <script>
                 $(function() {
                     $( "#datepicker" ).datepicker();
+                    date.today("#datepicker");
                 });
             </script>
             <div class="control-group">

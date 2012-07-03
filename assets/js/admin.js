@@ -10,11 +10,13 @@ $(function(){
         topRender: (function() {
             var topTemplate = $('.top').html();
             var template = _.template(topTemplate);
-            $('.top').html(template({
+            $('.top').html(
+                template({
                     sitename: sitename,
                     ipadress: ipadress,
                     email: email
-            }));
+                })
+            );
         })()
     };
 
@@ -40,6 +42,8 @@ $(function(){
         users: function() {$(".main").load("/frontend/admin/users");},
 
         addusers: function() {$(".main").load("/frontend/admin/users/addusers");},
+
+        roles: function() {$(".main").load("/frontend/admin/roles");},
 
         addroles: function() {$(".main").load("/frontend/admin/roles/addroles");},
 
@@ -218,7 +222,7 @@ $(function(){
 
         // Добавляем сообщение для отправки
         initEditor: function() {
-            $('#content').val(editor.getData());
+            $('#content').empty().val(editor.getData());
         }
 
     };
@@ -236,6 +240,18 @@ $(function(){
 
         disableSave: function() {
             $('.btncheck').attr('disabled', 'disabled').text('Сохранено');
+        }
+    }
+
+    date = {
+        today: function(el) {
+            var dt = new Date();
+            var month = dt.getMonth() + 1;
+            if (month < 10) month = '0' + month;
+            var day = dt.getDate();
+            if (day < 10) day='0' + day;
+            var year = dt.getFullYear();
+            $(el).val(year + '-' + month + '-' + day);
         }
     }
 
