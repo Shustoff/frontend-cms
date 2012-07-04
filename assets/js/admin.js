@@ -32,7 +32,7 @@ $(function(){
         pages: function() {$(".main").load("/frontend/admin/pages");},
 
         addpages: function() {
-            $(".main").load("/frontend/admin/pages/addpage");
+            $(".main").load("/frontend/admin/pages/addpages");
         },
 
         catalogs: function() {$(".main").load("/frontend/admin/catalogs");},
@@ -232,7 +232,7 @@ $(function(){
         // Проверка измененных полей в настройках
         checkOptions: function() {
             // Делаем кнопку активной
-            function rem() {$('.btncheck').removeAttr('disabled').text('Сохранить');}
+            function rem() {$('.btncheck').removeAttr('disabled').attr('onclick', 'req.saveoptions();').text('Сохранить');}
             // Проверяем внесены ли изменения в настройки
             $('input[type=text], textarea').live('keydown', rem);
             $('input[type=radio], select').live('change', rem);
@@ -240,8 +240,12 @@ $(function(){
 
         disableSave: function() {
             $('.btncheck').attr('disabled', 'disabled').text('Сохранено');
+        },
+
+        validDisable: function() {
+            $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;');
         }
-    }
+    };
 
     date = {
         today: function(el) {

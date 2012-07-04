@@ -50,23 +50,18 @@ class Controller_Admin_Users extends Controller_App {
     }
 
     // Добавляем пользователя в БД
-    public function action_add()
+    public function action_add($model)
     {
-        try {
-            $user = ORM::factory('user');
-            $user->create_user($_POST, NULL)->add('roles', ORM::factory('role', array('name' => 'login')));
-            // Проверяем роль пользователя при регистрации
-            if ($_POST['role_name'] !== 'login')
-            {
-                $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
-            }
-            $user->save();
-        }
-        catch (ORM_Validation_Exception $e)
+        $user = ORM::factory('user');
+        $user->create_user($_POST, NULL)->add('roles', ORM::factory('role', array('name' => 'login')));
+        // Проверяем роль пользователя при регистрации
+        if ($_POST['role_name'] !== 'login')
         {
-            $errors = $e->errors();
+            $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
         }
+        $user->save();
     }
+
     // Грузим вид редактирования пользователя
     public function action_editusers()
     {
@@ -89,23 +84,17 @@ class Controller_Admin_Users extends Controller_App {
     }
 
     // Обновляем пользователя в БД
-    public function action_edit()
+    public function action_edit($model)
     {
         DB::delete('roles_users')->where('user_id', '=', $_POST['id'])->and_where('role_id', '!=', '1')->execute();
-        try {
-            $user = ORM::factory('user', $_POST['id']);
-            $user->update_user($_POST, NULL);
-            // Проверяем роль пользователя при регистрации
-            if ($_POST['role_name'] !== 'login')
-            {
-                $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
-            }
-            $user->save();
-        }
-        catch (ORM_Validation_Exception $e)
+        $user = ORM::factory('user', $_POST['id']);
+        $user->update_user($_POST, NULL);
+        // Проверяем роль пользователя при регистрации
+        if ($_POST['role_name'] !== 'login')
         {
-            $errors = $e->errors();
+            $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
         }
+        $user->save();
     }
 
 

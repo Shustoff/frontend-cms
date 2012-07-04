@@ -25,13 +25,13 @@
     <script src="<?=URL::base();?>assets/js/jquery-1.7.2.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery-ui.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery.ui.datepicker-ru.js"></script>
-    <script src="<?=URL::base();?>assets/js/bootstrap.js"></script>
     <script src="<?=URL::base();?>assets/js/modernizr-2.5.3.js"></script>
     <script src="<?=URL::base();?>assets/js/underscore.js"></script>
     <script src="<?=URL::base();?>assets/js/backbone.js"></script>
-    <script src="<?=URL::base();?>assets/js/json2.js"></script>
     <script src="<?=URL::base();?>assets/ckeditor/ckeditor.js"></script>
     <script src="<?=URL::base();?>assets/js/admin.js"></script>
+    <script src="<?=URL::base();?>assets/js/jquery.validate.js"></script>
+    <script src="<?=URL::base();?>assets/js/admin-validate.js"></script>
 
     <!--Фавикон-->
     <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
@@ -67,14 +67,16 @@
                 </div>
             </div>
         </div>
-<!--        <div class="row">
+<!--
+        <div class="row">
             <div class="hint span12">
                 <h3>Заголовок подсказки</h3>
                 <p>Текст подсказки</p>
                 <span class="close" onclick="$('.hint').hide();">X</span>
             </div>
         </div>
--->        <div class="row maintools">
+-->
+        <div class="row maintools">
             <div class="span8 offset2">
                 <ul class="tools">
                     <li>

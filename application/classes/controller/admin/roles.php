@@ -41,9 +41,9 @@ class Controller_Admin_Roles extends Controller_App {
         $this->response->body($view);
     }
 
-    public function action_add()
+    public function action_add($model = 'role')
     {
-        ORM::factory('role')->values($_POST)->save();
+        parent::action_add($model);
     }
 
     public function action_editroles()
@@ -57,9 +57,9 @@ class Controller_Admin_Roles extends Controller_App {
 
     }
 
-    public function action_edit()
+    public function action_edit($model = 'role')
     {
-        ORM::factory('role', $_POST['id'])->values($_POST)->save();
+        parent::action_edit($model);
     }
 
 }

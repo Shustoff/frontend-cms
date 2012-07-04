@@ -5,7 +5,8 @@
                     <div class="control-group">
                         <label for="sitename" class="control-label">Название сайта: </label>
                         <div class="controls">
-                           <input type="text" id="sitename" name="sitename" class="input-xlarge" value="<?=$option->sitename;?>">
+                           <input type="text" id="sitename" name="sitename" class="input-xlarge required" value="<?=$option->sitename;?>">
+                           <em></em>
                         </div>
                     </div>
                     <div class="control-group">
@@ -155,9 +156,10 @@
                     </div>
                     <div class="control-group offset1">
                         <div class="controls">
-                            <a class="btn btn-success" href="#" onclick="req.saveoptions(); return false;">Сохранить</a>
+                            <a class="btn btn-success btncheck" href="#" onclick="req.saveoptions();">Сохранить</a>
                         </div>
                     </div>
         </div>
     </form>
 </div>
+<script>validOptions();</script>
