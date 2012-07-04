@@ -7,7 +7,7 @@ class Model_Module extends ORM {
     protected $_belongs_to = array(
         'users' => array(
             'model' => 'user',
-            'foreign_key' => 'user_id'
+            'foreign_key' => 'author_id'
         )
     );
 

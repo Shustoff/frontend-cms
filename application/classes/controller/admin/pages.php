@@ -40,7 +40,7 @@ class Controller_Admin_Pages extends Controller_App {
         parent::action_search($model, $field);
     }
 
-    public function action_addpage()
+    public function action_addpages()
     {
         $catalogs = ORM::factory('catalog')->find_all();
         $user = Auth::instance()->get_user();
@@ -51,9 +51,9 @@ class Controller_Admin_Pages extends Controller_App {
         $this->response->body($view);
     }
 
-    public function action_add()
+    public function action_add($model = 'page')
     {
-        ORM::factory('page')->values($_POST)->save();
+        parent::action_add($model);
     }
 
     public function action_editpages()
@@ -73,9 +73,9 @@ class Controller_Admin_Pages extends Controller_App {
         $this->response->body($view);
     }
 
-    public function action_edit()
+    public function action_edit($model = 'page')
     {
-        ORM::factory('page', $_POST['id'])->values($_POST)->save();
+        parent::action_edit($model);
     }
 
 

@@ -19,12 +19,14 @@ class Controller_Admin_Email extends Controller_App {
     {
         $users = ORM::factory('user')->find_all();
 
-        $email = Auth::instance()->get_user();
-        $author_id = ORM::factory('user')->where('email', '=', $email)->find();
+        $user = Auth::instance()->get_user();
+        $usermail = $user->email;
+        $author_id = ORM::factory('user')->where('email', '=', $user)->find();
 
         $view = View::factory('admin/blocks/V_sendemail')
                       ->bind('users', $users)
-                      ->bind('author_id', $author_id);
+                      ->bind('author_id', $author_id)
+                      ->bind('usermail', $usermail);
 
         $this->response->body($view);
     }
@@ -53,7 +55,7 @@ class Controller_Admin_Email extends Controller_App {
                 ->save();
         }
 
-        Email::send($to, $from, $subject, $message, $html = FALSE);
+        Email::send($to, $from, $subject, $message, $html = TRUE);
     }
 
 

@@ -50,9 +50,9 @@ class Controller_Admin_Catalogs extends Controller_App {
         $this->response->body($view);
     }
 
-    public function action_add()
+    public function action_add($model = 'catalog')
     {
-        ORM::factory('catalog')->values($_POST)->save();
+        parent::action_add($model);
     }
 
     public function action_editcatalogs()
@@ -69,9 +69,9 @@ class Controller_Admin_Catalogs extends Controller_App {
         $this->response->body($view);
     }
 
-    public function action_edit()
+    public function action_edit($model = 'catalog')
     {
-        ORM::factory('catalog', $_POST['id'])->values($_POST)->save();
+        parent::action_edit($model);
     }
 
 

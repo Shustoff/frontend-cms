@@ -14,7 +14,6 @@
                 <label class="control-label" for="to">Кому:</label>
                 <div class="controls">
                     <select id="to" name="to">
-                        <option value="dima.shustoff@gmail.com">dima.shustoff@gmail.com</option>
                         <?php foreach($users as $user) : ?>
                              <option value="<?=$user->email;?>">
                                  <?=$user->email;?>
@@ -28,7 +27,7 @@
     <div class="row">
         <div class="span11 htmlcode">
             <h3 class="htmlcodelabel">Сообщение:</h3>
-            <textarea id="editor" class="auto" name="editor"></textarea>
+            <textarea id="editor" class="auto"></textarea>
             <script>editor = CKEDITOR.editor.replace('editor');</script>
         </div>
     </div>
@@ -62,9 +61,9 @@
         </div>
         <div class="span3 savecat">
             <div class="control-group">
-                <input type="hidden" name="from" value="<?=$author_id->email;?>">
+                <input type="hidden" name="from" value="<?=$usermail;?>">
                 <input type="hidden" id="content" name="content" value="">
-                <a class="btn btn-success" id="sendemailbtn" href="#" onclick="req.initEditor(); req.sendEmail();">
+                <a class="btn btn-success" id="sendemailbtn" href="#" onclick="req.initEditor(); req.sendEmail(); return false;">
                     Отправить сообщение
                 </a>
             </div>

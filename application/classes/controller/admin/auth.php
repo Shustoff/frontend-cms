@@ -41,7 +41,7 @@ class Controller_Admin_Auth extends Controller {
     // Разлогиниваемся
     public function action_logout()
     {
-        Auth::instance()->logout(TRUE, TRUE);
+        Auth::instance()->logout(TRUE);
         $this->request->redirect('admin/auth');
     }
 

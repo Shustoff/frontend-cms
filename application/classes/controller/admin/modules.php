@@ -51,9 +51,9 @@ class Controller_Admin_Modules extends Controller_App {
         $this->response->body($view);
     }
 
-    public function action_add()
+    public function action_add($model = 'module')
     {
-        ORM::factory('module')->values($_POST)->save();
+        parent::action_add($model);
     }
 
     public function action_editmodules()
@@ -71,9 +71,9 @@ class Controller_Admin_Modules extends Controller_App {
         $this->response->body($view);
     }
 
-    public function action_edit()
+    public function action_edit($model = 'module')
     {
-        ORM::factory('module', $_POST['id'])->values($_POST)->save();
+        parent::action_edit($model);
     }
 
 } // End Welcome

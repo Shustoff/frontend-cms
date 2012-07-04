@@ -67,4 +67,14 @@ class Controller_App extends Controller {
         $this->response->body($view);
     }
 
+    public function action_add($model)
+    {
+        ORM::factory($model)->values($_POST)->save();
+    }
+
+    public function action_edit($model)
+    {
+        ORM::factory($model, $_POST['id'])->values($_POST)->save();
+    }
+
 }
