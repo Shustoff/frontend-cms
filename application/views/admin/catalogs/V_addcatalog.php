@@ -3,9 +3,9 @@
 <div class="row">
     <div class="span6">
         <div class="control-group">
-            <label class="control-label" for="pagename">Название каталога</label>
+            <label class="control-label" for="catname">Название каталога</label>
             <div class="controls">
-                <input type="text" id="pagename" name="catname" class="input-xlarge">
+                <input type="text" id="catname" name="catname" class="input-xlarge required">
             </div>
         </div>
     </div>
@@ -13,7 +13,7 @@
         <div class="control-group">
             <label class="control-label" for="alias">Алиас каталога</label>
             <div class="controls">
-                <input type="text" id="alias" name="alias" class="input-xlarge">
+                <input type="text" id="alias" name="alias" class="input-xlarge required">
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
 <div class="row">
     <div class="span11 htmlcode">
         <h3 class="htmlcodelabel">Описание каталога:</h3>
-        <textarea id="editor" class="auto"></textarea>
+        <textarea id="editor" class="auto required"></textarea>
         <script>editor = CKEDITOR.editor.replace('editor');</script>
     </div>
 </div>
@@ -64,3 +64,4 @@
     </div>
 </div>
 </form>
+<script>validAddCatalog();</script>

@@ -6,7 +6,7 @@
             <div class="control-group">
                 <label class="control-label">Название роли:</label>
                 <div class="controls">
-                    <input type="text" name="name" class="input-large">
+                    <input type="text" name="name" class="input-large required letersonly">
                 </div>
             </div>
         </div>
@@ -14,7 +14,7 @@
             <div class="control-group">
                 <label class="control-label">Описание роли:</label>
                 <div class="controls">
-                    <input type="text" name="description" class="input-large">
+                    <input type="text" name="description" class="input-large required">
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
                         <input type="radio" value="1" name="pages">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="pages">Нет
+                        <input type="radio" value="0" name="pages" checked="checked">Нет
                 </label>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                         <input type="radio" value="1" name="cats">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="cats">Нет
+                        <input type="radio" value="0" name="cats" checked="checked">Нет
                 </label>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                         <input type="radio" value="1" name="users">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="users">Нет
+                        <input type="radio" value="0" name="users" checked="checked">Нет
                     </label>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                         <input type="radio" value="1" name="mods">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="mods">Нет
+                        <input type="radio" value="0" name="mods" checked="checked">Нет
                     </label>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                         <input type="radio" value="1" name="mails">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="mails">Нет
+                        <input type="radio" value="0" name="mails" checked="checked">Нет
                     </label>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                         <input type="radio" value="1" name="stats">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="stats">Нет
+                        <input type="radio" value="0" name="stats" checked="checked">Нет
                     </label>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                         <input type="radio" value="1" name="opts">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="opts">Нет
+                        <input type="radio" value="0" name="opts" checked="checked">Нет
                     </label>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                         <input type="radio" value="1" name="trash">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="trash">Нет
+                        <input type="radio" value="0" name="trash" checked="checked">Нет
                     </label>
                 </div>
             </div>
@@ -134,3 +134,4 @@
     </div>
 </div>
 </form>
+<script>validAddRole();</script>

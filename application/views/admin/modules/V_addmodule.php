@@ -34,7 +34,7 @@
         <div class="control-group">
             <label class="control-label w200" for="systemmod">Системное название модуля:</label>
             <div class="controls">
-                <input type="text" id="systemmod" name="systemname" class="input-medium">
+                <input type="text" id="systemmod" name="systemname" class="input-medium required lettersonly">
             </div>
         </div>
     </div>
@@ -62,3 +62,4 @@
     </div>
 </div>
 </form>
+<script>validAddModule();</script>

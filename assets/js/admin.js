@@ -32,26 +32,49 @@ $(function(){
         pages: function() {$(".main").load("/frontend/admin/pages");},
 
         addpages: function() {
-            $(".main").load("/frontend/admin/pages/addpages");
+            $(".main").load("/frontend/admin/pages/addpages", function() {
+                binds.validDisable();
+            });
         },
 
         catalogs: function() {$(".main").load("/frontend/admin/catalogs");},
 
-        addcatalogs: function() {$(".main").load("/frontend/admin/catalogs/addcatalogs");},
+        addcatalogs: function() {
+            $(".main").load("/frontend/admin/catalogs/addcatalogs", function() {
+                binds.validDisable();
+            });
+        },
 
         users: function() {$(".main").load("/frontend/admin/users");},
 
-        addusers: function() {$(".main").load("/frontend/admin/users/addusers");},
+        addusers: function() {
+            $(".main").load("/frontend/admin/users/addusers", function() {
+                binds.validDisable();
+            });
+        },
 
         roles: function() {$(".main").load("/frontend/admin/roles");},
 
-        addroles: function() {$(".main").load("/frontend/admin/roles/addroles");},
+        addroles: function() {
+            $(".main").load("/frontend/admin/roles/addroles", function() {
+                binds.validDisable();
+
+            });
+        },
 
         modules: function() {$(".main").load("/frontend/admin/modules");},
 
-        addmodules: function() {$(".main").load("/frontend/admin/modules/addmodules");},
+        addmodules: function() {
+            $(".main").load("/frontend/admin/modules/addmodules", function() {
+                binds.validDisable();
+            });
+        },
 
-        email: function() {$(".main").load("/frontend/admin/email");},
+        email: function() {
+            $(".main").load("/frontend/admin/email", function() {
+                binds.validDisable();
+            });
+        },
 
         stats: function() {$(".main").load("/frontend/admin/stats")},
 
@@ -232,21 +255,31 @@ $(function(){
         // Проверка измененных полей в настройках
         checkOptions: function() {
             // Делаем кнопку активной
-            function rem() {$('.btncheck').removeAttr('disabled').attr('onclick', 'req.saveoptions();').text('Сохранить');}
+            function rem() {
+                $('.btncheck').removeAttr('disabled').attr('onclick', 'req.saveoptions();').text('Сохранить');
+            }
             // Проверяем внесены ли изменения в настройки
             $('input[type=text], textarea').live('keydown', rem);
             $('input[type=radio], select').live('change', rem);
         },
 
+        // Делаем кнопку сохранить активной если вся форма валидна
+        checkValidForm: function(table) {
+            $('.btncheck').removeAttr('disabled').attr('onclick', 'req.initEditor();req.addItem(' + table + ');return false;');
+        },
+
+        // Делаем кнопку сохранить не активной после сохранения
         disableSave: function() {
             $('.btncheck').attr('disabled', 'disabled').text('Сохранено');
         },
 
+        // Делаем кнопку сохранить не активной если не пройдена валидация поля
         validDisable: function() {
             $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;');
         }
     };
 
+    // Вставляем дату в поле дата пикера
     date = {
         today: function(el) {
             var dt = new Date();
@@ -258,6 +291,4 @@ $(function(){
             $(el).val(year + '-' + month + '-' + day);
         }
     }
-
-
 });

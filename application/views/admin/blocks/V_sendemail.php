@@ -5,7 +5,7 @@
             <div class="control-group">
                 <label class="control-label">Тема: </label>
                 <div class="controls">
-                    <input type="text" id="subject" name="subject" class="input-xlarge">
+                    <input type="text" id="subject" name="subject" class="input-xlarge required">
                 </div>
             </div>
         </div>
@@ -63,10 +63,11 @@
             <div class="control-group">
                 <input type="hidden" name="from" value="<?=$usermail;?>">
                 <input type="hidden" id="content" name="content" value="">
-                <a class="btn btn-success" id="sendemailbtn" href="#" onclick="req.initEditor(); req.sendEmail(); return false;">
+                <a class="btn btn-success btncheck" id="sendemailbtn" href="#" onclick="req.initEditor(); req.sendEmail(); return false;">
                     Отправить сообщение
                 </a>
             </div>
         </div>
     </div>
 </form>
+<script>validSendEmail();</script>
