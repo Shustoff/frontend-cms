@@ -31,6 +31,7 @@
     <script src="<?=URL::base();?>assets/ckeditor/ckeditor.js"></script>
     <script src="<?=URL::base();?>assets/js/admin.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery.validate.js"></script>
+    <script src="<?=URL::base();?>assets/js/additional-methods.js"></script>
     <script src="<?=URL::base();?>assets/js/admin-validate.js"></script>
 
     <!--Фавикон-->
