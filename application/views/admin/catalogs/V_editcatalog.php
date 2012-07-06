@@ -59,8 +59,9 @@
     </div>
     <div class="span2 savecat">
         <div class="control-group">
-            <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.edit('catalogs');return false;">Сохранить</a>
+            <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.edit('catalogs');">Сохранить</a>
         </div>
     </div>
 </div>
 </form>
+<script>validCatalog('#edititem', 'req.initEditor();req.edit("catalogs");');</script>

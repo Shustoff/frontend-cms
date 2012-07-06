@@ -12,7 +12,14 @@
             <?php foreach($pages as $page) : ?>
                 <tr>
                     <td><?=$page->date;?></td>
-                    <td><a href="#"><?=$page->pagename;?></a></td>
+                    <td>
+                        <form action="" method="post" name="edititem" id="edititem">
+                            <input type="hidden" value="<?=$page->id;?>" name="id">
+                            <a href="#" onclick="req.editItem('pages',<?=$page->id;?>);">
+                                <?=$page->pagename;?>
+                            </a>
+                        </form>
+                    </td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
@@ -31,7 +38,14 @@
             <?php foreach($catalogs as $catalog) : ?>
                 <tr>
                     <td><?=$catalog->date;?></td>
-                    <td><a href="#"><?=$catalog->catname;?></a></td>
+                    <td>
+                        <form action="" method="post" name="edititem" id="edititem">
+                            <input type="hidden" value="<?=$catalog->id;?>" name="id">
+                            <a href="#" onclick="req.editItem('catalogs',<?=$catalog->id;?>);">
+                                <?=$catalog->catname;?>
+                            </a>
+                        </form>
+                    </td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
@@ -55,7 +69,9 @@
     </form>
 </div>
 <div class="row search">
-    <div class="span3"><p class="big">Поиск по каталогам:</p></div>
+    <div class="span3">
+        <p class="big">Поиск по каталогам:</p>
+    </div>
     <form method="post" action="" id="searchcatalogs">
         <div class="span6">
             <input type="text" class="search-query search-input" name="searchitem" placeholder="Поиск...">
@@ -66,7 +82,9 @@
     </form>
 </div>
 <div class="row search">
-    <div class="span3"><p class="big">Поиск по пользователям:</p></div>
+    <div class="span3">
+        <p class="big">Поиск по пользователям:</p>
+    </div>
     <form method="post" action="" id="searchusers">
         <div class="span6">
             <input type="text" class="search-query search-input" name="searchitem" placeholder="Поиск...">
@@ -77,7 +95,9 @@
     </form>
 </div>
 <div class="row search">
-    <div class="span3"><p class="big">Поиск по модулям:</p></div>
+    <div class="span3">
+        <p class="big">Поиск по модулям:</p>
+    </div>
     <form method="post" action="" id="searchmodules">
         <div class="span6">
             <input type="text" class="search-query search-input" name="searchitem" placeholder="Поиск...">

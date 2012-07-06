@@ -47,7 +47,7 @@
         	});
         </script>
         <div class="control-group">
-            <label class="control-label" for="metadesc">Дата создания:</label>
+            <label class="control-label" for="datepicker">Дата создания:</label>
             <div class="controls">
                 <input id="datepicker" type="text" name="date" class="input-large" value="<?=$page->date;?>">
             </div>
@@ -70,9 +70,10 @@
         </div>
         <div class="control-group">
             <div class="controls">
-                <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.edit('pages');return false;">Сохранить</a>
+                <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.edit('pages');">Сохранить</a>
             </div>
         </div>
     </div>
 </div>
 </form>
+<script>validPages('#edititem', 'req.initEditor(); req.edit("pages");');</script>

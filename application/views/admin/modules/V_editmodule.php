@@ -57,8 +57,9 @@
             <input type="hidden" name="status" value="<?=$module->status;?>">
             <input type="hidden" id="content" name="content" value="">
             <input type="hidden" name="id" value="<?=$module->id;?>">
-            <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.edit('modules');return false;">Сохранить</a>
+            <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.edit('modules');">Сохранить</a>
         </div>
     </div>
 </div>
 </form>
+<script>validPages('#edititem', 'req.initEditor();req.edit("modules");');</script>

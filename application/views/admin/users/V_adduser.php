@@ -81,4 +81,5 @@
     </div>
 </div>
 </form>
-<script>validAddUser();</script>
+<script>validUser('#additem', "req.addItem('users');");</script>
+

@@ -1,4 +1,4 @@
-<h3>Все модули</h3>
+<h3>Все группы</h3>
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -76,7 +76,6 @@
     </div>
 </div>
 </form>
-
 <div class="row">
     <div class="span12">
         <div class="pagination">

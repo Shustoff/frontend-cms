@@ -4,17 +4,17 @@
     <div class="span11">
         <div class="span5">
             <div class="control-group">
-                <label class="control-label">Название роли:</label>
+                <label class="control-label" for="description">Название роли:</label>
                 <div class="controls">
-                    <input type="text" name="name" class="input-large" value="<?=$role->name;?>">
+                    <input type="text" id="description" name="name" class="input-large" value="<?=$role->name;?>">
                 </div>
             </div>
         </div>
         <div class="span5">
             <div class="control-group">
-                <label class="control-label">Описание роли:</label>
+                <label class="control-label" for="description">Описание роли:</label>
                 <div class="controls">
-                    <input type="text" name="description" class="input-large" value="<?=$role->description;?>">
+                    <input type="text" id="description" name="description" class="input-large" value="<?=$role->description;?>">
                 </div>
             </div>
         </div>
@@ -128,3 +128,4 @@
     </div>
 </div>
 </form>
+<script>validPages('#edititem', 'req.edit("roles");');</script>

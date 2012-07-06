@@ -75,9 +75,10 @@
                 <input id="datepicker" type="text" name="datereg" class="input-small" value="<?=$user->datereg;?>">
                 <input type="hidden" name="status" value="<?=$user->status;?>">
                 <input type="hidden" name="id" value="<?=$user->id;?>">
-                <a class="btn btn-success btncheck" href="#" onclick="req.edit('users');return false;">Сохранить</a>
+                <a class="btn btn-success btncheck" href="#" onclick="req.edit('users');">Сохранить</a>
             </div>
         </div>
     </div>
 </div>
 </form>
+<script>validUsers('#edititem', 'req.edit("users");');</script>

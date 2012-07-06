@@ -18,8 +18,8 @@ class Controller_Admin_Trash extends Controller_App {
     public function action_index()
     {
         $sortby = Arr::get($_POST, 'sortby', 'item_id');
-        $limit = Arr::get($_POST, 'limit', '5');
-        $offset = Arr::get($_POST, 'offset', '0');
+        $limit = (int) Arr::get($_POST, 'limit', 5);
+        $offset = (int) Arr::get($_POST, 'offset', 0);
 
         // Находим все записи которые "не в корзине"
         $allpages = DB::select('id')->from('pages')->where('intrash', '=', '1');
@@ -28,42 +28,34 @@ class Controller_Admin_Trash extends Controller_App {
         $allroles = DB::select('id')->union($allusers)->from('roles')->where('intrash', '=', '1');
         $allitems = DB::select('id')->union($allroles)->from('modules')->where('intrash', '=', '1')->execute();
 
-        // Расчитываем пагинацию
+        $items = DB::query(Database::SELECT,
+                'SELECT id as item_id, pagename as item_name, date as item_date, status, intrash, "pages" tablename FROM pages
+                 WHERE intrash = 1
+                    UNION ALL
+                 SELECT id as item_id, catname as item_name, date as item_date, status, intrash, "catalogs" FROM catalogs
+                 WHERE intrash = 1
+                    UNION ALL
+                 SELECT id as item_id, email as item_name, datereg as item_date, status, intrash, "users" FROM users
+                 WHERE intrash = 1
+                    UNION ALL
+                 SELECT id as item_id, name as item_name, date as item_date, status, intrash, "roles" FROM roles
+                 WHERE intrash = 1
+                    UNION ALL
+                 SELECT id as item_id, name as item_name, date as item_date, status, intrash, "modules" FROM modules
+                 WHERE intrash = 1 ORDER BY :sortby LIMIT :limit OFFSET :offset')
+         ->bind(':sortby', $sortby)
+         ->bind(':offset', $offset)
+         ->bind(':limit', $limit)
+         ->execute();
+
+        // Рассчитываем пагинацию
         $count = $allitems->count() / $limit;
         $count = ceil($count);
         if ($count <= 1) $count = NULL;
 
-        $pages = DB::select(array('id', 'item_id'),array('pagename', 'item_name'),array('date', 'item_date'),'status','intrash')
-                    ->from('pages')
-                    ->where('intrash', '=', '1')
-                    ->order_by($sortby)
-                    ->offset($offset)
-                    ->limit($limit);
-
-        $catalogs = DB::select(array('id', 'item_id'),array('catname', 'item_name'),array('date', 'item_date'),'status','intrash')
-                    ->union($pages)
-                    ->from('catalogs')
-                    ->where('intrash', '=', '1');
-
-        $users = DB::select(array('id', 'item_id'),array('email', 'item_name'),array('datereg', 'item_date'),'status','intrash')
-                    ->union($catalogs)
-                    ->from('users')
-                    ->where('intrash', '=', '1');
-
-        $roles = DB::select(array('id', 'item_id'),array('name', 'item_name'),array('date', 'item_date'),'status','intrash')
-                    ->union($users)
-                    ->from('roles')
-                    ->where('intrash', '=', '1');
-
-        $items = DB::select(array('id', 'item_id'),array('name', 'item_name'),array('date', 'item_date'),'status','intrash')
-                    ->union($roles)
-                    ->from('modules')
-                    ->where('intrash', '=', '1')
-                    ->execute();
-
         $view = View::factory('admin/blocks/V_trash')
-                    ->bind('items', $items)
-                    ->bind('count', $count);
+                              ->bind('items', $items)
+                              ->bind('count', $count);
 
         $this->response->body($view);
     }
@@ -86,5 +78,4 @@ class Controller_Admin_Trash extends Controller_App {
         DB::delete('modules')->where('name', '=', $_POST["item_name"])->execute();
     }
 
-
-} // End Welcome
+}

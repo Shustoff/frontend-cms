@@ -42,12 +42,12 @@
     </div>
     <div class="span5">
         <div class="control-group">
-            <label class="control-label" for="metadesc">Дата создания:</label>
+            <label class="control-label" for="datepicker">Дата создания:</label>
             <div class="controls">
                 <input id="datepicker" type="text" name="date" class="input-large required" value="">
                 <script>
                         $(function() {
-                            $( "#datepicker" ).datepicker();
+                            $("#datepicker").datepicker();
                             date.today("#datepicker");
                         });
                 </script>
@@ -71,10 +71,10 @@
         </div>
         <div class="control-group">
             <div class="controls">
-                <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.addItem('pages');return false;">Сохранить</a>
+                <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.addItem('pages');">Сохранить</a>
             </div>
         </div>
     </div>
 </div>
 </form>
-<script>validAddPages();</script>
+<script>validPages('#additem', "req.initEditor(); req.addItem('pages');");</script>

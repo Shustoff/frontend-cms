@@ -57,9 +57,9 @@
             <input type="hidden" name="author_id" value="<?=$author_id;?>">
             <input type="hidden" name="status" value="1">
             <input type="hidden" id="content" name="content" value="">
-            <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.addItem('modules'); return false;">Сохранить</a>
+            <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.addItem('modules');">Сохранить</a>
         </div>
     </div>
 </div>
 </form>
-<script>validAddModule();</script>
+<script>validModule('#additem', "req.initEditor();req.addItem('modules');");</script>
