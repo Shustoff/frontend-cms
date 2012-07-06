@@ -1,10 +1,19 @@
+// Чекаем форму
+function checkForm (element, formname, onclick) {
+    if ( ! $(element).valid()) {
+        binds.validDisable();
+    } else {
+        if ( $(formname).valid() ) {
+            binds.checkValidForm(onclick);
+        }
+    }
+}
+
 // Проверяем валидны ли Настройки
 function validOptions() {
     $("#saveoptions").validate({
         onfocusout: function(element) {
-            if ( ! $(element).valid() ) {
-                binds.validDisable();
-            }
+            if ( ! $(element).valid()) binds.validDisable();
         },
         rules: {sitename: "required"},
         messages: {sitename: 'Пожалуйста заполните поле'}
@@ -12,62 +21,44 @@ function validOptions() {
 }
 
 // Проверяем валидна ли форма добавления страницы
-function validAddPages() {
-    $("#additem").validate({
+function validPages(formname, onclick) {
+    $(formname).validate({
         onfocusout: function(element) {
-            if ( ! $(element).valid()) {
-                binds.validDisable();
-            } else {
-                if ( $('#additem').valid() ) {
-                    binds.checkValidForm('pages');
-                }
-            }
+            checkForm(element, formname, onclick)
         },
         rules: {
             pagename: "required",
             alias: "required"
         },
         messages: {
-            pagename: 'Пожалуйста заполните поле',
-            alias: 'Пожалуйста заполните поле'
+            pagename: 'Пожалуйста введите название страницы',
+            alias: 'Пожалуйста введите алиас страницы'
         }
     });
 }
 
 // Проверяем валидна ли форма добавления каталога
-function validAddCatalog() {
-    $("#additem").validate({
+function validCatalog(formname, onclick) {
+    $(formname).validate({
         onfocusout: function(element) {
-            if ( ! $(element).valid()) {
-                binds.validDisable();
-            } else {
-                if ( $('#additem').valid() ) {
-                    binds.checkValidForm('catalogs');
-                }
-            }
+            checkForm(element, formname, onclick)
         },
         rules: {
             catname: "required",
             alias: "required"
         },
         messages: {
-            catname: 'Пожалуйста заполните поле',
-            alias: 'Пожалуйста заполните поле'
+            catname: 'Пожалуйста введите название категории',
+            alias: 'Пожалуйста введите алиас категории'
         }
     });
 }
 
 // Проверяем валидна ли форма добавления пользователя
-function validAddUser() {
-    $("#additem").validate({
+function validUser(formname, onclick) {
+    $(formname).validate({
         onfocusout: function(element) {
-            if ( ! $(element).valid()) {
-                binds.validDisable();
-            } else {
-                if ( $('#additem').valid() ) {
-                    binds.checkValidForm('users');
-                }
-            }
+            checkForm(element, formname, onclick)
         },
         rules: {
             username: "required",
@@ -103,16 +94,10 @@ function validAddUser() {
 }
 
 // Проверяем валидна ли форма добавления роли
-function validAddRole() {
-    $("#additem").validate({
+function validRole(formname, onclick) {
+    $(formname).validate({
         onfocusout: function(element) {
-            if ( ! $(element).valid()) {
-                binds.validDisable();
-            } else {
-                if ( $('#additem').valid() ) {
-                    binds.checkValidForm('roles');
-                }
-            }
+            checkForm(element, formname, onclick)
         },
         rules: {
             name: {
@@ -132,16 +117,10 @@ function validAddRole() {
 }
 
 // Проверяем валидна ли форма добавления модуля
-function validAddModule() {
-    $("#additem").validate({
+function validModule(formname, onclick) {
+    $(formname).validate({
         onfocusout: function(element) {
-            if ( ! $(element).valid()) {
-                binds.validDisable();
-            } else {
-                if ( $('#additem').valid() ) {
-                    binds.checkValidForm('modules');
-                }
-            }
+            checkForm(element, formname, onclick)
         },
         rules: {
             name: "required",
@@ -161,16 +140,10 @@ function validAddModule() {
 }
 
 // Проверяем валидна ли форма отправки емейла
-function validSendEmail() {
-    $("#email").validate({
+function validSendEmail(formname, onclick) {
+    $(formname).validate({
         onfocusout: function(element) {
-            if ( ! $(element).valid()) {
-                binds.validDisable();
-            } else {
-                if ( $('#email').valid() ) {
-                    $('#sendemailbtn').removeAttr('disabled').attr('onclick', 'req.initEditor(); req.sendEmail(); return false;');
-                }
-            }
+            checkForm(element, formname, onclick)
         },
         rules: {
             subject: "required"

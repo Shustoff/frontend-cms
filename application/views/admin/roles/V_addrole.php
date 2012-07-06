@@ -4,17 +4,17 @@
     <div class="span11">
         <div class="span5">
             <div class="control-group">
-                <label class="control-label">Название роли:</label>
+                <label class="control-label" for="name">Название роли:</label>
                 <div class="controls">
-                    <input type="text" name="name" class="input-large required letersonly">
+                    <input type="text" id="name" name="name" class="input-large required letersonly">
                 </div>
             </div>
         </div>
         <div class="span5">
             <div class="control-group">
-                <label class="control-label">Описание роли:</label>
+                <label class="control-label" for="description">Описание роли:</label>
                 <div class="controls">
-                    <input type="text" name="description" class="input-large required">
+                    <input type="text" id="description" name="description" class="input-large required">
                 </div>
             </div>
         </div>
@@ -124,9 +124,7 @@
                 <input type="hidden" id="datepicker" name="date" value="">
                 <input type="hidden" name="status" value="1">
                 <script>
-                    $(function() {
-                        date.today('#datepicker')
-                    });
+                    $(function() {date.today('#datepicker') });
                 </script>
                 <a class="btn btn-success addrole btncheck" href="#" onclick="req.addItem('roles');">Добавить роль</a>
             </div>
@@ -134,4 +132,6 @@
     </div>
 </div>
 </form>
-<script>validAddRole();</script>
+<script>
+    validRole('#additem', "req.addItem('roles');");
+</script>

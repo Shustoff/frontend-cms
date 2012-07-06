@@ -264,13 +264,13 @@ $(function(){
         },
 
         // Делаем кнопку сохранить активной если вся форма валидна
-        checkValidForm: function(table) {
-            $('.btncheck').removeAttr('disabled').attr('onclick', 'req.initEditor();req.addItem(' + table + ');return false;');
+        checkValidForm: function(onclick) {
+            $('.btncheck').removeAttr('disabled').attr('onclick', onclick);
         },
 
         // Делаем кнопку сохранить не активной после сохранения
         disableSave: function() {
-            $('.btncheck').attr('disabled', 'disabled').text('Сохранено');
+            $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;').text('Сохранено');
         },
 
         // Делаем кнопку сохранить не активной если не пройдена валидация поля

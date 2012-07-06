@@ -69,13 +69,13 @@
             </div>
         </div>
 <!--
-        <div class="row">
-            <div class="hint span12">
-                <h3>Заголовок подсказки</h3>
-                <p>Текст подсказки</p>
-                <span class="close" onclick="$('.hint').hide();">X</span>
-            </div>
-        </div>
+<div class="row">
+    <div class="hint span12">
+        <h3>Заголовок подсказки</h3>
+        <p>Текст подсказки</p>
+        <span class="close" onclick="$('.hint').hide();">X</span>
+    </div>
+</div>
 -->
         <div class="row maintools">
             <div class="span8 offset2">

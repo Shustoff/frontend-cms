@@ -3,7 +3,7 @@
     <div class="row">
         <div class="span6">
             <div class="control-group">
-                <label class="control-label">Тема: </label>
+                <label class="control-label" for="subject">Тема: </label>
                 <div class="controls">
                     <input type="text" id="subject" name="subject" class="input-xlarge required">
                 </div>
@@ -63,11 +63,11 @@
             <div class="control-group">
                 <input type="hidden" name="from" value="<?=$usermail;?>">
                 <input type="hidden" id="content" name="content" value="">
-                <a class="btn btn-success btncheck" id="sendemailbtn" href="#" onclick="req.initEditor(); req.sendEmail(); return false;">
+                <a class="btn btn-success btncheck" id="sendemailbtn" href="#" onclick="req.initEditor();req.sendEmail();">
                     Отправить сообщение
                 </a>
             </div>
         </div>
     </div>
 </form>
-<script>validSendEmail();</script>
+<script>validSendEmail('#email', "'req.initEditor();req.sendEmail();'");</script>
