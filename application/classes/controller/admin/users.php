@@ -50,16 +50,40 @@ class Controller_Admin_Users extends Controller_App {
     }
 
     // Добавляем пользователя в БД
-    public function action_add($model)
+    public function action_add($model = 'user')
     {
         $user = ORM::factory('user');
-        $user->create_user($_POST, NULL)->add('roles', ORM::factory('role', array('name' => 'login')));
-        // Проверяем роль пользователя при регистрации
-        if ($_POST['role_name'] !== 'login')
+
+        $unique_email = $user->unique('email', $_POST['email']);
+
+        if ($unique_email === true)
         {
-            $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
+            $user->create_user($_POST, NULL)->add('roles', ORM::factory('role', array('name' => 'login')));
+            // Проверяем роль пользователя при регистрации
+            if ($_POST['role_name'] !== 'login')
+            {
+                $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
+            }
+            $user->save();
         }
-        $user->save();
+        else
+        {
+            echo 'Этот email уже занят';
+        }
+    }
+
+    // Проверяем логин  на уникальность
+    public function action_checklogin()
+    {
+        $unique_username  = ORM::factory('user')->unique('username', $_POST['username']);
+        if ( ! $unique_username) echo 'Этот логин уже занят';
+    }
+
+    // Проверяем емейл на уникальность
+    public function action_checkemail()
+    {
+        $unique_email  = ORM::factory('user')->unique('email', $_POST['email']);
+        if ( ! $unique_email) echo 'Этот email уже занят';
     }
 
     // Грузим вид редактирования пользователя
@@ -84,7 +108,7 @@ class Controller_Admin_Users extends Controller_App {
     }
 
     // Обновляем пользователя в БД
-    public function action_edit($model)
+    public function action_edit($model = 'user')
     {
         DB::delete('roles_users')->where('user_id', '=', $_POST['id'])->and_where('role_id', '!=', '1')->execute();
         $user = ORM::factory('user', $_POST['id']);

@@ -1,24 +1,24 @@
 $(function(){
 
-    // Настройки шаблонизатора
-    _.templateSettings = {
-        interpolate: /\{\{(.+?)\}\}/g
-    };
-
-    // Шаблонизатор
-    var template = {
-        topRender: (function() {
-            var topTemplate = $('.top').html();
-            var template = _.template(topTemplate);
-            $('.top').html(
-                template({
-                    sitename: sitename,
-                    ipadress: ipadress,
-                    email: email
-                })
-            );
-        })()
-    };
+//    // Настройки шаблонизатора
+//    _.templateSettings = {
+//        interpolate: /\{\{(.+?)\}\}/g
+//    };
+//
+//    // Шаблонизатор
+//    var template = {
+//        topRender: (function() {
+//            var topTemplate = $('.top').html();
+//            var template = _.template(topTemplate);
+//            $('.top').html(
+//                template({
+//                    sitename: sitename,
+//                    ipadress: ipadress,
+//                    email: email
+//                })
+//            );
+//        })()
+//    };
 
     // Ajax-транспорт
     req = {
@@ -31,48 +31,17 @@ $(function(){
 
         pages: function() {$(".main").load("/frontend/admin/pages");},
 
-        addpages: function() {
-            $(".main").load("/frontend/admin/pages/addpages", function() {
-                binds.validDisable();
-            });
-        },
-
         catalogs: function() {$(".main").load("/frontend/admin/catalogs");},
-
-        addcatalogs: function() {
-            $(".main").load("/frontend/admin/catalogs/addcatalogs", function() {
-                binds.validDisable();
-            });
-        },
 
         users: function() {$(".main").load("/frontend/admin/users");},
 
-        addusers: function() {
-            $(".main").load("/frontend/admin/users/addusers", function() {
-                binds.validDisable();
-            });
-        },
-
         roles: function() {$(".main").load("/frontend/admin/roles");},
-
-        addroles: function() {
-            $(".main").load("/frontend/admin/roles/addroles", function() {
-                binds.validDisable();
-
-            });
-        },
 
         modules: function() {$(".main").load("/frontend/admin/modules");},
 
-        addmodules: function() {
-            $(".main").load("/frontend/admin/modules/addmodules", function() {
-                binds.validDisable();
-            });
-        },
-
         email: function() {
             $(".main").load("/frontend/admin/email", function() {
-                binds.validDisable();
+                binds.validFail();
             });
         },
 
@@ -86,7 +55,7 @@ $(function(){
         saveoptions: function() {
             $.post("/frontend/admin/options/save", $("#saveoptions").serialize(), function() {
                 $('.sitename').text($('#sitename').val());
-                binds.disableSave();
+                binds.completeSave();
             });
         },
 
@@ -213,10 +182,39 @@ $(function(){
             });
         },
 
-        // Добавляем материал
+        // Загружает вид для создания материала
         addItem: function(table) {
+            $(".main").load("/frontend/admin/" + table + "/add" + table, function() {
+                binds.validFail();
+            });
+        },
+
+        // Добавляем материал
+        add: function(table) {
             $.post("/frontend/admin/" + table + "/add", $('#additem').serialize(), function(){
-                binds.disableSave();
+                binds.completeSave();
+            });
+        },
+
+        // Проверяем уникальность логина
+        checkLogin: function() {
+            $.post('/frontend/admin/users/checklogin', $('#additem').serialize(), function(data){
+                $('.failusername').text(data);
+                if (data) binds.validFail();
+                if ($('.failusername').text() == '' && $('.failemail').text() == '' && $('#additem').valid()) {
+                    binds.canSave("req.add('users');");
+                }
+            });
+        },
+
+        // Проверяем уникальность емейла
+        checkEmail: function() {
+            $.post('/frontend/admin/users/checkemail', $('#additem').serialize(), function(data){
+                $('.failemail').text(data);
+                if (data) binds.validFail();
+                if ($('.failusername').text() == '' && $('.failemail').text() == '' && $('#additem').valid()) {
+                    binds.canSave("req.add('users');");
+                }
             });
         },
 
@@ -231,7 +229,7 @@ $(function(){
         // Обновляем материал
         edit: function(table) {
             $.post("/frontend/admin/" + table + "/edit", $("#edititem").serialize(), function(){
-                binds.disableSave();
+                binds.completeSave();
             });
         },
 
@@ -241,16 +239,10 @@ $(function(){
             $.post("/frontend/admin/email/send", $('#email').serialize(), function() {
                 $('#sendemailbtn').text('Сообщение отправлено!');
             });
-        },
-
-        // Добавляем сообщение для отправки
-        initEditor: function() {
-            $('#content').empty().val(editor.getData());
         }
-
     };
 
-    // Биндим события на инпуты
+    // Биндим события на элементы формы
     binds = {
         // Проверка измененных полей в настройках
         checkOptions: function() {
@@ -264,23 +256,36 @@ $(function(){
         },
 
         // Делаем кнопку сохранить активной если вся форма валидна
-        checkValidForm: function(onclick) {
-            $('.btncheck').removeAttr('disabled').attr('onclick', onclick);
+        canSave: function(onclick) {
+                $('.btncheck').removeAttr('disabled').attr('onclick', onclick).text('Сохранить');
         },
 
         // Делаем кнопку сохранить не активной после сохранения
-        disableSave: function() {
+        completeSave: function() {
             $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;').text('Сохранено');
         },
 
         // Делаем кнопку сохранить не активной если не пройдена валидация поля
-        validDisable: function() {
+        validFail: function() {
             $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;');
+        },
+
+        // Проверяем можно ли сохранить материал
+        canSaveItem: function(table) {
+            if (!editor.getData())
+            {
+                $('.editorfail').show().delay(3000).hide(100);
+            }
+            else {
+                $('#content').empty().val(editor.getData());
+                req.add(table);
+            }
         }
     };
 
-    // Вставляем дату в поле дата пикера
+    // Объект даты
     date = {
+        // Вставляем дату в поле дата пикера
         today: function(el) {
             var dt = new Date();
             var month = dt.getMonth() + 1;

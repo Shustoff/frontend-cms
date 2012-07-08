@@ -3,6 +3,7 @@
 @bgColor: #d3fecd;
 @border: 2px dotted @color;
 @mainfont: 18px;
+@failColor: #FF0000;
 
 /* Миксины */
 .bordered (@lt, @rt, @rb, @lb) {
@@ -235,6 +236,11 @@ p {
         color: #FF0000;
         padding-left: 10px;
     }
+
+    .fail {
+         color: @failColor;
+         padding-left: 10px;
+    }
 }
 
 table {
@@ -341,6 +347,9 @@ p.pagination a {
 
 .htmlcodelabel {
     text-align: center;
+    .editorfail {
+        display: none;
+    }
 }
 
 .htmlcode {

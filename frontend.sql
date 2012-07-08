@@ -2,12 +2,10 @@
 -- version 3.3.9.2
 -- http://www.phpmyadmin.net
 --
--- Хост: localhost
+-- Хост: localhostcatalogs
 -- Время создания: Июл 06 2012 г., 18:37
 -- Версия сервера: 5.5.9
 -- Версия PHP: 5.3.6
-
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;

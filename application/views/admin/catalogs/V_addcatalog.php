@@ -20,9 +20,13 @@
 </div>
 <div class="row">
     <div class="span11 htmlcode">
-        <h3 class="htmlcodelabel">Описание каталога:</h3>
+        <h3 class="htmlcodelabel">Описание каталога:
+            <label class="editorfail label label-important" for="editor">Пожалуйста введите описание каталога</label>
+        </h3>
         <textarea id="editor" class="auto required"></textarea>
-        <script>editor = CKEDITOR.editor.replace('editor');</script>
+        <script>
+            editor = CKEDITOR.editor.replace('editor');
+        </script>
     </div>
 </div>
 <div class="row">
@@ -59,9 +63,9 @@
     </div>
     <div class="span2 savecat">
         <div class="control-group">
-            <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.addItem('catalogs');">Сохранить каталог</a>
+            <a class="btn btn-success btncheck" href="#" onclick="binds.canSaveItem('catalogs');">Сохранить каталог</a>
         </div>
     </div>
 </div>
 </form>
-<script>validCatalog('#additem', "req.initEditor();req.addItem('catalogs');");</script>
+<script>valid.validCatalog('#additem', "binds.canSaveItem('catalogs');");</script>
