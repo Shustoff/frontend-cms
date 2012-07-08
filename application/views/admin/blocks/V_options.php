@@ -162,4 +162,4 @@
         </div>
     </form>
 </div>
-<script>validOptions();</script>
+<script>valid.validOptions();</script>

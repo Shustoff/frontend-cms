@@ -13,26 +13,16 @@
     <link rel="stylesheet" type="text/css" href="<?=URL::base();?>assets/css/bootstrap.css">
     <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/styles.less">
 
-    <!--Передаем переменные из php в JS-->
-    <script>
-        var ipadress = '<?=$_SERVER['REMOTE_ADDR'];?>';
-        var email = '<?=$user->username;?>';
-        var sitename = '<?=$sitename;?>';
-    </script>
-
     <!--Скрипты-->
     <script src="<?=URL::base();?>assets/js/less-1.3.0.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery-1.7.2.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery-ui.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery.ui.datepicker-ru.js"></script>
-    <script src="<?=URL::base();?>assets/js/modernizr-2.5.3.js"></script>
-    <script src="<?=URL::base();?>assets/js/underscore.js"></script>
-    <script src="<?=URL::base();?>assets/js/backbone.js"></script>
-    <script src="<?=URL::base();?>assets/ckeditor/ckeditor.js"></script>
-    <script src="<?=URL::base();?>assets/js/admin.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery.validate.js"></script>
     <script src="<?=URL::base();?>assets/js/additional-methods.js"></script>
+    <script src="<?=URL::base();?>assets/ckeditor/ckeditor.js"></script>
     <script src="<?=URL::base();?>assets/js/admin-validate.js"></script>
+    <script src="<?=URL::base();?>assets/js/admin.js"></script>
 
     <!--Фавикон-->
     <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
@@ -42,9 +32,9 @@
         <div class="header">
             <div class="row one">
                 <div class="span12 top">
-                   <p>Название сайта: <strong class="sitename">{{sitename}}</strong></p>
-                   <p>Ваш IP адрес: <strong>{{ipadress}}</strong></p>
-                   <p>Здравствуйте: <strong>{{email}}</strong>
+                   <p>Название сайта: <strong class="sitename"><?=$sitename;?></strong></p>
+                   <p>Ваш IP адрес: <strong><?=$_SERVER['REMOTE_ADDR'];?></strong></p>
+                   <p>Здравствуйте: <strong><?=$user->username;?></strong>
                       <a href="<?=URL::site('/admin/auth/logout'); ?>" title="Выйти">
                           <img src="<?=URL::base();?>assets/img/delete.png" alt="">
                       </a>
@@ -68,40 +58,31 @@
                 </div>
             </div>
         </div>
-<!--
-<div class="row">
-    <div class="hint span12">
-        <h3>Заголовок подсказки</h3>
-        <p>Текст подсказки</p>
-        <span class="close" onclick="$('.hint').hide();">X</span>
-    </div>
-</div>
--->
         <div class="row maintools">
             <div class="span8 offset2">
                 <ul class="tools">
                     <li>
-                        <a href="#addpage" onclick="req.addpages();">
+                        <a href="#addpage" onclick="req.addItem('pages');">
                             <img src="<?=URL::base();?>assets/img/add.png" alt="" title="Добавить страницу">
                         </a>
                     </li>
                     <li>
-                        <a href="#addcatalog" onclick="req.addcatalogs();">
+                        <a href="#addcatalog" onclick="req.addItem('catalogs');">
                             <img src="<?=URL::base();?>assets/img/addcat.png" alt="" title="Добавить каталог">
                         </a>
                     </li>
                     <li>
-                        <a href="#adduser" onclick="req.addusers();">
+                        <a href="#adduser" onclick="req.addItem('users');">
                             <img src="<?=URL::base();?>assets/img/user.png" alt="" title="Добавить пользователя">
                         </a>
                     </li>
                     <li>
-                        <a href="#addrole" onclick="req.addroles();">
+                        <a href="#addrole" onclick="req.addItem('roles');">
                             <img src="<?=URL::base();?>assets/img/addrole.png" alt="" title="Добавить роль">
                         </a>
                     </li>
                     <li>
-                        <a href="#addmodule" onclick="req.addmodules();">
+                        <a href="#addmodule" onclick="req.addItem('modules');">
                             <img src="<?=URL::base();?>assets/img/addmodule.png" alt="" title="Добавить модуль">
                         </a>
                     </li>
@@ -111,8 +92,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?=URL::base();?>admin/rss" onclick="">
-                            <img src="<?=URL::base();?>assets/img/rss.png" alt="" title="Добавить RSS-ленту">
+                        <a href="<?=URL::base();?>admin/rss">
+                            <img src="<?=URL::base();?>assets/img/rss.png" alt="" title="RSS-лента">
                         </a>
                     </li>
                     <li>
@@ -135,7 +116,7 @@
         </div>
     <div class="row">
         <div class="span12 main">
-            <?php echo $main; ?>
+            <?=$main;?>
         </div>
     </div>
     <div class="row">

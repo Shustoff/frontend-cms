@@ -43,7 +43,7 @@
                 <td>
                     <form action="" method="post" id="intrash<?=$page->id;?>">
                         <input type="hidden" name="intrash" value="<?=$page->id;?>">
-                        <a href="#" onclick="req.intrash('pages',this);">
+                        <a href="#" onclick="req.intrash('pages',this); return false;">
                             <img src='<?=URL::base()?>assets/img/delete.png'>
                         </a>
                     </form>

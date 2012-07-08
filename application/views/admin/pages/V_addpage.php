@@ -5,7 +5,7 @@
         <div class="control-group">
             <label class="control-label" for="pagename">Заголовок страницы</label>
             <div class="controls">
-                <input type="text" id="pagename" name="pagename" class="input-xlarge required" value="">
+                <input type="text" id="pagename" name="pagename" class="input-xlarge required">
             </div>
         </div>
     </div>
@@ -13,16 +13,20 @@
         <div class="control-group">
             <label class="control-label" for="alias">Алиас страницы</label>
             <div class="controls">
-                <input type="text" id="alias" name="alias" class="input-xlarge required" value="">
+                <input type="text" id="alias" name="alias" class="input-xlarge required">
             </div>
         </div>
     </div>
 </div>
 <div class="row">
     <div class="span11 htmlcode">
-        <h3 class="htmlcodelabel">HTML-код:</h3>
+        <h3 class="htmlcodelabel">HTML-код:
+            <label class="editorfail label label-important" for="editor">Пожалуйста введите html-код</label>
+        </h3>
         <textarea id="editor" class="auto"></textarea>
-        <script>editor = CKEDITOR.editor.replace('editor');</script>
+        <script>
+            editor = CKEDITOR.editor.replace('editor');
+        </script>
     </div>
 </div>
 <div class="row">
@@ -71,10 +75,10 @@
         </div>
         <div class="control-group">
             <div class="controls">
-                <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.addItem('pages');">Сохранить</a>
+                <a class="btn btn-success btncheck" href="#" onclick="binds.canSaveItem('pages');">Сохранить</a>
             </div>
         </div>
     </div>
 </div>
 </form>
-<script>validPages('#additem', "req.initEditor(); req.addItem('pages');");</script>
+<script>valid.validPages('#additem', "binds.canSaveItem('pages');");</script>

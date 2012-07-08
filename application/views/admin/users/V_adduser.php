@@ -6,6 +6,7 @@
             <label class="control-label" for="username">Логин:</label>
             <div class="controls">
                 <input type="text" id="username" name="username" class="input-xlarge required">
+                <label class="fail failusername"></label>
             </div>
         </div>
     </div>
@@ -14,6 +15,7 @@
             <label class="control-label" for="email">Email:</label>
             <div class="controls">
                 <input type="text" id="email" name="email" class="input-xlarge required">
+                <label class="fail failemail"></label>
             </div>
         </div>
     </div>
@@ -75,11 +77,10 @@
                     });
                 </script>
                 <input type="hidden" name="status" value="1">
-                <a class="btn btn-success btncheck" href="#" onclick="req.addItem('users');">Сохранить</a>
+                <a class="btn btn-success btncheck" href="#" onclick="req.add('users');">Сохранить</a>
             </div>
         </div>
     </div>
 </div>
 </form>
-<script>validUser('#additem', "req.addItem('users');");</script>
-
+<script>valid.validUser('#additem', "req.add('users');");</script>
