@@ -5,7 +5,7 @@
         <div class="control-group">
             <label class="control-label" for="pagename">Заголовок страницы</label>
             <div class="controls">
-                <input type="text" id="pagename" name="pagename" class="input-xlarge" value="<?=$page->pagename;?>">
+                <input type="text" id="pagename" name="pagename" class="input-xlarge required" value="<?=$page->pagename;?>">
             </div>
         </div>
     </div>
@@ -13,16 +13,20 @@
         <div class="control-group">
             <label class="control-label" for="alias">Алиас страницы</label>
             <div class="controls">
-                <input type="text" id="alias" name="alias" class="input-xlarge" value="<?=$page->alias;?>">
+                <input type="text" id="alias" name="alias" class="input-xlarge required" value="<?=$page->alias;?>">
             </div>
         </div>
     </div>
 </div>
 <div class="row">
     <div class="span11 htmlcode">
-        <h3 class="htmlcodelabel">HTML-код:</h3>
+        <h3 class="htmlcodelabel">HTML-код:
+            <label class="editorfail label label-important" for="editor">Пожалуйста введите html-код</label>
+        </h3>
         <textarea id="editor" class="auto"><?=$page->content;?></textarea>
-        <script>editor = CKEDITOR.editor.replace('editor');</script>
+        <script>
+            editor = CKEDITOR.editor.replace('editor');
+        </script>
     </div>
 </div>
 <div class="row">
@@ -41,15 +45,15 @@
         </div>
     </div>
     <div class="span5">
-        <script>
-        	$(function() {
-        		$( "#datepicker" ).datepicker();
-        	});
-        </script>
         <div class="control-group">
             <label class="control-label" for="datepicker">Дата создания:</label>
             <div class="controls">
-                <input id="datepicker" type="text" name="date" class="input-large" value="<?=$page->date;?>">
+                <input id="datepicker" type="text" name="date" class="input-large required" value="<?=$page->date;?>">
+                <script>
+                    $(function() {
+                        $( "#datepicker" ).datepicker();
+                    });
+                </script>
             </div>
         </div>
         <div class="control-group">
@@ -70,10 +74,11 @@
         </div>
         <div class="control-group">
             <div class="controls">
-                <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.edit('pages');">Сохранить</a>
+                <a class="btn btn-success btncheck" href="#" onclick="binds.canEditItem('pages');">Сохранить</a>
             </div>
         </div>
     </div>
 </div>
 </form>
-<script>validPages('#edititem', 'req.initEditor(); req.edit("pages");');</script>
+<script>valid.validPages('#edititem', "binds.canEditItem('pages');");</script>
+

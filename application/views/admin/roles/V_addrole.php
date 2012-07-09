@@ -6,7 +6,8 @@
             <div class="control-group">
                 <label class="control-label" for="name">Название роли:</label>
                 <div class="controls">
-                    <input type="text" id="name" name="name" class="input-large required letersonly">
+                    <input type="text" id="name" name="name" class="input-large required letersonly minlength">
+                    <label class="fail failrole"></label>
                 </div>
             </div>
         </div>
@@ -124,14 +125,12 @@
                 <input type="hidden" id="datepicker" name="date" value="">
                 <input type="hidden" name="status" value="1">
                 <script>
-                    $(function() {date.today('#datepicker') });
+                    $(function() { date.today('#datepicker') });
                 </script>
-                <a class="btn btn-success addrole btncheck" href="#" onclick="req.addItem('roles');">Добавить роль</a>
+                <a class="btn btn-success addrole btncheck" href="#" onclick="req.add('roles');">Добавить роль</a>
             </div>
         </div>
     </div>
 </div>
 </form>
-<script>
-    validRole('#additem', "req.addItem('roles');");
-</script>
+<script>valid.validRole('#additem', "req.add('roles');");</script>

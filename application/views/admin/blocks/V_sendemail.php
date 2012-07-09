@@ -26,7 +26,9 @@
     </div>
     <div class="row">
         <div class="span11 htmlcode">
-            <h3 class="htmlcodelabel">Сообщение:</h3>
+            <h3 class="htmlcodelabel">Сообщение:
+                <label class="editorfail label label-important" for="editor">Пожалуйста введите ваше сообщение</label>
+            </h3>
             <textarea id="editor" class="auto"></textarea>
             <script>editor = CKEDITOR.editor.replace('editor');</script>
         </div>
@@ -40,7 +42,7 @@
                         <input type="radio" name="saveemail" value="1">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" name="saveemail" value="0">Нет
+                        <input type="radio" name="saveemail" value="0" checked="checked">Нет
                     </label>
                 </div>
             </div>
@@ -63,11 +65,11 @@
             <div class="control-group">
                 <input type="hidden" name="from" value="<?=$usermail;?>">
                 <input type="hidden" id="content" name="content" value="">
-                <a class="btn btn-success btncheck" id="sendemailbtn" href="#" onclick="req.initEditor();req.sendEmail();">
+                <a class="btn btn-success btncheck" id="sendemailbtn" href="#" onclick="req.sendEmail();">
                     Отправить сообщение
                 </a>
             </div>
         </div>
     </div>
 </form>
-<script>validSendEmail('#email', "'req.initEditor();req.sendEmail();'");</script>
+<script>valid.validSendEmail('#email', "req.sendEmail();");</script>

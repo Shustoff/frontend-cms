@@ -46,6 +46,13 @@ class Controller_Admin_Roles extends Controller_App {
         parent::action_add($model);
     }
 
+    // Проверяем название роли на уникальность
+    public function action_checkrole()
+    {
+        $unique_role  = ORM::factory('role')->unique('name', $_POST['name']);
+        if ( ! $unique_role) echo 'Это название уже используется';
+    }
+
     public function action_editroles()
     {
         $id = $this->request->param('id');
