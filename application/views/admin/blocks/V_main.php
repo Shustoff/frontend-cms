@@ -15,7 +15,7 @@
                     <td>
                         <form action="" method="post" name="edititem" id="edititem">
                             <input type="hidden" value="<?=$page->id;?>" name="id">
-                            <a href="#" onclick="req.editItem('pages',<?=$page->id;?>);">
+                            <a href="#edit" onclick="req.editItem('pages',<?=$page->id;?>);">
                                 <?=$page->pagename;?>
                             </a>
                         </form>
@@ -41,7 +41,7 @@
                     <td>
                         <form action="" method="post" name="edititem" id="edititem">
                             <input type="hidden" value="<?=$catalog->id;?>" name="id">
-                            <a href="#" onclick="req.editItem('catalogs',<?=$catalog->id;?>);">
+                            <a href="#edit" onclick="req.editItem('catalogs',<?=$catalog->id;?>);">
                                 <?=$catalog->catname;?>
                             </a>
                         </form>
@@ -64,7 +64,7 @@
             <input type="text" class="search-query search-input" name="searchitem" placeholder="Поиск...">
         </div>
         <div class="span2">
-            <a href="#" onclick="req.searchItems('pages');" class="btn">Поиск</a>
+            <a href="#searchpages" onclick="req.searchItems('pages');" class="btn">Поиск</a>
         </div>
     </form>
 </div>
@@ -77,7 +77,7 @@
             <input type="text" class="search-query search-input" name="searchitem" placeholder="Поиск...">
         </div>
         <div class="span2">
-            <a href="#" onclick="req.searchItems('catalogs');" class="btn">Поиск</a>
+            <a href="#searchcatalogs" onclick="req.searchItems('catalogs');" class="btn">Поиск</a>
         </div>
     </form>
 </div>
@@ -90,7 +90,7 @@
             <input type="text" class="search-query search-input" name="searchitem" placeholder="Поиск...">
         </div>
         <div class="span2">
-            <a href="#" onclick="req.searchItems('users');" class="btn">Поиск</a>
+            <a href="#searchusers" onclick="req.searchItems('users');" class="btn">Поиск</a>
         </div>
     </form>
 </div>
@@ -103,7 +103,7 @@
             <input type="text" class="search-query search-input" name="searchitem" placeholder="Поиск...">
         </div>
         <div class="span2">
-            <a href="#" onclick="req.searchItems('modules');" class="btn">Поиск</a>
+            <a href="#searchmodules" onclick="req.searchItems('modules');" class="btn">Поиск</a>
         </div>
     </form>
 </div>

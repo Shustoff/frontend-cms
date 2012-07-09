@@ -33,7 +33,8 @@ class Controller_App extends Controller {
 
         $view = View::factory('admin/'. $model . 's/V_' . $model . 's')
                 ->bind($model . 's', $items)
-                ->bind('count', $count);
+                ->bind('count', $count)
+                ->bind('failsearch', $failsearch);
 
         $this->response->body($view);
     }
@@ -61,9 +62,22 @@ class Controller_App extends Controller {
     {
         $count = NULL;
         $items = ORM::factory($model)->where($field, 'LIKE', '%'.$_POST['searchitem'].'%')->find_all();
+
+        if ($items->count() == 0)
+        {
+            $failsearch = '<p class="center alert alert-error">По вашему запросу ничего не найдено.</p>';
+        }
+
+
         $view = View::factory('admin/' . $model  . 's/V_' . $model . 's')
                 ->bind($model . 's', $items)
                 ->bind('count', $count);
+
+        if (isset($failsearch))
+        {
+            $view->bind('failsearch', $failsearch);
+        }
+
         $this->response->body($view);
     }
 

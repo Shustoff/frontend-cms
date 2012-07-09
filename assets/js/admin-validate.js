@@ -1,4 +1,5 @@
 valid = {
+    // Проверка формы на валидацию
     checkForm: function (element, formname, onclick) {
         if ( ! $(element).valid()) {
             binds.validFail();
@@ -161,6 +162,8 @@ valid = {
             onfocusout: function(element) {
                 if ( $(formname).valid() && $(element).valid() ) {
                     binds.canSave(onclick);
+                } else {
+                    binds.validFail();
                 }
             },
             rules: {

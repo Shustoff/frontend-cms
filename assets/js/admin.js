@@ -303,10 +303,10 @@ var template = {
         // Проверка измененных полей в настройках
         checkOptions: function() {
             // Делаем кнопку активной
-            function rem() {$('.btncheck').removeAttr('disabled').attr('onclick', 'req.saveoptions();').text('Сохранить');}
+            function rem() {$('#saveoptions .btncheck').removeAttr('disabled').attr('onclick', 'req.saveoptions();').text('Сохранить');}
             // Проверяем внесены ли изменения в настройки
-            $('input[type=text], textarea').live('keydown', rem);
-            $('input[type=radio], select').live('change', rem);
+            $('#saveoptions input[type=text], #saveoptions textarea').live('keydown', rem);
+            $('#saveoptions input[type=radio], #saveoptions select').live('change', rem);
         },
 
         // Делаем кнопку сохранить активной если вся форма валидна
