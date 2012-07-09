@@ -35,6 +35,9 @@ body {
 a {
     color: @color;
     text-decoration: underline;
+    .footer &:link {
+        background-color: transparent !important;
+    }
 }
 
 p {
@@ -230,6 +233,7 @@ p {
 
     #cke_editor {
         margin-left: 10px;
+        max-width: 890px;
     }
 
     label.error {
@@ -245,11 +249,11 @@ p {
     .failsystemname {
         padding-left: 45px;
     }
+
 }
 
 table {
     border-radius: 20px;
-    margin-bottom: 20px !important;
     thead {
         background-color: #E4E4E4;
     }
@@ -269,6 +273,8 @@ table {
         max-width: 200px;
     }
 }
+
+.table {margin-bottom: 0;}
 
 .datetable {
     width: 100px;
@@ -297,6 +303,7 @@ table {
 .savepages {
     padding-left: 60px;
 }
+
 
 .table td, .table th {
     text-align: center;

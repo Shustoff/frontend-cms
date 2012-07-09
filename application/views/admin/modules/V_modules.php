@@ -44,7 +44,7 @@
         <?php endforeach; ?>
     </tbody>
 </table>
-
+<?=$failsearch;?>
 <form action="" method="post" id="save">
 <div class="row">
     <div class="span4">

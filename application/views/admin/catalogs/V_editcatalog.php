@@ -35,6 +35,7 @@
                 <select id="pagecatalog" class="input-medium" name="parent_id">
                     <option value="0">Нету</option>
                     <?php foreach($catalogs as $cat) : ?>
+                        <?php if ($cat->catname == $catalog->catname) continue; ?>
                         <option value="<?=$cat->id; ?>">
                             <?=$cat->catname; ?>
                         </option>
