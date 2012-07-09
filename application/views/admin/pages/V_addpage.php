@@ -13,7 +13,7 @@
         <div class="control-group">
             <label class="control-label" for="alias">Алиас страницы</label>
             <div class="controls">
-                <input type="text" id="alias" name="alias" class="input-xlarge required">
+                <input type="text" id="alias" name="alias" class="input-xlarge required lettersonly">
             </div>
         </div>
     </div>

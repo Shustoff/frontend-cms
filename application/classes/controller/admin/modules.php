@@ -51,6 +51,13 @@ class Controller_Admin_Modules extends Controller_App {
         $this->response->body($view);
     }
 
+    // проверяем системное имя модуля на уникальность
+    public function action_checkname()
+    {
+        $unique_username  = ORM::factory('module')->unique('systemname', $_POST['systemname']);
+        if ( ! $unique_username) echo 'Это системное имя уже используется';
+    }
+
     public function action_add($model = 'module')
     {
         parent::action_add($model);

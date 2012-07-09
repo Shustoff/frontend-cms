@@ -61,8 +61,8 @@ class Controller_App extends Controller {
     {
         $count = NULL;
         $items = ORM::factory($model)->where($field, 'LIKE', '%'.$_POST['searchitem'].'%')->find_all();
-        $view = View::factory('admin/blocks/V_' . $model . 's')
-                ->bind($model, $items)
+        $view = View::factory('admin/' . $model  . 's/V_' . $model . 's')
+                ->bind($model . 's', $items)
                 ->bind('count', $count);
         $this->response->body($view);
     }

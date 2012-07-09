@@ -1,11 +1,12 @@
 valid = {
-    // Проверяем форму
     checkForm: function (element, formname, onclick) {
         if ( ! $(element).valid()) {
             binds.validFail();
         } else {
             if ($(formname).valid())  {
                 binds.canSave(onclick);
+            } else {
+                binds.validFail();
             }
         }
     },
@@ -29,11 +30,17 @@ valid = {
             },
             rules: {
                 pagename: "required",
-                alias: "required"
+                alias: {
+                    required: true,
+                    lettersonly: true
+                }
             },
             messages: {
                 pagename: 'Пожалуйста введите заголовок страницы',
-                alias: 'Пожалуйста введите алиас страницы'
+                alias: {
+                    required: 'Пожалуйста введите алиас страницы',
+                    lettersonly: ' Допустимы только латинские символы'
+                }
             }
         });
     },
@@ -42,15 +49,21 @@ valid = {
     validCatalog: function (formname, onclick) {
         $(formname).validate({
             onfocusout: function(element) {
-                valid.checkForm(element, formname, onclick)
+                valid.checkForm(element, formname, onclick);
             },
             rules: {
                 catname: "required",
-                alias: "required"
+                alias: {
+                    required: true,
+                    lettersonly: true
+                }
             },
             messages: {
                 catname: 'Пожалуйста введите название каталога',
-                alias: 'Пожалуйста введите алиас каталога'
+                alias: {
+                    required: 'Пожалуйста введите алиас каталога',
+                    lettersonly: 'Допустимы только латинские символы'
+                }
             }
         });
     },
@@ -59,10 +72,12 @@ valid = {
     validUser: function (formname, onclick) {
         $('#username').bind('focusout', req.checkLogin);
         $('#email').bind('focusout', req.checkEmail);
-
+        binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ( ! $(element).valid()) binds.validFail();
+                if ( $(formname).valid() && $(element).valid() ) {
+                    binds.canSave(onclick);
+                }
             },
             rules: {
                 username: {
@@ -105,21 +120,33 @@ valid = {
 
     // Правила валидации формы добавления роли
     validRole: function (formname, onclick) {
+        $('input[type=radio], select').live('change', function() {
+            if ( $(formname).valid() && $('.failrole').text() == '')
+            {
+                binds.canSave(onclick);
+            }
+        });
+        $('#name').bind('focusout', req.checkRoleName);
+        binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                checkForm(element, formname, onclick)
+                if ( $(formname).valid() && $(element).valid() ) {
+                    binds.canSave(onclick);
+                }
             },
             rules: {
                 name: {
                     required: true,
-                    lettersonly: true
+                    lettersonly: true,
+                    minlength: 4
                 },
                 description: "required"
             },
             messages: {
                 name: {
                     required: 'Пожалуйста введите название роли (например admin)',
-                    lettersonly: 'Допустимы только латинские символы'
+                    lettersonly: 'Допустимы только латинские символы',
+                    minlength: 'Название роли должно быть минимум 4 символа'
                 },
                 description: 'Пожалуйста введите описание роли (например Администратор)'
             }
@@ -128,9 +155,13 @@ valid = {
 
     // Правила валидации формы добавления модуля
     validModule: function (formname, onclick) {
+        $('#systemname').bind('focusout', req.checkSystemName);
+        binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                checkForm(element, formname, onclick)
+                if ( $(formname).valid() && $(element).valid() ) {
+                    binds.canSave(onclick);
+                }
             },
             rules: {
                 name: "required",
@@ -142,7 +173,7 @@ valid = {
             messages: {
                 name: "Введите название модуля",
                 systemname: {
-                    required: 'Пожалуйста введите описание роли (например Администратор)',
+                    required: 'Пожалуйста введите системное имя модуля (например menu)',
                     lettersonly: 'Допустимы только латинские символы'
                 }
             }
@@ -153,7 +184,9 @@ valid = {
     validSendEmail: function (formname, onclick) {
         $(formname).validate({
             onfocusout: function(element) {
-                checkForm(element, formname, onclick)
+                if ( $(formname).valid() && $(element).valid() ) {
+                    binds.canSave(onclick);
+                }
             },
             rules: {
                 subject: "required"
@@ -163,4 +196,4 @@ valid = {
             }
         });
     }
-}
+};

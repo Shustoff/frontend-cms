@@ -5,7 +5,7 @@
         <div class="control-group">
             <label class="control-label" for="pagename">Название модуля</label>
             <div class="controls">
-                <input type="text" id="pagename" name="name" class="input-xlarge" value="<?=$module->name;?>">
+                <input type="text" id="pagename" name="name" class="input-xlarge required" value="<?=$module->name;?>">
             </div>
         </div>
     </div>
@@ -24,7 +24,9 @@
 </div>
 <div class="row">
     <div class="span11 htmlcode">
-        <h3 class="htmlcodelabel">Код модуля:</h3>
+        <h3 class="htmlcodelabel">Код модуля:
+            <label class="editorfail label label-important" for="editor">Пожалуйста введите код модуля</label>
+        </h3>
         <textarea id="editor" class="auto"><?=$module->content;?></textarea>
         <script>editor = CKEDITOR.editor.replace('editor');</script>
     </div>
@@ -34,20 +36,21 @@
         <div class="control-group">
             <label class="control-label w200" for="systemmod">Системное название модуля:</label>
             <div class="controls">
-                <input type="text" id="systemmod" name="systemname" class="input-medium" value="<?=$module->systemname;?>">
+                <input type="text" id="systemmod" name="systemname" class="input-medium required lettersonly" value="<?=$module->systemname;?>">
+                <label class="fail failsystemname"></label>
             </div>
         </div>
     </div>
     <div class="span3">
-        <script>
-        	$(function() {
-        		$( "#datepicker" ).datepicker();
-        	});
-        </script>
         <div class="control-group">
             <label class="control-label" for="datepicker">Дата создания:</label>
             <div class="controls">
                 <input id="datepicker" type="text" name="date" class="input-small" value="<?=$module->date;?>">
+                <script>
+                    $(function() {
+                        $( "#datepicker" ).datepicker();
+                    });
+                </script>
             </div>
         </div>
     </div>
@@ -57,9 +60,9 @@
             <input type="hidden" name="status" value="<?=$module->status;?>">
             <input type="hidden" id="content" name="content" value="">
             <input type="hidden" name="id" value="<?=$module->id;?>">
-            <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.edit('modules');">Сохранить</a>
+            <a class="btn btn-success btncheck" href="#" onclick="binds.canEditItem('modules');">Сохранить</a>
         </div>
     </div>
 </div>
 </form>
-<script>validPages('#edititem', 'req.initEditor();req.edit("modules");');</script>
+<script>valid.validModule('#edititem', "binds.canEditItem('modules');");</script>

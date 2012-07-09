@@ -52,7 +52,7 @@
                         <li><a href="#pages" onclick="req.pages();">Страницы</a></li>
                         <li><a href="#catalogs" onclick="req.catalogs();">Каталоги</a></li>
                         <li><a href="#users" onclick="req.users();">Пользователи</a></li>
-                        <li><a href="#users" onclick="req.roles();">Группы</a></li>
+                        <li><a href="#users" onclick="req.roles();">Роли</a></li>
                         <li><a href="#modules" onclick="req.modules();">Модули</a></li>
                     </ul>
                 </div>

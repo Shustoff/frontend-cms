@@ -3,9 +3,9 @@
 <div class="row">
     <div class="span6">
         <div class="control-group">
-            <label class="control-label" for="pagename">Название модуля</label>
+            <label class="control-label" for="name">Название модуля</label>
             <div class="controls">
-                <input type="text" id="pagename" name="name" class="input-xlarge">
+                <input type="text" id="name" name="name" class="input-xlarge required">
             </div>
         </div>
     </div>
@@ -24,7 +24,9 @@
 </div>
 <div class="row">
     <div class="span11 htmlcode">
-        <h3 class="htmlcodelabel">Код модуля:</h3>
+        <h3 class="htmlcodelabel">Код модуля:
+            <label class="editorfail label label-important" for="editor">Пожалуйста введите код модуля</label>
+        </h3>
         <textarea id="editor" class="auto"></textarea>
         <script>editor = CKEDITOR.editor.replace('editor');</script>
     </div>
@@ -32,9 +34,10 @@
 <div class="row">
     <div class="span5 systemmod">
         <div class="control-group">
-            <label class="control-label w200" for="systemmod">Системное название модуля:</label>
+            <label class="control-label w200" for="systemname">Системное имя модуля:</label>
             <div class="controls">
-                <input type="text" id="systemmod" name="systemname" class="input-medium required lettersonly">
+                <input type="text" id="systemname" name="systemname" class="input-medium required lettersonly">
+                <label class="fail failsystemname"></label>
             </div>
         </div>
     </div>
@@ -45,7 +48,7 @@
                 <input id="datepicker" type="text" name="date" class="input-small">
                 <script>
                     $(function() {
-                        $( "#datepicker" ).datepicker();
+                        $("#datepicker").datepicker();
                         date.today("#datepicker");
                     });
                 </script>
@@ -57,9 +60,9 @@
             <input type="hidden" name="author_id" value="<?=$author_id;?>">
             <input type="hidden" name="status" value="1">
             <input type="hidden" id="content" name="content" value="">
-            <a class="btn btn-success btncheck" href="#" onclick="req.initEditor();req.addItem('modules');">Сохранить</a>
+            <a class="btn btn-success btncheck" href="#" onclick="binds.canSaveItem('modules');">Сохранить</a>
         </div>
     </div>
 </div>
 </form>
-<script>validModule('#additem', "req.initEditor();req.addItem('modules');");</script>
+<script>valid.validModule('#additem', "binds.canSaveItem('modules');");</script>
