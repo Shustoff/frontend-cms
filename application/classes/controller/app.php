@@ -68,7 +68,6 @@ class Controller_App extends Controller {
             $failsearch = '<p class="center alert alert-error">По вашему запросу ничего не найдено.</p>';
         }
 
-
         $view = View::factory('admin/' . $model  . 's/V_' . $model . 's')
                 ->bind($model . 's', $items)
                 ->bind('count', $count);
