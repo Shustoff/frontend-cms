@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="row maintools">
-            <div class="span8 offset2">
+            <div class="span9 offset1">
                 <ul class="tools">
                     <li>
                         <a href="#addpage" onclick="req.addItem('pages');">

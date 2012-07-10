@@ -192,7 +192,7 @@ $(function(){
             });
         },
 
-        // Проверяем уникальность названия страницы
+        // Проверяем уникальность названия страницы и валидацию формы
         checkPageName: function() {
             if ( $(this).val() != '' ) {
                 var parentForm = $(this).parents('form');
@@ -201,17 +201,19 @@ $(function(){
                     if (data) {
                         binds.validFail();
                     } else {
-                        if ( $(parentForm).attr('id') == 'additem' ) {
-                            binds.canSave("binds.canSaveItem('pages');");
-                        } else {
-                            binds.canSave("binds.canEditItem('pages');");
+                        if ( $(parentForm).valid() ) {
+                            if ( $(parentForm).attr('id') == 'additem' ) {
+                                binds.canSave("binds.canSaveItem('pages');");
+                            } else {
+                                binds.canSave("binds.canEditItem('pages');");
+                            }
                         }
                     }
                 });
             }
         },
 
-        // Проверяем уникальность названия каталога
+        // Проверяем уникальность названия каталога и валидацию формы
         checkCatName: function() {
             if ( $(this).val() != '' ) {
                 var parentForm = $(this).parents('form');
@@ -220,25 +222,69 @@ $(function(){
                     if (data) {
                         binds.validFail();
                     } else {
-                        if ( $(parentForm).attr('id') == 'additem' ) {
-                            binds.canSave("binds.canSaveItem('catalogs');");
-                        } else {
-                            binds.canSave("binds.canEditItem('catalogs');");
+                        if ( $(parentForm).valid() ) {
+                            if ( $(parentForm).attr('id') == 'additem' ) {
+                                binds.canSave("binds.canSaveItem('catalogs');");
+                            } else {
+                                binds.canSave("binds.canEditItem('catalogs');");
+                            }
                         }
                     }
                 });
             }
         },
 
-        // Проверяем уникальность логина
+        // Проверяем уникальность названия модуля и валидацию формы
+        checkModuleName: function() {
+            if ( $(this).val() != '' ) {
+                var parentForm = $(this).parents('form');
+                $.post(baseURL + "modules/checkmodname", $(parentForm).serialize(), function(data){
+                    $('.failmodname').text(data);
+                    if (data || $('.failsystemname').text()) {
+                        binds.validFail();
+                    } else {
+                        if ( $(parentForm).valid() ) {
+                            if ( $(parentForm).attr('id') == 'additem' ) {
+                                binds.canSave("binds.canSaveItem('modules');");
+                            } else {
+                                binds.canSave("binds.canEditItem('modules');");
+                            }
+                        }
+                    }
+                });
+            }
+        },
+
+        // Проверяем уникальность системного имя модуля и валидацию формы
+        checkSystemName: function() {
+            if ( $(this).val() != '' ) {
+                var parentForm = $(this).parents('form');
+                $.post(baseURL + "modules/checksysname", $(parentForm).serialize(), function(data){
+                    $('.failsystemname').text(data);
+                    if (data || $('.failmodname').text()) {
+                        binds.validFail();
+                    } else {
+                        if ( $(parentForm).valid() ) {
+                            if ( $(parentForm).attr('id') == 'additem' ) {
+                                binds.canSave("binds.canSaveItem('modules');");
+                            } else {
+                                binds.canSave("binds.canEditItem('modules');");
+                            }
+                        }
+                    }
+                });
+            }
+        },
+
+        // Проверяем уникальность логина и валидацию формы
         checkLogin: function() {
             if ( $(this).val() != '' ) {
                 var parentForm = $(this).parents('form');
                 $.post(baseURL + "users/checklogin", $(parentForm).serialize(), function(data){
                     $('.failusername').text(data);
                     if (data) binds.validFail();
-                    if ($('.failusername').text() == '' && $('.failemail').text() == '' && $(parentForm).valid()) {
-                        if (parentForm == 'form#additem') {
+                    if (!$('.failusername').text() && !$('.failemail').text() && $(parentForm).valid()) {
+                        if ( $(parentForm).attr('id') == 'additem') {
                             binds.canSave("req.add('users');");
                         } else {
                             binds.canSave("req.edit('users');");
@@ -248,15 +294,15 @@ $(function(){
             }
         },
 
-        // Проверяем уникальность емейла
+        // Проверяем уникальность емейла и валидацию формы
         checkEmail: function() {
             if ( $(this).val() != '' ) {
                 var parentForm = $(this).parents('form');
                 $.post(baseURL + "users/checkemail", $(parentForm).serialize(), function(data){
                     $('.failemail').text(data);
                     if (data) binds.validFail();
-                    if ($('.failusername').text() == '' && $('.failemail').text() == '' && $(parentForm).valid()) {
-                        if (parentForm == 'form#additem') {
+                    if (!$('.failusername').text() && !$('.failemail').text() && $(parentForm).valid()) {
+                        if ($(parentForm).attr('id') == 'additem') {
                             binds.canSave("req.add('users');");
                         } else {
                             binds.canSave("req.edit('users');");
@@ -266,56 +312,18 @@ $(function(){
             }
         },
 
-        // Проверяем уникальность названия роли
+        // Проверяем уникальность названия роли и валидацию формы
         checkRoleName: function() {
             if ( $(this).val() != '' ) {
                 var parentForm = $(this).parents('form');
                 $.post(baseURL + "roles/checkrole", $(parentForm).serialize(), function(data){
                     $('.failrole').text(data);
                     if (data) binds.validFail();
-                    if ( $('.failrole').text() == '' && $(parentForm).valid()) {
-                        if (parentForm == 'form#additem') {
+                    if ( !$('.failrole').text() && $(parentForm).valid()) {
+                        if ($(parentForm).attr('id') == 'additem') {
                             binds.canSave("req.add('roles');");
                         } else {
                             binds.canSave("req.edit('roles');");
-                        }
-                    }
-                });
-            }
-        },
-
-        // Проверяем уникальность названия модуля
-        checkModuleName: function() {
-            if ( $(this).val() != '' ) {
-                var parentForm = $(this).parents('form');
-                $.post(baseURL + "modules/checkmodname", $(parentForm).serialize(), function(data){
-                    $('.failmodname').text(data);
-                    if (data || $('.failsystemname').text() != '') {
-                        binds.validFail();
-                    } else {
-                        if ( $(parentForm).attr('id') == 'additem' ) {
-                            binds.canSave("binds.canSaveItem('modules');");
-                        } else {
-                            binds.canSave("binds.canEditItem('modules');");
-                        }
-                    }
-                });
-            }
-        },
-
-        // Проверяем уникальность системного имя модуля
-        checkSystemName: function() {
-            if ( $(this).val() != '' ) {
-                var parentForm = $(this).parents('form');
-                $.post(baseURL + "modules/checksysname", $(parentForm).serialize(), function(data){
-                    $('.failsystemname').text(data);
-                    if (data || $('.failmodname').text() != '') {
-                        binds.validFail();
-                    } else {
-                        if ( $(parentForm).attr('id') == 'additem' ) {
-                            binds.canSave("binds.canSaveItem('modules');");
-                        } else {
-                            binds.canSave("binds.canEditItem('modules');");
                         }
                     }
                 });
@@ -342,14 +350,18 @@ $(function(){
     binds = {
         // Проверка измененных полей в настройках
         checkOptions: function() {
-            // Проверяем внесены ли изменения в настройки
             $('#saveoptions input[type=text], #saveoptions textarea').live('keydown', binds.canSave('req.saveoptions();'));
             $('#saveoptions input[type=radio], #saveoptions select').live('change', binds.canSave('req.saveoptions();'));
         },
 
-        // Делаем кнопку сохранить активной если вся форма валиднa, передаем onclick
+        // Делаем кнопку сохранить активной если вся форма валиднa
         canSave: function(onclick) {
             $('.btncheck').removeAttr('disabled').attr('onclick', onclick).text('Сохранить');
+        },
+
+        // Тоже самое для отправки сообщения
+        canSend: function(onclick) {
+            $('.btncheck').removeAttr('disabled').attr('onclick', onclick).text('Отправить сообщение');
         },
 
         // Делаем кнопку сохранить не активной после сохранения материала

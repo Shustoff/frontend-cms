@@ -37,7 +37,7 @@
         <div class="control-group">
             <label class="control-label w200" for="systemmod">Системное имя модуля:</label>
             <div class="controls">
-                <input type="text" id="systemmod" name="systemname" class="input-medium required lettersonly" value="<?=$module->systemname;?>">
+                <input type="text" id="systemmod" name="systemname" class="input-medium required alphanumeric" value="<?=$module->systemname;?>">
                 <label class="fail failsystemname"></label>
             </div>
         </div>

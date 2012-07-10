@@ -14,7 +14,7 @@
         <div class="control-group">
             <label class="control-label" for="alias">Алиас каталога</label>
             <div class="controls">
-                <input type="text" id="alias" name="alias" class="input-xlarge required lettersonly" value="<?=$catalog->alias;?>">
+                <input type="text" id="alias" name="alias" class="input-xlarge required alphanumeric" value="<?=$catalog->alias;?>">
             </div>
         </div>
     </div>
