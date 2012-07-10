@@ -6,6 +6,7 @@
             <label class="control-label" for="pagename">Заголовок страницы</label>
             <div class="controls">
                 <input type="text" id="pagename" name="pagename" class="input-xlarge required">
+                <label class="fail failpagename"></label>
             </div>
         </div>
     </div>

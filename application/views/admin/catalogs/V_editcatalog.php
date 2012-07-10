@@ -3,9 +3,10 @@
 <div class="row">
     <div class="span6">
         <div class="control-group">
-            <label class="control-label" for="pagename">Название каталога</label>
+            <label class="control-label" for="catname">Название каталога</label>
             <div class="controls">
-                <input type="text" id="pagename" name="catname" class="input-xlarge required" value="<?=$catalog->catname;?>">
+                <input type="text" id="catname" name="catname" class="input-xlarge required" value="<?=$catalog->catname;?>">
+                <label class="fail failcatname"></label>
             </div>
         </div>
     </div>

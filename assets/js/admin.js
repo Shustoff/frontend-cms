@@ -1,26 +1,4 @@
 $(function(){
-/*
-// Настройки шаблонизатора
-_.templateSettings = {
-    interpolate: /\{\{(.+?)\}\}/g
-};
-
-// Шаблонизатор
-var template = {
-    topRender: (function() {
-        var topTemplate = $('.top').html();
-        var template = _.template(topTemplate);
-        $('.top').html(
-            template({
-                sitename: sitename,
-                ipadress: ipadress,
-                email: email
-            })
-        );
-    })()
-};
-*/
-
     // Корень админки
     var baseURL = '/frontend/admin/';
 
@@ -214,6 +192,44 @@ var template = {
             });
         },
 
+        // Проверяем уникальность названия страницы
+        checkPageName: function() {
+            if ( $(this).val() != '' ) {
+                var parentForm = $(this).parents('form');
+                $.post(baseURL + "pages/checkpagename", $(parentForm).serialize(), function(data){
+                    $('.failpagename').text(data);
+                    if (data) {
+                        binds.validFail();
+                    } else {
+                        if ( $(parentForm).attr('id') == 'additem' ) {
+                            binds.canSave("binds.canSaveItem('pages');");
+                        } else {
+                            binds.canSave("binds.canEditItem('pages');");
+                        }
+                    }
+                });
+            }
+        },
+
+        // Проверяем уникальность названия каталога
+        checkCatName: function() {
+            if ( $(this).val() != '' ) {
+                var parentForm = $(this).parents('form');
+                $.post(baseURL + "catalogs/checkcatname", $(parentForm).serialize(), function(data){
+                    $('.failcatname').text(data);
+                    if (data) {
+                        binds.validFail();
+                    } else {
+                        if ( $(parentForm).attr('id') == 'additem' ) {
+                            binds.canSave("binds.canSaveItem('catalogs');");
+                        } else {
+                            binds.canSave("binds.canEditItem('catalogs');");
+                        }
+                    }
+                });
+            }
+        },
+
         // Проверяем уникальность логина
         checkLogin: function() {
             if ( $(this).val() != '' ) {
@@ -268,15 +284,39 @@ var template = {
             }
         },
 
+        // Проверяем уникальность названия модуля
+        checkModuleName: function() {
+            if ( $(this).val() != '' ) {
+                var parentForm = $(this).parents('form');
+                $.post(baseURL + "modules/checkmodname", $(parentForm).serialize(), function(data){
+                    $('.failmodname').text(data);
+                    if (data || $('.failsystemname').text() != '') {
+                        binds.validFail();
+                    } else {
+                        if ( $(parentForm).attr('id') == 'additem' ) {
+                            binds.canSave("binds.canSaveItem('modules');");
+                        } else {
+                            binds.canSave("binds.canEditItem('modules');");
+                        }
+                    }
+                });
+            }
+        },
+
         // Проверяем уникальность системного имя модуля
         checkSystemName: function() {
             if ( $(this).val() != '' ) {
                 var parentForm = $(this).parents('form');
-                $.post(baseURL + "modules/checkname", $(parentForm).serialize(), function(data){
+                $.post(baseURL + "modules/checksysname", $(parentForm).serialize(), function(data){
                     $('.failsystemname').text(data);
-                    if (data) binds.validFail();
-                    if ( $('.failsystemname').text() == '' && $(parentForm).valid()) {
-                       binds.canSave("binds.canSaveItem('modules');");
+                    if (data || $('.failmodname').text() != '') {
+                        binds.validFail();
+                    } else {
+                        if ( $(parentForm).attr('id') == 'additem' ) {
+                            binds.canSave("binds.canSaveItem('modules');");
+                        } else {
+                            binds.canSave("binds.canEditItem('modules');");
+                        }
                     }
                 });
             }
@@ -302,56 +342,55 @@ var template = {
     binds = {
         // Проверка измененных полей в настройках
         checkOptions: function() {
-            // Делаем кнопку активной
-            function rem() {$('#saveoptions .btncheck').removeAttr('disabled').attr('onclick', 'req.saveoptions();').text('Сохранить');}
             // Проверяем внесены ли изменения в настройки
-            $('#saveoptions input[type=text], #saveoptions textarea').live('keydown', rem);
-            $('#saveoptions input[type=radio], #saveoptions select').live('change', rem);
+            $('#saveoptions input[type=text], #saveoptions textarea').live('keydown', binds.canSave('req.saveoptions();'));
+            $('#saveoptions input[type=radio], #saveoptions select').live('change', binds.canSave('req.saveoptions();'));
         },
 
-        // Делаем кнопку сохранить активной если вся форма валидна
+        // Делаем кнопку сохранить активной если вся форма валиднa, передаем onclick
         canSave: function(onclick) {
             $('.btncheck').removeAttr('disabled').attr('onclick', onclick).text('Сохранить');
         },
 
-        // Делаем кнопку сохранить не активной после сохранения
+        // Делаем кнопку сохранить не активной после сохранения материала
         completeSave: function() {
             $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;').text('Сохранено');
         },
 
-        // Делаем кнопку сохранить не активной если не пройдена валидация поля
+        // Делаем кнопку сохранить не активной если не пройдена валидация поля формы
         validFail: function() {
             $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;');
         },
 
-        // Проверяем можно ли сохранить материал
+        // Проверяем можно ли сохранить материал + отсылаем html
         canSaveItem: function(table) {
             if (!editor.getData())
             {
                 $('.editorfail').show().delay(3000).hide(100);
             }
-            else {
+            else
+            {
                 $('#content').empty().val(editor.getData());
                 req.add(table);
             }
         },
 
-        // Проверяем можно ли сохранить материал
+        // Проверяем можно ли сохранить материал + отсылаем html
         canEditItem: function(table) {
             if (!editor.getData())
             {
                 $('.editorfail').show().delay(3000).hide(100);
             }
-            else {
+            else
+            {
                 $('#content').empty().val(editor.getData());
                 req.edit(table);
             }
         }
     };
 
-    // Объект даты
+    // Вставляем дату в поле дата пикера
     date = {
-        // Вставляем дату в поле дата пикера
         today: function(el) {
             var dt = new Date();
             var month = dt.getMonth() + 1;
