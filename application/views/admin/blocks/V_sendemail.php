@@ -50,7 +50,7 @@
         <div class="span3">
             <script>
                 $(function() {
-                    $( "#datepicker" ).datepicker();
+                    $("#datepicker").datepicker();
                     date.today("#datepicker");
                 });
             </script>

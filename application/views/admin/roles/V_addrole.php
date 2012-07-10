@@ -127,7 +127,7 @@
                 <script>
                     $(function() { date.today('#datepicker') });
                 </script>
-                <a class="btn btn-success addrole btncheck" href="#" onclick="req.add('roles');">Добавить роль</a>
+                <a class="btn btn-success addrole btncheck" href="#" onclick="req.add('roles');">Сохранить</a>
             </div>
         </div>
     </div>

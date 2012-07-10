@@ -70,12 +70,8 @@ class Controller_App extends Controller {
 
         $view = View::factory('admin/' . $model  . 's/V_' . $model . 's')
                 ->bind($model . 's', $items)
-                ->bind('count', $count);
-
-        if (isset($failsearch))
-        {
-            $view->bind('failsearch', $failsearch);
-        }
+                ->bind('count', $count)
+                ->bind('failsearch', $failsearch);
 
         $this->response->body($view);
     }

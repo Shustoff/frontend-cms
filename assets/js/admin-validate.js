@@ -15,7 +15,7 @@ valid = {
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ( $(element).valid() && $(formname).valid() && $('.failpagename').text() == '' ) {
+                if ( $(element).valid() && $(formname).valid() && !$('.failpagename').text() ) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -25,14 +25,14 @@ valid = {
                 pagename: "required",
                 alias: {
                     required: true,
-                    lettersonly: true
+                    alphanumeric: true
                 }
             },
             messages: {
                 pagename: 'Пожалуйста введите заголовок страницы',
                 alias: {
                     required: 'Пожалуйста введите алиас страницы',
-                    lettersonly: ' Допустимы только латинские символы'
+                    alphanumeric: 'Допустимы только латинские символы и цифры'
                 }
             }
         });
@@ -44,7 +44,7 @@ valid = {
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ( $(element).valid() && $(formname).valid() && $('.failcatname').text() == '' ) {
+                if ( $(element).valid() && $(formname).valid() && !$('.failcatname').text() ) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -54,14 +54,14 @@ valid = {
                 catname: "required",
                 alias: {
                     required: true,
-                    lettersonly: true
+                    alphanumeric: true
                 }
             },
             messages: {
                 catname: 'Пожалуйста введите название каталога',
                 alias: {
                     required: 'Пожалуйста введите алиас каталога',
-                    lettersonly: 'Допустимы только латинские символы'
+                    alphanumeric: 'Допустимы только латинские символы и цифры'
                 }
             }
         });
@@ -73,7 +73,7 @@ valid = {
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ($(element).valid() && $(formname).valid() && $('.failmodname').text() == '' && $('.failsystemname').text() == '') {
+                if ($(element).valid() && $(formname).valid() && !$('.failmodname').text() && !$('.failsystemname').text()) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -83,19 +83,19 @@ valid = {
                 name: "required",
                 systemname: {
                     required: true,
-                    lettersonly: true
+                    alphanumeric: true
                 }
             },
             messages: {
                 name: "Введите название модуля",
                 systemname: {
                     required: 'Пожалуйста введите системное имя модуля (например menu)',
-                    lettersonly: 'Допустимы только латинские символы'
+                    alphanumeric: 'Допустимы только латинские символы и цифры'
                 }
             }
         });
         $('#name').bind('focusout', req.checkModuleName);
-        $('#systemmod').bind('focusout', req.checkSystemName);
+        $('#systemname').bind('focusout', req.checkSystemName);
     },
 
     // Правила валидации формы добавления пользователя
@@ -103,8 +103,10 @@ valid = {
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ( $(formname).valid() && $(element).valid() ) {
+                if ($(formname).valid() && $(element).valid() && !$('.failusername').text() && !$('.failemail').text()) {
                     binds.canSave(onclick);
+                } else {
+                    binds.validFail();
                 }
             },
             rules: {
@@ -150,12 +152,6 @@ valid = {
 
     // Правила валидации формы добавления роли
     validRole: function (formname, onclick) {
-        $('input[type=radio], select').live('change', function() {
-            if ( $(formname).valid() && $('.failrole').text() == '')
-            {
-                binds.canSave(onclick);
-            }
-        });
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
@@ -166,7 +162,7 @@ valid = {
             rules: {
                 name: {
                     required: true,
-                    lettersonly: true,
+                    alphanumeric: true,
                     minlength: 4
                 },
                 description: "required"
@@ -174,21 +170,30 @@ valid = {
             messages: {
                 name: {
                     required: 'Пожалуйста введите название роли (например admin)',
-                    lettersonly: 'Допустимы только латинские символы',
+                    alphanumeric: 'Допустимы только латинские символы и цифры',
                     minlength: 'Название роли должно быть минимум 4 символа'
                 },
                 description: 'Пожалуйста введите описание роли (например Администратор)'
             }
         });
         $('#name').bind('focusout', req.checkRoleName);
+        $('input[type=radio], select').live('change', function() {
+            if ( $(formname).valid() && !$('.failrole').text() )
+            {
+                binds.canSave(onclick);
+            }
+        });
     },
 
     // Правила валидации формы отправки емейла
     validSendEmail: function (formname, onclick) {
+        binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
                 if ( $(formname).valid() && $(element).valid() ) {
-                    binds.canSave(onclick);
+                    binds.canSend(onclick);
+                } else {
+                    binds.validFail();
                 }
             },
             rules: {
