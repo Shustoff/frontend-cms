@@ -51,13 +51,6 @@ class Controller_Admin_Modules extends Controller_App {
         $this->response->body($view);
     }
 
-    // проверяем системное имя модуля на уникальность
-    public function action_checkname()
-    {
-        $unique_username  = ORM::factory('module')->unique('systemname', $_POST['systemname']);
-        if ( ! $unique_username) echo 'Это системное имя уже используется';
-    }
-
     public function action_add($model = 'module')
     {
         parent::action_add($model);
@@ -83,4 +76,17 @@ class Controller_Admin_Modules extends Controller_App {
         parent::action_edit($model);
     }
 
-} // End Welcome
+    // проверяем название модуля на уникальность
+    public function action_checkmodname()
+    {
+        $unique_modname  = ORM::factory('module')->unique('name', $_POST['name']);
+        if ( ! $unique_modname) echo 'Такой модуль уже существует';
+    }
+
+    // проверяем системное имя модуля на уникальность
+    public function action_checksysname()
+    {
+        $unique_sysname  = ORM::factory('module')->unique('systemname', $_POST['systemname']);
+        if ( ! $unique_sysname) echo 'Это системное имя уже используется';
+    }
+}

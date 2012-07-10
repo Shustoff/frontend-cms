@@ -48,6 +48,12 @@ class Controller_Admin_Trash extends Controller_App {
          ->bind(':limit', $limit)
          ->execute();
 
+        // Если корзина пуста
+        if ($items->count() == 0)
+        {
+            $failsearch = '<p class="center not-found alert alert-info">Корзина пуста.</p>';
+        }
+
         // Рассчитываем пагинацию
         $count = $allitems->count() / $limit;
         $count = ceil($count);
@@ -55,7 +61,8 @@ class Controller_Admin_Trash extends Controller_App {
 
         $view = View::factory('admin/blocks/V_trash')
                               ->bind('items', $items)
-                              ->bind('count', $count);
+                              ->bind('count', $count)
+                              ->bind('failsearch', $failsearch);
 
         $this->response->body($view);
     }

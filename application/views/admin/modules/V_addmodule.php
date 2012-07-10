@@ -6,6 +6,7 @@
             <label class="control-label" for="name">Название модуля</label>
             <div class="controls">
                 <input type="text" id="name" name="name" class="input-xlarge required">
+                <label class="fail failmodname"></label>
             </div>
         </div>
     </div>

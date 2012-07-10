@@ -43,7 +43,7 @@
             </div>
             <div class="row two">
                 <div class="span2">
-                    <h1 class="logo">FrontCMS</h1>
+                    <h1 class="logo">Front CMS</h1>
                 </div>
                 <div class="span9">
                     <ul class="menu">
