@@ -74,5 +74,10 @@ class Controller_Admin_Catalogs extends Controller_App {
         parent::action_edit($model);
     }
 
+    public function action_checkcatname()
+    {
+        $unique_catname  = ORM::factory('catalog')->unique('catname', $_POST['catname']);
+        if ( ! $unique_catname) echo 'Такой каталог уже существует';
+    }
 
-} // End Welcome
+}

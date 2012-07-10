@@ -78,5 +78,11 @@ class Controller_Admin_Pages extends Controller_App {
         parent::action_edit($model);
     }
 
+    public function action_checkpagename()
+    {
+        $unique_pagename  = ORM::factory('page')->unique('pagename', $_POST['pagename']);
+        if ( ! $unique_pagename) echo 'Такая страница уже существует';
+    }
+
 
 } // End Welcome

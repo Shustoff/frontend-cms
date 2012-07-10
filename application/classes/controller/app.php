@@ -65,7 +65,7 @@ class Controller_App extends Controller {
 
         if ($items->count() == 0)
         {
-            $failsearch = '<p class="center alert alert-error">По вашему запросу ничего не найдено.</p>';
+            $failsearch = '<p class="center not-found alert alert-info">По вашему запросу ничего не найдено.</p>';
         }
 
 
