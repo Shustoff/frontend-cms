@@ -1,17 +1,4 @@
 valid = {
-    // Проверка формы на валидацию
-    checkForm: function (element, formname, onclick) {
-        if ( ! $(element).valid()) {
-            binds.validFail();
-        } else {
-            if ($(formname).valid())  {
-                binds.canSave(onclick);
-            } else {
-                binds.validFail();
-            }
-        }
-    },
-
     // Правила валидации настроек
     validOptions: function () {
         $("#saveoptions").validate({
@@ -25,9 +12,14 @@ valid = {
 
     // Правила валидации формы добавления страницы
     validPages: function (formname, onclick) {
+        binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                valid.checkForm(element, formname, onclick);
+                if ( $(element).valid() && $(formname).valid() && $('.failpagename').text() == '' ) {
+                    binds.canSave(onclick);
+                } else {
+                    binds.validFail();
+                }
             },
             rules: {
                 pagename: "required",
@@ -44,13 +36,19 @@ valid = {
                 }
             }
         });
+        $("#pagename").bind('focusout', req.checkPageName);
     },
 
     // Правила валидации формы добавления каталога
     validCatalog: function (formname, onclick) {
+        binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                valid.checkForm(element, formname, onclick);
+                if ( $(element).valid() && $(formname).valid() && $('.failcatname').text() == '' ) {
+                    binds.canSave(onclick);
+                } else {
+                    binds.validFail();
+                }
             },
             rules: {
                 catname: "required",
@@ -67,12 +65,41 @@ valid = {
                 }
             }
         });
+        $("#catname").bind('focusout', req.checkCatName);
+    },
+
+    // Правила валидации формы добавления модуля
+    validModule: function (formname, onclick) {
+        binds.validFail();
+        $(formname).validate({
+            onfocusout: function(element) {
+                if ($(element).valid() && $(formname).valid() && $('.failmodname').text() == '' && $('.failsystemname').text() == '') {
+                    binds.canSave(onclick);
+                } else {
+                    binds.validFail();
+                }
+            },
+            rules: {
+                name: "required",
+                systemname: {
+                    required: true,
+                    lettersonly: true
+                }
+            },
+            messages: {
+                name: "Введите название модуля",
+                systemname: {
+                    required: 'Пожалуйста введите системное имя модуля (например menu)',
+                    lettersonly: 'Допустимы только латинские символы'
+                }
+            }
+        });
+        $('#name').bind('focusout', req.checkModuleName);
+        $('#systemmod').bind('focusout', req.checkSystemName);
     },
 
     // Правила валидации формы добавления пользователя
     validUser: function (formname, onclick) {
-        $('#username').bind('focusout', req.checkLogin);
-        $('#email').bind('focusout', req.checkEmail);
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
@@ -117,6 +144,8 @@ valid = {
                 }
             }
         });
+        $('#username').bind('focusout', req.checkLogin);
+        $('#email').bind('focusout', req.checkEmail);
     },
 
     // Правила валидации формы добавления роли
@@ -127,7 +156,6 @@ valid = {
                 binds.canSave(onclick);
             }
         });
-        $('#name').bind('focusout', req.checkRoleName);
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
@@ -152,35 +180,7 @@ valid = {
                 description: 'Пожалуйста введите описание роли (например Администратор)'
             }
         });
-    },
-
-    // Правила валидации формы добавления модуля
-    validModule: function (formname, onclick) {
-        $('#systemname').bind('focusout', req.checkSystemName);
-        binds.validFail();
-        $(formname).validate({
-            onfocusout: function(element) {
-                if ( $(formname).valid() && $(element).valid() ) {
-                    binds.canSave(onclick);
-                } else {
-                    binds.validFail();
-                }
-            },
-            rules: {
-                name: "required",
-                systemname: {
-                    required: true,
-                    lettersonly: true
-                }
-            },
-            messages: {
-                name: "Введите название модуля",
-                systemname: {
-                    required: 'Пожалуйста введите системное имя модуля (например menu)',
-                    lettersonly: 'Допустимы только латинские символы'
-                }
-            }
-        });
+        $('#name').bind('focusout', req.checkRoleName);
     },
 
     // Правила валидации формы отправки емейла

@@ -6,6 +6,7 @@
             <label class="control-label" for="catname">Название каталога</label>
             <div class="controls">
                 <input type="text" id="catname" name="catname" class="input-xlarge required">
+                <label class="fail failcatname"></label>
             </div>
         </div>
     </div>

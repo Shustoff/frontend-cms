@@ -1,11 +1,12 @@
-<h3 class="center">Сохранить модуль</h3>
+<h3 class="center">Изменить модуль</h3>
 <form action="" method="post" id="edititem">
 <div class="row">
     <div class="span6">
         <div class="control-group">
-            <label class="control-label" for="pagename">Название модуля</label>
+            <label class="control-label" for="name">Название модуля</label>
             <div class="controls">
-                <input type="text" id="pagename" name="name" class="input-xlarge required" value="<?=$module->name;?>">
+                <input type="text" id="name" name="name" class="input-xlarge required" value="<?=$module->name;?>">
+                <label class="fail failmodname"></label>
             </div>
         </div>
     </div>
@@ -34,7 +35,7 @@
 <div class="row">
     <div class="span5 systemmod">
         <div class="control-group">
-            <label class="control-label w200" for="systemmod">Системное название модуля:</label>
+            <label class="control-label w200" for="systemmod">Системное имя модуля:</label>
             <div class="controls">
                 <input type="text" id="systemmod" name="systemname" class="input-medium required lettersonly" value="<?=$module->systemname;?>">
                 <label class="fail failsystemname"></label>
