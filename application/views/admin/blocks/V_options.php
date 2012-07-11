@@ -28,10 +28,10 @@
             <label class="control-label" for="robots">Мета-тег robots: </label>
             <div class="controls docs-input-sizes">
                 <select class="span3" id="robots" name="robots">
-                    <option value="0" <?=$option->robots == 0 ? 'selected' : '';?>>Index, Follow</option>
-                    <option value="1" <?=$option->robots == 1 ? 'selected' : '';?>>Index, No Follow</option>
-                    <option value="2" <?=$option->robots == 2 ? 'selected' : '';?>>No Index, Follow</option>
-                    <option value="3" <?=$option->robots == 3 ? 'selected' : '';?>>No Index, No Follow</option>
+                    <option value="index,follow" <?=$option->robots == 'index,follow' ? 'selected' : '';?>>Index, Follow</option>
+                    <option value="index,nofollow" <?=$option->robots == 'index,nofollow' ? 'selected' : '';?>>Index, No Follow</option>
+                    <option value="noindex,follow" <?=$option->robots == 'noindex,follow' ? 'selected' : '';?>>No Index, Follow</option>
+                    <option value="noindex,nofollow" <?=$option->robots == 'noindex,nofollow' ? 'selected' : '';?>>No Index, No Follow</option>
                 </select>
             </div>
         </div>

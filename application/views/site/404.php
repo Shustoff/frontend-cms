@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>Page Not Found :(</title>
+  <title>Страница не найдена :(</title>
   <style>
     ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
     ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
@@ -28,12 +28,12 @@
 </head>
 <body>
   <div class="container">
-    <h1>Not found <span>:(</span></h1>
-    <p>Sorry, but the page you were trying to view does not exist.</p>
-    <p>It looks like this was the result of either:</p>
+    <h1>Не найдена <span>:(</span></h1>
+    <p>Извините, но страница которую вы запросили не существует.</p>
+    <p>Возможно вы запросили:</p>
     <ul>
-      <li>a mistyped address</li>
-      <li>an out-of-date link</li>
+      <li>неправильный адрес</li>
+      <li>просроченную ссылку</li>
     </ul>
     <script>
       var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
