@@ -121,7 +121,15 @@ Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))', array('id' => '.+'
 		'action'     => 'index',
 	));
 
-Route::set('default', '(<controller>(/<action>(/<id>)))')
+// Если сайт выключен
+Route::set('offline', 'offline')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'main',
+        'action' => 'offline'
+    ));
+
+Route::set('default', '(<controller>(/<action>))')
 	->defaults(array(
         'directory' => 'site',
 		'controller' => 'main',
