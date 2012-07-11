@@ -1,3 +1,7 @@
+<div class="alert alert-success tooltips">
+    <button class="close" data-dismiss="alert">×</button>
+    <span class="center">Роль изменена</span>
+</div>
 <form id="edititem" action="" method="post">
 <div class="row">
     <h3>Изменить роль</h3>

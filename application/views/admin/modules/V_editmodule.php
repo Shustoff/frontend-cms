@@ -1,3 +1,7 @@
+<div class="alert alert-success tooltips">
+    <button class="close" data-dismiss="alert">×</button>
+    <span class="center">Модуль изменен</span>
+</div>
 <h3 class="center">Изменить модуль</h3>
 <form action="" method="post" id="edititem">
 <div class="row">

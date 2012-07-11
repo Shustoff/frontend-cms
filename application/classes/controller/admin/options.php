@@ -7,21 +7,28 @@ class Controller_Admin_Options extends Controller_App {
         foreach ($roles as $role)
         {
             if ($role->name === 'login')
+            {
                 $permission = FALSE;
+            }
             else
+            {
                 $role->opts == 0 ? $permission = FALSE : $permission = TRUE;
+            }
         }
         if ( ! $permission) die('Вам запрещен доступ к этой странице');
     }
 
     public function action_index()
     {
-        $hostname = Kohana::$config->load('database.default.connection.hostname');
-        $database = Kohana::$config->load('database.default.connection.database');
-        $prefix = Kohana::$config->load('database.default.table_prefix');
-        $username = Kohana::$config->load('database.default.connection.username');
-        $password = Kohana::$config->load('database.default.connection.password');
+        // Загружаем конфиг
+        $cfg = Kohana::$config;
+        $hostname = $cfg->load('database.default.connection.hostname');
+        $database = $cfg->load('database.default.connection.database');
+        $prefix = $cfg->load('database.default.table_prefix');
+        $username = $cfg->load('database.default.connection.username');
+        $password = $cfg->load('database.default.connection.password');
 
+        // Выводим все настройки
         $options = ORM::factory('option')->find_all();
 
         $view = View::factory('admin/blocks/V_options')
@@ -31,15 +38,12 @@ class Controller_Admin_Options extends Controller_App {
                         ->set('username', $username)
                         ->set('password', $password)
                         ->set('options', $options);
-
         $this->response->body($view);
     }
 
+    // Сохраняем настройки
     public function action_save()
     {
         ORM::factory('option', 1)->values($_POST)->save();
     }
-
-
-
 }

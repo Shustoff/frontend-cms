@@ -1,3 +1,7 @@
+<div class="alert alert-success tooltips">
+    <button class="close" data-dismiss="alert">×</button>
+    <span class="center">Модуль добавлен</span>
+</div>
 <h3 class="center">Добавить Модуль</h3>
 <form action="" method="post" id="additem">
 <div class="row">

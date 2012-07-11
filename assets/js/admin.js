@@ -6,37 +6,47 @@ $(function(){
     req = {
         index: function() {$(".main").load(baseURL + "home");},
 
+        // Вид настроек
         options: function() {
             $(".main").load(baseURL + "options");
             binds.checkOptions();
         },
 
+        // Вид страниц
         pages: function() {$(".main").load(baseURL + "pages");},
 
+        // Вид каталогов
         catalogs: function() {$(".main").load(baseURL + "catalogs");},
 
+        // Вид пользователей
         users: function() {$(".main").load(baseURL + "users");},
 
+        // Вид ролей
         roles: function() {$(".main").load(baseURL + "roles");},
 
+        // Вид модулей
         modules: function() {$(".main").load(baseURL + "modules");},
 
+        // Вид отправки сообщений
         email: function() {
             $(".main").load(baseURL + "email", function() {
                 binds.validFail();
             });
         },
 
+        // Вид статистики
         stats: function() {$(".main").load(baseURL + "stats")},
 
+        // Вид информации о сайте
         info: function() {$(".main").load(baseURL + "info");},
 
+        // Вид корзины
         trash: function() {$(".main").load(baseURL + "trash");},
 
         // Сохранить настройки
         saveoptions: function() {
             $.post(baseURL + "options/save", $("#saveoptions").serialize(), function() {
-                $('.sitename').text($('#sitename').val());
+                $('.sitename').text( $('#sitename').val() );
                 binds.completeSave();
             });
         },
@@ -198,7 +208,28 @@ $(function(){
                 var parentForm = $(this).parents('form');
                 $.post(baseURL + "pages/checkpagename", $(parentForm).serialize(), function(data){
                     $('.failpagename').text(data);
-                    if (data) {
+                    if (data || $('.failalias').text()) {
+                        binds.validFail();
+                    } else {
+                        if ( $(parentForm).valid() ) {
+                            if ( $(parentForm).attr('id') == 'additem' ) {
+                                binds.canSave("binds.canSaveItem('pages');");
+                            } else {
+                                binds.canSave("binds.canEditItem('pages');");
+                            }
+                        }
+                    }
+                });
+            }
+        },
+
+        // Проверяем уникальность алиаса страницы и валидацию формы
+        checkPageAlias: function() {
+            if ( $(this).val() != '' ) {
+                var parentForm = $(this).parents('form');
+                $.post(baseURL + "pages/checkalias", $(parentForm).serialize(), function(data){
+                    $('.failalias').text(data);
+                    if (data || $('.failpagename').text()) {
                         binds.validFail();
                     } else {
                         if ( $(parentForm).valid() ) {
@@ -219,7 +250,7 @@ $(function(){
                 var parentForm = $(this).parents('form');
                 $.post(baseURL + "catalogs/checkcatname", $(parentForm).serialize(), function(data){
                     $('.failcatname').text(data);
-                    if (data) {
+                    if (data || $('.failalias').text()) {
                         binds.validFail();
                     } else {
                         if ( $(parentForm).valid() ) {
@@ -227,6 +258,27 @@ $(function(){
                                 binds.canSave("binds.canSaveItem('catalogs');");
                             } else {
                                 binds.canSave("binds.canEditItem('catalogs');");
+                            }
+                        }
+                    }
+                });
+            }
+        },
+
+        // Проверяем уникальность алиаса каталога и валидацию формы
+        checkCatAlias: function() {
+            if ( $(this).val() != '' ) {
+                var parentForm = $(this).parents('form');
+                $.post(baseURL + "catalogs/checkalias", $(parentForm).serialize(), function(data){
+                    $('.failalias').text(data);
+                    if (data || $('.failcatname').text()) {
+                        binds.validFail();
+                    } else {
+                        if ( $(parentForm).valid() ) {
+                            if ( $(parentForm).attr('id') == 'additem' ) {
+                                binds.canSave("binds.canSaveItem('pages');");
+                            } else {
+                                binds.canSave("binds.canEditItem('pages');");
                             }
                         }
                     }
@@ -341,6 +393,7 @@ $(function(){
                 $('#sendemailbtn').text('Сообщение отправляется...').attr('onclick', 'return false;').addClass('disabled');
                 $.post(baseURL + "email/send", $('#email').serialize(), function() {
                     $('#sendemailbtn').text('Сообщение отправлено!');
+                    binds.completeSave();
                 });
             }
         }
@@ -350,8 +403,12 @@ $(function(){
     binds = {
         // Проверка измененных полей в настройках
         checkOptions: function() {
-            $('#saveoptions input[type=text], #saveoptions textarea').live('keydown', binds.canSave('req.saveoptions();'));
-            $('#saveoptions input[type=radio], #saveoptions select').live('change', binds.canSave('req.saveoptions();'));
+            $('#saveoptions input[type=text], #saveoptions textarea').live('keydown', function() {
+                binds.canSave('req.saveoptions();');
+            });
+            $('#saveoptions input[type=radio], #saveoptions select').live('change', function() {
+                binds.canSave('req.saveoptions();');
+            });
         },
 
         // Делаем кнопку сохранить активной если вся форма валиднa
@@ -367,6 +424,7 @@ $(function(){
         // Делаем кнопку сохранить не активной после сохранения материала
         completeSave: function() {
             $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;').text('Сохранено');
+            $('.tooltips').show(100).delay(3000).hide(100);
         },
 
         // Делаем кнопку сохранить не активной если не пройдена валидация поля формы

@@ -11,7 +11,7 @@ class Controller_App extends Controller {
         return parent::before();
     }
 
-    // Вывод итемов
+    // Вывод всех материалов
     public function action_main($model) {
         $sortby = Arr::get($_POST, 'sortby', 'id');
         $limit = Arr::get($_POST, 'limit', '5');
@@ -76,14 +76,15 @@ class Controller_App extends Controller {
         $this->response->body($view);
     }
 
+    // Добавить материал
     public function action_add($model)
     {
         ORM::factory($model)->values($_POST)->save();
     }
 
+    // Отредактировать материал
     public function action_edit($model)
     {
         ORM::factory($model, $_POST['id'])->values($_POST)->save();
     }
-
 }
