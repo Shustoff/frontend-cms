@@ -15,6 +15,7 @@ class Controller_Site_Main extends Controller_Template {
             $keywords = $option['keywords'];
             $robots = $option['robots'];
             $status = $option['status'];
+            $copyright = $option['copyright'];
         }
 
         if ($status == 0)
@@ -26,6 +27,7 @@ class Controller_Site_Main extends Controller_Template {
         $this->template->description = $description;
         $this->template->keywords = $keywords;
         $this->template->robots = $robots;
+        $this->template->copyright = $copyright;
 	}
 
     // Сайт выключен
