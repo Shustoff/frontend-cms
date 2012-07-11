@@ -11,11 +11,12 @@
     <!--Стили-->
     <link rel="stylesheet" type="text/css" href="<?=URL::base();?>assets/css/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" type="text/css" href="<?=URL::base();?>assets/css/bootstrap.css">
-    <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/styles.less">
+    <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/admin.less">
 
     <!--Скрипты-->
     <script src="<?=URL::base();?>assets/js/less-1.3.0.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery-1.7.2.js"></script>
+    <script src="<?=URL::base();?>assets/js/bootstrap.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery-ui.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery.ui.datepicker-ru.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery.validate.js"></script>
@@ -114,11 +115,11 @@
                 </ul>
             </div>
         </div>
-    <div class="row">
-        <div class="span12 main">
-            <?=$main;?>
+        <div class="row">
+            <div class="span12 main">
+                <?=$main;?>
+            </div>
         </div>
-    </div>
     <div class="row">
         <div class="span12 footer">
             <p>Front CMS based on Kohana Framework v3.2</p>

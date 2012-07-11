@@ -1,3 +1,7 @@
+<div class="alert alert-success tooltips">
+    <button class="close" data-dismiss="alert">×</button>
+    <span class="center">Страница добавлена</span>
+</div>
 <h3 class="center">Добавить страницу</h3>
 <form action="" method="post" id="additem">
 <div class="row">
@@ -15,6 +19,7 @@
             <label class="control-label" for="alias">Алиас страницы</label>
             <div class="controls">
                 <input type="text" id="alias" name="alias" class="input-xlarge required alphanumeric">
+                <label class="fail failalias"></label>
             </div>
         </div>
     </div>

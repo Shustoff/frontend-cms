@@ -1,3 +1,7 @@
+<div class="alert alert-success tooltips">
+    <button class="close" data-dismiss="alert">×</button>
+    <span class="center">Роль добавлена</span>
+</div>
 <form id="additem" action="" method="post">
 <div class="row">
     <h3>Добавить роль</h3>

@@ -15,7 +15,7 @@ valid = {
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ( $(element).valid() && $(formname).valid() && !$('.failpagename').text() ) {
+                if ( $(element).valid() && $(formname).valid() && !$('.failpagename').text() && !$('.failalias').text() ) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -37,6 +37,7 @@ valid = {
             }
         });
         $("#pagename").bind('focusout', req.checkPageName);
+        $("#alias").bind('focusout', req.checkPageAlias);
     },
 
     // Правила валидации формы добавления каталога
@@ -44,7 +45,7 @@ valid = {
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ( $(element).valid() && $(formname).valid() && !$('.failcatname').text() ) {
+                if ( $(element).valid() && $(formname).valid() && !$('.failcatname').text() && !$('.failalias').text() ) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -66,6 +67,7 @@ valid = {
             }
         });
         $("#catname").bind('focusout', req.checkCatName);
+        $("#alias").bind('focusout', req.checkCatAlias);
     },
 
     // Правила валидации формы добавления модуля

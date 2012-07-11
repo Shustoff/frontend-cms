@@ -40,6 +40,7 @@ class Controller_Admin_Catalogs extends Controller_App {
         parent::action_search($model, $field);
     }
 
+    // Загружаем вид добавления каталога
     public function action_addcatalogs()
     {
         $catalogs = ORM::factory('catalog')->find_all();
@@ -55,6 +56,7 @@ class Controller_Admin_Catalogs extends Controller_App {
         parent::action_add($model);
     }
 
+    // Загружаем вид редактирования каталога
     public function action_editcatalogs()
     {
         $catalogs = ORM::factory('catalog')->find_all();
@@ -74,10 +76,19 @@ class Controller_Admin_Catalogs extends Controller_App {
         parent::action_edit($model);
     }
 
+    // Проверка уникальности названия каталога
     public function action_checkcatname()
     {
         $unique_catname  = ORM::factory('catalog')->unique('catname', $_POST['catname']);
         if ( ! $unique_catname) echo 'Такой каталог уже существует';
     }
+
+    // Проверка уникальности алиаса каталога
+    public function action_checkalias()
+    {
+        $unique_alias  = ORM::factory('catalog')->unique('alias', $_POST['alias']);
+        if ( ! $unique_alias) echo 'Такой алиас уже существует';
+    }
+
 
 }

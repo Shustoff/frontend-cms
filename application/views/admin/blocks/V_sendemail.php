@@ -1,3 +1,7 @@
+<div class="alert alert-success tooltips">
+    <button class="close" data-dismiss="alert">×</button>
+    <span class="center">Сообщение отправлено</span>
+</div>
 <h3 class="center">Отправить e-mail</h3>
 <form action="" method="post" id="email">
     <div class="row">
