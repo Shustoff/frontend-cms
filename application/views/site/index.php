@@ -17,8 +17,9 @@
     <meta name="copyright" content="<?=$copyright;?>">
 
     <!--Стили-->
-    <link rel="stylesheet" href="<?=URL::base();?>assets/css/h5bp.css">
-    <link rel="stylesheet/less" href="<?=URL::base();?>assets/css/site.less">
+    <link rel="stylesheet" href="<?=URL::base();?>assets/css/site/h5bp.css">
+    <link rel="stylesheet" href="<?=URL::base();?>assets/css/bootstrap.css">
+    <link rel="stylesheet/less" href="<?=URL::base();?>assets/css/site/site.less">
 
     <!--Скрипты-->
     <script src="<?=URL::base();?>assets/js/site/modernizr-2.5.3.js"></script>
@@ -32,14 +33,19 @@
 </head>
 <body>
 
+    <h3>Каталоги</h3>
+    <nav>
+        <a href="#catalog">Каталог номер 1</a>
+    </nav>
 
+    <h3>Страницы</h3>
+    <nav>
+        <a href="#page">Страница номер 1</a>
+    </nav>
 
-
-
-
-
-
-
+    <section class="main">
+        <?=$content;?>
+    </section>
 
     <!--Подключаем jQuery с Google CDN-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

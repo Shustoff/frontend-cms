@@ -18,7 +18,7 @@
                 <td class="pagename">
                     <form action="" method="post" name="edititem" id="edititem">
                         <input type="hidden" value="<?=$user->id;?>" name="id">
-                        <a href="#" onclick="req.editItem('users',<?=$user->id;?>);">
+                        <a href="#edit" onclick="req.editItem('users',<?=$user->id;?>);">
                             <?=$user->email;?>
                         </a>
                     </form>

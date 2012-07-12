@@ -114,6 +114,7 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 
+// Админ роут по-умолчанию
 Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))', array('id' => '.+'))
 	->defaults(array(
         'directory' => 'admin',
@@ -127,6 +128,14 @@ Route::set('offline', 'offline')
         'directory' => 'site',
         'controller' => 'main',
         'action' => 'offline'
+    ));
+
+// Роут каталога или (и) страницы
+Route::set('default', ':catalias/:pagealias', array(':catalias' => '.+', ':pagealias' => '.+'))
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'catalog',
+        'action' => 'index'
     ));
 
 Route::set('default', '(<controller>(/<action>))')

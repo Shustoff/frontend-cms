@@ -6,6 +6,8 @@ class Controller_Site_Main extends Controller_Template {
 
 	public function action_index()
 	{
+        $mainpageid = '10';
+
         $options = DB::query(Database::SELECT, 'SELECT * FROM options')->execute();
 
         foreach ($options as $option)
@@ -18,16 +20,22 @@ class Controller_Site_Main extends Controller_Template {
             $copyright = $option['copyright'];
         }
 
-        if ($status == 0)
-        {
-            $this->request->redirect('offline');
-        }
+        if ($status == 0) $this->request->redirect('offline');
 
         $this->template->sitename = $sitename;
         $this->template->description = $description;
         $this->template->keywords = $keywords;
         $this->template->robots = $robots;
         $this->template->copyright = $copyright;
+
+        $mainpage = DB::query(Database::SELECT, 'SELECT * FROM pages WHERE id =' . $mainpageid)->execute();
+        foreach ($mainpage as $main)
+        {
+            $content = $main['content'];
+
+        }
+        $this->template->content = $content;
+
 	}
 
     // Сайт выключен
@@ -38,5 +46,4 @@ class Controller_Site_Main extends Controller_Template {
         if ($status != 0) $this->request->redirect();
         $this->template = View::factory('site/offline');
     }
-
 }
