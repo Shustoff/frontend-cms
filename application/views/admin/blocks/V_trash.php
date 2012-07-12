@@ -17,7 +17,7 @@
                 <td class="pagename">
                     <form action="" method="post" name="edititem" id="edititem">
                         <input type="hidden" value="<?=$item['item_id'];?>" name="id">
-                        <a href="#" onclick="req.editItem('<?=$item['tablename']?>', <?=$item['item_id'];?>);">
+                        <a href="#edit" onclick="req.editItem('<?=$item['tablename']?>', <?=$item['item_id'];?>);">
                             <?=$item['item_name'];?>
                         </a>
                     </form>

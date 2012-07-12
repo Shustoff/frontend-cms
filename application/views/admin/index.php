@@ -40,6 +40,7 @@
                           <img src="<?=URL::base();?>assets/img/delete.png" alt="">
                       </a>
                    </p>
+                   <p><a href="<?=URL::base();?>" target="_blank" title="Просмотр сайта">Просмотр сайта</a></p>
                 </div>
             </div>
             <div class="row two">
