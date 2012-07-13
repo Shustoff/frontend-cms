@@ -130,6 +130,12 @@ Route::set('offline', 'offline')
         'action' => 'offline'
     ));
 
+// Обработчик ошибок
+Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', 'message' => '.+'))
+        ->defaults(array(
+                'controller' => 'error',
+));
+
 // Роут каталога или (и) страницы
 Route::set('default', ':catalias/:pagealias', array(':catalias' => '.+', ':pagealias' => '.+'))
     ->defaults(array(
