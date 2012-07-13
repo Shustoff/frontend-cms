@@ -6,8 +6,6 @@ class Controller_Site_Main extends Controller_Template {
 
 	public function action_index()
 	{
-        $mainpageid = '10';
-
         $options = DB::query(Database::SELECT, 'SELECT * FROM options')->execute();
 
         foreach ($options as $option)
@@ -28,6 +26,10 @@ class Controller_Site_Main extends Controller_Template {
         $this->template->robots = $robots;
         $this->template->copyright = $copyright;
 
+        // ID главной страницы
+        $mainpageid = '10';
+
+        // Выводим главную страницу
         $mainpage = DB::query(Database::SELECT, 'SELECT * FROM pages WHERE id =' . $mainpageid)->execute();
         foreach ($mainpage as $main)
         {
@@ -35,7 +37,6 @@ class Controller_Site_Main extends Controller_Template {
 
         }
         $this->template->content = $content;
-
 	}
 
     // Сайт выключен

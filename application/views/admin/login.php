@@ -7,7 +7,7 @@
         <title>Вход в администрационную панель</title>
         <!--Стили-->
             <link rel="stylesheet" type="text/css" href="<?=URL::base();?>assets/css/bootstrap.css">
-            <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/styles.less">
+            <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/admin.less">
         <!--Фавикон-->
             <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
         <!--Скрипты-->
