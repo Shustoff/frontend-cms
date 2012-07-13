@@ -4,12 +4,10 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="ru"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="ru"> <!--<![endif]-->
 <head>
-    <!--Название сайта-->
     <title><?=$sitename;?></title>
 
-    <!--Мета-теги-->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="robots" content="<?=$robots;?>">
     <meta name="description" content="<?=$description;?>">
@@ -18,34 +16,33 @@
 
     <!--Стили-->
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/site/h5bp.css">
-    <link rel="stylesheet" href="<?=URL::base();?>assets/css/bootstrap.css">
-    <link rel="stylesheet/less" href="<?=URL::base();?>assets/css/site/site.less">
+    <link rel="stylesheet" href="<?=URL::base();?>assets/css/site/1140.css">
+    <link rel="stylesheet" href="<?=URL::base();?>assets/css/site/styles.css">
+    <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/site/site.less">
+
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="<?=URL::base();?>assets/css/site/ie.css">
+    <![endif]-->
 
     <!--Скрипты-->
     <script src="<?=URL::base();?>assets/js/site/modernizr-2.5.3.js"></script>
+    <script src="<?=URL::base();?>assets/js/less-1.3.0.js"></script>
     <script src="<?=URL::base();?>assets/js/site/json2.js"></script>
     <script src="<?=URL::base();?>assets/js/site/underscore.js"></script>
     <script src="<?=URL::base();?>assets/js/site/backbone.js"></script>
     <script src="<?=URL::base();?>assets/js/site/site.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
     <!--Фавикон-->
     <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
 </head>
 <body>
 
-    <h3>Каталоги</h3>
-    <nav>
-        <a href="#catalog">Каталог номер 1</a>
-    </nav>
-
-    <h3>Страницы</h3>
-    <nav>
-        <a href="#page">Страница номер 1</a>
-    </nav>
-
-    <section class="main">
-        <?=$content;?>
-    </section>
+    <!-- Выводим контент-->
+    <?=$content;?>
 
     <!--Подключаем jQuery с Google CDN-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

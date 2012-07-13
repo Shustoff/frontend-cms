@@ -122,7 +122,7 @@ Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))', array('id' => '.+'
 		'action'     => 'index',
 	));
 
-// Если сайт выключен
+// Если сайт оффлайн
 Route::set('offline', 'offline')
     ->defaults(array(
         'directory' => 'site',
@@ -132,16 +132,16 @@ Route::set('offline', 'offline')
 
 // Обработчик ошибок
 Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', 'message' => '.+'))
-        ->defaults(array(
-                'controller' => 'error',
+    ->defaults(array(
+        'controller' => 'error',
 ));
 
-// Роут каталога или (и) страницы
-Route::set('default', ':catalias/:pagealias', array(':catalias' => '.+', ':pagealias' => '.+'))
+// Роут страницы
+Route::set('alias', '<alias>', array('alias' => '.+'))
     ->defaults(array(
         'directory' => 'site',
-        'controller' => 'catalog',
-        'action' => 'index'
+        'controller' => 'main',
+        'action' => 'viewpage'
     ));
 
 Route::set('default', '(<controller>(/<action>))')
