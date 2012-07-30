@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63c28fa4-32e0-4a84-9184-938f30b9154c" name="Default" comment="Merge branch 'master' of github.com:Shustoff/frontend-cms&#10;&#10;Conflicts:&#10;&#9;assets/js/admin.js&#10;">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/front-end.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/logs/2012/06/26.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/site/index.php" afterPath="$PROJECT_DIR$/application/views/site/index.php" />
     </list>
     <ignored path="front-end.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,7 +37,7 @@
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="7" selection-start="18" selection-end="18" vertical-scroll-proportion="0.02494331">
+            <state line="1" column="6" selection-start="17" selection-end="17" vertical-scroll-proportion="0.02494331">
               <folding />
             </state>
           </provider>
@@ -477,7 +471,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="7" selection-start="18" selection-end="18" vertical-scroll-proportion="0.02494331">
+        <state line="1" column="6" selection-start="17" selection-end="17" vertical-scroll-proportion="0.02494331">
           <folding />
         </state>
       </provider>
