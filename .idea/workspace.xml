@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63c28fa4-32e0-4a84-9184-938f30b9154c" name="Default" comment="">
+    <list default="true" id="63c28fa4-32e0-4a84-9184-938f30b9154c" name="Default" comment="Merge branch 'master' of github.com:Shustoff/frontend-cms&#10;&#10;Conflicts:&#10;&#9;assets/js/admin.js&#10;">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/front-end.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/logs/2012/06/26.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/bootstrap.php" afterPath="$PROJECT_DIR$/application/bootstrap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/site/index.php" afterPath="$PROJECT_DIR$/application/views/site/index.php" />
     </list>
     <ignored path="front-end.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,37 +31,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="options.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/classes/controller/admin/options.php">
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/site/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="27" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0">
+            <state line="38" column="6" selection-start="1878" selection-end="1878" vertical-scroll-proportion="-12.548388">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="7" selection-start="18" selection-end="18" vertical-scroll-proportion="0.02494331">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="main.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/classes/controller/admin/main.php">
+        <entry file="file://$PROJECT_DIR$/application/classes/controller/site/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="23" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0">
+            <state line="50" column="0" selection-start="1661" selection-end="1661" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="V_options.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/blocks/V_options.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="22" selection-start="699" selection-end="699" vertical-scroll-proportion="-7.586207">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="bootstrap.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/bootstrap.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="28" selection-start="2459" selection-end="2459" vertical-scroll-proportion="0.22459893">
+            <state line="138" column="16" selection-start="4125" selection-end="4125" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainpage.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/site/blocks/mainpage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="12" selection-start="171" selection-end="171" vertical-scroll-proportion="-4.967742">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/site/blocks/page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="28" selection-start="56" selection-end="56" vertical-scroll-proportion="-0.7096774">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="site.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/site/site.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -76,31 +109,46 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/classes/controller/admin/home.php" />
-        <option value="$PROJECT_DIR$/application/classes/controller/admin/info.php" />
-        <option value="$PROJECT_DIR$/application/classes/controller/admin/modules.php" />
-        <option value="$PROJECT_DIR$/application/classes/controller/admin/catalogs.php" />
-        <option value="$PROJECT_DIR$/application/classes/controller/admin/email.php" />
-        <option value="$PROJECT_DIR$/assets/js/admin.js" />
+        <option value="$PROJECT_DIR$/application/views/site/blocks/catalog.php" />
+        <option value="$PROJECT_DIR$/application/classes/controller/site/page.php" />
+        <option value="$PROJECT_DIR$/application/classes/controller/site/catalog.php" />
+        <option value="$PROJECT_DIR$/application/classes/controller/error.php" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/index.php" />
-        <option value="$PROJECT_DIR$/application/classes/model/M_options.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/blocks/V_main.php" />
-        <option value="$PROJECT_DIR$/assets/css/styles.less" />
-        <option value="$PROJECT_DIR$/application/views/admin/blocks/V_options.php" />
-        <option value="$PROJECT_DIR$/application/classes/controller/admin/main.php" />
-        <option value="$PROJECT_DIR$/application/classes/model/options.php" />
-        <option value="$PROJECT_DIR$/application/classes/controller/admin/options.php" />
+        <option value="$PROJECT_DIR$/assets/js/site/css3-mediaqueries.js" />
+        <option value="$PROJECT_DIR$/application/classes/kohana/exception.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/assets/css/site/site.less" />
+        <option value="$PROJECT_DIR$/assets/js/site/site.js" />
+        <option value="$PROJECT_DIR$/application/views/site/blocks/multipage.php" />
+        <option value="$PROJECT_DIR$/application/views/site/blocks/page.php" />
         <option value="$PROJECT_DIR$/application/bootstrap.php" />
+        <option value="$PROJECT_DIR$/application/classes/controller/site/main.php" />
+        <option value="$PROJECT_DIR$/application/views/site/index.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="y" value="24" />
+    <option name="width" value="1195" />
+    <option name="height" value="997" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>CSS</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -109,8 +157,8 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="1" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
@@ -132,31 +180,17 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front-end" />
+              <option name="myItemId" value="frontend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front-end" />
+              <option name="myItemId" value="frontend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front-end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front-end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front-end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
+              <option name="myItemId" value="frontend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -168,50 +202,60 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Confirmation" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig">
     <servers>
-      <server id="04ac7d24-ad71-4cd1-b4a0-67d8cc6610fe">
+      <server id="1161c30c-938a-48e7-8aa9-3656d44e126c">
         <serverdata />
       </server>
-      <server id="2a2f8c53-102a-4813-9960-cfad44b0bfd1">
+      <server id="255ea337-6a4f-4bdb-b9e5-56a02407772f">
         <serverdata />
       </server>
-      <server id="2ba50e3d-691d-46a6-b723-cf029750cf45">
+      <server id="3c0bc4dd-7479-40a9-81dd-8b32f066a39e">
         <serverdata />
       </server>
-      <server id="51553d36-4b51-4821-9738-3279413487af">
+      <server id="4379f546-d399-4fb7-826c-344829bbdce1">
         <serverdata />
       </server>
-      <server id="7e5c6abf-a2c1-471f-b9c3-bfe6ab1cf359">
+      <server id="5e3e925f-5b58-4096-a734-146e80e015f2">
         <serverdata />
       </server>
-      <server id="9799ad06-47a2-4877-9c96-58776af23174">
+      <server id="7322799d-0c16-42a9-ad41-38c9d88f897a">
         <serverdata />
       </server>
-      <server id="daee6070-77a8-44e2-8267-508adb41bad3">
+      <server id="b24dbd91-c26f-4b31-87ee-ff7b71a6e275">
         <serverdata />
       </server>
-      <server id="e1636652-0002-4378-a285-0ec86e868d03">
+      <server id="b37e45c6-5d04-40a7-9c39-665ac9aa92b6">
+        <serverdata />
+      </server>
+      <server id="cf826d2f-0883-40e8-b161-bde3fbd83d5e">
+        <serverdata />
+      </server>
+      <server id="ed3c9fd8-e6a2-432a-a9b0-6e52c69e91c1">
+        <serverdata />
+      </server>
+      <server id="fe825cd5-cd7d-4f62-832c-e2fb1254b41c">
         <serverdata />
       </server>
     </servers>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/views/admin/groups" />
+      <recent name="$PROJECT_DIR$/application/views/admin/modules" />
+      <recent name="$PROJECT_DIR$/application/views/admin/users" />
+      <recent name="$PROJECT_DIR$/application/views/admin/catalogs" />
       <recent name="$PROJECT_DIR$/application/views/admin/blocks" />
-      <recent name="$PROJECT_DIR$/application/classes/controller/admin" />
-      <recent name="C:\wamp\www\front-end\application\i18n" />
-      <recent name="C:\wamp\www\front-end\application\cache" />
-      <recent name="C:\wamp\www\front-end\application\classes\model" />
     </key>
   </component>
   <component name="RunManager">
@@ -222,13 +266,6 @@
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
-      <method />
-    </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method>
         <option name="FtpUpload" enabled="false">
@@ -236,6 +273,13 @@
           <server_name />
         </option>
       </method>
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
     </configuration>
     <list size="0" />
   </component>
@@ -249,26 +293,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="0" y="24" width="1195" height="997" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988358" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21024546" sideWeight="0.6701164" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Unicode Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21504803" sideWeight="0.070891514" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.99635035" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CSS-X-Fire" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17022412" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21024546" sideWeight="0.6701164" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16988418" sideWeight="0.9914071" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24839126" sideWeight="0.32729626" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14781217" sideWeight="0.9548872" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28198433" sideWeight="0.670247" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988358" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988358" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988358" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
@@ -279,8 +324,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="true" />
     <option name="myTodoPanelSettings">
       <value>
@@ -309,7 +354,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of github.com:Shustoff/frontend-cms&#10;&#10;Conflicts:&#10;&#9;assets/js/admin.js&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="sql&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -325,88 +370,114 @@
     <MESSAGE value="Merge branch 'master' of github.com:Shustoff/frontend-cms&#10;&#10;Conflicts:&#10;&#9;application/views/admin/index.php&#10;" />
     <MESSAGE value="Merge branch 'master' of github.com:Shustoff/frontend-cms&#10;&#10;Conflicts:&#10;&#9;.idea/.name&#10;&#9;.idea/cssxfire.xml&#10;&#9;.idea/encodings.xml&#10;&#9;.idea/misc.xml&#10;&#9;.idea/modules.xml&#10;&#9;.idea/vcs.xml&#10;&#9;application/bootstrap.php&#10;&#9;application/classes/controller/admin/main.php&#10;&#9;application/logs/2012/05/23.php&#10;&#9;application/views/admin/index.php&#10;" />
     <MESSAGE value="Merge branch 'master' of github.com:Shustoff/frontend-cms&#10;&#10;Conflicts:&#10;&#9;assets/js/admin.js&#10;" />
+    <MESSAGE value="todo" />
+    <MESSAGE value="gj&#10;" />
+    <MESSAGE value="-added h5bp to frontend site" />
+    <MESSAGE value="added front site modules" />
+    <MESSAGE value="new commit&#10;" />
+    <MESSAGE value="- integrating frontend" />
+    <MESSAGE value="lastcommit&#10;" />
+    <MESSAGE value="sql&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="frontend" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="frontend" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/assets/js/site/css3-mediaqueries.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="10" selection-start="21" selection-end="21" vertical-scroll-proportion="0.024336284" />
+        <state line="15" column="38" selection-start="428" selection-end="428" vertical-scroll-proportion="0.37037036" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/classes/controller/admin/pages.php">
+    <entry file="file://$PROJECT_DIR$/application/classes/controller/error.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="8" selection-start="162" selection-end="162" vertical-scroll-proportion="0.1460177" />
+        <state line="19" column="30" selection-start="512" selection-end="512" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/bootstrap.css">
+    <entry file="file://$PROJECT_DIR$/application/classes/kohana/exception.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="32" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="10" selection-start="141" selection-end="141" vertical-scroll-proportion="0.17035398" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/admin.less">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/jquery-ui-1.8.16.custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/json2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="352" selection-end="352" vertical-scroll-proportion="0.41975307" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/backbone.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="0" selection-start="5211" selection-end="5211" vertical-scroll-proportion="3.5044248" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="31" selection-start="529" selection-end="529" vertical-scroll-proportion="0.024336284" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="16" selection-start="296" selection-end="296" vertical-scroll-proportion="0.2520046" />
+        <state line="37" column="47" selection-start="1809" selection-end="1809" vertical-scroll-proportion="0.40320733" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+    <entry file="file://$PROJECT_DIR$/application/views/site/404.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="32" selection-start="266" selection-end="266" vertical-scroll-proportion="0.0" />
+        <state line="6" column="16" selection-start="131" selection-end="131" vertical-scroll-proportion="0.15348837" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/blocks/V_main.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/site/site.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="0" selection-start="3913" selection-end="3913" vertical-scroll-proportion="2.9484537" />
+        <state line="1" column="0" selection-start="35" selection-end="35" vertical-scroll-proportion="0.024336284" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/styles.less">
+    <entry file="file://$PROJECT_DIR$/assets/css/site/site.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="29" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/classes/controller/admin/options.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="27" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/classes/controller/admin/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="23" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/blocks/V_options.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="22" selection-start="699" selection-end="699" vertical-scroll-proportion="-7.586207">
-          <folding />
-        </state>
+        <state line="4" column="0" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="28" selection-start="2459" selection-end="2459" vertical-scroll-proportion="0.22459893">
+        <state line="138" column="16" selection-start="4125" selection-end="4125" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/site/blocks/page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="28" selection-start="56" selection-end="56" vertical-scroll-proportion="-0.7096774">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/site/blocks/mainpage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="12" selection-start="171" selection-end="171" vertical-scroll-proportion="-4.967742">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/classes/controller/site/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1661" selection-end="1661" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/site/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="6" selection-start="1878" selection-end="1878" vertical-scroll-proportion="-12.548388">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="7" selection-start="18" selection-end="18" vertical-scroll-proportion="0.02494331">
           <folding />
         </state>
       </provider>
