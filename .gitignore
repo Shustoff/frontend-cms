@@ -1,4 +1,4 @@
 .gitignore
-.idea
+/.idea/
 .DS_STORE
-logs
+/logs/
