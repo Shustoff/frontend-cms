@@ -140,8 +140,8 @@ Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', '
 Route::set('alias', '<alias>', array('alias' => '.+'))
     ->defaults(array(
         'directory' => 'site',
-        'controller' => 'main',
-        'action' => 'viewpage'
+        'controller' => 'page',
+        'action' => 'index'
     ));
 
 Route::set('default', '(<controller>(/<action>))')

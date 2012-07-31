@@ -1,4 +1,146 @@
-/* Site styles */
-.row .threecol  {
-    margin-bottom: 30px;
+/* Бланковый шаблон */
+
+/* Общие стили */
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+}
+
+.gradient {
+    background: #f0f9ff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f0f9ff 0%, #cbebff 47%, #a1dbff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f9ff), color-stop(47%,#cbebff), color-stop(100%,#a1dbff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=0 ); /* IE6-9 */
+}
+
+@media all and (max-width: 767px) {
+    body {
+        .topmenu {
+            a {
+                font-size: 1.3em !important;
+            }
+            ul {
+                height: 20px;
+            }
+        }
+
+        .footer {
+            .fourcol {
+                border-right: none !important;
+                border-bottom: 1px dashed #006DAD;
+                -moz-box-sizing: border-box;
+                padding: 10px 0px;
+            }
+            .last {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+@media all and (min-width: 768px) {
+    body {
+        .topmenu li a {
+            font-size: 1.8em !important;
+        }
+    }
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    background-color: #DAF1FF;
+    width: 100%;
+}
+
+
+//Верхний блок
+.top {
+    height: 100px;
+    border-bottom: 2px dashed #a1dbff;
+
+    .gradient;
+
+    .topmenu {
+        padding: 0px auto;
+
+        li {
+            float: left;
+            text-align: center;
+            width: 20%;
+            display: inline-block;
+            a {
+                font-size: 2em;
+                color: #087202;
+            }
+        }
+
+        ul {
+             margin: 20px auto;
+             display: block;
+             height: 40px;
+        }
+    }
+}
+
+// Средний блок
+.mid {
+    padding: 20px;
+    background-color: #DAF1FF;
+    padding-bottom: 100px;
+
+    .row {
+        .threecol  {
+            margin-bottom: 30px;
+            .pagename {
+                text-align: center;
+                margin-bottom: 10px;
+                a {
+                   color: #08a900;
+                   font-size: 1.4em;
+                }
+            }
+        }
+    }
+
+    .pageview {
+        padding-bottom: 20px;
+        .pagename {
+            text-align: center;
+        }
+    }
+
+    .txt {
+        margin-top: 20px;
+    }
+}
+
+
+// Нижний блок
+
+.bot {
+    padding: 20px;
+    border-top: 2px dashed #fff;
+    margin-top: -109px;
+    min-height: 67px;
+
+    .gradient;
+
+    footer {
+        .fourcol {
+            border-right: 1px dashed #006DAD;
+            -moz-box-sizing: border-box;
+            padding-right: 10px;
+        }
+
+        .last {
+            border-right: none;
+        }
+    }
 }
