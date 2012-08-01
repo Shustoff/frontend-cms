@@ -21,22 +21,20 @@ class Controller_Site_Main extends Controller_Template {
 
         if ($status == 0) $this->request->redirect('offline');
 
-
-
         // Выводим главную страницу
-        $pages = DB::query(Database::SELECT, 'SELECT * FROM pages')->execute();
+        $pages = ORM::factory('page')->find_all();
 
         $column = 4; // Количество столбцов на главной странице
         $i = 0; // Счетчик
 
-        $content = View::factory('site/blocks/mainpage')
+        $content = View::factory('site/blocks/V_mainpage')
                     ->bind('pages', $pages)
                     ->bind('column', $column)
                     ->bind('i', $i);
 
-        $navigation = View::factory('site/blocks/nav');
+        $navigation = View::factory('site/blocks/V_nav');
 
-        $footer = View::factory('site/blocks/footer');
+        $footer = View::factory('site/blocks/V_footer');
 
         $this->template->navigation = $navigation;
         $this->template->content = $content;
