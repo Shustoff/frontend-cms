@@ -2,6 +2,13 @@
 
 class Controller_Site_Page extends Controller_Site_Main {
 
+    public function before()
+    {
+        $status = DB::query(Database::SELECT, 'SELECT status FROM options')->execute()->get('status');
+        if ($status == 0) $this->request->redirect('offline');
+        return parent::before();
+    }
+
     // Вид страницы
     public function action_index()
     {

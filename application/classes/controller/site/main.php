@@ -15,7 +15,6 @@ class Controller_Site_Main extends Controller_Template {
             $this->template->keywords = $option['keywords'];
             $this->template->robots = $option['robots'];
             $this->template->copyright = $option['copyright'];
-
             $status = $option['status'];
         }
 
@@ -44,8 +43,7 @@ class Controller_Site_Main extends Controller_Template {
     // Сайт выключен
     public function action_offline()
     {
-        $status = DB::query(Database::SELECT, 'SELECT status FROM options')->execute()->as_array();
-        $status = $status['0']['status'];
+        $status = DB::query(Database::SELECT, 'SELECT status FROM options')->execute()->get('status');
         if ($status != 0) $this->request->redirect();
         $this->template = View::factory('site/offline');
     }
