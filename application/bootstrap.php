@@ -116,37 +116,49 @@ Kohana::modules(array(
 
 // Админ роут по-умолчанию
 Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))', array('id' => '.+'))
-	->defaults(array(
-        'directory' => 'admin',
-        'controller' => 'main',
-		'action'     => 'index',
-	));
+->defaults(array(
+    'directory' => 'admin',
+    'controller' => 'main',
+    'action'     => 'index',
+));
+
+
+
 
 // Если сайт оффлайн
 Route::set('offline', 'offline')
-    ->defaults(array(
-        'directory' => 'site',
-        'controller' => 'main',
-        'action' => 'offline'
-    ));
+->defaults(array(
+    'directory' => 'site',
+    'controller' => 'main',
+    'action' => 'offline'
+));
 
 // Обработчик ошибок
 Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', 'message' => '.+'))
-    ->defaults(array(
-        'controller' => 'error',
+->defaults(array(
+    'controller' => 'error',
 ));
 
-// Роут страницы
-Route::set('alias', '<alias>', array('alias' => '.+'))
-    ->defaults(array(
-        'directory' => 'site',
-        'controller' => 'page',
-        'action' => 'index'
-    ));
+// Роут страницы с каталогом
+Route::set('alias', '(<catalias>/)<pagealias>.html', array('catalias' => '.+', 'pagealias' => '.+'))
+->defaults(array(
+    'directory' => 'site',
+    'controller' => 'page',
+    'action' => 'index'
+));
 
+// Роут каталога
+Route::set('catalias', '<catalias>', array('catalias' => '.+'))
+->defaults(array(
+    'directory' => 'site',
+    'controller' => 'catalog',
+    'action' => 'index'
+));
+
+// Роут по-умолчанию
 Route::set('default', '(<controller>(/<action>))')
-	->defaults(array(
-        'directory' => 'site',
-		'controller' => 'main',
-		'action'     => 'index',
-	));
+->defaults(array(
+    'directory' => 'site',
+    'controller' => 'main',
+    'action'     => 'index',
+));

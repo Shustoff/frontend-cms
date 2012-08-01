@@ -5,9 +5,11 @@
         <p>
             <strong>Дата создания:</strong> <?=$date;?>
         </p>
+        <?php if (isset( $catalog_name )) { ?>
         <p>
-            <strong>Каталог страницы:</strong> <?=$catalog[0]['catname'];?>
+            <strong>Каталог страницы:</strong> <?=$catalog_name;?>
         </p>
+        <?php } ?>
         <p class="txt"><?=$text;?></p>
     </article>
 </section>

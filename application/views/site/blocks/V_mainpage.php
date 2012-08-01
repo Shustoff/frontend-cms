@@ -7,10 +7,12 @@
 
     <article class="threecol <?=$i==3 ? 'last' : ''?>">
         <p class="pagename">
-            <a href="<?=URL::base();?><?=$page['alias'];?>"><?=$page['pagename'];?></a>
+            <a href="<?=URL::base();?><?=$page->catalogs->alias ? $page->catalogs->alias . '/' : '' ;?><?=$page->alias;?>.html">
+                <?=$page->pagename;?>
+            </a>
         </p>
-        <p><strong>Дата создания: </strong> <?=$page['date'];?></p>
-        <p><?=$page['content'];?></p>
+        <p><strong>Дата создания: </strong> <?=$page->date;?></p>
+        <p><?=$page->content;?></p>
     </article>
 
     <?php
@@ -19,5 +21,6 @@
               echo '</div>';
               $i = 0;
           }
-    } ?>
+    }
+    ?>
 
