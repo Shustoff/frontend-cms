@@ -26,10 +26,13 @@
 
     <!--Скрипты-->
     <script src="<?=URL::base();?>assets/js/less-1.3.0.js"></script>
-    <script src="<?=URL::base();?>assets/js/site/modernizr-2.5.3.js"></script>
-    <script src="<?=URL::base();?>assets/js/site/underscore.js"></script>
-    <script src="<?=URL::base();?>assets/js/site/backbone.js"></script>
-    <script src="<?=URL::base();?>assets/js/site/site.js"></script>
+    <script data-main="<?=URL::base();?>assets/js/site/site.js" src="<?=URL::base();?>assets/js/site/require.js"></script>
+
+<!--    <script src="--><?//=URL::base();?><!--assets/js/site/modernizr-2.5.3.js"></script>-->
+<!--    <script src="--><?//=URL::base();?><!--assets/js/site/underscore.js"></script>-->
+<!--    <script src="--><?//=URL::base();?><!--assets/js/site/backbone.js"></script>-->
+<!--    <script src="--><?//=URL::base();?><!--assets/js/site/site.js"></script>-->
+
 
     <!--Фавикон-->
     <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
@@ -52,7 +55,6 @@
 <section class="bot">
     <?=$footer;?>
 </section>
-
 
     <!--Подключаем jQuery с Google CDN-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

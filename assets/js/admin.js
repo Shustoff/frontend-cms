@@ -1,4 +1,5 @@
 $(function(){
+
     // Корень админки
     var baseURL = '/frontend/admin/';
 
@@ -19,7 +20,7 @@ $(function(){
         catalogs: function() {$(".main").load(baseURL + "catalogs");},
 
         // Вид пользователей
-        users: function() {$(".main").load  (baseURL + "users");},
+        users: function() {$(".main").load(baseURL + "users");},
 
         // Вид ролей
         roles: function() {$(".main").load(baseURL + "roles");},

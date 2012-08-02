@@ -33,4 +33,4 @@ class Controller_Admin_Main extends Controller_Template {
 	}
 
 
-} // End Welcome
+}

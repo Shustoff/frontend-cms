@@ -122,9 +122,6 @@ Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))', array('id' => '.+'
     'action'     => 'index',
 ));
 
-
-
-
 // Если сайт оффлайн
 Route::set('offline', 'offline')
 ->defaults(array(
