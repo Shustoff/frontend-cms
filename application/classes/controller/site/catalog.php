@@ -52,8 +52,5 @@ class Controller_Site_Catalog extends Controller_Site_Main {
         $this->template->navigation = $navigation;
         $this->template->content = $content;
         $this->template->footer = $footer;
-
     }
-
-
 }
