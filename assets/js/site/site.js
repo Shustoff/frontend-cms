@@ -1,21 +1,22 @@
-// Главный файл скриптов для сайта
-requirejs.config({
-    baseURL : 'assets/js',
+/**
+ * Главный файл скриптов сайта
+ */
+require.config({
+    baseUrl : 'assets/js',
     paths : {
-        site : 'site'
+        'jQuery' : 'libs/jquery/jquery-wrap',
+        'Underscore' : 'libs/underscore/underscore-wrap',
+        'Backbone' : 'libs/backbone/backbone-wrap'
     }
 });
 
 require([
-    '../jquery-1.7.2',
-    'underscore',
-    'backbone',
-    'collections/catalog',
-    'models/page',
-    'routes/route'
-], function ($, _, Backbone) {
+    'order!libs/jquery/jquery',
+    'order!libs/underscore/underscore',
+    'order!libs/backbone/backbone',
+    'site/models/pages'
+], function ($, _, Backbone, Page) {
 
     var page = new Page();
-
 
 });
