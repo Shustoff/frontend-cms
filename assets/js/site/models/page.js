@@ -22,6 +22,12 @@ var Page = Backbone.Model.extend({
 
     initialize : function () {
         alert('Модель создана !');
+    },
+
+    validate : function (attrs) {
+        if (attrs.author_id < 1) {
+            return 'ID автора не может быть нулевым';
+        }
     }
 
 });
