@@ -15,9 +15,9 @@
 
     <!--Скрипты-->
     <script src="<?=URL::base();?>assets/js/less-1.3.0.js"></script>
-    <script src="<?=URL::base();?>assets/js/jquery-1.7.2.js"></script>
+    <script src="<?=URL::base();?>assets/js/libs/jquery/jquery.js"></script>
     <script src="<?=URL::base();?>assets/js/bootstrap.js"></script>
-    <script src="<?=URL::base();?>assets/js/jquery-ui.js"></script>
+    <script src="<?=URL::base();?>assets/js/libs/jquery/jquery-ui.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery.ui.datepicker-ru.js"></script>
     <script src="<?=URL::base();?>assets/js/jquery.validate.js"></script>
     <script src="<?=URL::base();?>assets/js/additional-methods.js"></script>
