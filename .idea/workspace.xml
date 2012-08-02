@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="63c28fa4-32e0-4a84-9184-938f30b9154c" name="Default" comment="Merge branch 'master' of github.com:Shustoff/frontend-cms&#10;&#10;">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/site/collections/catalog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/site/models/page.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/site/routes/route.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/site/views/catalog.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/site/views/page.html" />
@@ -13,8 +12,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/bootstrap.php" afterPath="$PROJECT_DIR$/application/bootstrap.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/classes/controller/admin/main.php" afterPath="$PROJECT_DIR$/application/classes/controller/admin/main.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/classes/controller/site/catalog.php" afterPath="$PROJECT_DIR$/application/classes/controller/site/catalog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/site/index.php" afterPath="$PROJECT_DIR$/application/views/site/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/admin.js" afterPath="$PROJECT_DIR$/assets/js/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/site/models/page.js" afterPath="$PROJECT_DIR$/assets/js/site/models/page.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/site/site.js" afterPath="$PROJECT_DIR$/assets/js/site/site.js" />
     </list>
     <ignored path="front-end.iws" />
@@ -37,19 +36,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/site/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.46370023">
+            <state line="31" column="18" selection-start="1542" selection-end="1542" vertical-scroll-proportion="-14.193548">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="page.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/site/models/page.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="24" selection-start="749" selection-end="749" vertical-scroll-proportion="0.0">
+            <state line="30" column="0" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.5966102">
               <folding>
                 <element signature="e#0#153#0" expanded="false" />
               </folding>
@@ -121,9 +120,9 @@
         <option value="$PROJECT_DIR$/assets/js/site/collections/catalog.js" />
         <option value="$PROJECT_DIR$/assets/js/site/views/catalog.html" />
         <option value="$PROJECT_DIR$/assets/js/site/views/page.html" />
-        <option value="$PROJECT_DIR$/assets/js/site/models/page.js" />
         <option value="$PROJECT_DIR$/assets/js/site/site.js" />
         <option value="$PROJECT_DIR$/application/views/site/index.php" />
+        <option value="$PROJECT_DIR$/assets/js/site/models/page.js" />
       </list>
     </option>
   </component>
@@ -791,15 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/site/models/page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="24" selection-start="749" selection-end="749" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#153#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/site/site.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="3" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
@@ -809,8 +799,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/site/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.46370023">
+        <state line="31" column="18" selection-start="1542" selection-end="1542" vertical-scroll-proportion="-14.193548">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/site/models/page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.5966102">
+          <folding>
+            <element signature="e#0#153#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
