@@ -5,37 +5,41 @@ define([
     'jQuery',
     'Underscore',
     'Backbone',
+    'site/collections/catalogs',
+    'site/models/pages',
     'site/views/page',
     'site/views/catalog'
-], function ($, _, Backbone, PageView, CatalogView) {
+], function ($, _, Backbone, Catalog, Page, PageView, CatalogView) {
     var SiteRouter = Backbone.Router.extend({
         routes :  {
-            '/:page.html' : 'showPage',
-            '/:catalog' : 'showCatalog',
-            '/:catalog/:page.html' : 'showPage',
+            // Вывод содержимого каталога
+            ':catalog' : 'showCatalog',
 
             // Роут по-умолчанию
             '*actions' : 'defaultAction'
         },
 
-        showPage : function () {
-            var page = new PageView();
-            page.render();
+        initialize : function () {
+            this.catalog = new Catalog();
         },
 
         showCatalog : function () {
-            var catalog = new CatalogView();
-            catalog.render();
+            this.model = new Page();
+            this.model.fetch();
+            var view = new PageView({model : this.model});
+            console.log(this.model.attributes);
+            $('.mid').append( view.render() );
         },
 
         defaultAction : function () {
-            alert('Обычный роут');
+            this.catalog = new Catalog();
+            this.catalog.fetch();
         }
 
     });
 
     var initialize = function () {
-        var siteRout = new SiteRouter();
+        var site = new SiteRouter();
         Backbone.history.start();
     };
 

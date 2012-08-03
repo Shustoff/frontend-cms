@@ -1,22 +1,20 @@
 /**
- * Главный файл скриптов сайта
+ * Главный модуль сайта
  */
-require.config({
-    baseUrl : 'assets/js',
-    paths : {
-        'jQuery' : 'libs/jquery/jquery-wrap',
-        'Underscore' : 'libs/underscore/underscore-wrap',
-        'Backbone' : 'libs/backbone/backbone-wrap'
-    }
-});
 
-require([
-    'libs/jquery/jquery',
-    'libs/underscore/underscore',
-    'libs/backbone/backbone',
-    'site/models/pages'
-], function ($, _, Backbone, Page) {
+define([
+    'jQuery',
+    'Underscore',
+    'Backbone',
+    'site/route'
+], function ($, _, Backbone, Router) {
 
-    var page = new Page();
+    var initialize = function () {
+        Router.initialize();
+    };
+
+    return {
+        initialize : initialize
+    };
 
 });
