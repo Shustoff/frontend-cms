@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63c28fa4-32e0-4a84-9184-938f30b9154c" name="Default" comment="Merge branch 'master' of github.com:Shustoff/frontend-cms&#10;&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/libs/backbone/backbone-wrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/libs/jquery/jquery-wrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/libs/underscore/underscore-wrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/order.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/site/collections/catalogs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/site/models/pages.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/site/views/page.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/site/models/page.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/site/require.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/site/views/catalog.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/site/views/page.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/js/jquery-1.7.2.js" afterPath="$PROJECT_DIR$/assets/js/libs/jquery/jquery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/js/jquery-ui.js" afterPath="$PROJECT_DIR$/assets/js/libs/jquery/jquery-ui.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/js/site/backbone.js" afterPath="$PROJECT_DIR$/assets/js/libs/backbone/backbone.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/js/site/collections/catalog.js" afterPath="$PROJECT_DIR$/assets/js/site/views/catalog.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/js/site/modernizr-2.5.3.js" afterPath="$PROJECT_DIR$/assets/js/modernizr-2.5.3.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/js/site/routes/route.js" afterPath="$PROJECT_DIR$/assets/js/site/route.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/js/site/underscore.js" afterPath="$PROJECT_DIR$/assets/js/libs/underscore/underscore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/classes/controller/site/main.php" afterPath="$PROJECT_DIR$/application/classes/controller/site/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/index.php" afterPath="$PROJECT_DIR$/application/views/admin/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/site/index.php" afterPath="$PROJECT_DIR$/application/views/site/index.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/js/libs/jquery/jquery-ui.js" afterPath="$PROJECT_DIR$/assets/js/jquery-ui.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README" afterPath="$PROJECT_DIR$/README" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/libs/backbone/backbone-wrap.js" afterPath="$PROJECT_DIR$/assets/js/libs/backbone/backbone-wrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/libs/jquery/jquery-wrap.js" afterPath="$PROJECT_DIR$/assets/js/libs/jquery/jquery-wrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/libs/underscore/underscore-wrap.js" afterPath="$PROJECT_DIR$/assets/js/libs/underscore/underscore-wrap.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/site/site.js" afterPath="$PROJECT_DIR$/assets/js/site/site.js" />
     </list>
     <ignored path="front-end.iws" />
@@ -46,10 +29,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="site.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="site.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/site/site.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="3" selection-start="474" selection-end="474" vertical-scroll-proportion="0.5144766">
+            <state line="9" column="5" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -58,7 +41,7 @@
       <file leaf-file-name="backbone-wrap.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/libs/backbone/backbone-wrap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="15" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0">
+            <state line="1" column="13" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -67,7 +50,52 @@
       <file leaf-file-name="jquery-wrap.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/libs/jquery/jquery-wrap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="15" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0">
+            <state line="3" column="22" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="additional-methods.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/additional-methods.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".htaccess" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="0" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="97" column="18" selection-start="2954" selection-end="2954" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="0" selection-start="45" selection-end="58" vertical-scroll-proportion="0.024336284">
               <folding />
             </state>
           </provider>
@@ -76,7 +104,7 @@
       <file leaf-file-name="underscore-wrap.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/libs/underscore/underscore-wrap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="21" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
+            <state line="3" column="9" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -97,7 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/views/site/index.php" />
         <option value="$PROJECT_DIR$/assets/js/site/collections/catalog.js" />
         <option value="$PROJECT_DIR$/application/views/admin/index.php" />
         <option value="$PROJECT_DIR$/assets/js/site/models/page.js" />
@@ -109,18 +136,19 @@
         <option value="$PROJECT_DIR$/application/classes/controller/site/main.php" />
         <option value="$PROJECT_DIR$/assets/js/site/models/pages.js" />
         <option value="$PROJECT_DIR$/assets/js/order.js" />
-        <option value="$PROJECT_DIR$/assets/js/site/site.js" />
-        <option value="$PROJECT_DIR$/assets/js/libs/backbone/backbone-wrap.js" />
-        <option value="$PROJECT_DIR$/assets/js/libs/jquery/jquery-wrap.js" />
         <option value="$PROJECT_DIR$/assets/js/libs/underscore/underscore-wrap.js" />
+        <option value="$PROJECT_DIR$/assets/js/libs/jquery/jquery-wrap.js" />
+        <option value="$PROJECT_DIR$/assets/js/libs/backbone/backbone-wrap.js" />
+        <option value="$PROJECT_DIR$/assets/js/site/site.js" />
+        <option value="$PROJECT_DIR$/README" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1714" />
-    <option name="height" value="991" />
+    <option name="width" value="1920" />
+    <option name="height" value="997" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -468,16 +496,16 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.22333334" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="FullScreen" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -485,9 +513,6 @@
         <serverdata />
       </server>
       <server id="255ea337-6a4f-4bdb-b9e5-56a02407772f">
-        <serverdata />
-      </server>
-      <server id="3c0bc4dd-7479-40a9-81dd-8b32f066a39e">
         <serverdata />
       </server>
       <server id="4379f546-d399-4fb7-826c-344829bbdce1">
@@ -502,16 +527,7 @@
       <server id="b24dbd91-c26f-4b31-87ee-ff7b71a6e275">
         <serverdata />
       </server>
-      <server id="b37e45c6-5d04-40a7-9c39-665ac9aa92b6">
-        <serverdata />
-      </server>
       <server id="cf826d2f-0883-40e8-b161-bde3fbd83d5e">
-        <serverdata />
-      </server>
-      <server id="ed3c9fd8-e6a2-432a-a9b0-6e52c69e91c1">
-        <serverdata />
-      </server>
-      <server id="fe825cd5-cd7d-4f62-832c-e2fb1254b41c">
         <serverdata />
       </server>
     </servers>
@@ -536,13 +552,6 @@
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
-      <method />
-    </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method>
         <option name="FtpUpload" enabled="false">
@@ -550,6 +559,13 @@
           <server_name />
         </option>
       </method>
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
     </configuration>
     <list size="0" />
   </component>
@@ -583,7 +599,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1714" height="991" extended-state="6" />
+    <frame x="0" y="22" width="1920" height="997" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -597,7 +613,7 @@
       <window_info id="CSS-X-Fire" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297362" sideWeight="0.9548872" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2763789" sideWeight="0.67027026" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18943436" sideWeight="0.67027026" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988358" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -686,116 +702,100 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/site/blocks/V_page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="38" selection-start="420" selection-end="420" vertical-scroll-proportion="0.30449826">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/classes/controller/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="71" selection-start="133" selection-end="133" vertical-scroll-proportion="0.04899777">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/require.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="17" selection-start="418" selection-end="418" vertical-scroll-proportion="0.25492468">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/site/models/pages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="17" selection-start="196" selection-end="196" vertical-scroll-proportion="0.2983051">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/order.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="32" selection-start="166" selection-end="166" vertical-scroll-proportion="0.07457627">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/site/collections/catalogs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="9" selection-start="47" selection-end="47" vertical-scroll-proportion="0.09799554">
-          <folding />
-        </state>
+        <state line="4" column="9" selection-start="47" selection-end="47" vertical-scroll-proportion="0.09799554" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/site/views/page.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="15" selection-start="92" selection-end="92" vertical-scroll-proportion="0.14699332">
-          <folding />
-        </state>
+        <state line="6" column="15" selection-start="92" selection-end="92" vertical-scroll-proportion="0.14699332" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/site/views/catalog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="14" selection-start="139" selection-end="139" vertical-scroll-proportion="0.19599108">
-          <folding />
-        </state>
+        <state line="8" column="14" selection-start="139" selection-end="139" vertical-scroll-proportion="0.19599108" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/site/route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="18" selection-start="145" selection-end="145" vertical-scroll-proportion="0.22048998">
-          <folding />
-        </state>
+        <state line="9" column="18" selection-start="145" selection-end="145" vertical-scroll-proportion="0.22048998" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/classes/controller/site/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="61" selection-end="61" vertical-scroll-proportion="0.024498885">
-          <folding />
-        </state>
+        <state line="1" column="0" selection-start="61" selection-end="61" vertical-scroll-proportion="0.024498885" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="30" selection-start="4461" selection-end="4461" vertical-scroll-proportion="0.6815145">
-          <folding />
-        </state>
+        <state line="150" column="30" selection-start="4461" selection-end="4461" vertical-scroll-proportion="0.6815145" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/site/blocks/V_catalog.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="50" selection-start="140" selection-end="140" vertical-scroll-proportion="0.077283375">
+        <state line="3" column="50" selection-start="140" selection-end="140" vertical-scroll-proportion="0.077283375" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/libs/underscore/underscore-wrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="9" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/libs/backbone/backbone-wrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="15" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/libs/jquery/jquery-wrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="15" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/libs/underscore/underscore-wrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="21" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
+        <state line="1" column="13" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/site/site.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="3" selection-start="474" selection-end="474" vertical-scroll-proportion="0.5144766">
+        <state line="9" column="5" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/libs/jquery/jquery-wrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="22" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/additional-methods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="18" selection-start="2954" selection-end="2954" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="45" selection-end="58" vertical-scroll-proportion="0.024336284">
           <folding />
         </state>
       </provider>

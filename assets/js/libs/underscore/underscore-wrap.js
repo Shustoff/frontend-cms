@@ -1,8 +1,4 @@
 /**
- * Created by JetBrains PhpStorm.
- * User: dima
- * Date: 02.08.12
- * Time: 18:05
- * To change this template use File | Settings | File Templates.
+ * Обертка Underscore для Require.js
  */
-define(['order!libs/underscore/underscore'], function(){ return _; });
+define(['libs/underscore/underscore'], function(){ return _; });
