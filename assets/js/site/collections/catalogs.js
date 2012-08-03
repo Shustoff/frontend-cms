@@ -5,12 +5,12 @@ define([
     'jQuery',
     'Underscore',
     'Backbone',
-    'site/models/page'
+    'site/models/pages'
 ], function($, _, Backbone, Page) {
 
     var Catalog = Backbone.Collection.extend({
+        url : '/frontend/catalog1',
         model : Page
-        url : '/'
     });
 
     return Catalog;

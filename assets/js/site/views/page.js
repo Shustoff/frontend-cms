@@ -1,22 +1,38 @@
 /**
- * Вид отображения страницы
+ * Вид отображения каталога
  */
 define([
     'jQuery',
     'Underscore',
     'Backbone',
-    'site/models/pages'
-], function ($, _, Backbone, Catalog) {
+    'site/models/pages',
+    'site/collections/catalogs'
+], function ($, _, Backbone, Page, Catalog) {
+
     var PageView = Backbone.View.extend({
 
-        el : $('.threecol'),
+        tagName : 'div',
+        className : 'threecol',
+
+        templateSettings : {
+            interpolate : /\{\{(.+?)\}\}/g
+        },
+
+        template : _.template( $('#page-view').html() ),
+
+        initialize : function () {
+            this.model = new Page();
+            _.bindAll(this);
+        },
 
         render : function () {
-            $(this.el).html(this.template(this.model.toJSON()));
+            var content = this.template(this.model.toJSON());
+            this.$el.html(content);
             return this;
         }
 
     });
 
     return PageView;
+
 });
