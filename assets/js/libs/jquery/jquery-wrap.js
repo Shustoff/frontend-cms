@@ -1,8 +1,4 @@
 /**
- * Created by JetBrains PhpStorm.
- * User: dima
- * Date: 02.08.12
- * Time: 18:04
- * To change this template use File | Settings | File Templates.
+ * Обертка jQuery для Require.js
  */
-define(['order!libs/jquery/jquery'], function(){ return jQuery; });
+define(['libs/jquery/jquery'], function(){ return jQuery; });

@@ -11,9 +11,9 @@ require.config({
 });
 
 require([
-    'order!libs/jquery/jquery',
-    'order!libs/underscore/underscore',
-    'order!libs/backbone/backbone',
+    'libs/jquery/jquery',
+    'libs/underscore/underscore',
+    'libs/backbone/backbone',
     'site/models/pages'
 ], function ($, _, Backbone, Page) {
 
