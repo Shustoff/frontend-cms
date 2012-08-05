@@ -31,11 +31,11 @@
                         <input type="hidden" name="idpage" value="<?=$page->id;?>">
                         <?php if ($page->status == 1) : ?>
                              <a href="#" onclick="req.off('pages', this); return false;">
-                                 <img src='<?=URL::base()?>assets/img/published.png'>
+                                 <img src='<?=URL::base()?>assets/img/admin/published.png'>
                              </a>
                         <? else : ?>
                              <a href="#" onclick="req.on('pages', this); return false;">
-                                 <img src='<?=URL::base()?>assets/img/not-published.png'>
+                                 <img src='<?=URL::base()?>assets/img/admin/not-published.png'>
                              </a>
                         <? endif; ?>
                     </form>
@@ -44,7 +44,7 @@
                     <form action="" method="post" id="intrash<?=$page->id;?>">
                         <input type="hidden" name="intrash" value="<?=$page->id;?>">
                         <a href="#" onclick="req.intrash('pages',this); return false;">
-                            <img src='<?=URL::base()?>assets/img/delete.png'>
+                            <img src='<?=URL::base()?>assets/img/admin/delete.png'>
                         </a>
                     </form>
                 </td>

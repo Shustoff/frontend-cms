@@ -42,7 +42,7 @@
                     <option value="0">Нету</option>
                     <?php foreach($catalogs as $cat) : ?>
                         <?php if ($cat->catname == $catalog->catname) continue; ?>
-                        <option value="<?=$cat->id; ?>">
+                        <option value="<?=$cat->id; ?>" <?=$catalog->parent_id == $cat->id ? 'selected="selected"' : ''?>>
                             <?=$cat->catname; ?>
                         </option>
                     <?php endforeach; ?>

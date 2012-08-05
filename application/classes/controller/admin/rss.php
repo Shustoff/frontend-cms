@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Admin_Rss extends Controller_App {
+class Controller_Admin_Rss extends Controller_Admin_App {
 
     // Создаем RSS-поток из таблицы
     public function action_index()

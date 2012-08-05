@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Admin_Trash extends Controller_App {
+class Controller_Admin_Trash extends Controller_Admin_App {
 
     public function before()
     {

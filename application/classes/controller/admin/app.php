@@ -1,5 +1,5 @@
 <?php defined('SYSPATH') or die('No direct script access.');
-class Controller_App extends Controller {
+class Controller_Admin_App extends Controller {
 
     public function before()
     {

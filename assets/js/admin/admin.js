@@ -58,7 +58,7 @@ $(function(){
             thisTable = table;
             $.post(baseURL + table + "/on", $(formname).serialize(), function(){
                 $(that).replaceWith(
-                    "<a href='#' onclick='req.off(thisTable, this); return false;'><img src='assets/img/published.png'></a>"
+                    "<a href='#' onclick='req.off(thisTable, this); return false;'><img src='assets/img/admin/published.png'></a>"
                 );
             });
         },
@@ -69,7 +69,7 @@ $(function(){
             thisTable = table;
             $.post(baseURL + table + "/off", $(formname).serialize(), function(){
                 $(that).replaceWith(
-                    "<a href='#' onclick='req.on(thisTable, this); return false;'><img src='assets/img/not-published.png'></a>"
+                    "<a href='#' onclick='req.on(thisTable, this); return false;'><img src='assets/img/admin/not-published.png'></a>"
                 );
             });
         },
@@ -165,6 +165,7 @@ $(function(){
             var name = $(that).parent();
             $.post(baseURL + "trash/delete", $(name).serialize(), function(){
                 $(name).parents('tr').fadeOut(300);
+                binds.completeDelete();
             });
         },
 
@@ -422,9 +423,14 @@ $(function(){
             $('.btncheck').removeAttr('disabled').attr('onclick', onclick).text('Отправить сообщение');
         },
 
-        // Делаем кнопку сохранить не активной после сохранения материала
+        // Делаем кнопку сохранить не активной после сохранения материала, показываем успешное сохранение
         completeSave: function() {
             $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;').text('Сохранено');
+            $('.tooltips').show(100).delay(3000).hide(100);
+        },
+
+        // Показываем сообщение удаления
+        completeDelete : function () {
             $('.tooltips').show(100).delay(3000).hide(100);
         },
 
