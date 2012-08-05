@@ -137,7 +137,7 @@ Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', '
     'controller' => 'error',
 ));
 
-// Роут страницы с каталогом
+// Роут страницы в каталоге
 Route::set('alias', '(<catalias>/)<pagealias>.html', array('catalias' => '.+', 'pagealias' => '.+'))
 ->defaults(array(
     'directory' => 'site',
@@ -157,6 +157,6 @@ Route::set('catalias', '<catalias>', array('catalias' => '.+'))
 Route::set('default', '(<controller>(/<action>))')
 ->defaults(array(
     'directory' => 'site',
-    'controller' => 'main',
+    'controller' => 'home',
     'action'     => 'index',
 ));

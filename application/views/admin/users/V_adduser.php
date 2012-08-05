@@ -57,7 +57,7 @@
 <div class="row">
     <div class="span6">
         <div class="control-group">
-            <label class="control-label" for="role">Группа:</label>
+            <label class="control-label" for="role">Роль:</label>
             <div class="controls">
                 <select id="role" class="input-xlarge" name="role_name">
                     <?php foreach($roles as $role) : ?>

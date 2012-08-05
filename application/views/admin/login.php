@@ -7,11 +7,11 @@
         <title>Вход в администрационную панель</title>
         <!--Стили-->
             <link rel="stylesheet" type="text/css" href="<?=URL::base();?>assets/css/bootstrap.css">
-            <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/admin.less">
+            <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/admin/admin.less">
         <!--Фавикон-->
             <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
         <!--Скрипты-->
-            <script src="<?=URL::base();?>assets/js/less-1.3.0.js"></script>
+            <script src="<?=URL::base();?>assets/js/libs/less-1.3.0.js"></script>
     </head>
     <body class="adminka">
         <div class="container">

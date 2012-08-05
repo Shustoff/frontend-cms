@@ -66,8 +66,9 @@
             <label class="control-label" for="pagecatalog">Каталог страницы:</label>
             <div class="controls">
                 <select id="pagecatalog" name="catalog_id" class="input-large">
+                    <option value="0">Нету</option>
                     <?php foreach($catalogs as $catalog) : ?>
-                        <option value="<?=$catalog->id; ?>">
+                        <option value="<?=$catalog->id; ?>" <?=$page->catalog_id == $catalog->id ? 'selected="selected"' : ''?>>
                             <?=$catalog->catname; ?>
                         </option>
                     <?php endforeach; ?>

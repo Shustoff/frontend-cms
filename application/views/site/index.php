@@ -15,13 +15,20 @@
     <meta name="copyright" content="{{copyright}}">
 
     <!--Стили-->
-    <link rel="stylesheet" href="<?=URL::base();?>assets/css/site/h5bp.css">
-    <link rel="stylesheet" href="<?=URL::base();?>assets/css/site/1140.css">
+    <link rel="stylesheet" href="<?=URL::base();?>assets/css/h5bp.css">
+    <link rel="stylesheet" href="<?=URL::base();?>assets/css/1140.css">
     <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/site/site.less">
 
     <!--Скрипты-->
-    <script data-main="<?=URL::base();?>assets/js/site/main" src="<?=URL::base();?>assets/js/require.js"></script>
-    <script src="<?=URL::base();?>assets/js/less-1.3.0.js"></script>
+    <script data-main="<?=URL::base();?>assets/js/site/config" src="<?=URL::base();?>assets/js/libs/require/require.js"></script>
+    <script src="<?=URL::base();?>assets/js/libs/less-1.3.0.js"></script>
+    <script>
+        window.onload = function () {
+            _.templateSettings = {
+                interpolate : /\{\{(.+?)\}\}/g
+            };
+        }
+    </script>
 
     <!--Фавикон-->
     <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
@@ -29,7 +36,6 @@
 <body>
 
 <div class="wrapper">
-    <!-- Выводим верхний блок-->
     <section class="top">
         <nav class="topmenu row">
             <ul>
@@ -38,24 +44,23 @@
                 <li><a href="<?=URL::base();?>catalog3">Каталог 3</a></li>
                 <li><a href="<?=URL::base();?>catalog4">Каталог 4</a></li>
                 <li><a href="<?=URL::base();?>catalog5">Каталог 5</a></li>
-                <div class="clear"></div>
             </ul>
         </nav>
     </section>
-    <!-- Выводим средний блок-->
     <section class="mid">
-        <script type="text/template" id="page-view">
+        <script type="text/template" id="catalog-view">
             <article class="threecol">
                 <p class="pagename">
                     <a href="<?=URL::base();?>">{{pagename}}</a>
                 </p>
-                <p><strong>Дата создания: </strong> {{date}}</p>
+                <p>
+                    <strong>Дата создания: </strong> {{date}}
+                </p>
                 <p>{{content}}</p>
             </article>
         </script>
     </section>
 </div>
-<!-- Выводим нижний блок-->
 <section class="bot">
     <footer class="footer row">
         <div class="fourcol">

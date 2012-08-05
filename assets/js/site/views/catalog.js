@@ -2,33 +2,33 @@
  * Вид отображения каталога
  */
 define([
-    'jQuery',
-    'Underscore',
     'Backbone',
-    'site/models/pages',
-    'site/collections/catalogs'
-], function ($, _, Backbone, Page, Catalog) {
+    './page'
+], function (Backbone, CatalogPageView) {
 
     var CatalogView = Backbone.View.extend({
 
-        tagName : 'p',
-        className : 'item',
-
-        templateSettings : {
-            interpolate : /\{\{(.+?)\}\}/g
-        },
-
-        template : _.template( $('#page-view').html() ),
+        tagName : 'section',
+        className : 'row catalog',
+        $el : $('.catalog'),
 
         initialize : function () {
-            this.model = new Page();
             _.bindAll(this);
-            this.model.on('reset', this.render);
+            this.collection.on('reset', this.render);
         },
 
         render : function () {
-            this.$el.html(this.model);
-            alert('todo');
+            var self = this;
+            this.collection.each(function(model){
+                var pageView = new CatalogPageView({model : model});
+                var content = pageView.render().el;
+                self.$el.append(content);
+            });
+
+            $('.threecol').map(function(){
+                if (($(this).index() + 1) % 4 === 0) $(this).addClass('last');
+            });
+
             return this;
         }
 

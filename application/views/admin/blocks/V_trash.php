@@ -1,10 +1,14 @@
+<div class="alert alert-info tooltips">
+    <button class="close" data-dismiss="alert">×</button>
+    <span class="center">Успешно удалено</span>
+</div>
 <h3 class="center">Корзина</h3>
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>ID</th>
-            <th width="400">Материал</th>
-            <th>Тип материала</th>
+            <th width="400">Название</th>
+            <th>Тип</th>
             <th>Дата создания</th>
             <th width="50">Восстановить</th>
             <th width="50">Удалить</th>
@@ -34,13 +38,13 @@
                     <form action="" method="post" id="cngstatus<?=$item['item_id'];?>">
                         <input type="hidden" name="item_name" value="<?=$item['item_name'];?>">
                         <input type="hidden" name="item_id" value="<?=$item['item_id'];?>">
-                        <a href="#" onclick='req.recovery(this); return false;'><img src='<?=URL::base()?>assets/img/published.png'></a>
+                        <a href="#" onclick='req.recovery(this); return false;'><img src='<?=URL::base()?>assets/img/admin/published.png'></a>
                     </form>
                 </td>
                 <td>
                     <form action="" method="post" id="intrash<?=$item['item_id'];?>">
                         <input type="hidden" name="item_name" value="<?=$item['item_name'];?>">
-                        <a href="#" onclick="req.deleteItem(this);"><img src='<?=URL::base()?>assets/img/delete.png'></a>
+                        <a href="#" onclick="req.deleteItem(this);"><img src='<?=URL::base()?>assets/img/admin/delete.png'></a>
                     </form>
                 </td>
             </tr>

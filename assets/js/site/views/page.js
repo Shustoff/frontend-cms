@@ -2,37 +2,38 @@
  * Вид отображения каталога
  */
 define([
-    'jQuery',
-    'Underscore',
     'Backbone',
-    'site/models/pages',
-    'site/collections/catalogs'
-], function ($, _, Backbone, Page, Catalog) {
+    'text!../templates/page.html'
+], function (Backbone, PageTemplate) {
 
-    var PageView = Backbone.View.extend({
+    var CatalogPageView = Backbone.View.extend({
 
-        tagName : 'div',
+        tagName : 'article',
         className : 'threecol',
 
-        templateSettings : {
-            interpolate : /\{\{(.+?)\}\}/g
+        template : _.template(PageTemplate),
+
+        events : {
+            'click .rem' : 'removeModel'
         },
 
-        template : _.template( $('#page-view').html() ),
-
         initialize : function () {
-            this.model = new Page();
             _.bindAll(this);
+            this.model.on('destroy', this.remove);
         },
 
         render : function () {
             var content = this.template(this.model.toJSON());
             this.$el.html(content);
             return this;
+        },
+
+        removeModel : function () {
+            Backbone.View.prototype.remove.call(this);
         }
 
     });
 
-    return PageView;
+    return CatalogPageView;
 
 });

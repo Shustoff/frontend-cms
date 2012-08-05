@@ -32,16 +32,16 @@
                     <form action="" method="post" id="cngstatus<?=$user->id;?>">
                         <input type="hidden" name="idpage" value="<?=$user->id;?>">
                         <?php if ($user->status == 1) : ?>
-                             <a href="#" onclick="req.off('users', this); return false;"><img src='<?=URL::base()?>assets/img/published.png'></a>
+                             <a href="#" onclick="req.off('users', this); return false;"><img src='<?=URL::base()?>assets/img/admin/published.png'></a>
                         <? else : ?>
-                             <a href="#" onclick="req.on('users', this); return false;"><img src='<?=URL::base()?>assets/img/not-published.png'></a>
+                             <a href="#" onclick="req.on('users', this); return false;"><img src='<?=URL::base()?>assets/img/admin/not-published.png'></a>
                         <? endif; ?>
                     </form>
                 </td>
                 <td>
                     <form action="" method="post" id="intrash<?=$user->id;?>">
                         <input type="hidden" name="intrash" value="<?=$user->id;?>">
-                        <a href="#" onclick="req.intrash('users',this);"><img src='<?=URL::base()?>assets/img/delete.png'></a>
+                        <a href="#" onclick="req.intrash('users',this);"><img src='<?=URL::base()?>assets/img/admin/delete.png'></a>
                     </form>
                 </td>
             </tr>

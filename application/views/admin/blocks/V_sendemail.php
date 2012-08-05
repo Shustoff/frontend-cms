@@ -19,6 +19,7 @@
                 <div class="controls">
                     <select id="to" name="to">
                         <?php foreach($users as $user) : ?>
+                             <?php if ($user->email === $usermail) continue; ?>
                              <option value="<?=$user->email;?>">
                                  <?=$user->email;?>
                              </option>

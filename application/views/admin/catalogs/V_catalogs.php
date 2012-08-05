@@ -31,11 +31,11 @@
                         <input type="hidden" name="idpage" value="<?=$catalog->id;?>">
                         <?php if ($catalog->status == 1) : ?>
                              <a href="#" onclick="req.off('catalogs', this); return false;">
-                                 <img src='<?=URL::base()?>assets/img/published.png'>
+                                 <img src='<?=URL::base()?>assets/img/admin/published.png'>
                              </a>
                         <? else : ?>
                              <a href="#" onclick="req.on('catalogs',this); return false;">
-                                 <img src='<?=URL::base()?>assets/img/not-published.png'>
+                                 <img src='<?=URL::base()?>assets/img/admin/not-published.png'>
                              </a>
                         <? endif; ?>
                     </form>
@@ -44,7 +44,7 @@
                     <form action="" method="post" id="intrash<?=$catalog->id;?>">
                         <input type="hidden" name="intrash" value="<?=$catalog->id;?>">
                         <a href="#" onclick="req.intrash('catalogs', this);">
-                            <img src='<?=URL::base()?>assets/img/delete.png'>
+                            <img src='<?=URL::base()?>assets/img/admin/delete.png'>
                         </a>
                     </form>
                 </td>
