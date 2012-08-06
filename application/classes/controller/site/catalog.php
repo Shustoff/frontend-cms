@@ -35,7 +35,7 @@ class Controller_Site_Catalog extends Controller {
             echo $json_pages;
             return;
         }
-/*            else
+            else
         {
 
             $options = DB::query(Database::SELECT, 'SELECT * FROM options')->execute();
@@ -70,6 +70,6 @@ class Controller_Site_Catalog extends Controller {
             $this->response->body($content);
             $this->response->body($footer);
 
-        }*/
+        }
     }
 }

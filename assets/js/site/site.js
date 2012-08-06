@@ -20,13 +20,5 @@ define([
 
 
 
-    // Cоздаем роут
-    var initialize = function () {
-        Router.initialize();
-    };
-
-    return {
-        initialize : initialize
-    };
 
 });

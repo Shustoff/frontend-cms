@@ -4,15 +4,15 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="ru"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="ru"> <!--<![endif]-->
 <head>
-    <title>{{sitename}}</title>
+    <title><?=$sitename;?></title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <meta name="robots" content="{{robots}}">
-    <meta name="description" content="{{description}}">
-    <meta name="keywords" content="{{keywords}}">
-    <meta name="copyright" content="{{copyright}}">
+    <meta name="robots" content="<?=$robots;?>">
+    <meta name="description" content="<?=$description;?>">
+    <meta name="keywords" content="<?=$keywords;?>">
+    <meta name="copyright" content="<?=$copyright;?>">
 
     <!--Стили-->
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/h5bp.css">
@@ -47,19 +47,8 @@
             </ul>
         </nav>
     </section>
-    <section class="mid">
-        <script type="text/template" id="catalog-view">
-            <article class="threecol">
-                <p class="pagename">
-                    <a href="<?=URL::base();?>">{{pagename}}</a>
-                </p>
-                <p>
-                    <strong>Дата создания: </strong> {{date}}
-                </p>
-                <p>{{content}}</p>
-            </article>
-        </script>
-    </section>
+    <!-- Центральная часть -->
+    <section class="mid"></section>
 </div>
 <section class="bot">
     <footer class="footer row">
@@ -75,8 +64,8 @@
     </footer>
 </section>
     <!--Подключаем jQuery с Google CDN-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+    <!--    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+    <!--    <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>-->
     <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. -->
     <!--<script>-->
     <!--    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];-->
