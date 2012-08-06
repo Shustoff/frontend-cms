@@ -15,7 +15,7 @@ padding-right: 20px;
 .row {
 width: 100%;
 max-width: 1140px;
-min-width: 725px;
+min-width: 640px;
 margin: 0 auto;
 overflow: hidden;
 }
@@ -39,7 +39,7 @@ width: 22.05%;
 }
 
 .row .fourcol {
-width: 30.75%;
+width: 30%;
 }
 
 .row .fivecol {
@@ -100,7 +100,7 @@ img {
 
 /* Mobile */
 
-@media handheld, only screen and (max-width: 767px) {
+@media handheld, only screen and (max-width: 680px) {
 
 	body {
 	    font-size: 16px;
