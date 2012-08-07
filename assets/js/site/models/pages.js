@@ -5,9 +5,7 @@ define([
     'Backbone'
 ], function (Backbone) {
     var Page = Backbone.Model.extend({
-
-        urlRoot : '/frontend/',
-
+        urlRoot : '/frontend/'
     });
 
     return Page;
