@@ -21,7 +21,7 @@
     <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/site/site.less">
 
     <!--Скрипты-->
-    <script data-main="<?=URL::base();?>assets/js/site/config" src="<?=URL::base();?>assets/js/libs/require/require.js"></script>
+    <script data-main="<?=URL::base();?>assets/js/site/site" src="<?=URL::base();?>assets/js/libs/require/require.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/less-1.3.0.js"></script>
     <script>
         window.onload = function () {

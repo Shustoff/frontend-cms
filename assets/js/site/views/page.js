@@ -10,7 +10,6 @@ define([
 
         tagName : 'article',
         className : 'threecol',
-
         template : _.template(PageTemplate),
 
         events : {

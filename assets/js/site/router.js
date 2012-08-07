@@ -10,9 +10,6 @@ define([
             '*actions' : 'defaultAction'
         },
 
-        initialize : function () {
-        },
-
         defaultAction : function () {
         }
 
