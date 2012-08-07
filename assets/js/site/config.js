@@ -8,6 +8,7 @@ requirejs.config({
         'jQuery' : '../libs/jquery/jquery-1.7.2',
         'Underscore' : '../libs/underscore',
         'Backbone' : '../libs/backbone',
+        'QUnit' : '../libs/qunit-1.9.0',
 
         'text' : '../libs/require/text'
     },
@@ -18,4 +19,3 @@ requirejs.config({
         }
     }
 });
-
