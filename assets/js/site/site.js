@@ -6,17 +6,14 @@ define([
     'router',
     'collections/catalogs',
     'models/pages',
-    'views/catalog',
-    'QUnit',
-    './tests'
-], function (Router, Catalog, Page, CatalogView, QUnit, testModule) {
+    'views/catalog'
+], function (Router, Catalog, Page, CatalogView) {
 
-    var catalog = new Catalog;
-    catalog.fetch();
+        var catalog = new Catalog;
+        catalog.fetch();
 
-    var catalogView = new CatalogView({collection : catalog});
-
-    $('.mid').append( catalogView.render().el );
+        var catalogView = new CatalogView({collection : catalog});
+        $('.mid').append( catalogView.render().el );
 
 
 });
