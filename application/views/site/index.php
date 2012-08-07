@@ -63,9 +63,6 @@
         </div>
     </footer>
 </section>
-    <!--Подключаем jQuery с Google CDN-->
-    <!--    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
-    <!--    <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>-->
     <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. -->
     <!--<script>-->
     <!--    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];-->
