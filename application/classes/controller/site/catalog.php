@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Site_Catalog extends Controller {
+class Controller_Site_Catalog extends Controller_Site_Main {
 
     public function before()
     {

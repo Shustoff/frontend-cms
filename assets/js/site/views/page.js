@@ -1,5 +1,5 @@
 /**
- * Вид отображения каталога
+ * Вид отображения страницы в каталоге
  */
 define([
     'Backbone',
@@ -12,23 +12,11 @@ define([
         className : 'threecol',
         template : _.template(PageTemplate),
 
-        events : {
-            'click .rem' : 'removeModel'
-        },
-
-        initialize : function () {
-            _.bindAll(this);
-            this.model.on('destroy', this.remove);
-        },
 
         render : function () {
             var content = this.template(this.model.toJSON());
             this.$el.html(content);
             return this;
-        },
-
-        removeModel : function () {
-            Backbone.View.prototype.remove.call(this);
         }
 
     });
