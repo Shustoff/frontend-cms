@@ -4,12 +4,12 @@ class Controller_Site_Home extends Controller_Site_Main {
 
     public function action_index()
    	{
+       // Если запрошен аяксом
        if ($this->request->is_ajax())
        {
            $pages = ORM::factory('page')->find_all();
            $this->response->headers('Content-Type', 'application/json');
            $pages_array = array();
-
 
            foreach ($pages as $page)
            {
@@ -24,33 +24,31 @@ class Controller_Site_Home extends Controller_Site_Main {
 
            $json_pages = parent::json_encode_cyr($pages_result);
            echo $json_pages;
-           return;
 
        } else {
 
-           $options = DB::query(Database::SELECT, 'SELECT * FROM options')->execute();
+           $options = ORM::factory('option')->find_all();
 
            foreach ($options as $option)
            {
-               $sitename = $option['sitename'];
-               $description = $option['description'];
-               $keywords = $option['keywords'];
-               $robots = $option['robots'];
-               $copyright = $option['copyright'];
+               $sitename = $option->sitename;
+               $description = $option->description;
+               $keywords = $option->keywords;
+               $robots = $option->robots;
+               $copyright = $option->copyright;
            }
 
-           View::bind_global('sitename', $sitename);
-           View::bind_global('description', $description);
-           View::bind_global('keywords', $keywords);
-           View::bind_global('robots', $robots);
-           View::bind_global('copyright', $copyright);
+           $nav = View::factory('site/blocks/V_nav');
+           $footer = View::factory('site/blocks/V_footer');
 
            $view = View::factory('site/index')
                        ->bind('sitename', $sitename)
                        ->bind('description', $description)
                        ->bind('keywords', $keywords)
                        ->bind('robots', $robots)
-                       ->bind('copyright', $copyright);
+                       ->bind('copyright', $copyright)
+                       ->bind('nav', $nav)
+                       ->bind('footer', $footer);
 
            $this->response->body($view);
        }

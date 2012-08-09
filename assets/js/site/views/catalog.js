@@ -3,8 +3,9 @@
  */
 define([
     'Backbone',
+    '../router',
     './page'
-], function (Backbone, CatalogPageView) {
+], function (Backbone, Router, CatalogPageView) {
 
     var CatalogView = Backbone.View.extend({
 
@@ -31,7 +32,6 @@ define([
 
             return this;
         }
-
     });
 
     return CatalogView;
