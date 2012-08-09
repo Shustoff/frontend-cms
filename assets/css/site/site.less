@@ -1,12 +1,7 @@
 /* Бланковый шаблон */
 
-/* Общие стили */
-html,
-body {
-    height: 100%;
-    min-height: 100%;
-}
-
+/* Переменные, миксины etc. */
+@color: #08a900;
 .gradient {
     background: #f0f9ff; /* Old browsers */
     background: -moz-linear-gradient(top,  #f0f9ff 0%, #cbebff 47%, #a1dbff 100%); /* FF3.6+ */
@@ -18,6 +13,14 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=0 ); /* IE6-9 */
 }
 
+/* Общие стили */
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+}
+
+// Для разрешения < 680 пикс
 @media all and (max-width: 680px) {
     body {
         .topmenu {
@@ -41,28 +44,29 @@ body {
     }
 }
 
-@media all and (min-width: 680px) {
+// Для разрешения от 680 пикс. до 900пикс.
+@media all and (max-width: 900px) and (min-width: 681px) {
     body {
         .topmenu {
             padding-top: 5px;
             li a {
-                font-size: 1.8em !important;
+                font-size: 1.6em !important;
+            }
+        }
+        .row {
+            .threecol {
+                width: 46%;
+                float: left;
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 10px;
+                padding-right: 10px;
             }
         }
     }
 }
 
-@media all and (max-width: 900px) and (min-width: 680px) {
-    .row .threecol {
-        width: 43%;
-        float: left;
-        margin-left: 0px;
-        margin-right: 0px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-}
-
+// Обертка для верхнего и среднего блока
 .wrapper {
     min-height: 100%;
     height: auto !important;
@@ -71,8 +75,7 @@ body {
     width: 100%;
 }
 
-
-//Верхний блок
+/* Верхний блок */
 .top {
     height: 80px;
     border-bottom: 2px dashed #a1dbff;
@@ -89,7 +92,7 @@ body {
             display: inline-block;
             a {
                 font-size: 2em;
-                color: #087202;
+                color: @color;
             }
         }
 
@@ -101,7 +104,7 @@ body {
     }
 }
 
-// Средний блок
+/* Средний блок */
 .mid {
     padding: 20px;
     background-color: #DAF1FF;
@@ -115,17 +118,22 @@ body {
                 text-align: center;
                 margin-bottom: 10px;
                 a {
-                   color: #08a900;
+                   color: @color;
                    font-size: 1.4em;
+                   text-decoration: none;
+                   border-bottom: 1px dotted @color;
                 }
             }
-        }
-    }
 
-    .pageview {
-        padding-bottom: 20px;
-        .pagename {
-            text-align: center;
+            .createdDate,
+            .author,
+            .parentCatalog {
+                color: #5a5a5a;
+            }
+
+            .content {
+                margin-top: 10px;
+            }
         }
     }
 
@@ -135,8 +143,7 @@ body {
 }
 
 
-// Нижний блок
-
+/* Нижний блок */
 .bot {
     padding: 20px;
     border-top: 2px dashed #fff;
