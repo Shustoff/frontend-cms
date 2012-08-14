@@ -4,8 +4,9 @@
 
 define([
     'Backbone',
-    'text!../templates/onepage.html'
-], function (Backbone, OnePageTemplate) {
+    'text!../templates/one_page.html'
+],
+function (Backbone, OnePageTemplate) {
 
     var OnePageView = Backbone.View.extend({
 

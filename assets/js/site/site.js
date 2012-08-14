@@ -1,6 +1,4 @@
-/**
- * Входная точка для всех js скриптов. Bootstrap. Главный файл.
- */
+/* Bootstrap */
 requirejs.config({
     deps : ['site', 'tests'],
     paths : {
@@ -10,7 +8,7 @@ requirejs.config({
         'Backbone' : '../libs/backbone',
         'QUnit' : '../libs/qunit-1.9.0',
 
-        //Plugins
+        // Plugins
         'text' : '../libs/require/text'
     },
     shim : {
@@ -28,13 +26,13 @@ require([
     'views/catalog'
 ], function (Router, Catalog, Page, CatalogView) {
 
-        var site = Router.initialize();
+    var site = Router.initialize();
 
-        var catalog = new Catalog;
-        catalog.fetch();
+    var catalog = new Catalog;
+    catalog.fetch();
 
-        var catalogView = new CatalogView({collection : catalog});
+    var catalogView = new CatalogView({collection : catalog});
 
-        $('.mid').append( catalogView.render().el );
+    $('.mid').append( catalogView.render().el );
 
 });
