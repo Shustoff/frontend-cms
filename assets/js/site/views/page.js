@@ -1,10 +1,11 @@
 /**
- * Вид отображения страницы в каталоге
+ * Вид страницы в каталоге
  */
 define([
     'Backbone',
-    'text!../templates/page.html'
-], function (Backbone, PageTemplate) {
+    'text!../templates/catalog_page.html'
+],
+function (Backbone, PageTemplate) {
 
     var CatalogPageView = Backbone.View.extend({
 

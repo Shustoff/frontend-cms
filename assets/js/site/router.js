@@ -1,5 +1,5 @@
 /**
- * Роут сайта
+ * Главный Роутер сайта
  */
 define([
     'Backbone',
@@ -26,7 +26,9 @@ define([
     });
 
     var initialize = function () {
+        // Создаем роутер сайта
         var site = new SiteRouter();
+        // Начинаем вести историю
         Backbone.history.start({pushState : true, root : '/frontend/'});
 
         $(document).on('click', '.pagename a', function (evt) {

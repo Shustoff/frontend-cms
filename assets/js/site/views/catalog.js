@@ -1,11 +1,12 @@
 /**
- * Вид отображения каталога
+ * Вид каталога
  */
 define([
     'Backbone',
     '../router',
     './page'
-], function (Backbone, Router, CatalogPageView) {
+],
+function (Backbone, Router, CatalogPageView) {
 
     var CatalogView = Backbone.View.extend({
 

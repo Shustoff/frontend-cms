@@ -106,8 +106,7 @@ Kohana::modules(array(
 	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
-    'email'   => MODPATH.'email',
-    'backbone' => MODPATH.'backbone'
+    'email'   => MODPATH.'email'
 	));
 
 /**
@@ -144,14 +143,6 @@ Route::set('pagealias', '<pagealias>', array('pagealias' => '.+'))
     'controller' => 'page',
     'action' => 'index'
 ));
-
-// Роут каталога
-//Route::set('catalias', '<catalias>', array('catalias' => '.+'))
-//->defaults(array(
-//    'directory' => 'site',
-//    'controller' => 'catalog',
-//    'action' => 'index'
-//));
 
 // Роут по-умолчанию
 Route::set('default', '(<controller>(/<action>))')
