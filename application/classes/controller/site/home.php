@@ -4,12 +4,24 @@ class Controller_Site_Home extends Controller_Site_Main {
 
     public function action_index()
    	{
+       // Если запрошен аяксом
        if ($this->request->is_ajax())
        {
-           $pages = ORM::factory('page')->find_all();
+           if (ORM::factory('option', 1)->cache == 1)
+           {
+               if ( ! $pages = Cache::instance('file')->get('widget.pages'))
+               {
+                   $pages = ORM::factory('page')->where('status', '=', '1')->find_all();
+                   Cache::instance()->set('widget.pages', $pages, Date::MINUTE * 15);
+               }
+           }
+           else
+           {
+               $pages = ORM::factory('page')->where('status', '=', '1')->find_all();
+           }
+
            $this->response->headers('Content-Type', 'application/json');
            $pages_array = array();
-
 
            foreach ($pages as $page)
            {
@@ -24,35 +36,38 @@ class Controller_Site_Home extends Controller_Site_Main {
 
            $json_pages = parent::json_encode_cyr($pages_result);
            echo $json_pages;
-           return;
 
        } else {
 
-           $options = DB::query(Database::SELECT, 'SELECT * FROM options')->execute();
+           $options = ORM::factory('option')->find_all();
 
            foreach ($options as $option)
            {
-               $sitename = $option['sitename'];
-               $description = $option['description'];
-               $keywords = $option['keywords'];
-               $robots = $option['robots'];
-               $copyright = $option['copyright'];
+               $sitename = $option->sitename;
+               $description = $option->description;
+               $keywords = $option->keywords;
+               $robots = $option->robots;
+               $copyright = $option->copyright;
+               $debug = $option->debug;
            }
 
-           View::bind_global('sitename', $sitename);
-           View::bind_global('description', $description);
-           View::bind_global('keywords', $keywords);
-           View::bind_global('robots', $robots);
-           View::bind_global('copyright', $copyright);
+           $nav = View::factory('site/blocks/V_nav');
+           $footer = View::factory('site/blocks/V_footer');
+
+           if ($debug == 1) $profiler = View::factory('profiler/stats');
 
            $view = View::factory('site/index')
                        ->bind('sitename', $sitename)
                        ->bind('description', $description)
                        ->bind('keywords', $keywords)
                        ->bind('robots', $robots)
-                       ->bind('copyright', $copyright);
+                       ->bind('copyright', $copyright)
+                       ->bind('nav', $nav)
+                       ->bind('footer', $footer)
+                       ->bind('profiler', $profiler);
 
            $this->response->body($view);
+
        }
     }
 
