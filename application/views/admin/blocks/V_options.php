@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label">Включить отладку: </label>
+            <label class="control-label">Включить профайлер: </label>
             <div class="controls">
                 <label class="radio inline">
                     <input type="radio" id="debug1" value="1" name="debug" <?=$option->debug == 1 ? 'checked' : '';?>>
