@@ -5,10 +5,6 @@ class Controller_Admin_Auth extends Controller {
     // Логинимся
     public function action_index()
     {
-        $config = Kohana::$config->load('session');
-        $config->set('database.lifetime', 100000);
-        echo $config->get('database.lifetime');
-
         if (Auth::instance()->logged_in()) {$this->request->redirect('admin');}
 
         if ($_POST)

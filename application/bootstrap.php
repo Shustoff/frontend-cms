@@ -115,7 +115,7 @@ Kohana::modules(array(
     'email'   => MODPATH.'email'
 	));
 
-Kohana::$config->attach(new Config_Database(array('table' => 'configs')));
+// Kohana::$config->attach(new Config_Database(array('table' => 'configs')));
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
