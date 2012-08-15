@@ -18,7 +18,7 @@ requirejs.config({
             exports : 'Backbone'
         }
     }
-    
+
 });
 
 require([
