@@ -4,6 +4,8 @@ class Model_Page extends ORM {
 
     protected $_table_name = 'pages';
 
+    protected $_reload_on_wakeup = FALSE;
+
     protected $_belongs_to = array(
         'catalogs' => array(
             'model' => 'catalog',

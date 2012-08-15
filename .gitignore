@@ -1,6 +1,6 @@
 .gitignore
-/.idea
+.idea/
 .DS_STORE
 /application/logs/
 workspace.xml
-frontendcms prototype.rp
+frontproto.rp

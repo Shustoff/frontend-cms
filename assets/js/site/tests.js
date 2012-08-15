@@ -1,6 +1,4 @@
-/**
- * Тесты сайта
- */
+/* Тесты сайта */
 define(
 [
     'QUnit',
@@ -16,7 +14,7 @@ define(
         teardown : function () { this.catalog.remove(); }
     });
             test('проверка типа коллекции', 2, function () {
-                equal(typeof Catalog, 'function',  'Catalog должен быть конструктором');
+                equal(typeof Catalog, 'function',  'Должен быть конструктором');
                 equal(typeof this.catalog, 'object', 'Коллекция catalog имеет тип "object"');
             });
             test('проверка свойств коллекции', 2, function () {
@@ -30,7 +28,7 @@ define(
         teardown : function () { this.page.destroy(); }
     });
             test('проверка типа модели', 2, function () {
-                equal(typeof Page, 'function', 'Page должен быть конструктором');
+                equal(typeof Page, 'function', 'Должен быть конструктором');
                 equal(typeof this.page, 'object', 'Модель page имеет тип "object"');
             });
             test('проверка свойств модели', 1, function () {
@@ -53,10 +51,10 @@ define(
                 equal(typeof this.catalogView, 'object', 'catalogView имеет тип "object"');
             });
             test('проверка свойств вида', 4, function () {
-                notEqual(this.catalogView.collection, undefined, 'Должен использовать какую-либо коллекцию');
-                equal(this.catalogView.tagName, 'section', 'tagName должен быть "section"');
-                equal(this.catalogView.className, 'row catalog', 'className должен быть "row catalog"');
-                deepEqual(this.catalogView.render(), this.catalogView, 'Метод render() должен возвращать текущий объект');
+                notEqual(this.catalogView.collection, undefined, 'Использует какую-либо коллекцию');
+                equal(this.catalogView.tagName, 'section', 'tagName равен "section"');
+                equal(this.catalogView.className, 'row catalog', 'className равен "row catalog"');
+                deepEqual(this.catalogView.render(), this.catalogView, 'Метод render() возвращает текущий объект');
             });
 
     // Проверяем вид CatalogPageView
@@ -75,10 +73,10 @@ define(
                 equal(typeof this.catalogPageView, 'object', 'catalogPageView имеет тип "object"');
             });
             test('проверка свойств вида', 4, function () {
-                notEqual(this.catalogPageView.model, undefined, 'Должен использовать какую-либо модель');
-                equal(this.catalogPageView.tagName, 'article', 'tagName должен быть "section"');
-                equal(this.catalogPageView.className, 'threecol', 'className должен быть "threecol"');
-                deepEqual(this.catalogPageView.render(), this.catalogPageView, 'Метод render() должен возвращать текущий объект');
+                notEqual(this.catalogPageView.model, undefined, 'Использует какую-либо модель');
+                equal(this.catalogPageView.tagName, 'article', 'tagName равен "section"');
+                equal(this.catalogPageView.className, 'threecol', 'className равен "threecol"');
+                deepEqual(this.catalogPageView.render(), this.catalogPageView, 'Метод render() возвращает текущий объект');
             });
 
 });

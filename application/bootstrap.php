@@ -100,14 +100,13 @@ Kohana::$config->attach(new Config_File);
 Kohana::modules(array(
 	'auth'       => MODPATH.'auth',       // Basic authentication
 	'cache'      => MODPATH.'cache',      // Caching with multiple backends
-	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
+    'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 	'database'   => MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
 	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
-    'email'   => MODPATH.'email',
-    'backbone' => MODPATH.'backbone'
+    'email'   => MODPATH.'email'
 	));
 
 /**
@@ -138,18 +137,10 @@ Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', '
 ));
 
 // Роут страницы в каталоге
-Route::set('alias', '(<catalias>/)<pagealias>.html', array('catalias' => '.+', 'pagealias' => '.+'))
+Route::set('pagealias', '<pagealias>', array('pagealias' => '.+'))
 ->defaults(array(
     'directory' => 'site',
     'controller' => 'page',
-    'action' => 'index'
-));
-
-// Роут каталога
-Route::set('catalias', '<catalias>', array('catalias' => '.+'))
-->defaults(array(
-    'directory' => 'site',
-    'controller' => 'catalog',
     'action' => 'index'
 ));
 
