@@ -3,9 +3,12 @@
  */
 define([
     'Backbone'
-], function (Backbone) {
+],
+function (Backbone) {
     var Page = Backbone.Model.extend({
-        urlRoot : '/frontend/'
+        initialize : function () {
+            this.urlRoot = '/frontend/' + this.get('alias') + '/' ;
+        }
     });
 
     return Page;

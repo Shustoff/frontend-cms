@@ -35,40 +35,24 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
 </head>
 <body>
+
 <div class="wrapper">
-    <section class="top">
-        <nav class="topmenu row">
-            <ul>
-                <li><a href="<?=URL::base();?>catalog1">Каталог 1</a></li>
-                <li><a href="<?=URL::base();?>catalog2">Каталог 2</a></li>
-                <li><a href="<?=URL::base();?>catalog3">Каталог 3</a></li>
-                <li><a href="<?=URL::base();?>catalog4">Каталог 4</a></li>
-                <li><a href="<?=URL::base();?>catalog5">Каталог 5</a></li>
-            </ul>
-        </nav>
-    </section>
-    <!-- Центральная часть -->
+    <!--Верхнее меню-->
+    <section class="top"><?=$nav;?></section>
+    <!-- Центральная часть, вставляется через Underscore template-->
     <section class="mid"></section>
 </div>
-<section class="bot">
-    <footer class="footer row">
-        <div class="fourcol">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec erat quam, mollis ut viverra vel, hendrerit sed turpis. </p>
-        </div>
-        <div class="fourcol">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec erat quam, mollis ut viverra vel, hendrerit sed turpis.  </p>
-        </div>
-        <div class="fourcol last">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec erat quam, mollis ut viverra vel, hendrerit sed turpis. </p>
-        </div>
-    </footer>
-</section>
-    <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. -->
-    <!--<script>-->
-    <!--    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];-->
-    <!--    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];-->
-    <!--    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';-->
-    <!--    s.parentNode.insertBefore(g,s)}(document,'script'));-->
-    <!--</script>-->
+
+<!--Футер-->
+<section class="bot"><?=$footer;?></section>
+
+<section class="debug"><?=$profiler;?></section>
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. -->
+<!--<script>-->
+<!--    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];-->
+<!--    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];-->
+<!--    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';-->
+<!--    s.parentNode.insertBefore(g,s)}(document,'script'));-->
+<!--</script>-->
 </body>
 </html>

@@ -15,7 +15,7 @@
 
     <!--Скрипты-->
     <script src="<?=URL::base();?>assets/js/libs/less-1.3.0.js"></script>
-    <script src="<?=URL::base();?>assets/js/libs/jquery/jquery.js"></script>
+    <script src="<?=URL::base();?>assets/js/libs/jquery/jquery-1.7.2.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/bootstrap.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/jquery/jquery-ui.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/jquery/jquery.ui.datepicker-ru.js"></script>
@@ -37,7 +37,7 @@
                    <p>Ваш IP адрес: <strong><?=$_SERVER['REMOTE_ADDR'];?></strong></p>
                    <p>Здравствуйте: <strong><?=$user->username;?></strong>
                       <a href="<?=URL::site('/admin/auth/logout'); ?>" title="Выйти">
-                          <img src="<?=URL::base();?>assets/img/delete.png" alt="">
+                          <img src="<?=URL::base();?>assets/img/admin/delete.png" alt="">
                       </a>
                    </p>
                    <p><a href="<?=URL::base();?>" target="_blank" title="Просмотр сайта">Просмотр сайта</a></p>
