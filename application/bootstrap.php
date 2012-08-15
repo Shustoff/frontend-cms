@@ -94,6 +94,12 @@ Kohana::$log->attach(new Log_File(APPPATH.'logs'));
  */
 Kohana::$config->attach(new Config_File);
 
+// Sessions
+Session::$default = 'database';
+
+// Cookies
+Kohana_Cookie::$domain = 'localhost/frontend';
+
 /**
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
@@ -108,6 +114,8 @@ Kohana::modules(array(
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
     'email'   => MODPATH.'email'
 	));
+
+Kohana::$config->attach(new Config_Database(array('table' => 'configs')));
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
