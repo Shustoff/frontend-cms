@@ -105,7 +105,7 @@
             <div class="controls">
                <div class="input-append">
                    <input type="text" id="session" name="session" class="input-small" value="<?=$option->session;?>">
-                   <span class="add-on">мин.</span>
+                   <span class="add-on">сек.</span>
                </div>
             </div>
         </div>

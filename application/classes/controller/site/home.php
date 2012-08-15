@@ -7,12 +7,14 @@ class Controller_Site_Home extends Controller_Site_Main {
        // Если запрошен аяксом
        if ($this->request->is_ajax())
        {
+           // Если в настройках включен кэш
            if (ORM::factory('option', 1)->cache == 1)
            {
-               if ( ! $pages = Cache::instance('file')->get('widget.pages'))
+               // Если кэш существует
+               if ( ! $pages = Cache::instance('file')->get('cache.pages'))
                {
-                   $pages = ORM::factory('page')->where('status', '=', '1')->find_all();
-                   Cache::instance()->set('widget.pages', $pages, Date::MINUTE * 15);
+                   $pages = ORM::factory('page')->where('status', '=', '1')->find_all()->as_array();
+                   Cache::instance()->set('cache.pages', $pages, Date::MINUTE * 10);
                }
            }
            else
@@ -20,6 +22,7 @@ class Controller_Site_Home extends Controller_Site_Main {
                $pages = ORM::factory('page')->where('status', '=', '1')->find_all();
            }
 
+           // Устанавливаем заголовки json-ответа
            $this->response->headers('Content-Type', 'application/json');
            $pages_array = array();
 
@@ -39,6 +42,7 @@ class Controller_Site_Home extends Controller_Site_Main {
 
        } else {
 
+           // Выбираем все настройки
            $options = ORM::factory('option')->find_all();
 
            foreach ($options as $option)
@@ -67,17 +71,18 @@ class Controller_Site_Home extends Controller_Site_Main {
                        ->bind('profiler', $profiler);
 
            $this->response->body($view);
-
        }
     }
 
     // Сайт выключен
     public function action_offline()
     {
-       $status = DB::query(Database::SELECT, 'SELECT status FROM options')->execute()->get('status');
+       $status = DB::query(Database::SELECT, 'SELECT status FROM options')
+           ->execute()
+           ->get('status');
+
        if ($status != 0) $this->request->redirect();
+
        $this->response->body( View::factory('site/offline') );
     }
-
-
 }

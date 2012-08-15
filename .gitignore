@@ -1,6 +1,7 @@
 .gitignore
-.idea/
+/.idea
 .DS_STORE
 /application/logs/
 workspace.xml
 frontproto.rp
+application/cache/
