@@ -3,9 +3,11 @@
  */
 define([
     'Backbone',
-    'views/onepage',
-    'models/pages'
-], function (Backbone, OnePageView, Page) {
+    'collections/catalogs',
+    'models/pages',
+    'views/catalog',
+    'views/onepage'
+], function (Backbone, Catalog, Page, CatalogView, OnePageView) {
     var SiteRouter = Backbone.Router.extend({
 
         routes :  {
@@ -22,6 +24,15 @@ define([
             page.fetch();
             // Передали в вид
             var view = new OnePageView({model : page});
+        },
+
+        defaultAction : function () {
+            // Создали пустую коллекцию
+            var catalog = new Catalog;
+            // Заполнили ее данными
+            catalog.fetch();
+            // Передали в вид
+            var catalogView = new CatalogView({collection : catalog});
         }
     });
 
@@ -31,14 +42,6 @@ define([
         // Начинаем вести историю
         Backbone.history.start({pushState : true, root : '/frontend/'});
 
-        $(document).on('click', '.pagename a', function (evt) {
-            var href = $(this).attr('href');
-            var protocol = this.protocol + '//';
-            if (href.slice(protocol.length) !== protocol) {
-              evt.preventDefault();
-              site.navigate(href, true);
-            }
-          });
 
         return site;
     };

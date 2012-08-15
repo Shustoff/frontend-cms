@@ -13,7 +13,6 @@ function (Backbone, PageTemplate) {
         className : 'threecol',
         template : _.template(PageTemplate),
 
-
         render : function () {
             var content = this.template(this.model.toJSON());
             this.$el.html(content);

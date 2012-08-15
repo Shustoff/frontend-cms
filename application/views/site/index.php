@@ -46,6 +46,7 @@
 <!--Футер-->
 <section class="bot"><?=$footer;?></section>
 
+<section class="debug"><?=$profiler;?></section>
 <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. -->
 <!--<script>-->
 <!--    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];-->

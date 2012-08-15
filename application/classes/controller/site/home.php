@@ -7,7 +7,19 @@ class Controller_Site_Home extends Controller_Site_Main {
        // Если запрошен аяксом
        if ($this->request->is_ajax())
        {
-           $pages = ORM::factory('page')->find_all();
+           if (ORM::factory('option', 1)->cache == 1)
+           {
+               if ( ! $pages = Cache::instance('file')->get('widget.pages'))
+               {
+                   $pages = ORM::factory('page')->where('status', '=', '1')->find_all();
+                   Cache::instance()->set('widget.pages', $pages, Date::MINUTE * 15);
+               }
+           }
+           else
+           {
+               $pages = ORM::factory('page')->where('status', '=', '1')->find_all();
+           }
+
            $this->response->headers('Content-Type', 'application/json');
            $pages_array = array();
 
@@ -36,10 +48,13 @@ class Controller_Site_Home extends Controller_Site_Main {
                $keywords = $option->keywords;
                $robots = $option->robots;
                $copyright = $option->copyright;
+               $debug = $option->debug;
            }
 
            $nav = View::factory('site/blocks/V_nav');
            $footer = View::factory('site/blocks/V_footer');
+
+           if ($debug == 1) $profiler = View::factory('profiler/stats');
 
            $view = View::factory('site/index')
                        ->bind('sitename', $sitename)
@@ -48,9 +63,11 @@ class Controller_Site_Home extends Controller_Site_Main {
                        ->bind('robots', $robots)
                        ->bind('copyright', $copyright)
                        ->bind('nav', $nav)
-                       ->bind('footer', $footer);
+                       ->bind('footer', $footer)
+                       ->bind('profiler', $profiler);
 
            $this->response->body($view);
+
        }
     }
 
