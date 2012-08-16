@@ -21,7 +21,7 @@ class Controller_Admin_Main extends Controller_Template {
         $user = Auth::instance()->get_user();
         View::bind_global('user', $user);
 
-        $sitename = ORM::factory('option', 1)->sitename;
+        $sitename = Kohana::$config->load('site.sitename');
         View::bind_global('sitename', $sitename);
 
         $pages = ORM::factory('page')->order_by('date', 'DESC')->limit(10)->find_all();

@@ -2,6 +2,6 @@
 
 class Model_Option extends ORM {
 
-    protected $_table_name = 'options';
+    protected $_table_name = 'config';
 
 }

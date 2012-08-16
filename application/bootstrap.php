@@ -94,11 +94,8 @@ Kohana::$log->attach(new Log_File(APPPATH.'logs'));
  */
 Kohana::$config->attach(new Config_File);
 
-// Sessions
+// Sessions & Cookies
 Session::$default = 'database';
-
-// Cookies
-Kohana_Cookie::$domain = 'localhost/frontend';
 
 /**
  * Enable modules. Modules are referenced by a relative or absolute path.
@@ -106,7 +103,7 @@ Kohana_Cookie::$domain = 'localhost/frontend';
 Kohana::modules(array(
 	'auth'       => MODPATH.'auth',       // Basic authentication
 	'cache'      => MODPATH.'cache',      // Caching with multiple backends
-    'codebench'  => MODPATH.'codebench',  // Benchmarking tool
+    // 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 	'database'   => MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
 	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
@@ -115,7 +112,14 @@ Kohana::modules(array(
     'email'   => MODPATH.'email'
 	));
 
-// Kohana::$config->attach(new Config_Database(array('table' => 'configs')));
+Kohana::$config->attach(
+    new Config_Database(
+        array(
+            'instance' => Kohana_Database::instance(),
+            'table_name' => 'config',
+        )
+    )
+);
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of

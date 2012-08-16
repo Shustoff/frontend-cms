@@ -8,7 +8,7 @@ class Controller_Site_Home extends Controller_Site_Main {
        if ($this->request->is_ajax())
        {
            // Если в настройках включен кэш
-           if (ORM::factory('option', 1)->cache == 1)
+           if (Kohana::$config->load('site.cache') == 1)
            {
                // Если кэш существует
                if ( ! $pages = Cache::instance('file')->get('cache.pages'))
@@ -43,29 +43,21 @@ class Controller_Site_Home extends Controller_Site_Main {
        } else {
 
            // Выбираем все настройки
-           $options = ORM::factory('option')->find_all();
 
-           foreach ($options as $option)
+           $cfgsite = Kohana::$config->load('site');
+
+           foreach ($cfgsite as $key => $value)
            {
-               $sitename = $option->sitename;
-               $description = $option->description;
-               $keywords = $option->keywords;
-               $robots = $option->robots;
-               $copyright = $option->copyright;
-               $debug = $option->debug;
+               $options[$key] = Kohana::$config->load('site.' . $key);
            }
 
            $nav = View::factory('site/blocks/V_nav');
            $footer = View::factory('site/blocks/V_footer');
 
-           if ($debug == 1) $profiler = View::factory('profiler/stats');
+           if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
 
            $view = View::factory('site/index')
-                       ->bind('sitename', $sitename)
-                       ->bind('description', $description)
-                       ->bind('keywords', $keywords)
-                       ->bind('robots', $robots)
-                       ->bind('copyright', $copyright)
+                       ->bind('options', $options)
                        ->bind('nav', $nav)
                        ->bind('footer', $footer)
                        ->bind('profiler', $profiler);
