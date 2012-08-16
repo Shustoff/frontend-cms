@@ -21,30 +21,34 @@ class Controller_Admin_Options extends Controller_Admin_App {
 
     public function action_index()
     {
-        // Загружаем конфиг
+        // Загружаем настройки БД
         $cfg = Kohana::$config;
-        $hostname = $cfg->load('database.default.connection.hostname');
-        $database = $cfg->load('database.default.connection.database');
-        $prefix = $cfg->load('database.default.table_prefix');
-        $username = $cfg->load('database.default.connection.username');
-        $password = $cfg->load('database.default.connection.password');
+        $db['hostname'] = $cfg->load('database.default.connection.hostname');
+        $db['database'] = $cfg->load('database.default.connection.database');
+        $db['prefix'] = $cfg->load('database.default.table_prefix');
+        $db['username'] = $cfg->load('database.default.connection.username');
+        $db['password'] = $cfg->load('database.default.connection.password');
 
-        // Выводим все настройки
-        $options = ORM::factory('option')->find_all();
+        // Загружаем настройки сайта
+        $cfgsite = $cfg->load('site');
 
-        $view = View::factory('admin/blocks/V_options')
-                        ->set('hostname', $hostname)
-                        ->set('database', $database)
-                        ->set('prefix', $prefix)
-                        ->set('username', $username)
-                        ->set('password', $password)
-                        ->set('options', $options);
+        foreach ($cfgsite as $key => $value)
+        {
+            $options[$key] = $cfg->load('site.' . $key);
+        }
+
+        $view = View::factory('admin/blocks/V_options')->set('db', $db)->set('options', $options);
+
         $this->response->body($view);
     }
 
     // Сохраняем настройки
     public function action_save()
     {
-        ORM::factory('option', 1)->values($_POST)->save();
+        $data = Arr::extract($_POST, array('sitename', 'description', 'session', 'keywords', 'robots', 'email', 'email_from', 'copyright', 'page404', 'status', 'debug', 'cache'));
+        foreach ($data as $key => $value)
+        {
+            Kohana::$config->_write_config('site', $key, $value);
+        }
     }
 }
