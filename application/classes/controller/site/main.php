@@ -2,6 +2,13 @@
 
 class Controller_Site_Main extends Controller {
 
+    public function action_offline()
+    {
+       $status = Kohana::$config->load('site.status');
+       if ($status != 0) $this->request->redirect();
+       $this->response->body( View::factory('site/offline') );
+    }
+
     static protected function json_encode_cyr($str) {
         $arr_replace_utf = array('\u0410', '\u0430','\u0411','\u0431','\u0412','\u0432',
         '\u0413','\u0433','\u0414','\u0434','\u0415','\u0435','\u0401','\u0451','\u0416',

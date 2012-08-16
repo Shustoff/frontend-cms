@@ -2,6 +2,12 @@
 
 class Controller_Site_Home extends Controller_Site_Main {
 
+    public function before()
+    {
+       $status = Kohana::$config->load('site.status');
+       if ($status == 0) $this->request->redirect('offline');
+    }
+
     public function action_index()
    	{
        // Если запрошен аяксом
@@ -67,14 +73,4 @@ class Controller_Site_Home extends Controller_Site_Main {
     }
 
     // Сайт выключен
-    public function action_offline()
-    {
-       $status = DB::query(Database::SELECT, 'SELECT status FROM options')
-           ->execute()
-           ->get('status');
-
-       if ($status != 0) $this->request->redirect();
-
-       $this->response->body( View::factory('site/offline') );
-    }
 }
