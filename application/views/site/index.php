@@ -4,15 +4,15 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="ru"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="ru"> <!--<![endif]-->
 <head>
-    <title><?=$sitename;?></title>
+    <title><?=$options['sitename'];?></title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <meta name="robots" content="<?=$robots;?>">
-    <meta name="description" content="<?=$description;?>">
-    <meta name="keywords" content="<?=$keywords;?>">
-    <meta name="copyright" content="<?=$copyright;?>">
+    <meta name="robots" content="<?=$options['robots'];?>">
+    <meta name="description" content="<?=$options['description'];?>">
+    <meta name="keywords" content="<?=$options['keywords'];?>">
+    <meta name="copyright" content="<?=$options['copyright'];?>">
 
     <!--Стили-->
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/h5bp.css">

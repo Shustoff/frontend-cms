@@ -4,7 +4,7 @@ class Controller_Site_Page extends Controller_Site_Main {
 
     public function before()
     {
-        $status = DB::query(Database::SELECT, 'SELECT status FROM options')->execute()->get('status');
+        $status = Kohana::$config->load('site.status');
         if ($status == 0) $this->request->redirect('offline');
         return parent::before();
     }
