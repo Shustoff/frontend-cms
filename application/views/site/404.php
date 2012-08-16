@@ -28,10 +28,5 @@
 </head>
 <body>
   <div class="container">
-    <h1><?=$title;?></h1>
-    <p>Возможно вы запросили:</p>
-    <ul>
-      <li>неправильный адрес url</li>
-      <li>просроченную ссылку</li>
-    </ul>
+    <p><?=$options['page404'];?></p>
   </div>
