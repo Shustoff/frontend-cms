@@ -185,8 +185,14 @@ $(function(){
 
         // Добавляем материал
         add: function(table) {
-            $.post(baseURL + table + "/add", $('#additem').serialize(), function(){
-                binds.completeSave();
+            $.post(baseURL + table + "/add", $('#additem').serialize(), function(data) {
+                if (data != '') {
+                    $('.alert-danger').append(data);
+                    $('.alert-danger').show().delay(3000).hide(100);
+                } else {
+                    $('.alert-success').show().delay(3000).hide(100);
+                    binds.completeSave();
+                }
             });
         },
 
@@ -278,9 +284,9 @@ $(function(){
                     } else {
                         if ( $(parentForm).valid() ) {
                             if ( $(parentForm).attr('id') == 'additem' ) {
-                                binds.canSave("binds.canSaveItem('pages');");
+                                binds.canSave("binds.canSaveItem('catalogs');");
                             } else {
-                                binds.canSave("binds.canEditItem('pages');");
+                                binds.canSave("binds.canEditItem('catalogs');");
                             }
                         }
                     }
@@ -426,7 +432,8 @@ $(function(){
         // Делаем кнопку сохранить не активной после сохранения материала, показываем успешное сохранение
         completeSave: function() {
             $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;').text('Сохранено');
-            $('.tooltips').show(100).delay(3000).hide(100);
+            $('input, textarea, select').focusout(function(){return false;});
+            $('input, select').change(function(){return false;});
         },
 
         // Показываем сообщение удаления
