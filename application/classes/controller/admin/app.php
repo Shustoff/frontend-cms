@@ -79,7 +79,19 @@ class Controller_Admin_App extends Controller {
     // Добавить материал
     public function action_add($model)
     {
-        ORM::factory($model)->values($_POST)->save();
+        // Проверка валидации
+        try
+        {
+            ORM::factory($model)->values($_POST)->save();
+        }
+        catch (ORM_Validation_Exception $e)
+        {
+            $errors = $e->errors('validation');
+            foreach ($errors as $error)
+            {
+                echo '<span class="center">' . $error . '</span> <br />';
+            }
+        }
     }
 
     // Отредактировать материал

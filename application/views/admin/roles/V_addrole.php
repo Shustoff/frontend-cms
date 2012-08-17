@@ -1,6 +1,11 @@
-<div class="alert alert-success tooltips">
-    <button class="close" data-dismiss="alert">×</button>
-    <span class="center">Роль добавлена</span>
+<div class="wraptooltip">
+    <div class="alert alert-success tooltips">
+      <button class="close" data-dismiss="alert">×</button>
+      <span class="center">Роль добавлена!</span>
+    </div>
+    <div class="alert alert-danger tooltips">
+      <button class="close" data-dismiss="alert">×</button>
+    </div>
 </div>
 <form id="additem" action="" method="post">
 <div class="row">

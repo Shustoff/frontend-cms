@@ -1,6 +1,11 @@
-<div class="alert alert-success tooltips">
-    <button class="close" data-dismiss="alert">×</button>
-    <span class="center">Модуль добавлен</span>
+<div class="wraptooltip">
+    <div class="alert alert-success tooltips">
+      <button class="close" data-dismiss="alert">×</button>
+      <span class="center">Модуль добавлен!</span>
+    </div>
+    <div class="alert alert-danger tooltips">
+      <button class="close" data-dismiss="alert">×</button>
+    </div>
 </div>
 <h3 class="center">Добавить Модуль</h3>
 <form action="" method="post" id="additem">
