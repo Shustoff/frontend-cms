@@ -9,7 +9,8 @@ class Controller_Site_Main extends Controller {
        $this->response->body( View::factory('site/offline') );
     }
 
-    static protected function json_encode_cyr($str) {
+    static protected function json_encode_cyr($str)
+    {
         $arr_replace_utf = array('\u0410', '\u0430','\u0411','\u0431','\u0412','\u0432',
         '\u0413','\u0433','\u0414','\u0434','\u0415','\u0435','\u0401','\u0451','\u0416',
         '\u0436','\u0417','\u0437','\u0418','\u0438','\u0419','\u0439','\u041a','\u043a',

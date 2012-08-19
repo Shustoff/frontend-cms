@@ -4,6 +4,7 @@ class Controller_Admin_Trash extends Controller_Admin_App {
 
     public function before()
     {
+        parent::before();
         $roles = Auth::instance()->get_user()->roles->find_all();
         foreach ($roles as $role)
         {
@@ -21,7 +22,7 @@ class Controller_Admin_Trash extends Controller_Admin_App {
         $limit = (int) Arr::get($_POST, 'limit', 5);
         $offset = (int) Arr::get($_POST, 'offset', 0);
 
-        // Находим все записи которые "не в корзине"
+        // Находим все записи которые "в корзине"
         $allpages = DB::select('id')->from('pages')->where('intrash', '=', '1');
         $allcatalogs = DB::select('id')->union($allpages)->from('catalogs')->where('intrash', '=', '1');
         $allusers = DB::select('id')->union($allcatalogs)->from('users')->where('intrash', '=', '1');
@@ -69,20 +70,11 @@ class Controller_Admin_Trash extends Controller_Admin_App {
 
     public function action_recovery()
     {
-        DB::update('pages')->set(array('intrash' => 0))->where('pagename', '=', $_POST["item_name"])->execute();
-        DB::update('catalogs')->set(array('intrash' => 0))->where('catname', '=', $_POST["item_name"])->execute();
-        DB::update('users')->set(array('intrash' => 0))->where('email', '=', $_POST["item_name"])->execute();
-        DB::update('roles')->set(array('intrash' => 0))->where('name', '=', $_POST["item_name"])->execute();
-        DB::update('modules')->set(array('intrash' => 0))->where('name', '=', $_POST["item_name"])->execute();
+        DB::update($_POST['tablename'])->set(array('intrash' => 0))->where('id', '=', $_POST["item_id"])->execute();
     }
 
     public function action_delete()
     {
-        DB::delete('pages')->where('pagename', '=', $_POST["item_name"])->execute();
-        DB::delete('catalogs')->where('catname', '=', $_POST["item_name"])->execute();
-        DB::delete('users')->where('email', '=', $_POST["item_name"])->execute();
-        DB::delete('roles')->where('name', '=', $_POST["item_name"])->execute();
-        DB::delete('modules')->where('name', '=', $_POST["item_name"])->execute();
+        DB::delete($_POST['tablename'])->where('id', '=', $_POST["item_id"])->execute();
     }
-
 }

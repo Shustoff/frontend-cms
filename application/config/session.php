@@ -2,17 +2,17 @@
 
 return array(
     'native' => array(
-            'name' => 'session',    //  default 'session'
-            'lifetime' => 3600,            //  default 0 (The value 0 means "until the browser is closed.")
+        'name' => 'session_name',
+        'lifetime' => Kohana::$config->load('site.session')
     ),
     'cookie' => array(
-            'name' => 'cookie',    //  default 'session'
-            'encrypted' => TRUE,       //  default FALSE
-            'lifetime' => 3600,            //  default 0 (The value 0 means "until the browser is closed.")
+        'name' => 'cookie_name',
+        'encrypted' => TRUE,
+        'lifetime' => Kohana::$config->load('site.session'),
     ),
     'database' => array(
         'name' => 'session_database',
-        'encrypted' => FALSE,
+        'encrypted' => TRUE,
         'lifetime' => Kohana::$config->load('site.session'),
         'group' => 'default',
         'table' => 'sessions',

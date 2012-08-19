@@ -9,8 +9,8 @@ return array(
 	'session_key'  => 'auth_user',
 
 	// Username/password combinations for the Auth File driver
-	'users' => array(
+	//'users' => array(
 		// 'admin' => 'ac6f6788b30fa58d5fbddad35140bad44b0ce132dec42bf54f160f1ac451722d',
-	),
+	//),
 
 );

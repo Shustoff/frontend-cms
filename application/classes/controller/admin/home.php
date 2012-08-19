@@ -2,6 +2,11 @@
 
 class Controller_Admin_Home extends Controller_Admin_App {
 
+    public function before()
+    {
+        parent::before();
+    }
+
     public function action_index()
    	{
        $pages = ORM::factory('page')->order_by('date', 'DESC')->limit(10)->find_all();
