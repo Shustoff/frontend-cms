@@ -25,7 +25,7 @@ return array(
  ':field does not match the required format'            => ':field не соответствует требуемому формату',
  ':field must be a url'                                 => ':field должно быть URL-адресом',
  
- 'user'                                                 => 'Поле Юзер',
+ 'username'                                             => 'Поле Имя пользователя',
  'email'                                                => 'Поле Емейл',
  'message'                                              => 'Поле Текст сообщения',
  'metadesc'                                             => 'Поле Meta-описание',
@@ -34,6 +34,13 @@ return array(
  'alias'                                                => 'Поле алиас',
  'content'                                              => 'Поле HTML-код',
  'date'                                                 => 'Поле Дата',
+ 'systemname'                                           => 'Поле Системное имя',
+ 'type'                                                 => 'Поле Тип модуля',
  'status'                                               => 'Поле Статус',
- 'intrash'                                              => 'Поле в корзине'
+ 'password'                                             => 'Поле Пароль',
+ 'firstname'                                            => 'Поле Имя',
+ 'lastname'                                             => 'Поле Фамилия',
+ 'name'                                                 => 'Поле Название роли',
+ 'description'                                          => 'Поле Описание роли'
+
 );

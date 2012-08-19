@@ -21,7 +21,8 @@ function (Backbone, OnePageTemplate) {
 
         render : function () {
             var content = this.template(this.model.attributes);
-            $('.catalog').empty().append( this.$el.html(content) );
+            $('.catalog').html( this.$el.html(content) );
+
             return this;
         }
 

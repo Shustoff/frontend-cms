@@ -9,4 +9,34 @@ class Model_Role extends Model_Auth_Role {
             'through' => 'roles_users'
         )
     );
+
+    public function rules()
+    {
+        return array(
+            'name' => array(
+                array('not_empty'),
+                array('alpha_numeric'),
+                array(array($this, 'unique'), array('name', ':value'))
+            ),
+
+            'description' => array(
+                array('not_empty')
+            )
+        );
+    }
+
+    public function filters()
+    {
+        return array(
+            'name' => array(
+                array('trim'),
+                array('strip_tags')
+            ),
+
+            'description' => array(
+                array('trim'),
+                array('strip_tags')
+            )
+        );
+    }
 }

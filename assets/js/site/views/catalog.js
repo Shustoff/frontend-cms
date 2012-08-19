@@ -15,7 +15,7 @@ function (Backbone, CatalogPageView) {
 
         initialize : function () {
             _.bindAll(this);
-            // При заполнении модели вызываем метод render()
+            // При заполнении коллекции вызываем метод render()
             this.collection.on('reset', this.render);
         },
 
@@ -28,7 +28,7 @@ function (Backbone, CatalogPageView) {
                 self.$el.append(content);
             });
 
-            $('.mid').empty().append( this.el );
+            $('.mid').html( this.el );
 
             // Каждой 4й колонке ставим класс .last
             $('.threecol').map(function(){

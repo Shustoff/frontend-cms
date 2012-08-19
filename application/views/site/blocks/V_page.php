@@ -1,15 +1,20 @@
 <!-- Вывод одной страницы -->
-<section class="row">
-    <article class="twelvecol pageview">
-        <h2 class="pagename"><?=$pagename;?></h2>
-        <p>
-            <strong>Дата создания:</strong> <?=$date;?>
+<section class="row catalog">
+    <article class="twelvecol">
+        <p class=pagename>
+            <strong>Заголовок: </strong> <?=$pagename;?>
         </p>
-        <?php if (isset( $catalog_name )) { ?>
-        <p>
-            <strong>Каталог страницы:</strong> <?=$catalog_name;?>
+        <p class=createdDate>
+            <strong>Дата создания: </strong> <?=$date;?>
         </p>
-        <?php } ?>
-        <p class="txt"><?=$text;?></p>
+        <p class=author>
+            <strong>Автор: </strong> <?=$author;?>
+        </p>
+        <p class=parentCatalog>
+            <strong>Каталог: </strong> <?=$catalog_name;?>
+        </p>
+        <div class=content>
+            <?=$text;?>
+        </div>
     </article>
 </section>

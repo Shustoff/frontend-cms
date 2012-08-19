@@ -49,7 +49,6 @@ class Controller_Site_Home extends Controller_Site_Main {
        } else {
 
            // Выбираем все настройки
-
            $cfgsite = Kohana::$config->load('site');
 
            foreach ($cfgsite as $key => $value)
@@ -66,11 +65,12 @@ class Controller_Site_Home extends Controller_Site_Main {
                        ->bind('options', $options)
                        ->bind('nav', $nav)
                        ->bind('footer', $footer)
-                       ->bind('profiler', $profiler);
+                       ->bind('profiler', $profiler)
+                       ->bind('content', $content);
 
            $this->response->body($view);
        }
     }
 
-    // Сайт выключен
+
 }

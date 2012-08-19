@@ -11,7 +11,6 @@ class Model_Page extends ORM {
             'model' => 'catalog',
             'foreign_key' => 'catalog_id'
         ),
-
         'users' => array(
             'model' => 'user',
             'foreign_key' => 'author_id'
@@ -34,14 +33,6 @@ class Model_Page extends ORM {
                 array('not_empty')
             ),
 
-            'metakeywords' => array(
-                array('not_empty')
-            ),
-
-            'metadesc' => array(
-                array('not_empty')
-            ),
-
             'status' => array(
                 array('equals', array(':value', '1'))
             )
@@ -56,6 +47,14 @@ class Model_Page extends ORM {
                 array('strip_tags')
             ),
             'alias' => array(
+                array('trim'),
+                array('strip_tags')
+            ),
+            'metadesc' => array(
+                array('trim'),
+                array('strip_tags')
+            ),
+            'metakeywords' => array(
                 array('trim'),
                 array('strip_tags')
             )

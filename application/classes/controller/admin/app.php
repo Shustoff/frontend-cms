@@ -6,7 +6,8 @@ class Controller_Admin_App extends Controller {
         $auth = Auth::instance();
         if (!$auth->logged_in())
         {
-            $this->request->redirect('admin/auth');
+            echo "<script>window.location = '/frontend/admin/auth';</script><p class='center'>Сессия устарела!</p>";
+            exit;
         }
         return parent::before();
     }
@@ -89,7 +90,7 @@ class Controller_Admin_App extends Controller {
             $errors = $e->errors('validation');
             foreach ($errors as $error)
             {
-                echo '<span class="center">' . $error . '</span> <br />';
+                echo $error . '<br>';
             }
         }
     }
@@ -97,6 +98,18 @@ class Controller_Admin_App extends Controller {
     // Отредактировать материал
     public function action_edit($model)
     {
-        ORM::factory($model, $_POST['id'])->values($_POST)->save();
+        // Проверка валидации
+        try
+        {
+            ORM::factory($model, $_POST['id'])->values($_POST)->save();
+        }
+        catch (ORM_Validation_Exception $e)
+        {
+            $errors = $e->errors('validation');
+            foreach ($errors as $error)
+            {
+                echo $error . '<br>';
+            }
+        }
     }
-}
+} // End Admin_App

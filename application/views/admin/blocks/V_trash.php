@@ -36,15 +36,20 @@
                 <td><?=$item['item_date'];?></td>
                 <td>
                     <form action="" method="post" id="cngstatus<?=$item['item_id'];?>">
-                        <input type="hidden" name="item_name" value="<?=$item['item_name'];?>">
                         <input type="hidden" name="item_id" value="<?=$item['item_id'];?>">
-                        <a href="#" onclick='req.recovery(this); return false;'><img src='<?=URL::base()?>assets/img/admin/published.png'></a>
+                        <input type="hidden" name="tablename" value="<?=$item['tablename'];?>">
+                        <a href="#" onclick='req.recovery(this); return false;'>
+                            <img src='<?=URL::base()?>assets/img/admin/published.png'>
+                        </a>
                     </form>
                 </td>
                 <td>
                     <form action="" method="post" id="intrash<?=$item['item_id'];?>">
-                        <input type="hidden" name="item_name" value="<?=$item['item_name'];?>">
-                        <a href="#" onclick="req.deleteItem(this);"><img src='<?=URL::base()?>assets/img/admin/delete.png'></a>
+                        <input type="hidden" name="item_id" value="<?=$item['item_id'];?>">
+                        <input type="hidden" name="tablename" value="<?=$item['tablename'];?>">
+                        <a href="#" onclick="req.deleteItem(this);">
+                            <img src='<?=URL::base()?>assets/img/admin/delete.png'>
+                        </a>
                     </form>
                 </td>
             </tr>

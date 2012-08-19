@@ -4,6 +4,7 @@ class Controller_Admin_Users extends Controller_Admin_App {
 
     public function before()
     {
+        parent::before();
         $roles = Auth::instance()->get_user()->roles->find_all();
         foreach ($roles as $role)
         {
@@ -52,23 +53,31 @@ class Controller_Admin_Users extends Controller_Admin_App {
     // Добавляем пользователя в БД
     public function action_add($model = 'user')
     {
-        $user = ORM::factory('user');
-
-        $unique_email = $user->unique('email', $_POST['email']);
-
-        if ($unique_email === true)
+        try
         {
-            $user->create_user($_POST, NULL)->add('roles', ORM::factory('role', array('name' => 'login')));
-            // Проверяем роль пользователя при регистрации
-            if ($_POST['role_name'] !== 'login')
+            $user = ORM::factory('user');
+            $unique_email = $user->unique('email', $_POST['email']);
+            if ($unique_email === true)
             {
-                $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
+                $user->create_user($_POST, NULL)->add('roles', ORM::factory('role', array('name' => 'login')));
+                // Проверяем роль пользователя при регистрации
+                if ($_POST['role_name'] !== 'login')
+                {
+                    $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
+                }
+                $user->save();
             }
-            $user->save();
-        }
-        else
+            else
+            {
+                echo 'Этот email уже занят';
+            }
+        } catch (ORM_Validation_Exception $e)
         {
-            echo 'Этот email уже занят';
+            $errors = $e->errors('auth');
+            foreach ($errors as $error)
+            {
+                echo $error . '<br>';
+            }
         }
     }
 
@@ -110,16 +119,31 @@ class Controller_Admin_Users extends Controller_Admin_App {
     // Обновляем пользователя в БД
     public function action_edit($model = 'user')
     {
-        DB::delete('roles_users')->where('user_id', '=', $_POST['id'])->and_where('role_id', '!=', '1')->execute();
-        $user = ORM::factory('user', $_POST['id']);
-        $user->update_user($_POST, NULL);
-        // Проверяем роль пользователя при регистрации
-        if ($_POST['role_name'] !== 'login')
+        try
         {
-            $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
+            DB::delete('roles_users')
+                ->where('user_id', '=', $_POST['id'])
+                ->and_where('role_id', '!=', '1')
+                ->execute();
+
+            $user = ORM::factory('user', $_POST['id']);
+            $user->update_user($_POST, NULL);
+            // Проверяем роль пользователя при регистрации
+            if ($_POST['role_name'] !== 'login')
+            {
+                $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
+            }
+            $user->save();
         }
-        $user->save();
+        catch (ORM_Validation_Exception $e)
+        {
+            $errors = $e->errors('auth');
+            foreach ($errors as $error)
+            {
+                echo $error . '<br>';
+            }
+        }
     }
 
 
-} // End Welcome
+} // End Admin_Users

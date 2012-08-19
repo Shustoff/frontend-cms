@@ -1,6 +1,12 @@
-<div class="alert alert-success tooltips">
-    <button class="close" data-dismiss="alert">×</button>
-    <span class="center">Пользователь изменен</span>
+<div class="wraptooltip">
+    <div class="alert alert-success tooltips">
+      <button class="close" data-dismiss="alert">×</button>
+      <span class="center">Пользователь изменен!</span>
+    </div>
+    <div class="alert alert-danger tooltips">
+      <button class="close" data-dismiss="alert">×</button>
+      <span class="center"></span>
+    </div>
 </div>
 <h3 class="center">Изменить пользователя</h3>
 <form action="" method="post" id="edititem">
