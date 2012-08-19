@@ -95,7 +95,7 @@ Kohana::$log->attach(new Log_File(APPPATH.'logs'));
 Kohana::$config->attach(new Config_File);
 
 // Sessions & Cookies
-Session::$default = 'database';
+Session::$default = 'native';
 
 /**
  * Enable modules. Modules are referenced by a relative or absolute path.

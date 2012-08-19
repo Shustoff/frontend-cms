@@ -15,7 +15,9 @@ valid = {
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ( $(element).valid() && $(formname).valid() && !$('.failpagename').text() && !$('.failalias').text() ) {
+                if ($(element).attr('id') === 'pagename') req.checkPageName();
+                if ($(element).attr('id') === 'alias') req.checkPageAlias();
+                if ( $(element).valid() && !$('.failpagename').text() && !$('.failalias').text() ) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -31,13 +33,10 @@ valid = {
             messages: {
                 pagename: 'Пожалуйста введите заголовок страницы',
                 alias: {
-                    required: 'Пожалуйста введите алиас страницы',
-                    alphanumeric: 'Допустимы только латинские символы и цифры'
+                    required: 'Пожалуйста введите алиас страницы'
                 }
             }
         });
-        $("#pagename").bind('focusout', req.checkPageName);
-        $("#alias").bind('focusout', req.checkPageAlias);
     },
 
     // Правила валидации формы добавления каталога
@@ -45,7 +44,9 @@ valid = {
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ( $(element).valid() && $(formname).valid() && !$('.failcatname').text() && !$('.failalias').text() ) {
+                if ($(element).attr('id') === 'catname') req.checkCatName();
+                if ($(element).attr('id') === 'alias') req.checkCatAlias();
+                if ( $(element).valid() && !$('.failcatname').text() && !$('.failalias').text() ) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -62,12 +63,9 @@ valid = {
                 catname: 'Пожалуйста введите название каталога',
                 alias: {
                     required: 'Пожалуйста введите алиас каталога',
-                    alphanumeric: 'Допустимы только латинские символы и цифры'
                 }
             }
         });
-        $("#catname").bind('focusout', req.checkCatName);
-        $("#alias").bind('focusout', req.checkCatAlias);
     },
 
     // Правила валидации формы добавления модуля
@@ -75,7 +73,9 @@ valid = {
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ($(element).valid() && $(formname).valid() && !$('.failmodname').text() && !$('.failsystemname').text()) {
+                if ($(element).attr('id') === 'name') req.checkModuleName();
+                if ($(element).attr('id') === 'systemname') req.checkSystemName();
+                if ($(element).valid() && !$('.failmodname').text() && !$('.failsystemname').text()) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -91,13 +91,10 @@ valid = {
             messages: {
                 name: "Введите название модуля",
                 systemname: {
-                    required: 'Пожалуйста введите системное имя модуля (например menu)',
-                    alphanumeric: 'Допустимы только латинские символы и цифры'
+                    required: 'Пожалуйста введите системное имя модуля (например menu)'
                 }
             }
         });
-        $('#name').bind('focusout', req.checkModuleName);
-        $('#systemname').bind('focusout', req.checkSystemName);
     },
 
     // Правила валидации формы добавления пользователя
@@ -105,7 +102,9 @@ valid = {
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ($(formname).valid() && $(element).valid() && !$('.failusername').text() && !$('.failemail').text()) {
+                if ($(element).attr('id') === 'username') req.checkLogin();
+                if ($(element).attr('id') === 'email') req.checkEmail();
+                if ($(element).valid() && $(formname).valid() && !$('.failusername').text() && !$('.failemail').text()) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -114,7 +113,8 @@ valid = {
             rules: {
                 username: {
                     required: true,
-                    lettersonly: true
+                    alphanumeric: true,
+                    minlength: 3
                 },
                 email: {
                     required: true,
@@ -132,7 +132,7 @@ valid = {
             messages: {
                 username: {
                     required: 'Пожалуйста введите логин',
-                    lettersonly: 'Допустимы только латинские символы'
+                    minlength: 'Логин должен быть минимум 3 символа'
                 },
                 email: {
                     required: 'Пожалуйста введите email',
@@ -148,8 +148,6 @@ valid = {
                 }
             }
         });
-        $('#username').bind('focusout', req.checkLogin);
-        $('#email').bind('focusout', req.checkEmail);
     },
 
     // Правила валидации формы добавления роли
@@ -157,8 +155,11 @@ valid = {
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ( $(formname).valid() && $(element).valid() ) {
+                if ( $(element).attr('id') === 'name') req.checkRoleName();
+                if ( $(element).valid() && !$('.failrole').text() ) {
                     binds.canSave(onclick);
+                } else {
+                    binds.validFail();
                 }
             },
             rules: {
@@ -172,18 +173,13 @@ valid = {
             messages: {
                 name: {
                     required: 'Пожалуйста введите название роли (например admin)',
-                    alphanumeric: 'Допустимы только латинские символы и цифры',
                     minlength: 'Название роли должно быть минимум 4 символа'
                 },
                 description: 'Пожалуйста введите описание роли (например Администратор)'
             }
         });
-        $('#name').bind('focusout', req.checkRoleName);
         $('input[type=radio], select').live('change', function() {
-            if ( $(formname).valid() && !$('.failrole').text() )
-            {
-                binds.canSave(onclick);
-            }
+            if ( $(formname).valid() && !$('.failrole').text()) binds.canSave(onclick);
         });
     },
 

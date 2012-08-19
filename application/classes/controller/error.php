@@ -34,17 +34,18 @@ class Controller_Error extends Controller_Template {
  
     public function action_404()
     {
-        $this->template->title = 'Запрашиваемая вами страница не существует!';
+        $fail404 = Kohana::$config->load('site.page404');
+        $this->template->fail = $fail404;
     }
  
     public function action_503()
     {
-        $this->template->title = 'Сервис временно не доступен';
+        $this->template->fail = 'Сервис временно не доступен';
     }
 
     public function action_500()
     {
-        $this->template->title = 'Internal Server Error';
+        $this->template->fail = 'Ошибка сервера';
     }
 
 }

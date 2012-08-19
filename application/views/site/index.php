@@ -40,7 +40,9 @@
     <!--Верхнее меню-->
     <section class="top"><?=$nav;?></section>
     <!-- Центральная часть, вставляется через Underscore template-->
-    <section class="mid"></section>
+    <section class="mid">
+        <?=$content;?>
+    </section>
 </div>
 
 <!--Футер-->

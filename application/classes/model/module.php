@@ -11,4 +11,44 @@ class Model_Module extends ORM {
         )
     );
 
+    public function rules()
+    {
+        return array(
+            'name' => array(
+                array('not_empty')
+             ),
+
+            'systemname' => array(
+                array('not_empty'),
+                array('alpha_numeric')
+            ),
+
+            'content' => array(
+                array('not_empty')
+            ),
+
+            'type' => array(
+                array('not_empty')
+            ),
+
+            'status' => array(
+                array('equals', array(':value', '1'))
+            )
+        );
+    }
+
+    public function filters()
+    {
+        return array(
+            'name' => array(
+                array('trim'),
+                array('strip_tags')
+            ),
+            'systemname' => array(
+                array('trim'),
+                array('strip_tags')
+            )
+        );
+    }
+
 }

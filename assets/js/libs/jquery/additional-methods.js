@@ -33,13 +33,13 @@
 
 })();
 
-jQuery.validator.addMethod("letterswithbasicpunc", function(value, element) {
-	return this.optional(element) || /^[a-z-.,()'\"\s]+$/i.test(value);
+jQuery.validator.addMethod("letnumdash", function(value, element) {
+	return this.optional(element) || /^[a-z0-9]+$/i.test(value);
 }, "Letters or punctuation only please");
 
 jQuery.validator.addMethod("alphanumeric", function(value, element) {
 	return this.optional(element) || /^\w+$/i.test(value);
-}, "Letters, numbers, spaces or underscores only please");
+}, "Допустимы только числа, символы и _");
 
 jQuery.validator.addMethod("lettersonly", function(value, element) {
 	return this.optional(element) || /^[a-z]+$/i.test(value);

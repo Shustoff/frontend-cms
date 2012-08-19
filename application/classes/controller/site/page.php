@@ -36,30 +36,11 @@ class Controller_Site_Page extends Controller_Site_Main {
             echo $json_page;
 
         } else {
-            $aliaspage = $this->request->param('pagealias');
-            $aliascat = $this->request->param('catalias');
+            $pagealias = $this->request->param('pagealias');
 
-            $catalog = DB::query(Database::SELECT, 'SELECT id, catname FROM catalogs WHERE alias = :aliascat')
-                            ->bind(':aliascat', $aliascat)
-                            ->execute()
-                            ->as_array();
-
-            if ($aliascat) {
-                // Название каталога
-                $catalog_name = $catalog[0]['catname'];
-
-                // Уникальный адрес каталога
-                $catalog_id = $catalog[0]['id'];
-
-                $viewpage = DB::query(Database::SELECT, 'SELECT * FROM pages WHERE alias = :aliaspage AND catalog_id = :catalog_id')
-                                ->bind(':aliaspage', $aliaspage)
-                                ->bind(':catalog_id', $catalog_id)
-                                ->execute();
-            } else {
-                $viewpage = DB::query(Database::SELECT, 'SELECT * FROM pages WHERE alias = :aliaspage')
-                                ->bind(':aliaspage', $aliaspage)
-                                ->execute();
-            }
+            $viewpage = DB::query(Database::SELECT, 'SELECT * FROM pages WHERE alias = :pagealias')
+                            ->bind(':pagealias', $pagealias)
+                            ->execute();
 
             foreach ($viewpage as $page)
             {
@@ -70,11 +51,19 @@ class Controller_Site_Page extends Controller_Site_Main {
                 $keywords = $page['metakeywords'];
             }
 
-            View::set_global('copyright', 'Все права защищены');
-            View::set_global('robots', 'index,follow');
-            View::bind_global('sitename', $pagename);
+            View::bind_global('pagename', $pagename);
             View::bind_global('description', $description);
             View::bind_global('keywords', $keywords);
+
+            // Выбираем все настройки
+            $cfgsite = Kohana::$config->load('site');
+
+            foreach ($cfgsite as $key => $value)
+            {
+               $options[$key] = Kohana::$config->load('site.' . $key);
+            }
+
+            if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
 
             $navigation = View::factory('site/blocks/V_nav');
             $footer = View::factory('site/blocks/V_footer');
@@ -82,11 +71,15 @@ class Controller_Site_Page extends Controller_Site_Main {
                             ->bind('pagename', $pagename)
                             ->bind('date', $date)
                             ->bind('text', $text)
-                            ->bind('catalog_name', $catalog_name);
+                            ->bind('catalog_name', $catalog_name)
+                            ->bind('author', $author);
 
-            $this->template->navigation = $navigation;
-            $this->template->content = $content;
-            $this->template->footer = $footer;
+            $this->response->body(View::factory('site/index')
+                                    ->bind('nav', $navigation)
+                                    ->bind('content', $content)
+                                    ->bind('footer',$footer)
+                                    ->bind('options', $options)
+                                    ->bind('profiler', $profiler));
         }
     }
 }

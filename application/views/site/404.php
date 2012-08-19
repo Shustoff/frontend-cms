@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>Страница не найдена :(</title>
+  <title><?=$fail;?></title>
   <style>
     ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
     ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
@@ -28,5 +28,5 @@
 </head>
 <body>
   <div class="container">
-    <p><?=$options['page404'];?></p>
+    <p><?=$fail;?></p>
   </div>

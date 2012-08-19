@@ -5,6 +5,7 @@
     </div>
     <div class="alert alert-danger tooltips">
       <button class="close" data-dismiss="alert">×</button>
+      <span class="center"></span>
     </div>
 </div>
 <form id="additem" action="" method="post">

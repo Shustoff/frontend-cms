@@ -187,7 +187,7 @@ $(function(){
         add: function(table) {
             $.post(baseURL + table + "/add", $('#additem').serialize(), function(data) {
                 if (data != '') {
-                    $('.alert-danger').append(data);
+                    $('.alert-danger span').html(data);
                     $('.alert-danger').show().delay(3000).hide(100);
                 } else {
                     $('.alert-success').show().delay(3000).hide(100);
@@ -205,15 +205,22 @@ $(function(){
 
         // Обновляем материал
         edit: function(table) {
-            $.post(baseURL + table + "/edit", $("#edititem").serialize(), function(){
-                binds.completeSave();
+            $.post(baseURL + table + "/edit", $("#edititem").serialize(), function(data){
+                if (data != '') {
+                    $('.alert-danger span').html(data);
+                    $('.alert-danger').show().delay(3000).hide(100);
+                } else {
+                    $('.alert-success').show().delay(3000).hide(100);
+                    binds.completeSave();
+                }
             });
         },
 
         // Проверяем уникальность названия страницы и валидацию формы
         checkPageName: function() {
-            if ( $(this).val() != '' ) {
-                var parentForm = $(this).parents('form');
+            var el = '#pagename';
+            if ( $(el).val() != '' ) {
+                var parentForm = $(el).parents('form');
                 $.post(baseURL + "pages/checkpagename", $(parentForm).serialize(), function(data){
                     $('.failpagename').text(data);
                     if (data || $('.failalias').text()) {
@@ -233,8 +240,9 @@ $(function(){
 
         // Проверяем уникальность алиаса страницы и валидацию формы
         checkPageAlias: function() {
-            if ( $(this).val() != '' ) {
-                var parentForm = $(this).parents('form');
+            var el = '#alias';
+            if ( $(el).val() != '' ) {
+                var parentForm = $(el).parents('form');
                 $.post(baseURL + "pages/checkalias", $(parentForm).serialize(), function(data){
                     $('.failalias').text(data);
                     if (data || $('.failpagename').text()) {
@@ -254,8 +262,9 @@ $(function(){
 
         // Проверяем уникальность названия каталога и валидацию формы
         checkCatName: function() {
-            if ( $(this).val() != '' ) {
-                var parentForm = $(this).parents('form');
+            var el = '#catname';
+            if ( $(el).val() != '' ) {
+                var parentForm = $(el).parents('form');
                 $.post(baseURL + "catalogs/checkcatname", $(parentForm).serialize(), function(data){
                     $('.failcatname').text(data);
                     if (data || $('.failalias').text()) {
@@ -275,8 +284,9 @@ $(function(){
 
         // Проверяем уникальность алиаса каталога и валидацию формы
         checkCatAlias: function() {
-            if ( $(this).val() != '' ) {
-                var parentForm = $(this).parents('form');
+            var el = '#alias';
+            if ( $(el).val() != '' ) {
+                var parentForm = $(el).parents('form');
                 $.post(baseURL + "catalogs/checkalias", $(parentForm).serialize(), function(data){
                     $('.failalias').text(data);
                     if (data || $('.failcatname').text()) {
@@ -296,8 +306,9 @@ $(function(){
 
         // Проверяем уникальность названия модуля и валидацию формы
         checkModuleName: function() {
-            if ( $(this).val() != '' ) {
-                var parentForm = $(this).parents('form');
+            var el = '#name';
+            if ( $(el).val() != '' ) {
+                var parentForm = $(el).parents('form');
                 $.post(baseURL + "modules/checkmodname", $(parentForm).serialize(), function(data){
                     $('.failmodname').text(data);
                     if (data || $('.failsystemname').text()) {
@@ -317,8 +328,9 @@ $(function(){
 
         // Проверяем уникальность системного имя модуля и валидацию формы
         checkSystemName: function() {
-            if ( $(this).val() != '' ) {
-                var parentForm = $(this).parents('form');
+            var el = '#systemname';
+            if ( $(el).val() != '' ) {
+                var parentForm = $(el).parents('form');
                 $.post(baseURL + "modules/checksysname", $(parentForm).serialize(), function(data){
                     $('.failsystemname').text(data);
                     if (data || $('.failmodname').text()) {
@@ -338,8 +350,9 @@ $(function(){
 
         // Проверяем уникальность логина и валидацию формы
         checkLogin: function() {
-            if ( $(this).val() != '' ) {
-                var parentForm = $(this).parents('form');
+            var el = '#username';
+            if ( $(el).val() != '' ) {
+                var parentForm = $(el).parents('form');
                 $.post(baseURL + "users/checklogin", $(parentForm).serialize(), function(data){
                     $('.failusername').text(data);
                     if (data) binds.validFail();
@@ -356,8 +369,9 @@ $(function(){
 
         // Проверяем уникальность емейла и валидацию формы
         checkEmail: function() {
-            if ( $(this).val() != '' ) {
-                var parentForm = $(this).parents('form');
+            var el = '#email';
+            if ( $(el).val() != '' ) {
+                var parentForm = $(el).parents('form');
                 $.post(baseURL + "users/checkemail", $(parentForm).serialize(), function(data){
                     $('.failemail').text(data);
                     if (data) binds.validFail();
@@ -374,8 +388,9 @@ $(function(){
 
         // Проверяем уникальность названия роли и валидацию формы
         checkRoleName: function() {
-            if ( $(this).val() != '' ) {
-                var parentForm = $(this).parents('form');
+            var el = '#name';
+            if ( $(el).val() != '' ) {
+                var parentForm = $(el).parents('form');
                 $.post(baseURL + "roles/checkrole", $(parentForm).serialize(), function(data){
                     $('.failrole').text(data);
                     if (data) binds.validFail();
@@ -419,11 +434,6 @@ $(function(){
             });
         },
 
-        // Делаем кнопку сохранить активной если вся форма валиднa
-        canSave: function(onclick) {
-            $('.btncheck').removeAttr('disabled').attr('onclick', onclick).text('Сохранить');
-        },
-
         // Тоже самое для отправки сообщения
         canSend: function(onclick) {
             $('.btncheck').removeAttr('disabled').attr('onclick', onclick).text('Отправить сообщение');
@@ -431,9 +441,11 @@ $(function(){
 
         // Делаем кнопку сохранить не активной после сохранения материала, показываем успешное сохранение
         completeSave: function() {
-            $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;').text('Сохранено');
-            $('input, textarea, select').focusout(function(){return false;});
-            $('input, select').change(function(){return false;});
+            $('.btncheck')
+                  .attr('disabled', 'disabled')
+                  .attr('onclick', 'return false;')
+                  .text('Сохранено')
+                  .removeClass('btncheck');
         },
 
         // Показываем сообщение удаления
@@ -444,6 +456,11 @@ $(function(){
         // Делаем кнопку сохранить не активной если не пройдена валидация поля формы
         validFail: function() {
             $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;');
+        },
+
+        // Делаем кнопку сохранить активной если вся форма валиднa
+        canSave: function(onclick) {
+            $('.btncheck').removeAttr('disabled').attr('onclick', onclick).text('Сохранить');
         },
 
         // Проверяем можно ли сохранить материал + отсылаем html
@@ -459,7 +476,7 @@ $(function(){
             }
         },
 
-        // Проверяем можно ли сохранить материал + отсылаем html
+        // Проверяем можно ли отредактировать материал + отсылаем html
         canEditItem: function(table) {
             if (!editor.getData())
             {

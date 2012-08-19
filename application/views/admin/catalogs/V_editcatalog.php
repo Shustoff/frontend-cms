@@ -1,6 +1,12 @@
-<div class="alert alert-success tooltips">
-    <button class="close" data-dismiss="alert">×</button>
-    <span class="center">Каталог изменен</span>
+<div class="wraptooltip">
+    <div class="alert alert-success tooltips">
+      <button class="close" data-dismiss="alert">×</button>
+      <span class="center">Каталог изменен!</span>
+    </div>
+    <div class="alert alert-danger tooltips">
+      <button class="close" data-dismiss="alert">×</button>
+      <span class="center"></span>
+    </div>
 </div>
 <h3 class="center">Изменить каталог</h3>
 <form action="" method="post" id="edititem">
@@ -27,7 +33,7 @@
 <div class="row">
     <div class="span11 htmlcode">
         <h3 class="htmlcodelabel">Описание каталога:</h3>
-        <textarea id="editor" class="auto"><?=$catalog->catdesc;?></textarea>
+        <textarea id="editor" class="auto"><?=$catalog->content;?></textarea>
         <script>
             editor = CKEDITOR.editor.replace('editor');
         </script>
@@ -48,7 +54,7 @@
                     <?php endforeach; ?>
                 </select>
                 <input type="hidden" name="status" value="<?=$catalog->status;?>">
-                <input type="hidden" id="content" name="catdesc" value="">
+                <input type="hidden" id="content" name="content" value="">
                 <input type="hidden" name="id" value="<?=$catalog->id;?>">
             </div>
         </div>

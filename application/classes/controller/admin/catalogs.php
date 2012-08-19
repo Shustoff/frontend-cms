@@ -4,6 +4,7 @@ class Controller_Admin_Catalogs extends Controller_Admin_App {
 
     public function before()
     {
+        parent::before();
         $roles = Auth::instance()->get_user()->roles->find_all();
         foreach ($roles as $role)
         {
@@ -53,19 +54,7 @@ class Controller_Admin_Catalogs extends Controller_Admin_App {
 
     public function action_add($model = 'catalog')
     {
-        // Проверка валидации
-        try
-        {
-            ORM::factory($model)->values($_POST)->save();
-        }
-        catch (ORM_Validation_Exception $e)
-        {
-            $errors = $e->errors('validation');
-            foreach ($errors as $error)
-            {
-                echo '<span class="center">' . $error . '</span> <br />';
-            }
-        }
+        parent::action_add($model);
     }
 
     // Загружаем вид редактирования каталога
@@ -101,6 +90,4 @@ class Controller_Admin_Catalogs extends Controller_Admin_App {
         $unique_alias  = ORM::factory('catalog')->unique('alias', $_POST['alias']);
         if ( ! $unique_alias) echo 'Такой алиас уже существует';
     }
-
-
 }

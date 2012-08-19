@@ -4,6 +4,7 @@ class Controller_Admin_Options extends Controller_Admin_App {
 
     public function before()
     {
+        parent::before();
         $roles = Auth::instance()->get_user()->roles->find_all();
         foreach ($roles as $role)
         {

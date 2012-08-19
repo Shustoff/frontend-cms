@@ -41,8 +41,6 @@ define([
         var site = new SiteRouter();
         // Начинаем вести историю
         Backbone.history.start({pushState : true, root : '/frontend/'});
-
-
         return site;
     };
 

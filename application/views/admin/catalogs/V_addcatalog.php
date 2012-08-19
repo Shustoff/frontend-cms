@@ -5,6 +5,7 @@
     </div>
     <div class="alert alert-danger tooltips">
       <button class="close" data-dismiss="alert">×</button>
+      <span class="center"></span>
     </div>
 </div>
 <h3 class="center">Добавить каталог</h3>
@@ -74,7 +75,7 @@
     </div>
     <div class="span2 savecat">
         <div class="control-group">
-            <a class="btn btn-success btncheck" href="#" onclick="binds.canSaveItem('catalogs');">Сохранить каталог</a>
+            <a class="btn btn-success btncheck" href="#" onclick="binds.canSaveItem('catalogs');">Сохранить</a>
         </div>
     </div>
 </div>
