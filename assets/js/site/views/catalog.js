@@ -28,8 +28,6 @@ function (Backbone, CatalogPageView) {
                 self.$el.append(content);
             });
 
-            $('.mid').html( this.el );
-
             // Каждой 4й колонке ставим класс .last
             $('.threecol').map(function(){
                 if (($(this).index() + 1) % 4 === 0) $(this).addClass('last');

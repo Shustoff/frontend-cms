@@ -46,8 +46,9 @@ class Controller_Site_Home extends Controller_Site_Main {
            $json_pages = parent::json_encode_cyr($pages_result);
            echo $json_pages;
 
-       } else {
-
+       }
+       else
+       {
            // Выбираем все настройки
            $cfgsite = Kohana::$config->load('site');
 
