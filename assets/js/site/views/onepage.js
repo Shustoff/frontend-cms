@@ -9,7 +9,6 @@ define([
 function (Backbone, OnePageTemplate) {
 
     var OnePageView = Backbone.View.extend({
-
         tagName : 'article',
         className : 'twelvecol',
         template : _.template(OnePageTemplate),
@@ -22,10 +21,8 @@ function (Backbone, OnePageTemplate) {
         render : function () {
             var content = this.template(this.model.attributes);
             $('.catalog').html( this.$el.html(content) );
-
             return this;
         }
-
     });
 
     return OnePageView;

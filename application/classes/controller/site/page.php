@@ -36,6 +36,7 @@ class Controller_Site_Page extends Controller_Site_Main {
             echo $json_page;
 
         } else {
+
             $pagealias = $this->request->param('pagealias');
 
             $viewpage = DB::query(Database::SELECT, 'SELECT * FROM pages WHERE alias = :pagealias')
@@ -75,11 +76,11 @@ class Controller_Site_Page extends Controller_Site_Main {
                             ->bind('author', $author);
 
             $this->response->body(View::factory('site/index')
-                                    ->bind('nav', $navigation)
-                                    ->bind('content', $content)
-                                    ->bind('footer',$footer)
-                                    ->bind('options', $options)
-                                    ->bind('profiler', $profiler));
+                            ->bind('nav', $navigation)
+                            ->bind('content', $content)
+                            ->bind('footer',$footer)
+                            ->bind('options', $options)
+                            ->bind('profiler', $profiler));
         }
     }
 }
