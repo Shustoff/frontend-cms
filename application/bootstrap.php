@@ -164,6 +164,7 @@ Route::set('pagealias', '<pagealias>', array('pagealias' => '.+'))
     'action' => 'index'
 ));
 
+
 // Роут по-умолчанию
 Route::set('default', '(<controller>(/<action>))')
 ->defaults(array(

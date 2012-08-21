@@ -16,7 +16,6 @@ class Controller_Site_Page extends Controller_Site_Main {
         if ($this->request->is_ajax())
         {
             $pagealias = $this->request->param('pagealias');
-
             $page = ORM::factory('page')->where('alias', '=', $pagealias)->find_all();
             $this->response->headers('Content-Type', 'application/json');
 
