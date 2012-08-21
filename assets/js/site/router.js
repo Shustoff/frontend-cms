@@ -14,7 +14,7 @@ define([
             // Роут показа одной страницы
             ':pagealias' : 'showPage',
             // Роут показа содержимого каталога
-            'c/:catalias' : 'showCatalog',
+            ':catalias/' : 'showCatalog',
             // Роут по-умолчанию
             '*actions' : 'defaultAction'
         },
