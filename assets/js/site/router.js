@@ -13,6 +13,8 @@ define([
         routes :  {
             // Роут показа одной страницы
             ':pagealias' : 'showPage',
+            // Роут показа содержимого каталога
+            'c/:catalias' : 'showCatalog',
             // Роут по-умолчанию
             '*actions' : 'defaultAction'
         },
@@ -24,6 +26,17 @@ define([
             page.fetch();
             // Передали в вид
             var view = new OnePageView({model : page});
+        },
+
+        showCatalog : function (catalias) {
+            // Создаем пустую коллекцию
+            var catalog = new Catalog();
+            catalog.url = '/frontend/c/' + catalias;
+            // Заполняем ее данными
+            catalog.fetch();
+            // Передали в вид
+            var catalogView = new CatalogView({collection : catalog});
+            $('.mid').html( catalogView.el );
         },
 
         defaultAction : function () {
