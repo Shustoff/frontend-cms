@@ -148,6 +148,14 @@ Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', '
     'controller' => 'error',
 ));
 
+// Роут каталога
+Route::set('catalias', 'c/<catalias>', array('catalias' => '.+'))
+->defaults(array(
+    'directory' => 'site',
+    'controller' => 'catalog',
+    'action' => 'index'
+));
+
 // Роут страницы в каталоге
 Route::set('pagealias', '<pagealias>', array('pagealias' => '.+'))
 ->defaults(array(
