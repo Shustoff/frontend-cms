@@ -33,4 +33,14 @@ require(['router'], function (Router) {
         }
     });
 
+    // Выстраиваем правильный URL каталогов
+    $(document).on('click', '.topmenu a', function (evt) {
+        var href = $(this).attr('href');
+        var protocol = this.protocol + '//';
+        if (href.slice(protocol.length) !== protocol) {
+          evt.preventDefault();
+          site.navigate(href, true);
+        }
+    });
+
 });

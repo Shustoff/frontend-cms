@@ -4,72 +4,62 @@ class Controller_Site_Catalog extends Controller_Site_Main {
 
     public function before()
     {
-        $status = DB::query(Database::SELECT, 'SELECT status FROM options')->execute()->get('status');
+        $status = Kohana::$config->load('site.status');
         if ($status == 0) $this->request->redirect('offline');
         return parent::before();
     }
 
     public function action_index()
     {
-        $aliascat = $this->request->param('catalias');
+       // Если запрошен аяксом
+       if ($this->request->is_ajax())
+       {
+           $catalias = $this->request->param('catalias');
+           $catalog = ORM::factory('catalog')->where('alias', '=', $catalias)->find()->as_array();
+           $catalog_id = $catalog['id'] ;
+           $pages = ORM::factory('page')->where('catalog_id', '=', $catalog_id)->find_all();
 
-        $catalog_id = DB::query(Database::SELECT, 'SELECT id FROM catalogs WHERE alias = :aliascat')
-                            ->bind(':aliascat', $aliascat)
-                            ->execute()
-                            ->get('id');
+           // Устанавливаем заголовки json-ответа
+           $this->response->headers('Content-Type', 'application/json');
+           $pages_array = array();
 
-        $pages = ORM::factory('page')->where('catalog_id', '=', $catalog_id)->find_all();
+           foreach ($pages as $page)
+           {
+               $pages_array['pagename'] = $page->pagename;
+               $pages_array['date'] = $page->date;
+               $pages_array['alias'] = $page->alias;
+               $pages_array['catalog'] = $page->catalogs->catname;
+               $pages_array['content'] = $page->content;
+               $pages_array['author'] = $page->users->username;
+               $pages_result[] = $pages_array;
+           };
 
-        if ($this->request->is_ajax())
-        {
-            $this->response->headers('Content-Type', 'application/json');
+           $json_pages = parent::json_encode_cyr($pages_result);
+           echo $json_pages;
+       }
+       else
+       {
+           // Выбираем все настройки
+           $cfgsite = Kohana::$config->load('site');
 
-            $pages_array = array();
+           foreach ($cfgsite as $key => $value)
+           {
+               $options[$key] = Kohana::$config->load('site.' . $key);
+           }
 
-            foreach ($pages as $page)
-            {
-                $pages_array[] = $page->as_array();
-            }
+           $nav = View::factory('site/blocks/V_nav');
+           $footer = View::factory('site/blocks/V_footer');
 
-            $json_pages = json_encode_cyr($pages_array);
-            echo $json_pages;
-            return;
-        }
-            else
-        {
+           if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
 
-            $options = DB::query(Database::SELECT, 'SELECT * FROM options')->execute();
+           $view = View::factory('site/index')
+                       ->bind('options', $options)
+                       ->bind('nav', $nav)
+                       ->bind('footer', $footer)
+                       ->bind('profiler', $profiler)
+                       ->bind('content', $content);
 
-            foreach ($options as $option)
-            {
-                $sitename = $option['sitename'];
-                $description = $option['description'];
-                $keywords = $option['keywords'];
-                $robots = $option['robots'];
-                $copyright = $option['copyright'];
-            }
-
-            View::bind_global('copyright', $copyright);
-            View::bind_global('robots', $robots);
-            View::bind_global('sitename', $sitename);
-            View::bind_global('description', $description);
-            View::bind_global('keywords', $keywords);
-
-            $navigation = View::factory('site/blocks/V_nav');
-            $footer = View::factory('site/blocks/V_footer');
-
-            $column = 4; // Количество столбцов на главной странице
-            $i = 0; // Счетчик
-
-            $content = View::factory('site/blocks/V_catalog')
-                        ->bind('pages', $pages)
-                        ->bind('column', $column)
-                        ->bind('i', $i);
-
-            $this->response->body($navigation);
-            $this->response->body($content);
-            $this->response->body($footer);
-
-        }
+           $this->response->body($view);
+       }
     }
 }
