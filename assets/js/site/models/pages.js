@@ -10,7 +10,6 @@ function (Backbone) {
             this.urlRoot = '/frontend/' + this.get('alias');
         }
     });
-
     return Page;
 });
 
