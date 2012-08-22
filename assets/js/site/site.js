@@ -24,22 +24,22 @@ require(['router'], function (Router) {
     var site = Router.initialize();
 
     // Выстраиваем правильный URL страниц
-    $(document).on('click', '.pagename a', function (evt) {
+    $(document).on('click', '.pagename a', function (e) {
         var href = $(this).attr('href');
         var protocol = this.protocol + '//';
         if (href.slice(protocol.length) !== protocol) {
-          evt.preventDefault();
-          site.navigate(href, true);
+            e.preventDefault();
+            site.navigate(href, true);
         }
     });
 
-    // Выстраиваем правильный URL каталогов
-    $(document).on('click', '.topmenu a', function (evt) {
+// Выстраиваем правильный URL каталогов
+    $(document).on('click', '.topmenu a', function (e) {
         var href = $(this).attr('href');
         var protocol = this.protocol + '//';
         if (href.slice(protocol.length) !== protocol) {
-          evt.preventDefault();
-          site.navigate(href, true);
+            e.preventDefault();
+            site.navigate(href, true);
         }
     });
 
