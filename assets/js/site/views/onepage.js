@@ -7,7 +7,6 @@ define([
     'text!../templates/one_page.html'
 ],
 function (Backbone, OnePageTemplate) {
-
     var OnePageView = Backbone.View.extend({
         tagName : 'article',
         className : 'twelvecol',
@@ -24,6 +23,5 @@ function (Backbone, OnePageTemplate) {
             return this;
         }
     });
-
     return OnePageView;
 });

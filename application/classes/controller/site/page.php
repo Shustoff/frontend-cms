@@ -37,7 +37,6 @@ class Controller_Site_Page extends Controller_Site_Main {
         } else {
 
             $pagealias = $this->request->param('pagealias');
-
             $viewpage = DB::query(Database::SELECT, 'SELECT * FROM pages WHERE alias = :pagealias')
                             ->bind(':pagealias', $pagealias)
                             ->execute();
