@@ -1,5 +1,6 @@
 /* Bootstrap */
 requirejs.config({
+    urlArgs: 'bust='+ (new Date()).getMilliseconds(),
     deps : ['site', 'tests'],
     paths : {
         // Libs
@@ -7,9 +8,9 @@ requirejs.config({
         'Underscore' : '../libs/underscore',
         'Backbone' : '../libs/backbone',
         'QUnit' : '../libs/qunit-1.9.0',
-
         // Plugins
         'text' : '../libs/require/text'
+
     },
     shim : {
         'Backbone' : {
