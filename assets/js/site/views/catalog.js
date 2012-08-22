@@ -6,7 +6,6 @@ define([
     './page'
 ],
 function (Backbone, CatalogPageView) {
-
     var CatalogView = Backbone.View.extend({
 
         tagName : 'section',
@@ -38,5 +37,4 @@ function (Backbone, CatalogPageView) {
     });
 
     return CatalogView;
-
 });
