@@ -46,7 +46,10 @@ define([
             catalog.fetch();
             // Передали в вид
             var catalogView = new CatalogView({collection : catalog});
-            $('.mid').html( catalogView.el );
+
+            $(function(){
+                $('.mid').html( catalogView.el );
+            });
         }
     });
 

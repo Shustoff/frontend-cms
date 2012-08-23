@@ -9,8 +9,8 @@ requirejs.config({
         'Backbone' : '../libs/backbone',
         'QUnit' : '../libs/qunit-1.9.0',
         // Plugins
-        'text' : '../libs/require/text'
-
+        'text' : '../libs/require/text',
+        'domReady' : '../libs/require/domready'
     },
     shim : {
         'Backbone' : {
@@ -18,14 +18,11 @@ requirejs.config({
             exports : 'Backbone'
         }
     }
-
 });
-require(['router'], function (Router) {
-
+requirejs(['router', 'domReady'], function (Router, domReady) {
     var site = Router.initialize();
 
-    // Выстраиваем правильный URL страниц
-    $(document).on('click', '.pagename a', function (evt) {
+    $(document).on('click', '.pagename a', function(evt){
         var href = $(this).attr('href');
         var protocol = this.protocol + '//';
         if (href.slice(protocol.length) !== protocol) {
@@ -34,8 +31,7 @@ require(['router'], function (Router) {
         }
     });
 
-    // Выстраиваем правильный URL каталогов
-    $(document).on('click', '.topmenu a', function (evt) {
+    $(document).on('click', '.topmenu a', function(evt){
         var href = $(this).attr('href');
         var protocol = this.protocol + '//';
         if (href.slice(protocol.length) !== protocol) {
