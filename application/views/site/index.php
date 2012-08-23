@@ -23,13 +23,6 @@
     <!--Скрипты-->
     <script data-main="<?=URL::base();?>assets/js/site/site" src="<?=URL::base();?>assets/js/libs/require/require.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/less-1.3.0.js"></script>
-    <script>
-        window.onload = function () {
-            _.templateSettings = {
-                interpolate : /\{\{(.+?)\}\}/g
-            };
-        }
-    </script>
 
     <!--Фавикон-->
     <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
@@ -37,17 +30,29 @@
 <body>
 
 <div class="wrapper">
+<<<<<<< HEAD
     <!--Верхнее меню-->
     <section class="top"><?=$nav;?></section>
     <!-- Центральная часть-->
     <section class="mid">
         <?=$content;?>
     </section>
+=======
+<!--Верхнее меню-->
+<section class="top"><?=$nav;?></section>
+<!-- Центральная часть, вставляется через Underscore template-->
+<section class="mid"><?=$content;?></section>
+>>>>>>> db20fd3dac683d599d27e8a2d84e233e243fce43
 </div>
 
 <!--Футер-->
 <section class="bot"><?=$footer;?></section>
 
+<!--Профайлер-->
 <section class="debug"><?=$profiler;?></section>
+<<<<<<< HEAD
+=======
+
+>>>>>>> db20fd3dac683d599d27e8a2d84e233e243fce43
 </body>
 </html>

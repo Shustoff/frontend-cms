@@ -9,8 +9,8 @@ requirejs.config({
         'Backbone' : '../libs/backbone',
         'QUnit' : '../libs/qunit-1.9.0',
         // Plugins
-        'text' : '../libs/require/text'
-
+        'text' : '../libs/require/text',
+        'domReady' : '../libs/require/domready'
     },
     shim : {
         'Backbone' : {
@@ -18,14 +18,16 @@ requirejs.config({
             exports : 'Backbone'
         }
     }
-
 });
-require(['router'], function (Router) {
-
+requirejs(['router', 'domReady'], function (Router, domReady) {
     var site = Router.initialize();
 
+<<<<<<< HEAD
     // Выстраиваем правильный URL страниц
     $(document).on('click', '.pagename a', function (e) {
+=======
+    $(document).on('click', '.pagename a', function(evt){
+>>>>>>> db20fd3dac683d599d27e8a2d84e233e243fce43
         var href = $(this).attr('href');
         var protocol = this.protocol + '//';
         if (href.slice(protocol.length) !== protocol) {
@@ -34,8 +36,12 @@ require(['router'], function (Router) {
         }
     });
 
+<<<<<<< HEAD
 // Выстраиваем правильный URL каталогов
     $(document).on('click', '.topmenu a', function (e) {
+=======
+    $(document).on('click', '.topmenu a', function(evt){
+>>>>>>> db20fd3dac683d599d27e8a2d84e233e243fce43
         var href = $(this).attr('href');
         var protocol = this.protocol + '//';
         if (href.slice(protocol.length) !== protocol) {
