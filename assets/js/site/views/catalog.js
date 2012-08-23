@@ -3,7 +3,8 @@
  */
 define([
     'Backbone',
-    './page'
+    './page',
+    'text!../templates/catalog_page.html'
 ],
 function (Backbone, CatalogPageView) {
     var CatalogView = Backbone.View.extend({
@@ -26,7 +27,6 @@ function (Backbone, CatalogPageView) {
                 var content = pageView.render().el;
                 self.$el.append(content);
             });
-
             // Каждой 4й колонке ставим класс .last
             $('.threecol').map(function(){
                 if (($(this).index() + 1) % 4 === 0) $(this).addClass('last');
