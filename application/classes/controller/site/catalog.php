@@ -14,13 +14,17 @@ class Controller_Site_Catalog extends Controller_Site_Main {
        // Если запрошен аяксом
        if ($this->request->is_ajax())
        {
-           $catalias = $this->request->param('catalias');
-           $catalog = ORM::factory('catalog')->where('alias', '=', $catalias)->find()->as_array();
-           $catalog_id = $catalog['id'] ;
-           $pages = ORM::factory('page')->where('catalog_id', '=', $catalog_id)->find_all();
-
            // Устанавливаем заголовки json-ответа
            $this->response->headers('Content-Type', 'application/json');
+
+           // Достаем ID каталога
+           $catalias = $this->request->param('catalias');
+           $catalog = ORM::factory('catalog')->where('alias', '=', $catalias)->find()->as_array();
+           $catalog_id = $catalog['id'];
+
+           // Выбираем все страницы родительского каталога
+           $pages = ORM::factory('page')->where('catalog_id', '=', $catalog_id)->find_all();
+
            $pages_array = array();
 
            foreach ($pages as $page)

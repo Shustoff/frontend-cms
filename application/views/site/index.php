@@ -23,13 +23,6 @@
     <!--Скрипты-->
     <script data-main="<?=URL::base();?>assets/js/site/site" src="<?=URL::base();?>assets/js/libs/require/require.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/less-1.3.0.js"></script>
-    <script>
-        window.onload = function () {
-            _.templateSettings = {
-                interpolate : /\{\{(.+?)\}\}/g
-            };
-        }
-    </script>
 
     <!--Фавикон-->
     <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
@@ -37,24 +30,17 @@
 <body>
 
 <div class="wrapper">
-    <!--Верхнее меню-->
-    <section class="top"><?=$nav;?></section>
-    <!-- Центральная часть, вставляется через Underscore template-->
-    <section class="mid">
-        <?=$content;?>
-    </section>
+<!--Верхнее меню-->
+<section class="top"><?=$nav;?></section>
+<!-- Центральная часть, вставляется через Underscore template-->
+<section class="mid"><?=$content;?></section>
 </div>
 
 <!--Футер-->
 <section class="bot"><?=$footer;?></section>
 
+<!--Профайлер-->
 <section class="debug"><?=$profiler;?></section>
-<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. -->
-<!--<script>-->
-<!--    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];-->
-<!--    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];-->
-<!--    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';-->
-<!--    s.parentNode.insertBefore(g,s)}(document,'script'));-->
-<!--</script>-->
+
 </body>
 </html>
