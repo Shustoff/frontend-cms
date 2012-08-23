@@ -30,3 +30,5 @@
   <div class="container">
     <p><?=$fail;?></p>
   </div>
+</body>
+</html>
