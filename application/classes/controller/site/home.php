@@ -13,23 +13,11 @@ class Controller_Site_Home extends Controller_Site_Main {
        // Если запрошен аяксом
        if ($this->request->is_ajax())
        {
-           // Если в настройках включен кэш
-           if (Kohana::$config->load('site.cache') == 1)
-           {
-               // Если кэш существует
-               if ( ! $pages = Cache::instance('file')->get('cache.pages'))
-               {
-                   $pages = ORM::factory('page')->where('status', '=', '1')->find_all()->as_array();
-                   Cache::instance()->set('cache.pages', $pages, Date::MINUTE * 10);
-               }
-           }
-           else
-           {
-               $pages = ORM::factory('page')->where('status', '=', '1')->find_all();
-           }
-
-           // Устанавливаем заголовки json-ответа
+          // Устанавливаем заголовки json-ответа
            $this->response->headers('Content-Type', 'application/json');
+
+           $pages = ORM::factory('page')->where('status', '=', '1')->find_all()->as_array();
+
            $pages_array = array();
 
            foreach ($pages as $page)
@@ -45,7 +33,6 @@ class Controller_Site_Home extends Controller_Site_Main {
 
            $json_pages = parent::json_encode_cyr($pages_result);
            echo $json_pages;
-
        }
        else
        {

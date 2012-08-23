@@ -5,11 +5,15 @@ define([
     'Backbone',
     'text!../templates/catalog_page.html'
 ],
-function (Backbone, PageTemplate) {
+function (Backbone, CatalogPageTemplate) {
+    _.templateSettings = {
+        interpolate : /\{\{(.+?)\}\}/g
+    };
+
     var CatalogPageView = Backbone.View.extend({
         tagName : 'article',
         className : 'threecol',
-        template : _.template(PageTemplate),
+        template : _.template(CatalogPageTemplate),
         render : function () {
             var content = this.template(this.model.toJSON());
             this.$el.html(content);

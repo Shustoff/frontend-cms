@@ -15,9 +15,11 @@ class Controller_Site_Page extends Controller_Site_Main {
         // Если запрошен аяксом
         if ($this->request->is_ajax())
         {
+            // Устанавливаем заголовки json-ответа
+            $this->response->headers('Content-Type', 'application/json');
+
             $pagealias = $this->request->param('pagealias');
             $page = ORM::factory('page')->where('alias', '=', $pagealias)->find_all();
-            $this->response->headers('Content-Type', 'application/json');
 
             $page_array = array();
 
@@ -34,8 +36,10 @@ class Controller_Site_Page extends Controller_Site_Main {
             $json_page = parent::json_encode_cyr($page_array);
             echo $json_page;
 
-        } else {
-
+        }
+        else
+        {
+            // Выбираем страницу из БД согласно алиасу
             $pagealias = $this->request->param('pagealias');
             $viewpage = DB::query(Database::SELECT, 'SELECT * FROM pages WHERE alias = :pagealias')
                             ->bind(':pagealias', $pagealias)
@@ -46,13 +50,7 @@ class Controller_Site_Page extends Controller_Site_Main {
                 $pagename = $page['pagename'];
                 $date = $page['date'];
                 $text = $page['content'];
-                $description = $page['metadesc'];
-                $keywords = $page['metakeywords'];
             }
-
-            View::bind_global('pagename', $pagename);
-            View::bind_global('description', $description);
-            View::bind_global('keywords', $keywords);
 
             // Выбираем все настройки
             $cfgsite = Kohana::$config->load('site');
@@ -73,12 +71,14 @@ class Controller_Site_Page extends Controller_Site_Main {
                             ->bind('catalog_name', $catalog_name)
                             ->bind('author', $author);
 
-            $this->response->body(View::factory('site/index')
+            $main = View::factory('site/index')
                             ->bind('nav', $navigation)
                             ->bind('content', $content)
                             ->bind('footer',$footer)
                             ->bind('options', $options)
-                            ->bind('profiler', $profiler));
+                            ->bind('profiler', $profiler);
+
+            $this->response->body($main);
         }
     }
 }
