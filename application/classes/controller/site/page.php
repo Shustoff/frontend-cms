@@ -19,38 +19,28 @@ class Controller_Site_Page extends Controller_Site_Main {
             $this->response->headers('Content-Type', 'application/json');
 
             $pagealias = $this->request->param('pagealias');
-            $page = ORM::factory('page')->where('alias', '=', $pagealias)->find_all();
+            $page = ORM::factory('page')->where('alias', '=', $pagealias)->find();
 
-            $page_array = array();
-
-            foreach ($page as $field)
-            {
-                $page_array['pagename'] = $field->pagename;
-                $page_array['date'] = $field->date;
-                $page_array['alias'] = $field->alias;
-                $page_array['catalog'] = $field->catalogs->catname;
-                $page_array['author'] = $field->users->username;
-                $page_array['content'] = $field->content;
-            }
+            $page_array['pagename'] = $page->pagename;
+            $page_array['date'] = $page->date;
+            $page_array['alias'] = $page->alias;
+            $page_array['catalog'] = $page->catalogs->catname;
+            $page_array['author'] = $page->users->username;
+            $page_array['content'] = $page->content;
 
             $json_page = parent::json_encode_cyr($page_array);
             echo $json_page;
-
         }
         else
         {
             // Выбираем страницу из БД согласно алиасу
             $pagealias = $this->request->param('pagealias');
-            $viewpage = DB::query(Database::SELECT, 'SELECT * FROM pages WHERE alias = :pagealias')
-                            ->bind(':pagealias', $pagealias)
-                            ->execute();
 
-            foreach ($viewpage as $page)
-            {
-                $pagename = $page['pagename'];
-                $date = $page['date'];
-                $text = $page['content'];
-            }
+            $page = ORM::factory('page')->where('alias', '=', $pagealias)->find();
+
+            $pagename = $page->pagename;
+            $date = $page->date;
+            $text = $page->content;
 
             // Выбираем все настройки
             $cfgsite = Kohana::$config->load('site');
@@ -60,7 +50,10 @@ class Controller_Site_Page extends Controller_Site_Main {
                $options[$key] = Kohana::$config->load('site.' . $key);
             }
 
-            if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
+            if ($options['debug'] == 1)
+            {
+                $profiler = View::factory('profiler/stats');
+            }
 
             $navigation = View::factory('site/blocks/V_nav');
             $footer = View::factory('site/blocks/V_footer');
