@@ -15,8 +15,10 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
             ':pagealias' : 'showPage',
             // Роут показа содержимого каталога
             ':catalias/' : 'showCatalog',
+            // Роут ошибки
+            ':foo/:bar' : 'page404',
             // Роут по-умолчанию
-            '*actions' : 'defaultAction'
+            '' : 'defaultAction'
         },
 
         showPage : function (pagealias) {
@@ -42,6 +44,10 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
             $(function() {
                 $('.mid').html( catalogView.el );
             });
+        },
+
+        page404 : function () {
+            window.location = 'http://localhost/frontend/error/404';
         },
 
         defaultAction : function () {
