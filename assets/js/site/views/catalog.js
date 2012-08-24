@@ -22,7 +22,7 @@ function (Backbone, CatalogPageView) {
         render : function () {
             var self = this;
             // Проходим по всем моделям в коллекции и рендерим их
-            this.collection.each(function(model){
+            this.collection.each(function(model) {
                 var pageView = new CatalogPageView({model : model});
                 var content = pageView.render().el;
                 self.$el.append(content);
