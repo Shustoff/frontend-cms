@@ -19,7 +19,7 @@ function (Backbone, OnePageTemplate) {
 
         render : function () {
             var content = this.template(this.model.attributes);
-            $('.catalog').html( this.$el.html(content) );
+            this.$el.html(content);
             return this;
         }
     });

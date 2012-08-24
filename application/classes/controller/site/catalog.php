@@ -60,8 +60,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                        ->bind('options', $options)
                        ->bind('nav', $nav)
                        ->bind('footer', $footer)
-                       ->bind('profiler', $profiler)
-                       ->bind('content', $content);
+                       ->bind('profiler', $profiler);
 
            $this->response->body($view);
        }
