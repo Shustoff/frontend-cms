@@ -15,11 +15,9 @@ class Controller_Site_Home extends Controller_Site_Main {
        {
           // Устанавливаем заголовки json-ответа
            $this->response->headers('Content-Type', 'application/json');
-
            $pages = ORM::factory('page')->where('status', '=', '1')->find_all()->as_array();
 
            $pages_array = array();
-
            foreach ($pages as $page)
            {
                $pages_array['pagename'] = $page->pagename;
@@ -45,9 +43,7 @@ class Controller_Site_Home extends Controller_Site_Main {
            }
 
            $mod = ORM::factory('module')->find_all()->as_array();
-
            $nav = View::factory('site/blocks/V_nav');
-
            $footer = View::factory('site/blocks/V_footer')->bind('mod', $mod);
 
            if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
