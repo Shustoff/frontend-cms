@@ -13,8 +13,10 @@
     <meta name="description" content="<?=$options['description'];?>">
     <meta name="keywords" content="<?=$options['keywords'];?>">
     <meta name="copyright" content="<?=$options['copyright'];?>">
-    <meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT">   <!--после этой даты информация в документе считается устаревшей-->
-    <meta http-equiv="Last-Modified" content="Mon, 26 Jul 2997 05:00:00 GMT">  <!--дата последней модификации документа-->
+
+    <!--Антикэш-->
+    <meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT">
+    <meta http-equiv="Last-Modified" content="Mon, 26 Jul 1997 05:00:00 GMT">
 
     <!--Стили-->
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/h5bp.css">
@@ -31,20 +33,25 @@
 </head>
 <body>
 
-<div class="wrapper">
-<!--Верхнее меню-->
-<section class="top"><?=$nav;?></section>
-<!-- Центральная часть, вставляется через Underscore template-->
-<section class="mid">
-    <section class="row catalog"></section>
-</section>
-</div>
+    <div class="wrapper">
+        <!--Верхнее меню-->
+        <section class="top">
+            <?=$nav;?>
+        </section>
+        <!-- Центральная часть, вставляется через Underscore template-->
+        <section class="mid">
+            <section class="row catalog"></section>
+        </section>
+    </div>
 
-<!--Футер-->
-<section class="bot"><?=$footer;?></section>
+    <!--Футер-->
+    <section class="bot">
+        <?=$footer;?>
+    </section>
 
-<!--Профайлер-->
-<section class="debug"><?=$profiler;?></section>
-
+    <!--Профайлер-->
+    <section class="debug">
+        <?=$profiler;?>
+    </section>
 </body>
 </html>

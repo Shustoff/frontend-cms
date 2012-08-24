@@ -44,8 +44,11 @@ class Controller_Site_Home extends Controller_Site_Main {
                $options[$key] = Kohana::$config->load('site.' . $key);
            }
 
+           $mod = ORM::factory('module')->find_all()->as_array();
+
            $nav = View::factory('site/blocks/V_nav');
-           $footer = View::factory('site/blocks/V_footer');
+
+           $footer = View::factory('site/blocks/V_footer')->bind('mod', $mod);
 
            if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
 
@@ -58,6 +61,4 @@ class Controller_Site_Home extends Controller_Site_Main {
            $this->response->body($view);
        }
     }
-
-
 }
