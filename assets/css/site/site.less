@@ -1,4 +1,4 @@
-/* Бланковый шаблон */
+/* Основной шаблон */
 
 /* Переменные, миксины etc. */
 @color: #08a900;
@@ -12,6 +12,12 @@
     background: linear-gradient(to bottom,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=0 ); /* IE6-9 */
 }
+.borderBox {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 /* Общие стили */
 html,
@@ -20,8 +26,28 @@ body {
     min-height: 100%;
 }
 
+// Для разрешения < 480 пикс
+@media all and (max-width: 480px) {
+    body {
+        .top {
+            height: 220px;
+        }
+        .topmenu {
+            li {
+                float: left;
+                clear: both;
+                width: 100% !important;
+                a {
+                    font-size: 1.6em !important;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
 // Для разрешения < 680 пикс
-@media all and (max-width: 680px) {
+@media all and (min-width: 481px) and (max-width: 680px) {
     body {
         .topmenu {
             padding-top: 10px;
@@ -29,12 +55,10 @@ body {
                 font-size: 1em !important;
             }
         }
-
         .footer {
             .fourcol {
                 border-right: none !important;
                 border-bottom: 1px dashed #006DAD;
-                -moz-box-sizing: border-box;
                 padding: 10px 0px;
             }
             .last {
@@ -83,6 +107,7 @@ body {
     .gradient;
 
     .topmenu {
+
         padding: 0px auto;
 
         li {
@@ -96,7 +121,6 @@ body {
                 border-bottom: 1px dotted;
             }
         }
-
         ul {
              margin: 20px auto;
              display: block;
@@ -113,6 +137,7 @@ body {
 
     .row {
         .threecol  {
+
             margin-bottom: 30px;
 
             .pagename {
@@ -124,13 +149,11 @@ body {
                    border-bottom: 1px dotted @color;
                 }
             }
-
             .createdDate,
             .author,
             .parentCatalog {
                 color: #5a5a5a;
             }
-
             .content {
                 margin-top: 10px;
             }
@@ -155,11 +178,10 @@ body {
     footer {
         .fourcol {
             border-right: 1px dashed #006DAD;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            padding-right: 8px;
+            padding-right: 20px;
+            margin-right: 3.2%;
+            .borderBox;
         }
-
         .last {
             border-right: none;
         }
