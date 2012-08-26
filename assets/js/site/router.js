@@ -7,16 +7,18 @@ define([
     'models/pages',
     'views/catalog',
     'views/onepage'
-], function (Backbone, Catalog, Page, CatalogView, OnePageView) {
+],
+function (Backbone, Catalog, Page, CatalogView, OnePageView) {
     var SiteRouter = Backbone.Router.extend({
-
         routes :  {
             // Роут показа одной страницы
             ':pagealias' : 'showPage',
             // Роут показа содержимого каталога
             ':catalias/' : 'showCatalog',
+            // Роут ошибки
+            ':foo/:bar' : 'page404',
             // Роут по-умолчанию
-            '*actions' : 'defaultAction'
+            '' : 'defaultAction'
         },
 
         showPage : function (pagealias) {
@@ -25,7 +27,10 @@ define([
             // Заполнили ее данными
             page.fetch();
             // Передали в вид
-            var view = new OnePageView({model : page});
+            var pageView = new OnePageView({model : page});
+            $(function() {
+                $('.catalog').html( pageView.el );
+            });
         },
 
         showCatalog : function (catalias) {
@@ -36,18 +41,23 @@ define([
             catalog.fetch();
             // Передали в вид
             var catalogView = new CatalogView({collection : catalog});
-            $('.mid').html( catalogView.el );
+            $(function() {
+                $('.mid').html( catalogView.el );
+            });
+        },
+
+        page404 : function () {
+            window.location = 'http://localhost/frontend/error/404';
         },
 
         defaultAction : function () {
-            // Создали пустую коллекцию
-            var catalog = new Catalog;
-            // Заполнили ее данными
-            catalog.fetch();
-            // Передали в вид
-            var catalogView = new CatalogView({collection : catalog});
-
             $(function(){
+                // Создали пустую коллекцию
+                var catalog = new Catalog;
+                // Заполнили ее данными
+                catalog.fetch();
+                // Передали в вид
+                var catalogView = new CatalogView({collection : catalog});
                 $('.mid').html( catalogView.el );
             });
         }

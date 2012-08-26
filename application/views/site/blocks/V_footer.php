@@ -1,12 +1,12 @@
 <!--Футер -->
 <footer class="footer row">
     <div class="fourcol">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec erat quam, mollis ut viverra vel, hendrerit sed turpis. </p>
+        <?=Mod::render('nav1');?>
     </div>
     <div class="fourcol">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec erat quam, mollis ut viverra vel, hendrerit sed turpis.  </p>
+        <?=Mod::render('nav2');?>
     </div>
     <div class="fourcol last">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec erat quam, mollis ut viverra vel, hendrerit sed turpis. </p>
+        <?=Mod::render('nav3');?>
     </div>
 </footer>
