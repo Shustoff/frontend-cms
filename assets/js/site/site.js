@@ -19,9 +19,11 @@ requirejs.config({
         }
     }
 });
-requirejs(['router', 'domReady'], function (Router, domReady) {
+
+requirejs(['router', 'domReady'], function (Router) {
     var site = Router.initialize();
 
+    // Меняем URL без редиректа
     $(document).on('click', '.pagename a', function(e){
         var href = $(this).attr('href');
         var protocol = this.protocol + '//';

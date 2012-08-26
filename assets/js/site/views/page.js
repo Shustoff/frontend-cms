@@ -6,10 +6,6 @@ define([
     'text!../templates/catalog_page.html'
 ],
 function (Backbone, CatalogPageTemplate) {
-    _.templateSettings = {
-        interpolate : /\{\{(.+?)\}\}/g
-    };
-
     var CatalogPageView = Backbone.View.extend({
         tagName : 'article',
         className : 'threecol',
