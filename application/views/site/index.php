@@ -14,6 +14,10 @@
     <meta name="keywords" content="<?=$options['keywords'];?>">
     <meta name="copyright" content="<?=$options['copyright'];?>">
 
+    <!--Антикэш-->
+    <meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT">
+    <meta http-equiv="Last-Modified" content="Mon, 26 Jul 1997 05:00:00 GMT">
+
     <!--Стили-->
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/h5bp.css">
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/1140.css">
@@ -28,31 +32,25 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
 </head>
 <body>
-
 <div class="wrapper">
-<<<<<<< HEAD
     <!--Верхнее меню-->
-    <section class="top"><?=$nav;?></section>
-    <!-- Центральная часть-->
-    <section class="mid">
-        <?=$content;?>
+    <section class="top">
+        <?=$nav;?>
     </section>
-=======
-<!--Верхнее меню-->
-<section class="top"><?=$nav;?></section>
-<!-- Центральная часть, вставляется через Underscore template-->
-<section class="mid"><?=$content;?></section>
->>>>>>> db20fd3dac683d599d27e8a2d84e233e243fce43
+    <!-- Центральная часть, вставляется через Underscore template-->
+    <section class="mid">
+        <section class="row catalog"></section>
+    </section>
 </div>
 
 <!--Футер-->
-<section class="bot"><?=$footer;?></section>
+<section class="bot">
+    <?=$footer;?>
+</section>
 
 <!--Профайлер-->
-<section class="debug"><?=$profiler;?></section>
-<<<<<<< HEAD
-=======
-
->>>>>>> db20fd3dac683d599d27e8a2d84e233e243fce43
+<section class="debug">
+    <?=$profiler;?>
+</section>
 </body>
 </html>
