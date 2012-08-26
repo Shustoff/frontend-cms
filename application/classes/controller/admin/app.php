@@ -41,15 +41,15 @@ class Controller_Admin_App extends Controller {
     }
 
     // Опубликовать
-    public function action_on($model)
+    public function action_on($table)
     {
-        ORM::factory($model, $_POST['idpage'])->set('status', 1)->save();
+        DB::update($table)->set(array('status' => 1))->where('id', '=', $_POST["idpage"])->execute();
     }
 
     // Не опубликовать
-    public function action_off($model)
+    public function action_off($table)
     {
-        ORM::factory($model, $_POST['idpage'])->set('status', 0)->save();
+        DB::update($table)->set(array('status' => 0))->where('id', '=', $_POST["idpage"])->execute();
     }
 
     // В корзину

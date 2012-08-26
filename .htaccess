@@ -21,5 +21,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .* index.php/$0 [PT]
 
 # Определяем состояние проекта
-SetEnv KOHANA_ENV production
+SetEnv KOHANA_ENV development
 

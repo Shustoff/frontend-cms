@@ -21,14 +21,14 @@ class Controller_Admin_Roles extends Controller_Admin_App {
         parent::action_main($model = 'role');
     }
 
-    public function action_on($model = 'role')
+    public function action_on($table = 'roles')
     {
-        parent::action_on($model);
+        parent::action_on($table);
     }
 
-    public function action_off($model = 'role')
+    public function action_off($table = 'roles')
     {
-        parent::action_off($model);
+        parent::action_off($table);
     }
 
     public function action_intrash($model = 'role')
