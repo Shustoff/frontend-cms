@@ -19,7 +19,7 @@ class Controller_Site_Page extends Controller_Site_Main {
             $this->response->headers('Content-Type', 'application/json');
 
             $pagealias = $this->request->param('pagealias');
-            $page = ORM::factory('page')->where('alias', '=', $pagealias)->find();
+            $page = ORM::factory('page')->where('alias', '=', $pagealias)->and_where('status', '=', '1')->find();
 
             $page_array['pagename'] = $page->pagename;
             $page_array['date'] = $page->date;

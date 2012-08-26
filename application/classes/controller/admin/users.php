@@ -21,14 +21,14 @@ class Controller_Admin_Users extends Controller_Admin_App {
         parent::action_main($model = 'user');
     }
 
-    public function action_on($model = 'user')
+    public function action_on($table = 'users')
     {
-        parent::action_on($model);
+        parent::action_on($table);
     }
 
-    public function action_off($model = 'user')
+    public function action_off($table = 'users')
     {
-        parent::action_off($model);
+        parent::action_off($table);
     }
 
     public function action_intrash($model = 'user')
