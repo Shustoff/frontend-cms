@@ -19,7 +19,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
 
            // Достаем ID каталога
            $catalias = $this->request->param('catalias');
-           $catalog = ORM::factory('catalog')->where('alias', '=', $catalias)->find();
+           $catalog = ORM::factory('catalog')->where('alias', '=', $catalias)->and_where('status', '=', '1')->find();
 
            if (!$catalog->loaded())
            {
@@ -29,7 +29,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
            $catalog_id = $catalog->id;
 
            // Выбираем все страницы родительского каталога
-           $pages = ORM::factory('page')->where('catalog_id', '=', $catalog_id)->find_all();
+           $pages = ORM::factory('page')->where('catalog_id', '=', $catalog_id)->and_where('status', '=', '1')->find_all();
 
            $pages_array = array();
            foreach ($pages as $page)

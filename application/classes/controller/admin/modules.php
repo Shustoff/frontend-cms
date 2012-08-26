@@ -21,14 +21,14 @@ class Controller_Admin_Modules extends Controller_Admin_App {
         parent::action_main($model = 'module');
     }
 
-    public function action_on($model = 'module')
+    public function action_on($table = 'modules')
     {
-        parent::action_on($model);
+        parent::action_on($table);
     }
 
-    public function action_off($model = 'module')
+    public function action_off($table = 'modules')
     {
-        parent::action_off($model);
+        parent::action_off($table);
     }
 
     public function action_search($model = 'module', $field = 'name')

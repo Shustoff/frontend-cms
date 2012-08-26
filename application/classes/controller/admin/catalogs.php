@@ -21,14 +21,14 @@ class Controller_Admin_Catalogs extends Controller_Admin_App {
         parent::action_main($model = 'catalog');
     }
 
-    public function action_on($model = 'catalog')
+    public function action_on($table = 'catalogs')
     {
-        parent::action_on($model);
+        parent::action_on($table);
     }
 
-    public function action_off($model = 'catalog')
+    public function action_off($table = 'catalogs')
     {
-        parent::action_off($model);
+        parent::action_off($table);
     }
 
     public function action_intrash($model = 'catalog')

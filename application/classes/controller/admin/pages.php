@@ -21,14 +21,14 @@ class Controller_Admin_Pages extends Controller_Admin_App {
         parent::action_main($model = 'page');
     }
 
-    public function action_on($model = 'page')
+    public function action_on($table = 'pages')
     {
-        parent::action_on($model);
+        parent::action_on($table);
     }
 
-    public function action_off($model = 'page')
+    public function action_off($table = 'pages')
     {
-        parent::action_off($model);
+        parent::action_off($table);
     }
 
     public function action_intrash($model = 'page')
