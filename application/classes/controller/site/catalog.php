@@ -17,10 +17,14 @@ class Controller_Site_Catalog extends Controller_Site_Main {
            // Устанавливаем заголовки json-ответа
            $this->response->headers('Content-Type', 'application/json');
 
-           // Достаем ID каталога
            $catalias = $this->request->param('catalias');
-           $catalog = ORM::factory('catalog')->where('alias', '=', $catalias)->and_where('status', '=', '1')->find();
 
+           $catalog = ORM::factory('catalog')
+               ->where('alias', '=', $catalias)
+               ->and_where('status', '=', '1')
+               ->find();
+
+           // Если каталог не найден, выдаем ошибку
            if (!$catalog->loaded())
            {
                throw new Kohana_HTTP_Exception_404;
@@ -29,9 +33,11 @@ class Controller_Site_Catalog extends Controller_Site_Main {
            $catalog_id = $catalog->id;
 
            // Выбираем все страницы родительского каталога
-           $pages = ORM::factory('page')->where('catalog_id', '=', $catalog_id)->and_where('status', '=', '1')->find_all();
+           $pages = ORM::factory('page')
+               ->where('catalog_id', '=', $catalog_id)
+               ->and_where('status', '=', '1')
+               ->find_all();
 
-           $pages_array = array();
            foreach ($pages as $page)
            {
                $pages_array['pagename'] = $page->pagename;
@@ -43,8 +49,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                $pages_result[] = $pages_array;
            };
 
-           $json_pages = parent::json_encode_cyr($pages_result);
-           echo $json_pages;
+           echo parent::json_encode_cyr($pages_result);
        }
        else
        {
@@ -56,10 +61,11 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                $options[$key] = Kohana::$config->load('site.' . $key);
            }
 
-           $nav = View::factory('site/blocks/V_nav');
-           $footer = View::factory('site/blocks/V_footer');
-
            if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
+
+           $nav = View::factory('site/blocks/V_nav');
+
+           $footer = View::factory('site/blocks/V_footer');
 
            $view = View::factory('site/index')
                        ->bind('options', $options)

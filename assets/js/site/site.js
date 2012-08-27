@@ -1,4 +1,6 @@
 /* Bootstrap */
+var siteRoot = 'localhost/frontend';
+
 requirejs.config({
     urlArgs: 'bust='+ (new Date()).getMilliseconds(),
     deps : ['site', 'tests'],
@@ -20,20 +22,12 @@ requirejs.config({
     }
 });
 
-requirejs(['router', 'domReady'], function (Router) {
+requirejs(['router', 'collections/catalogs'], function (Router, CatalogView) {
+
     var site = Router.initialize();
 
     // Меняем URL без редиректа
-    $(document).on('click', '.pagename a', function(e){
-        var href = $(this).attr('href');
-        var protocol = this.protocol + '//';
-        if (href.slice(protocol.length) !== protocol) {
-            e.preventDefault();
-            site.navigate(href, true);
-        }
-    });
-
-    $(document).on('click', '.topmenu a', function(e){
+    $(document).on('click', 'a', function(e){
         var href = $(this).attr('href');
         var protocol = this.protocol + '//';
         if (href.slice(protocol.length) !== protocol) {
