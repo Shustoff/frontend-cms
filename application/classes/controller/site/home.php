@@ -10,14 +10,17 @@ class Controller_Site_Home extends Controller_Site_Main {
 
     public function action_index()
    	{
+       $offset = $this->request->param('page');
        // Если запрошен аяксом
        if ($this->request->is_ajax())
        {
           // Устанавливаем заголовки json-ответа
            $this->response->headers('Content-Type', 'application/json');
-           $pages = ORM::factory('page')->where('status', '=', '1')->find_all()->as_array();
+           $pages = ORM::factory('page')
+               ->where('status', '=', '1')
+               ->find_all()
+               ->as_array();
 
-           $pages_array = array();
            foreach ($pages as $page)
            {
                $pages_array['pagename'] = $page->pagename;
@@ -29,8 +32,7 @@ class Controller_Site_Home extends Controller_Site_Main {
                $pages_result[] = $pages_array;
            }
 
-           $json_pages = parent::json_encode_cyr($pages_result);
-           echo $json_pages;
+           echo parent::json_encode_cyr($pages_result);
        }
        else
        {
@@ -42,11 +44,11 @@ class Controller_Site_Home extends Controller_Site_Main {
                $options[$key] = Kohana::$config->load('site.' . $key);
            }
 
-           $mod = ORM::factory('module')->find_all()->as_array();
-           $nav = View::factory('site/blocks/V_nav');
-           $footer = View::factory('site/blocks/V_footer')->bind('mod', $mod);
-
            if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
+
+           $nav = View::factory('site/blocks/V_nav');
+
+           $footer = View::factory('site/blocks/V_footer');
 
            $view = View::factory('site/index')
                        ->bind('options', $options)

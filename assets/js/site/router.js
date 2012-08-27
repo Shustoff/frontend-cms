@@ -17,7 +17,7 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
             ':pagealias' : 'showPage',
             // Роут показа содержимого каталога
             ':catalias/' : 'showCatalog',
-            // Роут ошибки
+            // Все неопределенные роуты - ошибки
             '*actions' : 'page404'
         },
 
@@ -27,6 +27,7 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
                 var catalog = new Catalog;
                 // Заполнили ее данными
                 catalog.fetch();
+                console.log( catalog.pagination(4,1) );
                 // Передали в вид
                 var catalogView = new CatalogView({collection : catalog});
                 // Вставили в DOM
@@ -60,7 +61,7 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
         },
 
         page404 : function () {
-            window.location = 'http://localhost/frontend/error/404';
+            window.location.replace('http://' + siteRoot + '/error/404');
         }
     });
 

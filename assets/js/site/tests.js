@@ -32,7 +32,7 @@ define(
                 equal(typeof this.page, 'object', 'Модель page имеет тип "object"');
             });
             test('проверка свойств модели', 1, function () {
-                equal(this.page.urlRoot, '/frontend/', 'Корневой URL модели - frontend');
+                equal(this.page.urlRoot, '/frontend/' + this.page.get('alias'), 'Корневой URL модели  /frontend/ + alias страницы');
             });
 
     // Проверяем вид CatalogView
@@ -72,11 +72,10 @@ define(
                 equal(typeof CatalogPageView, 'function', 'Должен быть конструктором');
                 equal(typeof this.catalogPageView, 'object', 'catalogPageView имеет тип "object"');
             });
-            test('проверка свойств вида', 4, function () {
+            test('проверка свойств вида', 3, function () {
                 notEqual(this.catalogPageView.model, undefined, 'Использует какую-либо модель');
                 equal(this.catalogPageView.tagName, 'article', 'tagName равен "section"');
                 equal(this.catalogPageView.className, 'threecol', 'className равен "threecol"');
-                deepEqual(this.catalogPageView.render(), this.catalogPageView, 'Метод render() возвращает текущий объект');
             });
 
 });

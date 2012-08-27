@@ -1,12 +1,12 @@
 <!--Футер -->
 <footer class="footer row">
     <div class="fourcol">
-        <?=Mod::render('nav1');?>
+        <?=Mod::render('mod1');?>
     </div>
     <div class="fourcol">
-        <?=Mod::render('nav2');?>
+        <?=Mod::render('mod2');?>
     </div>
     <div class="fourcol last">
-        <?=Mod::render('nav3');?>
+        <?=Mod::render('mod3');?>
     </div>
 </footer>

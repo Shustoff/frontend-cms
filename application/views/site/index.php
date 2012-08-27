@@ -16,9 +16,9 @@
 
     <!--Антикэш-->
     <meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT">
-    <meta http-equiv="Last-Modified" content="Mon, 26 Jul 1997 05:00:00 GMT">
 
     <!--Стили-->
+    <link rel="stylesheet" href="<?=URL::base();?>assets/css/bootstrap.css">
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/h5bp.css">
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/1140.css">
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/qunit-1.9.0.css">
@@ -40,6 +40,17 @@
     <!-- Центральная часть, вставляется через Underscore template-->
     <section class="mid">
         <section class="row catalog"></section>
+    </section>
+    <section class="pag">
+        <!--Пагинация-->
+        <div class="pagination">
+          <ul>
+            <li><a href="#" id="one">1</a></li>
+            <li><a href="#" id="two">2</a></li>
+            <li><a href="#" id="three">3</a></li>
+            <li><a href="#" id="four">4</a></li>
+          </ul>
+        </div>
     </section>
 </div>
 

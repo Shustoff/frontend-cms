@@ -37,4 +37,5 @@ function (Backbone, CatalogPageView) {
     });
 
     return CatalogView;
+
 });
