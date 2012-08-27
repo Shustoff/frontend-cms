@@ -20,8 +20,9 @@ function (Backbone, OnePageTemplate) {
         render : function () {
             var content = this.template(this.model.attributes);
             // Если страница не найдена, выдаем ошибку
-            if (this.model.attributes.alias == null ) {
-                window.location = 'http://localhost/frontend/error/404';
+            if (this.model.attributes.alias == null)
+            {
+                window.location.replace('http://' + siteRoot + '/error/404');
             }
             this.$el.html(content);
             return this;

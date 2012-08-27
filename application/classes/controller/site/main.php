@@ -9,6 +9,7 @@ class Controller_Site_Main extends Controller {
        $this->response->body( View::factory('site/offline') );
     }
 
+    // Функция кодирования в JSON кириллических символов
     static protected function json_encode_cyr($str)
     {
         $arr_replace_utf = array('\u0410', '\u0430','\u0411','\u0431','\u0412','\u0432',
@@ -27,5 +28,4 @@ class Controller_Site_Main extends Controller {
         $str2 = str_replace($arr_replace_utf,$arr_replace_cyr,$str1);
         return $str2;
     }
-
 }

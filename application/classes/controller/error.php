@@ -34,8 +34,7 @@ class Controller_Error extends Controller_Template {
  
     public function action_404()
     {
-        $fail = Kohana::$config->load('site.page404');
-        $this->template->fail = $fail;
+        $this->template->fail = Kohana::$config->load('site.page404');
     }
  
     public function action_503()
@@ -45,8 +44,7 @@ class Controller_Error extends Controller_Template {
 
     public function action_500()
     {
-        $fail = Kohana::$config->load('site.page404');
-        $this->template->fail = $fail;
+        $this->template->fail = 'Internal Server Error';
     }
 
 }

@@ -19,7 +19,11 @@ class Controller_Site_Page extends Controller_Site_Main {
             $this->response->headers('Content-Type', 'application/json');
 
             $pagealias = $this->request->param('pagealias');
-            $page = ORM::factory('page')->where('alias', '=', $pagealias)->and_where('status', '=', '1')->find();
+
+            $page = ORM::factory('page')
+                ->where('alias', '=', $pagealias)
+                ->and_where('status', '=', '1')
+                ->find();
 
             $page_array['pagename'] = $page->pagename;
             $page_array['date'] = $page->date;
@@ -28,8 +32,7 @@ class Controller_Site_Page extends Controller_Site_Main {
             $page_array['author'] = $page->users->username;
             $page_array['content'] = $page->content;
 
-            $json_page = parent::json_encode_cyr($page_array);
-            echo $json_page;
+            echo parent::json_encode_cyr($page_array);
         }
         else
         {
@@ -50,12 +53,9 @@ class Controller_Site_Page extends Controller_Site_Main {
                $options[$key] = Kohana::$config->load('site.' . $key);
             }
 
-            if ($options['debug'] == 1)
-            {
-                $profiler = View::factory('profiler/stats');
-            }
+            if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
 
-            $navigation = View::factory('site/blocks/V_nav');
+            $nav = View::factory('site/blocks/V_nav');
             $footer = View::factory('site/blocks/V_footer');
             $content = View::factory('site/blocks/V_page')
                             ->bind('pagename', $pagename)
@@ -65,7 +65,7 @@ class Controller_Site_Page extends Controller_Site_Main {
                             ->bind('author', $author);
 
             $main = View::factory('site/index')
-                            ->bind('nav', $navigation)
+                            ->bind('nav', $nav)
                             ->bind('content', $content)
                             ->bind('footer',$footer)
                             ->bind('options', $options)
