@@ -10,7 +10,6 @@ class Controller_Site_Home extends Controller_Site_Main {
 
     public function action_index()
    	{
-       $offset = $this->request->param('page');
        // Если запрошен аяксом
        if ($this->request->is_ajax())
        {
@@ -26,6 +25,7 @@ class Controller_Site_Home extends Controller_Site_Main {
                $pages_array['pagename'] = $page->pagename;
                $pages_array['date'] = $page->date;
                $pages_array['alias'] = $page->alias;
+               $pages_array['catalog_alias'] = $page->catalogs->alias;
                $pages_array['catalog'] = $page->catalogs->catname;
                $pages_array['content'] = $page->content;
                $pages_array['author'] = $page->users->username;
