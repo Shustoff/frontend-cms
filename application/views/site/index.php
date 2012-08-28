@@ -37,19 +37,14 @@
     <section class="top">
         <?=$nav;?>
     </section>
-    <!-- Центральная часть, вставляется через Underscore template-->
+    <!-- Центральная часть-->
     <section class="mid">
         <section class="row catalog"></section>
     </section>
-    <section class="pag">
-        <!--Пагинация-->
+    <!--Пагинация-->
+    <section class="pageWrapper">
         <div class="pagination">
-          <ul>
-            <li><a href="#" id="one">1</a></li>
-            <li><a href="#" id="two">2</a></li>
-            <li><a href="#" id="three">3</a></li>
-            <li><a href="#" id="four">4</a></li>
-          </ul>
+          <ul></ul>
         </div>
     </section>
 </div>

@@ -14,6 +14,12 @@
     box-sizing: border-box;
 }
 
+.hovered {
+    background-color: #5BB75B;
+    background-image: -moz-linear-gradient(center top , #62C462, #51A351);
+    color: #fff !important;
+}
+
 /* Общие стили */
 html,
 body {
@@ -112,6 +118,11 @@ a {
     .pagination {
         text-align: center;
         padding-bottom: 100px;
+
+        a:hover,
+        .hover {
+            .hovered;
+        }
     }
 }
 

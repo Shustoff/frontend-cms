@@ -43,6 +43,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                $pages_array['pagename'] = $page->pagename;
                $pages_array['date'] = $page->date;
                $pages_array['alias'] = $page->alias;
+               $pages_array['catalog_alias'] = $page->catalogs->alias;
                $pages_array['catalog'] = $page->catalogs->catname;
                $pages_array['content'] = $page->content;
                $pages_array['author'] = $page->users->username;

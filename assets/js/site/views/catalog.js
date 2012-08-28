@@ -4,9 +4,10 @@
 define([
     'Backbone',
     './page',
+    'config',
     'text!../templates/catalog_page.html'
 ],
-function (Backbone, CatalogPageView) {
+function (Backbone, CatalogPageView, config) {
     var CatalogView = Backbone.View.extend({
         tagName : 'section',
         className : 'row catalog',
@@ -14,14 +15,24 @@ function (Backbone, CatalogPageView) {
 
         initialize : function () {
             _.bindAll(this);
+            /*
+            var self = this;
             // При заполнении коллекции вызываем метод render()
-            this.collection.on('reset', this.render);
+            this.collection.on('reset', function () {
+                self.render(8, 1);
+                self.addPagination();
+            });
+            */
         },
 
-        render : function () {
+        render : function (perPage, page) {
             var self = this;
+            page = page - 1;
+            var collection = this.collection;
+            collection = _(collection.rest(perPage * page));
+            collection = _(collection.first(perPage));
             // Проходим по всем моделям в коллекции и рендерим их
-            this.collection.each(function(model) {
+            collection.each(function(model) {
                 var pageView = new CatalogPageView({model : model});
                 var content = pageView.render().el;
                 self.$el.append(content);
@@ -33,6 +44,23 @@ function (Backbone, CatalogPageView) {
                 }
             });
             return this;
+        },
+
+        // Добавляем пагинацию
+        addPagination : function (catalias) {
+            $('.pagination').show();
+            var $pageList = $('.pagination ul'),
+                pageCount = (this.collection.length / 8).toFixed(),
+                pageNum = 1;
+
+            $pageList.empty();
+
+            if (pageCount > 1) {
+                while (pageNum <= pageCount) {
+                    $pageList.append('<li><a id="' + pageNum + '" href="' + (catalias || '') + '/page/' + pageNum + '">' + pageNum + '</a></li>');
+                    pageNum++;
+                }
+            }
         }
     });
 

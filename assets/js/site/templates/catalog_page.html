@@ -1,5 +1,5 @@
 <p class=pagename>
-    <a href="{{alias}}"> {{pagename}} </a>
+    <a href="{{catalog_alias ? catalog_alias + '/' : ''}}{{alias}}"> {{pagename}} </a>
 </p>
 <p class=createdDate>
     <strong>Дата создания: </strong> {{date}}
@@ -8,7 +8,7 @@
     <strong>Автор: </strong> {{author}}
 </p>
 <p class=parentCatalog>
-    <strong>Каталог: </strong> {{catalog}}
+    <strong>Каталог: </strong> {{catalog_alias ? catalog : 'нету'}}
 </p>
 <div class=content>
     {{content}}
