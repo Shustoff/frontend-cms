@@ -12,17 +12,20 @@ requirejs.config({
         'QUnit' : '../libs/qunit-1.9.0',
         // Plugins
         'text' : '../libs/require/text',
-        'domReady' : '../libs/require/domready'
+        'domReady' : '../libs/require/domready',
+        // Custom
+        'config' : './config'
     },
     shim : {
         'Backbone' : {
             deps : ['jQuery', 'Underscore'],
             exports : 'Backbone'
-        }
+        },
+        'config' : { deps : ['Underscore'] }
     }
 });
 
-requirejs(['router', 'collections/catalogs'], function (Router, CatalogView) {
+requirejs(['router', 'config'], function (Router) {
 
     var site = Router.initialize();
 

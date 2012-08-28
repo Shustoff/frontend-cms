@@ -13,30 +13,49 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
         routes :  {
             // Роут главной страницы
             '' : 'mainPage',
-            // Роут показа одной страницы
+            // Роут номеров страниц на главной
+            'page/:number' : 'mainPage',
+
+            // Роут показа одной страницы БЕЗ каталога
             ':pagealias' : 'showPage',
-            // Роут показа содержимого каталога
+
+            // Роут показа каталога
             ':catalias/' : 'showCatalog',
+            // Роут номеров страниц в каталоге
+            ':catalias/page/:number' : 'showCatalog',
+            // Роут показа одной страницы В каталоге
+            ':catalias/:pagealias' : 'showCatalogPage',
+
             // Все неопределенные роуты - ошибки
             '*actions' : 'page404'
         },
 
-        mainPage : function () {
+        // Главная страница
+        mainPage : function (pagenumber) {
             $(function() {
                 // Создали пустую коллекцию
                 var catalog = new Catalog;
                 // Заполнили ее данными
                 catalog.fetch();
-                console.log( catalog.pagination(4,1) );
                 // Передали в вид
-                var catalogView = new CatalogView({collection : catalog});
-                // Вставили в DOM
-                $('.mid').html( catalogView.el );
+                catalog.on('reset', function(){
+                    var catalogView = new CatalogView({collection : catalog});
+                    $('.mid').html( catalogView.el );
+                    catalogView.render(8, pagenumber);
+                    catalogView.addPagination();
+                    $('.pagination a').each(function() {
+                        if ( $(this).attr('id') === (pagenumber) ) {
+                            $(this).addClass('hover');
+                        }
+                    });
+                });
             });
         },
 
+        // Одна страница БЕЗ каталога
         showPage : function (pagealias) {
             $(function() {
+                $('.pagination').hide();
                 // Создали пустую модель, передали ей alias
                 var page = new Page({alias : pagealias});
                 // Заполнили ее данными
@@ -48,18 +67,43 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
             });
         },
 
-        showCatalog : function (catalias) {
+        // Одна страница В каталоге
+        showCatalogPage : function (catalias, pagealias) {
+            $(function() {
+                $('.pagination').hide();
+                // Создали пустую модель, передали ей alias
+                var page = new Page({alias : pagealias});
+                // Заполнили ее данными
+                page.fetch();
+                // Передали в вид
+                var pageView = new OnePageView({model : page});
+                // Вставили в DOM
+                $('.catalog').html( pageView.el );
+            });
+        },
+
+        // Каталог
+        showCatalog : function (catalias, pagenumber) {
             // Создаем пустую коллекцию
             var catalog = new Catalog();
             catalog.url = '/frontend/c/' + catalias;
             // Заполняем ее данными
             catalog.fetch();
             // Передали в вид
-            var catalogView = new CatalogView({collection : catalog});
-            // Вставили в DOM
-            $(function() { $('.mid').html( catalogView.el ); });
+            catalog.on('reset', function() {
+                var catalogView = new CatalogView({collection : catalog});
+                $(function() { $('.mid').html( catalogView.el ); });
+                catalogView.render(8, pagenumber);
+                catalogView.addPagination(catalias);
+                $('.pagination a').each(function() {
+                    if ( $(this).attr('id') === (pagenumber) ) {
+                        $(this).addClass('hover');
+                    }
+                });
+            });
         },
 
+        // Страница не найдена
         page404 : function () {
             window.location.replace('http://' + siteRoot + '/error/404');
         }
@@ -68,7 +112,7 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
     var initialize = function () {
         // Создаем роутер сайта
         var site = new SiteRouter();
-        // Начинаем вести историю
+        // Начинаем историю
         Backbone.history.start({pushState : true, root : '/frontend/'});
         return site;
     };
