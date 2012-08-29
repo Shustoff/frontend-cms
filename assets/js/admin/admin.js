@@ -113,6 +113,7 @@ $(function(){
 
         // Пагинация
         pagination: function(table, selfpage) {
+            localStorage.setItem('selfpage', '.' + $(selfpage).attr('class'));
             // Сохраняет сортировку между запросами
             var sortby = $('#select1 option:selected').text();
             localStorage.setItem('sortby', sortby);
@@ -137,19 +138,21 @@ $(function(){
             $.post(baseURL + table, $(name).serialize(), function(data) {
                 // Добавляем возвращаемые данные в документ
                 $('.main').empty().append(data);
+
                 // Сохраняем значение выпадающего списка между переходами по страницам
                 $('#select1 option').each(function() {
-                    if ( $(this).text() === localStorage.getItem('sortby') ) {
+                    if ($(this).text() === localStorage.getItem('sortby')) {
                         $(this).attr('selected', 'selected');
                         localStorage.removeItem('sortby');
                     }
                 });
                 $('#select2 option').each(function() {
-                    if ( $(this).text() === localStorage.getItem('limit') ) {
+                    if ($(this).text() === localStorage.getItem('limit')) {
                         $(this).attr('selected', 'selected');
                         localStorage.removeItem('limit');
                     }
                 });
+                $(localStorage.getItem('selfpage')).addClass('hovered');
             });
         },
 
