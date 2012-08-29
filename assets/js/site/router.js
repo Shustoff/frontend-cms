@@ -100,6 +100,7 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
                         $(this).addClass('hover');
                     }
                 });
+                document.title = catalog.models[0].attributes.catalog
             });
         },
 

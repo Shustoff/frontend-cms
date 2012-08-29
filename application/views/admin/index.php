@@ -36,7 +36,7 @@
                    <p>Название сайта: <strong class="sitename"><?=$sitename;?></strong></p>
                    <p>Ваш IP адрес: <strong><?=$_SERVER['REMOTE_ADDR'];?></strong></p>
                    <p>Здравствуйте: <strong><?=$user->username;?></strong>
-                      <a href="<?=URL::site('/admin/auth/logout'); ?>" title="Выйти">
+                      <a href="<?=URL::site('/admin/auth/logout'); ?>" title="Выйти" class="logout">
                           <img src="<?=URL::base();?>assets/img/admin/delete.png" alt="">
                       </a>
                    </p>

@@ -15,14 +15,6 @@ function (Backbone, CatalogPageView, config) {
 
         initialize : function () {
             _.bindAll(this);
-            /*
-            var self = this;
-            // При заполнении коллекции вызываем метод render()
-            this.collection.on('reset', function () {
-                self.render(8, 1);
-                self.addPagination();
-            });
-            */
         },
 
         render : function (perPage, page) {

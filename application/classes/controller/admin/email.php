@@ -40,7 +40,7 @@ class Controller_Admin_Email extends Controller_Admin_App {
 
         $to = $_POST['to'];
         $subject = $_POST['subject'];
-        $from = $_POST['from'];
+        $from = Kohana::$config->load('site.email');
         $message = $_POST['content'];
         $saveemail = $_POST['saveemail'];
         $date = $_POST['date'];

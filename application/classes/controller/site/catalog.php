@@ -65,9 +65,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
            if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
 
            $nav = View::factory('site/blocks/V_nav');
-
            $footer = View::factory('site/blocks/V_footer');
-
            $view = View::factory('site/index')
                        ->bind('options', $options)
                        ->bind('nav', $nav)

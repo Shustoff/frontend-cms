@@ -8,7 +8,7 @@ define([
 function(Backbone, Page) {
     var Catalog = Backbone.Collection.extend({
         url : '/frontend/',
-        model : Page,
+        model : Page
     });
     return Catalog;
 });
