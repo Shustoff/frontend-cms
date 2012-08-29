@@ -49,6 +49,7 @@ $(function(){
             $.post(baseURL + "options/save", $("#saveoptions").serialize(), function() {
                 $('.sitename').text( $('#sitename').val() );
                 binds.completeSave();
+                $('.alert-success').show().delay(3000).hide(100);
             });
         },
 

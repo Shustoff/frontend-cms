@@ -14,7 +14,11 @@ function (Backbone, OnePageTemplate) {
 
         initialize : function () {
             _.bindAll(this);
-            this.model.on('change', this.render);
+            var self = this;
+            this.model.on('change', function() {
+                self.render();
+                document.title = self.model.attributes.pagename;
+            });
         },
 
         render : function () {

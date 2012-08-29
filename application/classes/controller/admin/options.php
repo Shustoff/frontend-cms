@@ -46,7 +46,7 @@ class Controller_Admin_Options extends Controller_Admin_App {
     // Сохраняем настройки
     public function action_save()
     {
-        $data = Arr::extract($_POST, array('sitename', 'description', 'session', 'keywords', 'robots', 'email', 'email_from', 'copyright', 'page404', 'status', 'debug', 'cache'));
+        $data = Arr::extract($_POST, array('sitename', 'description', 'session', 'keywords', 'robots', 'email', 'author', 'copyright', 'page404', 'status', 'debug', 'cache'));
         foreach ($data as $key => $value)
         {
             Kohana::$config->_write_config('site', $key, $value);

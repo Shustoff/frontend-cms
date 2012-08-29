@@ -41,9 +41,9 @@
             </div>
         </div>
         <div class="control-group">
-            <label for="sender" class="control-label">Отправитель: </label>
+            <label for="sender" class="control-label">Автор: </label>
             <div class="controls">
-               <input type="text" id="sender" name="email_from" class="input-xlarge" value="<?=$options['email_from'];?>">
+               <input type="text" id="sender" name="author" class="input-xlarge" value="<?=$options['author'];?>">
             </div>
         </div>
         <div class="control-group">

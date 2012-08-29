@@ -156,8 +156,8 @@ Route::set('catalias', 'c/<catalias>', array('catalias' => '.+'))
     'action' => 'index'
 ));
 
-// Роут страницы в каталоге
-Route::set('pagealias', '<pagealias>', array('pagealias' => '.+'))
+// Роут страницы БЕЗ каталога
+Route::set('pagealias', '(<catalias>/)<pagealias>', array('catalias' => '.+', 'pagealias' => '.+'))
 ->defaults(array(
     'directory' => 'site',
     'controller' => 'page',
