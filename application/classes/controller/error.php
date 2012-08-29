@@ -39,12 +39,12 @@ class Controller_Error extends Controller_Template {
  
     public function action_503()
     {
-        $this->template->fail = 'Сервис временно не доступен';
+        $this->template->fail = 'Сервис временно не доступен. Код 503.';
     }
 
     public function action_500()
     {
-        $this->template->fail = 'Internal Server Error';
+        $this->template->fail = 'Внутренняя ошибка сервера. Код 500.';
     }
 
 }

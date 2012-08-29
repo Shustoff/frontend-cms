@@ -34,7 +34,12 @@ body {
 a {
     color: #1F5717;
     text-decoration: underline;
+
     .footer &:link {
+        background-color: transparent !important;
+    }
+
+    &:link {
         background-color: transparent !important;
     }
 }
@@ -73,6 +78,10 @@ h1, h2, h3, h4, h5, h6 {color: #1F5717;}
         font-size: 14px;
     }
 
+    a:link {
+        text-decoration: underline !important;
+    }
+
     text-align: center;
 
     .top {
@@ -81,6 +90,11 @@ h1, h2, h3, h4, h5, h6 {color: #1F5717;}
 
     #logout {
         cursor: pointer;
+    }
+
+    .logout {
+       display: inline-block;
+       vertical-align: middle;
     }
 
     .sitename {
@@ -119,8 +133,17 @@ h1, h2, h3, h4, h5, h6 {color: #1F5717;}
         font-size: 20px;
         font-family: Geneva;
         -moz-transition: -moz-transform 0.2s ease-out 0.2s;
+        -webkit-transition: -moz-transform 0.2s ease-out 0.2s;
+        -o-transition: -moz-transform 0.2s ease-out 0.2s;
+        -ms-transition: -moz-transform 0.2s ease-out 0.2s;
+        transition: -moz-transform 0.2s ease-out 0.2s;
+
         &:hover {
             -moz-transform: scale(1.2, 1.3);
+            -webkit-transform: scale(1.2, 1.3);
+            -o-transform: scale(1.2, 1.3);
+            -ms-transform: scale(1.2, 1.3);
+            transform: scale(1.2, 1.3);
         }
     }
     padding-left: 40px;
@@ -138,6 +161,7 @@ h1, h2, h3, h4, h5, h6 {color: #1F5717;}
     .gradient(top, #F9F9F9, #F5F5F5);
     text-align: center;
     border-bottom: @border;
+
     .close {
         cursor: pointer;
         position: absolute;
@@ -490,6 +514,9 @@ p.pagination a {
         }
         &:hover {
             text-decoration: underline;
+        }
+        img {
+            float: none;
         }
     }
 
