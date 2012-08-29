@@ -18,7 +18,7 @@
     background: -webkit-linear-gradient(@position, @from, @to);
     background: -o-linear-gradient(@position, @from, @to);
     background: -ms-linear-gradient(@position, @from, @to);
-    background: linear-gradient(@position, @from, @to);
+    background-image: linear-gradient(@position, @from, @to);
 }
 
 
@@ -35,11 +35,11 @@ a {
     color: #1F5717;
     text-decoration: underline;
 
-    .footer &:link {
+    .top &:link {
         background-color: transparent !important;
-    }
+     }
 
-    &:link {
+    .footer &:link {
         background-color: transparent !important;
     }
 }
@@ -368,11 +368,17 @@ table {
     height: 100% !important;
     margin-bottom: 0px;
 
+    .hovered {
+        background-color: #5BB75B;
+        color: #fff;
+    }
+
     a {
         background-color: #F5F5F5;
+
         &:hover {
             background-color: #5BB75B;
-            background-image: -moz-linear-gradient(center top , #62C462, #51A351);
+            .gradient(center, #62C462, #51A351);
             color: #fff;
         }
     }
