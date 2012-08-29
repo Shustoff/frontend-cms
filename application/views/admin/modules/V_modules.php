@@ -91,7 +91,7 @@
                         <input type="hidden" name="offset" id="offset" value="">
                         <input type="hidden" name="limit" id="limit" value="">
                         <input type="hidden" name="sortby" id="sortby" value="">
-                        <a href="#" class="pageN" name="pagination" onclick="req.pagination('modules',this);"><?=$i;?></a>
+                        <a href="#" class="page<?php echo $i; ?>" name="pagination" onclick="req.pagination('modules',this);"><?=$i;?></a>
                     </form>
                 </li>
                 <? endfor; ?>
