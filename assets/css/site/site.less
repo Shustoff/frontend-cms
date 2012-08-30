@@ -31,20 +31,23 @@ body {
 ::selection {background: #60BF96;}
 
 a {
+    color: @colorLink !important;
+
     &:focus {
         outline: none;
     }
-    color: @colorLink !important;
     &:hover {
         text-shadow: 1px 1px 1px #007D48;
     }
 }
 
+/* Медиа запросы */
+
 // Для разрешения < 480 пикс
 @media all and (max-width: 480px) {
     body {
         .top {
-            height: 220px;
+            height: 200px;
         }
         .topmenu {
             ul {
@@ -54,6 +57,8 @@ a {
                 float: left;
                 clear: both;
                 width: 100% !important;
+                margin-bottom: 10px;
+
                 a {
                     font-size: 1.6em !important;
                     width: 100%;
@@ -107,7 +112,7 @@ a {
     }
 }
 
-// Обертка для верхнего и среднего блока
+/* Обертка для верхнего и среднего блока */
 .wrapper {
     min-height: 100%;
     height: auto !important;
@@ -130,11 +135,9 @@ a {
 .top {
     height: 80px;
     border-bottom: 1px dashed @colorBorder;
-
     background: @bgImg2;
 
     .topmenu {
-
         padding: 0px auto;
 
         li {
@@ -142,6 +145,7 @@ a {
             text-align: center;
             width: 20%;
             display: inline-block;
+
             a {
                 font-size: 2em;
                 text-decoration: none;
@@ -163,12 +167,12 @@ a {
 
     .row {
         .threecol  {
-
             margin-bottom: 30px;
 
             .pagename {
                 text-align: center;
                 margin-bottom: 10px;
+
                 a {
                    font-size: 1.4em;
                    text-decoration: none;
@@ -199,7 +203,6 @@ a {
     margin-top: -70px;
     min-height: 30px;
     height: auto;
-
     background: @bgImg2;
 
     footer {
