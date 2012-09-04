@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/bootstrap.css">
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/h5bp.css">
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/1140.css">
-    <link rel="stylesheet" href="<?=URL::base();?>assets/css/qunit-1.9.0.css">
+    <!--Для тестов--><link rel="stylesheet" href="<?=URL::base();?>assets/css/qunit-1.9.0.css">
     <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/site/site.less">
 
     <!--Фавикон-->

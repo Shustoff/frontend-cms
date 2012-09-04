@@ -53,7 +53,7 @@
                         <input type="radio" value="1" name="cats" <?=$role->cats == 1 ? 'checked="checked"' : '';?>>Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="cats" <?=$role->pages == 0 ? 'checked="checked"' : '';?>>Нет
+                        <input type="radio" value="0" name="cats" <?=$role->cats == 0 ? 'checked="checked"' : '';?>>Нет
                 </label>
                 </div>
             </div>
