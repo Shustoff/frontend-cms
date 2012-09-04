@@ -125,7 +125,7 @@
         <div class="span12 footer">
             <p>Front CMS based on Kohana Framework v3.2</p>
             <a href="http://kohanaframework.org" class="kohcopy" target="_blank">www.kohanaframework.org</a>
-            <a href="#" class="helper">
+            <a href="https://github.com/Shustoff/front-cms/wiki/%D0%9E%D0%B1%D0%B7%D0%BE%D1%80-Front-CMS" class="helper" target="_blank">
                 <img src="<?=URL::base();?>assets/img/admin/help.png" alt=""><span>Помощь</span>
             </a>
         </div>
