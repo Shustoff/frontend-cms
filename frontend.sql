@@ -7,7 +7,7 @@
 #
 # Адрес: localhost (MySQL 5.5.9)
 # Схема: frontend
-# Время создания: 2012-08-29 17:10:18 +0000
+# Время создания: 2012-09-04 16:03:30 +0000
 # ************************************************************
 
 
@@ -76,13 +76,13 @@ LOCK TABLES `config` WRITE;
 
 INSERT INTO `config` (`group_name`, `config_key`, `config_value`)
 VALUES
-	('site','sitename','s:16:\"The Songs Of God\";'),
-	('site','description','s:31:\"Лучшая музыка ever!\";'),
-	('site','session','s:4:\"3600\";'),
-	('site','keywords','s:45:\"музыка, techno, trance, hardcore, music\";'),
+	('site','sitename','s:21:\"Пустой сайт\";'),
+	('site','description','s:43:\"это мета-описание сайта\";'),
+	('site','session','s:4:\"1800\";'),
+	('site','keywords','s:28:\"ключевые, слова\";'),
 	('site','robots','s:12:\"index,follow\";'),
-	('site','email','s:13:\"admin@mail.ru\";'),
-	('site','author','s:22:\"Admin The Songs Of god\";'),
+	('site','email','s:16:\"admin@example.ru\";'),
+	('site','author','s:13:\"Administrator\";'),
 	('site','copyright','s:48:\"Все права защищены. 2012 год.\";'),
 	('site','page404','s:99:\"Извините, но страница которую вы запросили не найдена.\";'),
 	('site','status','s:1:\"1\";'),
@@ -109,15 +109,6 @@ CREATE TABLE `mails` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-LOCK TABLES `mails` WRITE;
-/*!40000 ALTER TABLE `mails` DISABLE KEYS */;
-
-INSERT INTO `mails` (`id`, `to`, `subject`, `from`, `message`, `date`)
-VALUES
-	(1,'dima.shustoff@gmail.com','hi','int3rhard@gmail.com','<p>\n	hello</p>\n','2012-08-29');
-
-/*!40000 ALTER TABLE `mails` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Дамп таблицы modules
@@ -143,9 +134,9 @@ LOCK TABLES `modules` WRITE;
 
 INSERT INTO `modules` (`id`, `name`, `systemname`, `content`, `author_id`, `type`, `date`, `status`, `intrash`)
 VALUES
-	(2,'Модуль навигации','mod1','<p>Код модуля 1</p>\n',1,'HTML','2012-06-16',1,0),
-	(3,'Модуль валидации','mod2','<p>Код модуля 2</p>\n',1,'PHP','2012-06-16',1,0),
-	(5,'Модуль пагинации','mod3','<p>Код модуля 3</p>\n',1,'JS','2012-06-16',1,0);
+	(2,'Модуль номер 1','mod1','<p>\n	Код модуля 1</p>\n',1,'HTML','2012-06-16',1,0),
+	(3,'Модуль номер 2','mod2','<p>\n	Код модуля 2</p>\n',1,'PHP','2012-06-16',1,0),
+	(5,'Модуль номер 3','mod3','<p>\n	Код модуля 3</p>\n',1,'JS','2012-06-16',1,0);
 
 /*!40000 ALTER TABLE `modules` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -248,7 +239,7 @@ INSERT INTO `roles` (`id`, `name`, `description`, `pages`, `cats`, `users`, `mod
 VALUES
 	(1,'login','Зарегистрированный',0,0,0,0,0,0,0,0,1,0,'2012-07-01'),
 	(2,'admin','Администратор',1,1,1,1,1,1,1,1,1,0,'2012-07-02'),
-	(3,'mana','Менеджерe',1,1,1,1,1,1,1,1,1,0,'2012-08-19');
+	(3,'manager','Менеджер',1,0,0,0,1,0,0,0,1,0,'2012-09-04');
 
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -326,9 +317,9 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `firstname`, `lastname`, `datereg`, `status`, `logins`, `last_login`, `intrash`)
 VALUES
-	(1,'int3rhard@gmail.com','admin','ac6f6788b30fa58d5fbddad35140bad44b0ce132dec42bf54f160f1ac451722d','Dima','Dimich','2012-06-28',1,262,'0000-00-00',0),
-	(2,'dima.shustoff@gmail.com','man','ac6f6788b30fa58d5fbddad35140bad44b0ce132dec42bf54f160f1ac451722d','Oleg','Olegich','2012-07-04',1,16,'0000-00-00',0),
-	(3,'dima116@rambler.ru','registerman','ac6f6788b30fa58d5fbddad35140bad44b0ce132dec42bf54f160f1ac451722d','Leha','Leshich','2012-07-31',1,4,'0000-00-00',0);
+	(1,'admin@example.com','admin','ac6f6788b30fa58d5fbddad35140bad44b0ce132dec42bf54f160f1ac451722d','Dima','Dimich','2012-06-28',1,267,'0000-00-00',0),
+	(2,'manager@example.com','manager','ac6f6788b30fa58d5fbddad35140bad44b0ce132dec42bf54f160f1ac451722d','Oleg','Olegich','2012-07-04',1,16,'0000-00-00',0),
+	(3,'register@example.com','register','ac6f6788b30fa58d5fbddad35140bad44b0ce132dec42bf54f160f1ac451722d','Leha','Leshich','2012-07-31',1,4,'0000-00-00',0);
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
