@@ -1,4 +1,4 @@
-/* Bootstrap */
+/* Главный файл, конфиг Require. Bootstrap */
 var siteRoot = 'localhost/frontend';
 
 requirejs.config({
