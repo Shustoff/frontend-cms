@@ -31,6 +31,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
            }
 
            $catalog_id = $catalog->id;
+           $catalog_desc = $catalog->content;
 
            // Выбираем все страницы родительского каталога
            $pages = ORM::factory('page')
@@ -50,6 +51,8 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                $pages_result[] = $pages_array;
            };
 
+           // $pages_result['catalogDesc'] = $catalog_desc;
+
            echo parent::json_encode_cyr($pages_result);
        }
        else
@@ -57,8 +60,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
            // Выбираем все настройки
            $cfgsite = Kohana::$config->load('site');
 
-           foreach ($cfgsite as $key => $value)
-           {
+           foreach ($cfgsite as $key => $value) {
                $options[$key] = Kohana::$config->load('site.' . $key);
            }
 

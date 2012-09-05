@@ -92,7 +92,9 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
             // Передали в вид
             catalog.on('reset', function() {
                 var catalogView = new CatalogView({collection : catalog});
-                $(function() { $('.mid').html( catalogView.el ); });
+                $(function() {
+                    $('.mid').html( catalogView.el );
+                });
                 catalogView.render(8, pagenumber);
                 catalogView.addPagination(catalias);
                 $('.pagination a').each(function() {

@@ -23,12 +23,16 @@ function (Backbone, CatalogPageView, config) {
             var collection = this.collection;
             collection = _(collection.rest(perPage * page));
             collection = _(collection.first(perPage));
+
             // Проходим по всем моделям в коллекции и рендерим их
             collection.each(function(model) {
-                var pageView = new CatalogPageView({model : model});
-                var content = pageView.render().el;
-                self.$el.append(content);
+
+                    var pageView = new CatalogPageView({model : model});
+                    var content = pageView.render().el;
+                    self.$el.append(content);
+
             });
+
             // Каждой 4й колонке ставим класс .last
             $('.threecol').map(function(){
                 if (($(this).index() + 1) % 4 === 0) {
