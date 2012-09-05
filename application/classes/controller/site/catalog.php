@@ -51,8 +51,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                $pages_result[] = $pages_array;
            };
 
-           // $pages_result['catalogDesc'] = $catalog_desc;
-
+           $pages_result[] = (array) $catalog_desc;
            echo parent::json_encode_cyr($pages_result);
        }
        else
