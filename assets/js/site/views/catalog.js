@@ -21,16 +21,23 @@ function (Backbone, CatalogPageView, config) {
             var self = this;
             page = page - 1;
             var collection = this.collection;
+
+            // Проверяем, если модель это не страница, а например описание каталога
+            collection.each(function(model) {
+                if (_.has(model.toJSON(), 0)) {
+                    $('.mid').prepend('<section class="row catalog-desc">' + model.toJSON()[0] + '</section>');
+                    model.destroy();
+                }
+            });
+
             collection = _(collection.rest(perPage * page));
             collection = _(collection.first(perPage));
 
             // Проходим по всем моделям в коллекции и рендерим их
             collection.each(function(model) {
-
-                    var pageView = new CatalogPageView({model : model});
-                    var content = pageView.render().el;
-                    self.$el.append(content);
-
+                var pageView = new CatalogPageView({model : model});
+                var content = pageView.render().el;
+                self.$el.append(content);
             });
 
             // Каждой 4й колонке ставим класс .last
