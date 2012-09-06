@@ -1,6 +1,8 @@
 /**
  * Главный Роутер сайта
  */
+var baseURL = '/frontend/';
+
 define([
     'Backbone',
     'collections/catalogs',
@@ -86,7 +88,7 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
         showCatalog : function (catalias, pagenumber) {
             // Создаем пустую коллекцию
             var catalog = new Catalog();
-            catalog.url = '/frontend/c/' + catalias;
+            catalog.url = baseURL + 'c/' + catalias;
             // Заполняем ее данными
             catalog.fetch();
             // Передали в вид
@@ -116,7 +118,7 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
         // Создаем роутер сайта
         var site = new SiteRouter();
         // Начинаем историю
-        Backbone.history.start({pushState : true, root : '/frontend/'});
+        Backbone.history.start({pushState : true, root : baseURL});
         return site;
     };
 

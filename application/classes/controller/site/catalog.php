@@ -16,7 +16,6 @@ class Controller_Site_Catalog extends Controller_Site_Main {
        {
            // Устанавливаем заголовки json-ответа
            $this->response->headers('Content-Type', 'application/json');
-
            $catalias = $this->request->param('catalias');
 
            $catalog = ORM::factory('catalog')
@@ -33,10 +32,10 @@ class Controller_Site_Catalog extends Controller_Site_Main {
            $catalog_id = $catalog->id;
            $catalog_desc = $catalog->content;
 
-           // Выбираем все страницы родительского каталога
            $pages = ORM::factory('page')
                ->where('catalog_id', '=', $catalog_id)
                ->and_where('status', '=', '1')
+               ->order_by('id')
                ->find_all();
 
            foreach ($pages as $page)
@@ -51,20 +50,58 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                $pages_result[] = $pages_array;
            };
 
-           $pages_result[] = (array) $catalog_desc;
-           echo parent::json_encode_cyr($pages_result);
+           // Выбираем все каталоги у которых parent_id равен id текущего каталога
+           $allcatalogs = ORM::factory('catalog')
+               ->where('parent_id', '=', $catalog_id)
+               ->and_where('status', '=', '1')
+               ->find_all();
+
+           // Если они нашлись
+           if ( ! empty($allcatalogs[0]))
+           {
+               // Выбираем страницы вложенные в каталоги родительского каталога
+               foreach ($allcatalogs as $cat)
+               {
+                   $pages = ORM::factory('page')
+                       ->where('catalog_id', '=', $cat->id)
+                       ->and_where('status', '=', '1')
+                       ->order_by('id')
+                       ->find_all();
+                   $allpages[] = $pages;
+               }
+               // Добавляем в массив все страницы
+               foreach ($allpages as $catpages)
+               {
+                   foreach ($catpages as $page)
+                   {
+                      $pages_array['pagename'] = $page->pagename;
+                      $pages_array['date'] = $page->date;
+                      $pages_array['alias'] = $page->alias;
+                      $pages_array['catalog_alias'] = $page->catalogs->alias;
+                      $pages_array['catalog'] = $page->catalogs->catname;
+                      $pages_array['content'] = $page->content;
+                      $pages_array['author'] = $page->users->username;
+                      $pages_result[] = $pages_array;
+                   }
+               }
+               $pages_result[] = (array) $catalog_desc;
+               echo parent::json_encode_cyr($pages_result);
+           }
+           else
+           {
+               $pages_result[] = (array) $catalog_desc;
+               echo parent::json_encode_cyr($pages_result);
+           }
        }
        else
        {
            // Выбираем все настройки
            $cfgsite = Kohana::$config->load('site');
-
-           foreach ($cfgsite as $key => $value) {
+           foreach ($cfgsite as $key => $value)
+           {
                $options[$key] = Kohana::$config->load('site.' . $key);
            }
-
            if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
-
            $nav = View::factory('site/blocks/V_nav');
            $footer = View::factory('site/blocks/V_footer');
            $view = View::factory('site/index')
@@ -72,8 +109,8 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                        ->bind('nav', $nav)
                        ->bind('footer', $footer)
                        ->bind('profiler', $profiler);
-
            $this->response->body($view);
        }
     }
+
 }

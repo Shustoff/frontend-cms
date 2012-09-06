@@ -22,6 +22,7 @@ function (Backbone, OnePageTemplate) {
         },
 
         render : function () {
+            $('.catalog-desc').remove();
             var content = this.template(this.model.attributes);
             // Если страница не найдена, выдаем ошибку
             if (this.model.attributes.alias == null)

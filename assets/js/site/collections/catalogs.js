@@ -7,7 +7,7 @@ define([
 ],
 function(Backbone, Page) {
     var Catalog = Backbone.Collection.extend({
-        url : '/frontend/',
+        url : baseURL,
         model : Page
     });
     return Catalog;
