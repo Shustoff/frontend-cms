@@ -5,7 +5,7 @@
 @colorLink: #007D48; // Цвет ссылок
 @colorMid: #E6FFF4; // Цвет основного блока
 @bgImg:  url(../../img/site/background.png); // Цвет фона сайта
-@bgImg2: url(../../img/site/bg.jpg) center 0px; // Цвет фона шапки и футера
+@bgHeadFoot: url(../../img/site/bg.jpg) center 0px; // Цвет фона шапки и футера
 
 .borderBox {
     -moz-box-sizing: border-box;
@@ -27,8 +27,10 @@ body {
     min-height: 100%;
 }
 
-::-moz-selection {background: #60BF96;}
-::selection {background: #60BF96;}
+::-moz-selection,
+::selection {
+    background: #60BF96;
+}
 
 a {
     color: @colorLink !important;
@@ -42,7 +44,6 @@ a {
 }
 
 /* Медиа запросы */
-
 // Для разрешения < 480 пикс
 @media all and (max-width: 480px) {
     body {
@@ -65,6 +66,9 @@ a {
                 }
             }
         }
+        .mid {
+            margin-bottom: 60px;
+        }
     }
 }
 
@@ -77,7 +81,8 @@ a {
                 font-size: 1em !important;
             }
         }
-        .threecol {
+        .threecol,
+        .twelvecol {
             padding-left: 0px !important;
             padding-right: 0px !important;
         }
@@ -139,7 +144,7 @@ a {
 .top {
     height: 80px;
     border-bottom: 1px dashed @colorBorder;
-    background: @bgImg2;
+    background: @bgHeadFoot;
 
     .topmenu {
         padding: 0px auto;
@@ -168,6 +173,7 @@ a {
 .mid {
     padding: 20px;
     background: @bgImg;
+
 
     .row {
         .threecol  {
@@ -212,7 +218,7 @@ a {
     margin-top: -70px;
     min-height: 30px;
     height: auto;
-    background: @bgImg2;
+    background: @bgHeadFoot;
 
     footer {
         .fourcol {
