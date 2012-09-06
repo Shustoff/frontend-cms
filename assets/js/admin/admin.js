@@ -3,6 +3,9 @@ $(function(){
     // Корень админки
     var baseURL = '/frontend/admin/';
 
+    // Разрешаем php-теги в визуальном редакторе
+    CKEDITOR.config.protectedSource.push(/<\?[\s\S]*?\?>/g);
+
     // Ajax-транспорт
     req = {
         index: function() {$(".main").load(baseURL + "home");},

@@ -27,7 +27,6 @@
                 <select id="typemodule" name="type" class="input-xlarge">
                     <option value="HTML" <?=$module->type == 'HTML' ? 'selected' : ''?>>HTML</option>
                     <option value="JS" <?=$module->type == 'JS' ? 'selected' : ''?>>JS</option>
-                    <option value="PHP" <?=$module->type == 'PHP' ? 'selected' : ''?>>PHP</option>
                 </select>
             </div>
         </div>

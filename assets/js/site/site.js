@@ -26,9 +26,7 @@ requirejs.config({
 });
 
 requirejs(['router', 'config'], function (Router) {
-
     var site = Router.initialize();
-
     // Меняем URL без редиректа
     $(document).on('click', 'a', function(e){
         var href = $(this).attr('href');
@@ -38,5 +36,4 @@ requirejs(['router', 'config'], function (Router) {
             site.navigate(href, true);
         }
     });
-
 });

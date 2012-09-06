@@ -27,7 +27,6 @@
                 <select id="typemodule" name="type" class="input-xlarge">
                     <option value="HTML">HTML</option>
                     <option value="JS">JS</option>
-                    <option value="PHP">PHP</option>
                 </select>
             </div>
         </div>

@@ -53,7 +53,7 @@ function (Backbone, CatalogPageView, config) {
         addPagination : function (catalias) {
             $('.pagination').show();
             var $pageList = $('.pagination ul'),
-                pageCount = (this.collection.length / 8).toFixed(),
+                pageCount = Math.ceil(this.collection.length / 8),
                 pageNum = 1;
 
             $pageList.empty();

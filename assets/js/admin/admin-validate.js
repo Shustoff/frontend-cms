@@ -70,7 +70,7 @@ valid = {
 
     // Правила валидации формы добавления модуля
     validModule: function (formname, onclick) {
-        binds.validFail();
+        // binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
                 if ($(element).attr('id') === 'name') req.checkModuleName();

@@ -39,7 +39,10 @@ class Controller_Site_Page extends Controller_Site_Main {
             // Выбираем страницу из БД согласно алиасу
             $pagealias = $this->request->param('pagealias');
 
-            $page = ORM::factory('page')->where('alias', '=', $pagealias)->and_where('status', '=', '1')->find();
+            $page = ORM::factory('page')
+                ->where('alias', '=', $pagealias)
+                ->and_where('status', '=', '1')
+                ->find();
 
             $pagename = $page->pagename;
             $date = $page->date;
@@ -48,9 +51,7 @@ class Controller_Site_Page extends Controller_Site_Main {
             $metakeywords = $page->metakeywords;
 
             // Выбираем все настройки
-            $cfgsite = Kohana::$config->load('site');
-
-            foreach ($cfgsite as $key => $value)
+            foreach (Kohana::$config->load('site') as $key => $value)
             {
                $options[$key] = Kohana::$config->load('site.' . $key);
             }
