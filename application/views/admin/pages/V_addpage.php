@@ -38,6 +38,11 @@
         <textarea id="editor" class="auto"></textarea>
         <script>
             editor = CKEDITOR.editor.replace('editor');
+            editor.on('blur', function(){
+                if ($('#additem').valid() && !$('.failpagename').text() && !$('.failalias').text()) {
+                    binds.canSave("binds.canSaveItem('pages')");
+                }
+            });
         </script>
     </div>
 </div>

@@ -6,8 +6,9 @@ $(function(){
     // Разрешаем php-теги в визуальном редакторе
     CKEDITOR.config.protectedSource.push(/<\?[\s\S]*?\?>/g);
 
-    // Ajax-транспорт
+    // Все что связано с Ajax-запросами
     req = {
+        // Вид главной страницы
         index: function() {$(".main").load(baseURL + "home");},
 
         // Вид настроек
@@ -33,9 +34,7 @@ $(function(){
 
         // Вид отправки сообщений
         email: function() {
-            $(".main").load(baseURL + "email", function() {
-                binds.validFail();
-            });
+            $(".main").load(baseURL + "email", function() {binds.validFail();});
         },
 
         // Вид статистики
@@ -414,11 +413,9 @@ $(function(){
 
         // Отправляем сообщение
         sendEmail: function() {
-            if (!editor.getData())
-            {
+            if (!editor.getData()) {
                 $('.editorfail').show().delay(3000).hide(100);
-            }
-            else {
+            } else {
                 $('#content').val(editor.getData());
                 $('#sendemailbtn').text('Сообщение отправляется...').attr('onclick', 'return false;').addClass('disabled');
                 $.post(baseURL + "email/send", $('#email').serialize(), function() {
@@ -448,7 +445,7 @@ $(function(){
 
         // Делаем кнопку сохранить не активной после сохранения материала, показываем успешное сохранение
         completeSave: function() {
-            $('.btncheck')
+            $('.btncheck, .btn-success')
                   .attr('disabled', 'disabled')
                   .attr('onclick', 'return false;')
                   .text('Сохранено')
@@ -462,22 +459,19 @@ $(function(){
 
         // Делаем кнопку сохранить не активной если не пройдена валидация поля формы
         validFail: function() {
-            $('.btncheck').attr('disabled', 'disabled').attr('onclick', 'return false;');
+            $('.btn-success').attr('disabled', 'disabled').attr('onclick', 'return false;');
         },
 
         // Делаем кнопку сохранить активной если вся форма валиднa
         canSave: function(onclick) {
-            $('.btncheck').removeAttr('disabled').attr('onclick', onclick).text('Сохранить');
+            $('.btn-success').removeAttr('disabled').attr('onclick', onclick).text('Сохранить');
         },
 
         // Проверяем можно ли сохранить материал + отсылаем html
         canSaveItem: function(table) {
-            if (!editor.getData())
-            {
+            if (!editor.getData()) {
                 $('.editorfail').show().delay(3000).hide(100);
-            }
-            else
-            {
+            } else {
                 $('#content').empty().val(editor.getData());
                 req.add(table);
             }
@@ -485,12 +479,9 @@ $(function(){
 
         // Проверяем можно ли отредактировать материал + отсылаем html
         canEditItem: function(table) {
-            if (!editor.getData())
-            {
+            if (!editor.getData()) {
                 $('.editorfail').show().delay(3000).hide(100);
-            }
-            else
-            {
+            } else {
                 $('#content').empty().val(editor.getData());
                 req.edit(table);
             }

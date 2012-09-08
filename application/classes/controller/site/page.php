@@ -44,39 +44,28 @@ class Controller_Site_Page extends Controller_Site_Main {
                 ->and_where('status', '=', '1')
                 ->find();
 
-            $pagename = $page->pagename;
-            $date = $page->date;
-            $text = $page->content;
-            $metadesc = $page->metadesc;
-            $metakeywords = $page->metakeywords;
-
             // Выбираем все настройки
             foreach (Kohana::$config->load('site') as $key => $value)
             {
                $options[$key] = Kohana::$config->load('site.' . $key);
             }
 
-            if ( ! empty($metadesc)) $options['description'] = $metadesc;
-            if ( ! empty($metakeywords)) $options['keywords'] = $metakeywords;
+            if ( ! empty($page->metadesc))
+                $options['description'] = $page->metadesc;
 
+            if ( ! empty($page->metakeywords))
+                $options['keywords'] = $page->metakeywords;
+
+            // Подключаем профайлер
             if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
 
             $nav = View::factory('site/blocks/V_nav');
             $footer = View::factory('site/blocks/V_footer');
-            $content = View::factory('site/blocks/V_page')
-                            ->bind('pagename', $pagename)
-                            ->bind('date', $date)
-                            ->bind('text', $text)
-                            ->bind('catalog_name', $catalog_name)
-                            ->bind('author', $author);
-
             $main = View::factory('site/index')
-                            ->bind('nav', $nav)
-                            ->bind('content', $content)
-                            ->bind('footer',$footer)
-                            ->bind('options', $options)
-                            ->bind('profiler', $profiler);
-
+                    ->bind('nav', $nav)
+                    ->bind('footer',$footer)
+                    ->bind('options', $options)
+                    ->bind('profiler', $profiler);
             $this->response->body($main);
         }
     }

@@ -38,6 +38,11 @@
         <textarea id="editor" class="auto required"></textarea>
         <script>
             editor = CKEDITOR.editor.replace('editor');
+            editor.on('blur', function(){
+                if ($('#additem').valid() && !$('.failcatname').text() && !$('.failalias').text()) {
+                    binds.canSave("binds.canSaveItem('catalogs')");
+                }
+            });
         </script>
     </div>
 </div>

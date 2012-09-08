@@ -36,11 +36,12 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
         mainPage : function (pagenumber) {
             $(function() {
                 // Создали пустую коллекцию
-                var catalog = new Catalog;
+                var catalog = new Catalog();
                 // Заполнили ее данными
                 catalog.fetch();
                 // Передали в вид
                 catalog.on('reset', function(){
+                    console.log(catalog);
                     var catalogView = new CatalogView({collection : catalog});
                     $('.mid').html( catalogView.el );
                     catalogView.render(8, pagenumber);
