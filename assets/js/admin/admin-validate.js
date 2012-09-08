@@ -1,9 +1,13 @@
 valid = {
     // Правила валидации настроек
-    validOptions: function () {
-        $("#saveoptions").validate({
+    validOptions: function (formname, onclick) {
+        $(formname).validate({
             onfocusout: function(element) {
-                if ( ! $(element).valid()) binds.validFail();
+                if ($(element).valid()) {
+                    binds.canSave(onclick);
+                } else {
+                    binds.validFail();
+                }
             },
             rules: {sitename: "required"},
             messages: {sitename: 'Пожалуйста заполните поле'}
@@ -13,11 +17,17 @@ valid = {
     // Правила валидации формы добавления страницы
     validPages: function (formname, onclick) {
         binds.validFail();
+        var editPageName = $('#pagename').val();
+        var editPageAlias = $('#alias').val();
         $(formname).validate({
             onfocusout: function(element) {
-                if ($(element).attr('id') === 'pagename') req.checkPageName();
-                if ($(element).attr('id') === 'alias') req.checkPageAlias();
-                if ( $(element).valid() && !$('.failpagename').text() && !$('.failalias').text() ) {
+                if ($(element).attr('id') === 'pagename') {
+                    (editPageName !== $('#pagename').val()) ? req.checkPageName() : $('.failpagename').empty();
+                }
+                if ($(element).attr('id') === 'alias') {
+                    (editPageAlias !== $('#alias').val()) ? req.checkPageAlias() : $('.failalias').empty();
+                }
+                if ($(element).valid() && !$('.failpagename').text() && !$('.failalias').text() && $(formname).valid()) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -42,11 +52,17 @@ valid = {
     // Правила валидации формы добавления каталога
     validCatalog: function (formname, onclick) {
         binds.validFail();
+        var editCatName = $('#catname').val();
+        var editCatAlias = $('#alias').val();
         $(formname).validate({
             onfocusout: function(element) {
-                if ($(element).attr('id') === 'catname') req.checkCatName();
-                if ($(element).attr('id') === 'alias') req.checkCatAlias();
-                if ( $(element).valid() && !$('.failcatname').text() && !$('.failalias').text() ) {
+                if ($(element).attr('id') === 'catname') {
+                    (editCatName !== $('#catname').val()) ? req.checkCatName() : $('.failcatname').empty();
+                }
+                if ($(element).attr('id') === 'alias') {
+                    (editCatAlias !== $('#alias').val()) ? req.checkCatAlias() : $('.failalias').empty();
+                }
+                if ($(element).valid() && !$('.failcatname').text() && !$('.failalias').text() && $(formname).valid()) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -66,16 +82,23 @@ valid = {
                 }
             }
         });
+
     },
 
     // Правила валидации формы добавления модуля
     validModule: function (formname, onclick) {
-        // binds.validFail();
+        binds.validFail();
+        var editModName = $('#name').val();
+        var editSystemName = $('#systemname').val();
         $(formname).validate({
             onfocusout: function(element) {
-                if ($(element).attr('id') === 'name') req.checkModuleName();
-                if ($(element).attr('id') === 'systemname') req.checkSystemName();
-                if ($(element).valid() && !$('.failmodname').text() && !$('.failsystemname').text()) {
+                if ($(element).attr('id') === 'name') {
+                    (editModName !== $('#name').val()) ? req.checkModuleName() : $('.failmodname').empty();
+                }
+                if ($(element).attr('id') === 'systemname') {
+                    (editSystemName !== $('#systemname').val()) ? req.checkSystemName() : $('.failsystemname').empty();
+                }
+                if ($(element).valid() && !$('.failmodname').text() && !$('.failsystemname').text() && $(formname).valid()) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -100,10 +123,16 @@ valid = {
     // Правила валидации формы добавления пользователя
     validUser: function (formname, onclick) {
         binds.validFail();
+        var editUserName = $('#username').val();
+        var editEmail = $('#email').val();
         $(formname).validate({
             onfocusout: function(element) {
-                if ($(element).attr('id') === 'username') req.checkLogin();
-                if ($(element).attr('id') === 'email') req.checkEmail();
+                if ($(element).attr('id') === 'username') {
+                    (editUserName !== $('#username').val()) ? req.checkLogin() : $('.failusername').empty();
+                }
+                if ($(element).attr('id') === 'email') {
+                    (editEmail !== $('#email').val()) ? req.checkEmail() : $('.failemail').empty();
+                }
                 if ($(element).valid() && $(formname).valid() && !$('.failusername').text() && !$('.failemail').text()) {
                     binds.canSave(onclick);
                 } else {
@@ -153,10 +182,13 @@ valid = {
     // Правила валидации формы добавления роли
     validRole: function (formname, onclick) {
         binds.validFail();
+        var editRoleName = $('#name').val();
         $(formname).validate({
             onfocusout: function(element) {
-                if ( $(element).attr('id') === 'name') req.checkRoleName();
-                if ( $(element).valid() && !$('.failrole').text() ) {
+                if ($(element).attr('id') === 'name') {
+                    (editRoleName !== $('#name').val()) ? req.checkRoleName() : $('.failrole').empty();
+                }
+                if ($(element).valid() && !$('.failrole').text() && $(formname).valid()) {
                     binds.canSave(onclick);
                 } else {
                     binds.validFail();
@@ -188,7 +220,7 @@ valid = {
         binds.validFail();
         $(formname).validate({
             onfocusout: function(element) {
-                if ( $(formname).valid() && $(element).valid() ) {
+                if ($(formname).valid() && $(element).valid() && $(formname).valid()) {
                     binds.canSend(onclick);
                 } else {
                     binds.validFail();

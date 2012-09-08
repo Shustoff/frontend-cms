@@ -32,6 +32,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
            $catalog_id = $catalog->id;
            $catalog_desc = $catalog->content;
 
+           // Выбираем все страницы текущего каталога
            $pages = ORM::factory('page')
                ->where('catalog_id', '=', $catalog_id)
                ->and_where('status', '=', '1')
@@ -56,10 +57,10 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                ->and_where('status', '=', '1')
                ->find_all();
 
-           // Если они нашлись
+           // Если такие каталоги существуют
            if ( ! empty($allcatalogs[0]))
            {
-               // Выбираем страницы вложенные в каталоги родительского каталога
+               // Выбираем страницы вложенные в каталоги текущего каталога
                foreach ($allcatalogs as $cat)
                {
                    $pages = ORM::factory('page')
@@ -69,6 +70,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                        ->find_all();
                    $allpages[] = $pages;
                }
+
                // Добавляем в массив все страницы
                foreach ($allpages as $catpages)
                {
@@ -95,13 +97,17 @@ class Controller_Site_Catalog extends Controller_Site_Main {
        }
        else
        {
-           // Выбираем все настройки
+           // Загружаем все настройки
            $cfgsite = Kohana::$config->load('site');
+
            foreach ($cfgsite as $key => $value)
            {
                $options[$key] = Kohana::$config->load('site.' . $key);
            }
-           if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
+
+           // Подключаем профайлер
+           if ($options['debug'] === '1') $profiler = View::factory('profiler/stats');
+
            $nav = View::factory('site/blocks/V_nav');
            $footer = View::factory('site/blocks/V_footer');
            $view = View::factory('site/index')

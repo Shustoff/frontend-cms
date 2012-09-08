@@ -38,7 +38,14 @@
             <label class="editorfail label label-important" for="editor">Пожалуйста введите код модуля</label>
         </h3>
         <textarea id="editor" class="auto"></textarea>
-        <script>editor = CKEDITOR.editor.replace('editor');</script>
+        <script>
+            editor = CKEDITOR.editor.replace('editor');
+            editor.on('blur', function() {
+                if ($('#additem').valid() && !$('.failmodname').text() && !$('.failsystemname').text()) {
+                    binds.canSave("binds.canSaveItem('modules')");
+                }
+            });
+        </script>
     </div>
 </div>
 <div class="row">

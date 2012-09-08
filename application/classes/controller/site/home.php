@@ -6,6 +6,7 @@ class Controller_Site_Home extends Controller_Site_Main {
     {
        $status = Kohana::$config->load('site.status');
        if ($status == 0) $this->request->redirect('offline');
+       return parent::before();
     }
 
     public function action_index()
@@ -26,7 +27,7 @@ class Controller_Site_Home extends Controller_Site_Main {
                        ->order_by('id')
                        ->find_all()
                        ->as_array();
-                   Cache::instance()->set('pages', $pages, Date::MINUTE * 10);
+                   Cache::instance()->set('pages', $pages, Date::MINUTE * 5);
                }
            }
            else
@@ -53,7 +54,7 @@ class Controller_Site_Home extends Controller_Site_Main {
        }
        else
        {
-           // Выбираем все настройки
+           // Загружаем все настройки
            $cfgsite = Kohana::$config->load('site');
 
            foreach ($cfgsite as $key => $value)
@@ -61,18 +62,16 @@ class Controller_Site_Home extends Controller_Site_Main {
                $options[$key] = Kohana::$config->load('site.' . $key);
            }
 
+           // Подключаем профайлер
            if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
 
            $nav = View::factory('site/blocks/V_nav');
-
            $footer = View::factory('site/blocks/V_footer');
-
            $view = View::factory('site/index')
                        ->bind('options', $options)
                        ->bind('nav', $nav)
                        ->bind('footer', $footer)
                        ->bind('profiler', $profiler);
-
            $this->response->body($view);
        }
     }

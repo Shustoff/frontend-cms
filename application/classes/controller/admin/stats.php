@@ -21,8 +21,11 @@ class Controller_Admin_Stats extends Controller_Admin_App {
         $pages = ORM::factory('page')->find_all()->count();
         $catalogs = ORM::factory('catalog')->find_all()->count();
         $users = ORM::factory('user')->find_all()->count();
+        $roles = ORM::factory('role')->find_all()->count();
         $modules = ORM::factory('module')->find_all()->count();
         $mails = ORM::factory('email')->find_all()->count();
+        $mostactive = DB::query(Database::SELECT, 'SELECT username FROM users WHERE logins in
+                               (SELECT MAX(logins) FROM users)')->execute()->get('username');
 
         $allpages = DB::select('id')->from('pages')->where('intrash', '=', '1');
         $allcatalogs = DB::select('id')->union($allpages)->from('catalogs')->where('intrash', '=', '1');
@@ -33,9 +36,11 @@ class Controller_Admin_Stats extends Controller_Admin_App {
                     ->set('pages', $pages)
                     ->set('catalogs', $catalogs)
                     ->set('users', $users)
+                    ->set('roles', $roles)
                     ->set('modules', $modules)
                     ->set('mails', $mails)
-                    ->set('trashitems', $trashitems);
+                    ->set('trashitems', $trashitems)
+                    ->set('mostactive', $mostactive);
 
         $this->response->body($view);
     }
