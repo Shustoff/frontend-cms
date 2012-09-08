@@ -38,15 +38,22 @@
             <label class="editorfail label label-important" for="editor">Пожалуйста введите код модуля</label>
         </h3>
         <textarea id="editor" class="auto"><?=$module->content;?></textarea>
-        <script>editor = CKEDITOR.editor.replace('editor');</script>
+        <script>
+            editor = CKEDITOR.editor.replace('editor');
+            editor.on('blur', function(){
+                if ($('#edititem').valid() && !$('.failmodname').text() && !$('.failsystemname').text()) {
+                    binds.canSave("binds.canEditItem('modules')");
+                }
+            });
+        </script>
     </div>
 </div>
 <div class="row">
     <div class="span5 systemmod">
         <div class="control-group">
-            <label class="control-label w200" for="systemmod">Системное имя модуля:</label>
+            <label class="control-label w200" for="systemname">Системное имя модуля:</label>
             <div class="controls">
-                <input type="text" id="systemmod" name="systemname" class="input-medium required alphanumeric" value="<?=$module->systemname;?>">
+                <input type="text" id="systemname" name="systemname" class="input-medium required alphanumeric" value="<?=$module->systemname;?>">
                 <label class="fail failsystemname"></label>
             </div>
         </div>

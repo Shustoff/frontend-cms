@@ -17,9 +17,8 @@ define(
             equal(typeof Catalog, 'function',  'Должен быть конструктором');
             equal(typeof this.catalog, 'object', 'Коллекция catalog имеет тип "object"');
         });
-        test('проверка свойств коллекции', 2, function () {
+        test('проверка свойств коллекции', 1, function () {
             equal(this.catalog.model, Page, 'Коллекция catalog содержит модели "Page"');
-            equal(this.catalog.url, baseURL, 'Корневой URL коллекции - ' + baseURL);
         });
 
     // Проверяем модель Page

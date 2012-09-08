@@ -18,9 +18,11 @@
     <!--Антикэш-->
     <meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT">
 
+    <!-- Если браузер IE < 9 -->
+    <script>if (document.all && !document.querySelector || !document.getElementsByClassName) {window.location = 'ie.html';}</script>
+
     <!--Стили-->
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/bootstrap.css">
-    <link rel="stylesheet" href="<?=URL::base();?>assets/css/h5bp.css">
     <link rel="stylesheet" href="<?=URL::base();?>assets/css/1140.css">
     <!--Для тестов--><link rel="stylesheet" href="<?=URL::base();?>assets/css/qunit-1.9.0.css">
     <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/site/site.less">

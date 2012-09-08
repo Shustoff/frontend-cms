@@ -151,4 +151,4 @@
     </div>
 </div>
 </form>
-<script>valid.validOptions();</script>
+<script>valid.validOptions("#saveoptions", "req.saveoptions();");</script>
