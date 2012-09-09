@@ -1,7 +1,7 @@
 $(function(){
 
     // Корень админки
-    var baseURL = '/frontend/admin/';
+    var baseURL = '/admin/';
 
     // Разрешаем php-теги в визуальном редакторе
     CKEDITOR.config.protectedSource.push(/<\?[\s\S]*?\?>/g);

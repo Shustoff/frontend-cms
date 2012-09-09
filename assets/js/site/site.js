@@ -1,5 +1,5 @@
 /* Главный файл, конфиг Require. Bootstrap */
-var siteRoot = 'localhost/frontend';
+var siteRoot = '';
 
 requirejs.config({
     urlArgs: 'bust='+ (new Date()).getMilliseconds(),
