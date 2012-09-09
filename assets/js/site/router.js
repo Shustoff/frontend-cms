@@ -1,7 +1,7 @@
 /**
  * Главный Роутер сайта
  */
-var baseURL = '/frontend/';
+var baseURL = '/';
 
 define([
     'Backbone',

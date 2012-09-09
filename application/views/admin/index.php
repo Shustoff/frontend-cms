@@ -123,7 +123,7 @@
         </div>
     <div class="row">
         <div class="span12 footer">
-            <p>Front CMS основана на Kohana Framework v3.2</p>
+            <p>Front CMS v0.1 основана на Kohana Framework v3.2</p>
             <a href="http://kohanaframework.org" class="kohcopy" target="_blank">www.kohanaframework.org</a>
             <a href="https://github.com/Shustoff/front-cms/wiki/%D0%9E%D0%B1%D0%B7%D0%BE%D1%80-Front-CMS" class="helper" target="_blank">
                 <img src="<?=URL::base();?>assets/img/admin/help.png" alt=""><span>Помощь</span>
