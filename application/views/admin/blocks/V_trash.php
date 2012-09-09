@@ -3,7 +3,7 @@
     <span class="center">Успешно удалено</span>
 </div>
 <h3 class="center">Корзина</h3>
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped trash">
     <thead>
         <tr>
             <th>ID</th>

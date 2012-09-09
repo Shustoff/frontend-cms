@@ -6,7 +6,7 @@
             <th>Email</th>
             <th>Логин</th>
             <th width="250">Роль</th>
-            <th>Дата регистрации</th>
+            <th width="100">Дата рег.</th>
             <th width="50">Состояние</th>
             <th width="80">В корзину</th>
         </tr>
@@ -15,7 +15,7 @@
         <?php foreach($users as $user) : ?>
             <tr class="pageedit">
                 <td><?=$user->id;?></td>
-                <td class="pagename">
+                <td class="email">
                     <form action="" method="post" name="edititem" id="edititem">
                         <input type="hidden" value="<?=$user->id;?>" name="id">
                         <a href="#edit" onclick="req.editItem('users',<?=$user->id;?>);">
@@ -23,8 +23,8 @@
                         </a>
                     </form>
                 </td>
-                <td class="pagedesc"><?=$user->username;?></td>
-                <td>
+                <td class="username"><?=$user->username;?></td>
+                <td class="role">
                     <?php foreach ($user->roles->find_all() as $role) {echo "$role->description, ";} ?>
                 </td>
                 <td><?=$user->datereg;?></td>

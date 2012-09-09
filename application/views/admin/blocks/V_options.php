@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="control-group">
-            <label for="sender" class="control-label">Автор: </label>
+            <label for="sender" class="control-label">Тег Автор: </label>
             <div class="controls">
                <input type="text" id="sender" name="author" class="input-xlarge" value="<?=$options['author'];?>">
             </div>
