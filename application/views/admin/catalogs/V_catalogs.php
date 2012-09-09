@@ -24,7 +24,7 @@
                     </form>
                 </td>
                 <td class="pagedesc"><?=$catalog->alias;?></td>
-                <td><?=$catalog->catalogs->catname == '' ? 'нет' : $catalog->catalogs->catname;?></td>
+                <td class="catname"><?=$catalog->catalogs->catname == '' ? 'нет' : $catalog->catalogs->catname;?></td>
                 <td><?=$catalog->date;?></td>
                 <td>
                     <form action="" method="post" id="cngstatus<?=$catalog->id;?>">

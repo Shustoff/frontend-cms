@@ -1,6 +1,5 @@
 .idea/
 .DS_STORE
 logs/
-workspace.xml
-frontproto.rp
 cache/
+workspace.xml

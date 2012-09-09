@@ -24,7 +24,7 @@ class Controller_Admin_Auth extends Controller {
                 }
                 else
                 {
-                    $faillogin = "<div class='alert alert-error'>Ваш аккаунт не активирован!</div>";
+                    $faillogin = "<div class='alert alert-error'>Вам запрещен доступ в систему!</div>";
                     Auth::instance()->logout(TRUE);
                 }
             }

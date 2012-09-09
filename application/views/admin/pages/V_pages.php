@@ -23,8 +23,8 @@
                         </a>
                     </form>
                 </td>
-                <td><?=$page->catalogs->catname;?></td>
-                <td><?=$page->users->email;?></td>
+                <td class="catname"><?=$page->catalogs->catname;?></td>
+                <td class="author"><?=$page->users->username;?></td>
                 <td><?=$page->date;?></td>
                 <td>
                     <form action="" method="post" id="cngstatus<?=$page->id;?>">

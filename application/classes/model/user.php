@@ -29,10 +29,6 @@ class Model_User extends Model_Auth_User {
             'password' => array(
                 array('not_empty'),
                 array('min_length', array(':value', 8))
-            ),
-
-            'status' => array(
-                array('equals', array(':value', '1'))
             )
         );
     }

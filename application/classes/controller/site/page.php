@@ -25,6 +25,12 @@ class Controller_Site_Page extends Controller_Site_Main {
                 ->and_where('status', '=', '1')
                 ->find();
 
+            // Если страница не найдена, выдаем ошибку
+            if (!$page->loaded())
+            {
+               throw new Kohana_HTTP_Exception_404;
+            }
+
             $page_array['pagename'] = $page->pagename;
             $page_array['date'] = $page->date;
             $page_array['alias'] = $page->alias;
