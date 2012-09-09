@@ -5,8 +5,9 @@
     <!--Мета-теги-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="robots" content=“no-index,no-follow”>
-    <title>Админка</title>
+    <title>Панель администратора</title>
 
     <!--Стили-->
     <link rel="stylesheet" type="text/css" href="<?=URL::base();?>assets/css/jquery-ui-1.8.16.custom.css">
@@ -16,7 +17,6 @@
     <!--Скрипты-->
     <script src="<?=URL::base();?>assets/js/libs/less-1.3.0.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/jquery/jquery-1.7.2.js"></script>
-    <script src="<?=URL::base();?>assets/js/libs/bootstrap.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/jquery/jquery-ui.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/jquery/jquery.ui.datepicker-ru.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/jquery/jquery.validate.js"></script>
@@ -123,7 +123,7 @@
         </div>
     <div class="row">
         <div class="span12 footer">
-            <p>Front CMS based on Kohana Framework v3.2</p>
+            <p>Front CMS основана на Kohana Framework v3.2</p>
             <a href="http://kohanaframework.org" class="kohcopy" target="_blank">www.kohanaframework.org</a>
             <a href="https://github.com/Shustoff/front-cms/wiki/%D0%9E%D0%B1%D0%B7%D0%BE%D1%80-Front-CMS" class="helper" target="_blank">
                 <img src="<?=URL::base();?>assets/img/admin/help.png" alt=""><span>Помощь</span>

@@ -41,7 +41,6 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
                 catalog.fetch();
                 // Передали в вид
                 catalog.on('reset', function(){
-                    console.log(catalog);
                     var catalogView = new CatalogView({collection : catalog});
                     $('.mid').html( catalogView.el );
                     catalogView.render(8, pagenumber);
@@ -67,6 +66,9 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
                 var pageView = new OnePageView({model : page});
                 // Вставили в DOM
                 $('.catalog').html( pageView.el );
+                page.on('error', function(){
+                    window.location.replace('http://' + siteRoot + '/error/404');
+                });
             });
         },
 
@@ -82,6 +84,9 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
                 var pageView = new OnePageView({model : page});
                 // Вставили в DOM
                 $('.catalog').html( pageView.el );
+                page.on('error', function(){
+                    window.location.replace('http://' + siteRoot + '/error/404');
+                });
             });
         },
 
@@ -106,6 +111,9 @@ function (Backbone, Catalog, Page, CatalogView, OnePageView) {
                     }
                 });
                 document.title = catalog.models[0].attributes.catalog
+            });
+            catalog.on('error', function(){
+                window.location.replace('http://' + siteRoot + '/error/404');
             });
         },
 

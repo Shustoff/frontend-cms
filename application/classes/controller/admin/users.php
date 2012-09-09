@@ -44,7 +44,7 @@ class Controller_Admin_Users extends Controller_Admin_App {
     // Грузим вид добавления пользователя
     public function action_addusers()
     {
-        $roles = ORM::factory('role')->find_all();
+        $roles = ORM::factory('role')->where('status', '=', '1')->find_all();
         $view = View::factory('admin/users/V_adduser')
             ->bind('roles', $roles);
         $this->response->body($view);
@@ -98,7 +98,7 @@ class Controller_Admin_Users extends Controller_Admin_App {
     // Грузим вид редактирования пользователя
     public function action_editusers()
     {
-        $roles = ORM::factory('role')->find_all();
+        $roles = ORM::factory('role')->where('status', '=', '1')->find_all();
 
         $id = $this->request->param('id');
         $user = ORM::factory('user', $id);

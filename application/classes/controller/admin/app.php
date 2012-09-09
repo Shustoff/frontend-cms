@@ -1,4 +1,5 @@
 <?php defined('SYSPATH') or die('No direct script access.');
+
 class Controller_Admin_App extends Controller {
 
     public function before()
@@ -6,7 +7,7 @@ class Controller_Admin_App extends Controller {
         $auth = Auth::instance();
         if (!$auth->logged_in())
         {
-            echo "<script>window.location = '/frontend/admin/auth';</script><p class='center'>Сессия устарела!</p>";
+            echo "<script>window.location = '".URL::base()."admin/auth';</script><p class='center'>Сессия устарела!</p>";
             exit;
         }
         return parent::before();
