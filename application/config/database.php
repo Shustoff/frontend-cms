@@ -7,7 +7,7 @@ return array
 		'type'       => 'mysql',
 		'connection' => array(
 			'hostname'   => 'localhost',
-			'database'   => 'frontend',
+			'database'   => '',
 			'username'   => 'root',
 			'password'   => 'root',
 			'persistent' => FALSE,
