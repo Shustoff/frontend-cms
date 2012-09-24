@@ -80,7 +80,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  caching     enable or disable internal caching                 FALSE
  */
 Kohana::init(array(
-	'base_url'   => '/',
+	'base_url'   => '',
     'index_file' => ''
 ));
 
@@ -105,7 +105,7 @@ Kohana::modules(array(
 	'cache'      => MODPATH.'cache',      // Caching with multiple backends
     // 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 	'database'   => MODPATH.'database',   // Database access
-	// 'image'      => MODPATH.'image',      // Image manipulation
+    'image'      => MODPATH.'image',       // Image manipulation
 	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
@@ -132,6 +132,14 @@ Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))', array('id' => '.+'
     'directory' => 'admin',
     'controller' => 'main',
     'action'     => 'index',
+));
+
+// Роут загрузки файлов
+Route::set('upload', 'admin/pages/upload')
+->defaults(array(
+    'directory' => 'admin',
+    'controller' => 'pages',
+    'action' => 'upload'
 ));
 
 // Если сайт оффлайн

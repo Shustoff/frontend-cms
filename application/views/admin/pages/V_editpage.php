@@ -1,7 +1,7 @@
 <div class="wraptooltip">
     <div class="alert alert-success tooltips">
       <button class="close" data-dismiss="alert">×</button>
-      <span class="center">Страница изменена!</span>
+      <span class="center">Готово!</span>
     </div>
     <div class="alert alert-danger tooltips">
       <button class="close" data-dismiss="alert">×</button>
@@ -9,7 +9,7 @@
     </div>
 </div>
 <h3 class="center">Изменить страницу</h3>
-<form action="" method="post" id="edititem">
+<form action="" method="post" id="edititem" onsubmit="return false;">
 <div class="row">
     <div class="span6">
         <div class="control-group">
@@ -39,8 +39,8 @@
         <script>
             editor = CKEDITOR.editor.replace('editor');
             editor.on('blur', function(){
-                if ($('#edititem').valid() && !$('.failpagename').text() && !$('.failalias').text()) {
-                    binds.canSave("binds.canEditItem('pages')");
+                if ($('form').valid() && !$('.failpagename').text() && !$('.failalias').text()) {
+                    binds.canSave();
                 }
             });
         </script>
@@ -48,6 +48,12 @@
 </div>
 <div class="row">
     <div class="span6">
+        <div class="control-group">
+            <label class="control-label" for="mp3-link">Ссылка на mp3:</label>
+            <div class="controls">
+                <input type="text" id="mp3-link" name="link" class="input-xlarge required" value="<?=$page->link;?>">
+            </div>
+        </div>
         <div class="control-group">
             <label class="control-label" for="metadesc">Meta-описание</label>
             <div class="controls">
@@ -69,6 +75,7 @@
                 <script>
                     $(function() {
                         $( "#datepicker" ).datepicker();
+                        date.today("#datepicker");
                     });
                 </script>
             </div>
@@ -88,14 +95,45 @@
                 <input type="hidden" name="status" value="<?=$page->status;?>">
                 <input type="hidden" id="content" name="content" value="">
                 <input type="hidden" name="id" value="<?=$page->id;?>">
+                <input type="hidden" id="imagePage" name="image" value="<?=$page->image;?>">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="upload_button">Изображение:</label>
+            <div class="controls">
+                <span class="imageName"><?=$page->image;?></span>
+                <div id="upload_button" class="btn btn-primary btn-mini">Загрузить</div>
             </div>
         </div>
         <div class="control-group">
             <div class="controls">
-                <a class="btn btn-success btncheck" href="#" onclick="binds.canEditItem('pages');">Сохранить</a>
+                <button class="btn btn-success btncheck btn-large" onclick="binds.canEditItem('pages');">
+                    Сохранить
+                </button>
             </div>
         </div>
     </div>
 </div>
 </form>
-<script>valid.validPages('#edititem', "binds.canEditItem('pages');");</script>
+<script>
+    valid.validPages();
+
+    new AjaxUpload('upload_button', {
+      action: 'admin/pages/upload',
+      name: 'image',
+      autoSubmit: true,
+      responseType: false,
+      onSubmit: function(file, ext) {
+        if (!(ext && /^(jpg|png|jpeg|gif)$/i.test(ext))){
+            alert('Разрешены только изображения в формате jpg, png, gif');
+            return false;
+        }
+      },
+      onComplete: function(file, response) {
+          this.disable();
+          $('.imageName').text(response);
+          $('#imagePage').val(response);
+          binds.canSave();
+      }
+    });
+</script>

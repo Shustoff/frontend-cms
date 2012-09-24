@@ -1,6 +1,5 @@
 /* Тесты сайта */
-define(
-[
+define([
     'QUnit',
     'collections/catalogs',
     'models/pages',

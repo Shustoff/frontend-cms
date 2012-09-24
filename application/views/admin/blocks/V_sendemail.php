@@ -3,7 +3,7 @@
     <span class="center">Сообщение отправлено</span>
 </div>
 <h3 class="center">Отправить e-mail</h3>
-<form action="" method="post" id="email">
+<form action="" method="post" id="email" onsubmit="return false;">
     <div class="row">
         <div class="span6">
             <div class="control-group">
@@ -70,11 +70,11 @@
             <div class="control-group">
                 <input type="hidden" name="from" value="<?=$usermail;?>">
                 <input type="hidden" id="content" name="content" value="">
-                <a class="btn btn-success btncheck" id="sendemailbtn" href="#" onclick="req.sendEmail();">
+                <button class="btn btn-success btncheck" id="sendemailbtn" onclick="req.sendEmail();">
                     Отправить сообщение
-                </a>
+                </button>
             </div>
         </div>
     </div>
 </form>
-<script>valid.validSendEmail('#email', "req.sendEmail();");</script>
+<script>valid.validSendEmail();</script>

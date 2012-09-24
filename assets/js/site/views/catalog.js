@@ -7,7 +7,7 @@ define([
     'config',
     'text!../templates/catalog_page.html'
 ],
-function (Backbone, CatalogPageView, config) {
+function (Backbone, CatalogPageView) {
     var CatalogView = Backbone.View.extend({
         tagName : 'section',
         className : 'row catalog',

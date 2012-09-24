@@ -31,12 +31,15 @@ class Controller_Site_Page extends Controller_Site_Main {
                throw new Kohana_HTTP_Exception_404;
             }
 
+            $page_array['id'] = $page->id;
             $page_array['pagename'] = $page->pagename;
             $page_array['date'] = $page->date;
             $page_array['alias'] = $page->alias;
             $page_array['catalog'] = $page->catalogs->catname;
             $page_array['author'] = $page->users->username;
             $page_array['content'] = $page->content;
+            $page_array['image'] = $page->image;
+            $page_array['link'] = $page->link;
 
             echo parent::json_encode_cyr($page_array);
         }
@@ -56,6 +59,8 @@ class Controller_Site_Page extends Controller_Site_Main {
                $options[$key] = Kohana::$config->load('site.' . $key);
             }
 
+            $count_pages = ORM::factory('page')->find_all()->count();
+
             if ( ! empty($page->metadesc))
                 $options['description'] = $page->metadesc;
 
@@ -66,7 +71,10 @@ class Controller_Site_Page extends Controller_Site_Main {
             if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
 
             $nav = View::factory('site/blocks/V_nav');
-            $footer = View::factory('site/blocks/V_footer');
+
+            $footer = View::factory('site/blocks/V_footer')
+                    ->bind('count_pages', $count_pages);;
+
             $main = View::factory('site/index')
                     ->bind('nav', $nav)
                     ->bind('footer',$footer)

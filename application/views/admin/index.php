@@ -10,8 +10,6 @@
     <title>Панель администратора</title>
 
     <!--Стили-->
-    <link rel="stylesheet" type="text/css" href="<?=URL::base();?>assets/css/jquery-ui-1.8.16.custom.css">
-    <link rel="stylesheet" type="text/css" href="<?=URL::base();?>assets/css/bootstrap.css">
     <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/admin/admin.less">
 
     <!--Скрипты-->
@@ -21,6 +19,7 @@
     <script src="<?=URL::base();?>assets/js/libs/jquery/jquery.ui.datepicker-ru.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/jquery/jquery.validate.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/jquery/additional-methods.js"></script>
+    <script src="<?=URL::base();?>assets/js/libs/jquery/ajaxupload.js"></script>
     <script src="<?=URL::base();?>assets/ckeditor/ckeditor.js"></script>
     <script src="<?=URL::base();?>assets/js/admin/admin-validate.js"></script>
     <script src="<?=URL::base();?>assets/js/admin/admin.js"></script>
@@ -123,7 +122,7 @@
         </div>
     <div class="row">
         <div class="span12 footer">
-            <p>Front CMS v0.1 основана на Kohana Framework v3.2</p>
+            <p>Front CMS основана на Kohana Framework v3.2</p>
             <a href="http://kohanaframework.org" class="kohcopy" target="_blank">www.kohanaframework.org</a>
             <a href="https://github.com/Shustoff/front-cms/wiki/%D0%9E%D0%B1%D0%B7%D0%BE%D1%80-Front-CMS" class="helper" target="_blank">
                 <img src="<?=URL::base();?>assets/img/admin/help.png" alt=""><span>Помощь</span>

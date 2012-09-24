@@ -2,7 +2,18 @@
     <button class="close" data-dismiss="alert">×</button>
     <span class="center">Успешно удалено</span>
 </div>
-<h3 class="center">Корзина</h3>
+<h3 class="center">Корзина
+    <button type="button" id="deleteAll" class="btn btn-danger btn-mini">Очистить</button>
+</h3>
+
+<!--Модальное окно-->
+<div id="dialog-confirm" title="Очистить корзину" style="display: none;">
+	<p>
+        <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
+        Вы уверены что хотите очистить корзину?
+    </p>
+</div>
+
 <table class="table table-bordered table-striped trash">
     <thead>
         <tr>
@@ -57,7 +68,7 @@
     </tbody>
 </table>
 <?=$failsearch;?>
-<form action="" method="post" id="save">
+<form action="" method="post" id="save" onsubmit="return false;">
 <div class="row">
     <div class="span4">
         <div class="control-group">
@@ -86,7 +97,7 @@
         </div>
     </div>
     <div class="span3 savepages">
-        <a class="btn btn-success" onclick="req.sortItems('trash');">Применить настройки</a>
+        <button class="btn btn-success" onclick="req.sortItems('trash');">Применить настройки</button>
     </div>
 </div>
 </form>
@@ -100,7 +111,7 @@
                         <input type="hidden" name="offset" id="offset" value="">
                         <input type="hidden" name="limit" id="limit" value="">
                         <input type="hidden" name="sortby" id="sortby" value="">
-                        <a href="#" class="pageN" name="pagination" onclick="req.pagination('trash',this);"><?php echo $i; ?></a>
+                        <a href="#" class="" name="pagination" onclick="req.pagination('trash',this);"><?php echo $i; ?></a>
                     </form>
                 </li>
                 <?php endfor; ?>
@@ -108,3 +119,22 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('#deleteAll').click(function(){
+        $("#dialog-confirm").dialog({
+            resizable: false,
+            height:180,
+            modal: true,
+            buttons: {
+                "Очистить": function() {
+                    req.deleteAll();
+                    $( this ).dialog( "close" );
+                },
+                "Отмена": function() {
+                    $( this ).dialog( "close" );
+                }
+            }
+        });
+    });
+</script>

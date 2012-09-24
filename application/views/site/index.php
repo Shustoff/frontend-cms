@@ -22,16 +22,12 @@
     <script>if (document.all && !document.querySelector || !document.getElementsByClassName) {window.location = 'ie.html';}</script>
 
     <!--Стили-->
-    <link rel="stylesheet" href="<?=URL::base();?>assets/css/bootstrap.css">
-    <link rel="stylesheet" href="<?=URL::base();?>assets/css/1140.css">
-    <!--Для тестов--><link rel="stylesheet" href="<?=URL::base();?>assets/css/qunit-1.9.0.css">
     <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/site/site.less">
 
     <!--Фавикон-->
     <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
 
     <!--Скрипты-->
-    <script data-main="<?=URL::base();?>assets/js/site/site" src="<?=URL::base();?>assets/js/libs/require/require.js"></script>
     <script src="<?=URL::base();?>assets/js/libs/less-1.3.0.js"></script>
 </head>
 <body>
@@ -42,7 +38,19 @@
     </section>
     <!-- Центральная часть-->
     <section class="mid">
-        <section class="row catalog"></section>
+        <section class="row catalog">
+            <!--Прелоадер-->
+            <div id="floatingBarsG">
+                <div class="blockG" id="rotateG_01"></div>
+                <div class="blockG" id="rotateG_02"></div>
+                <div class="blockG" id="rotateG_03"></div>
+                <div class="blockG" id="rotateG_04"></div>
+                <div class="blockG" id="rotateG_05"></div>
+                <div class="blockG" id="rotateG_06"></div>
+                <div class="blockG" id="rotateG_07"></div>
+                <div class="blockG" id="rotateG_08"></div>
+            </div>
+        </section>
     </section>
     <!--Пагинация-->
     <section class="pageWrapper">
@@ -61,5 +69,8 @@
 <section class="debug">
     <?=$profiler;?>
 </section>
+
+<!--Скрипты-->
+<script data-main="<?=URL::base();?>assets/js/site/site" src="<?=URL::base();?>assets/js/libs/require/require.js"></script>
 </body>
 </html>

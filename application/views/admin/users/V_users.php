@@ -49,7 +49,7 @@
     </tbody>
 </table>
 <?=$failsearch;?>
-<form action="" method="post" id="save">
+<form action="" method="post" id="save" onsubmit="return false;">
 <div class="row">
     <div class="span4">
         <div class="control-group">
@@ -78,7 +78,9 @@
         </div>
     </div>
     <div class="span3 savepages">
-        <a class="btn btn-success" onclick="req.sortItems('users');">Применить настройки</a>
+        <button class="btn btn-success" onclick="req.sortItems('users');">
+            Применить настройки
+        </button>
     </div>
 </div>
 </form>

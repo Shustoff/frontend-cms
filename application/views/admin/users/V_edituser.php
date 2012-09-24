@@ -9,7 +9,7 @@
     </div>
 </div>
 <h3 class="center">Изменить пользователя</h3>
-<form action="" method="post" id="edititem">
+<form action="" method="post" id="edititem" onsubmit="return false;">
 <div class="row">
     <div class="span6">
         <div class="control-group">
@@ -83,14 +83,17 @@
                 <script>
                     	$(function() {
                     		$( "#datepicker" ).datepicker();
+                            date.today("#datepicker");
                     	});
                 </script>
                 <input type="hidden" name="status" value="<?=$user->status;?>">
                 <input type="hidden" name="id" value="<?=$user->id;?>">
-                <a class="btn btn-success btncheck" href="#" onclick="req.edit('users');">Сохранить</a>
+                <button class="btn btn-success btn-large btncheck" onclick="req.edit('users');">
+                    Сохранить
+                </button>
             </div>
         </div>
     </div>
 </div>
 </form>
-<script>valid.validUser('#edititem', "req.edit('users');");</script>
+<script>valid.validUser();</script>

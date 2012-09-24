@@ -21,4 +21,4 @@ class Controller_Admin_Info extends Controller_Admin_App {
         echo View::factory('admin/blocks/V_info');
     }
 
-} // End Welcome
+}

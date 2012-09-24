@@ -17,4 +17,4 @@ class Controller_Admin_Home extends Controller_Admin_App {
        $this->response->body($view);
    	}
 
-} // End Welcome
+}

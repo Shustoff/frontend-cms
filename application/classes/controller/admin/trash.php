@@ -77,4 +77,13 @@ class Controller_Admin_Trash extends Controller_Admin_App {
     {
         DB::delete($_POST['tablename'])->where('id', '=', $_POST["item_id"])->execute();
     }
+
+    public function action_deleteall()
+    {
+        DB::query(Database::DELETE, 'DELETE FROM `pages` WHERE `intrash` = 1')->execute();
+        DB::query(Database::DELETE, 'DELETE FROM `catalogs` WHERE `intrash` = 1')->execute();
+        DB::query(Database::DELETE, 'DELETE FROM `users` WHERE `intrash` = 1')->execute();
+        DB::query(Database::DELETE, 'DELETE FROM `roles` WHERE `intrash` = 1')->execute();
+        DB::query(Database::DELETE, 'DELETE FROM `modules` WHERE `intrash` = 1')->execute();
+    }
 }

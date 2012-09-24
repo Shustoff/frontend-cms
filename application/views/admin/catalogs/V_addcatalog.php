@@ -1,7 +1,7 @@
 <div class="wraptooltip">
     <div class="alert alert-success tooltips">
       <button class="close" data-dismiss="alert">×</button>
-      <span class="center">Каталог добавлен!</span>
+      <span class="center">Готово!</span>
     </div>
     <div class="alert alert-danger tooltips">
       <button class="close" data-dismiss="alert">×</button>
@@ -9,7 +9,7 @@
     </div>
 </div>
 <h3 class="center">Добавить каталог</h3>
-<form action="" method="post" id="additem">
+<form action="" method="post" id="additem" onsubmit="return false;">
 <div class="row">
     <div class="span6">
         <div class="control-group">
@@ -39,8 +39,8 @@
         <script>
             editor = CKEDITOR.editor.replace('editor');
             editor.on('blur', function(){
-                if ($('#additem').valid() && !$('.failcatname').text() && !$('.failalias').text()) {
-                    binds.canSave("binds.canSaveItem('catalogs')");
+                if ($('form').valid() && !$('.failcatname').text() && !$('.failalias').text()) {
+                    binds.canSave();
                 }
             });
         </script>
@@ -61,6 +61,7 @@
                 </select>
                 <input type="hidden" name="status" value="1">
                 <input type="hidden" id="content" name="content" value="">
+                <input type="hidden" id="idItem" name="id" value="">
             </div>
         </div>
     </div>
@@ -80,9 +81,11 @@
     </div>
     <div class="span2 savecat">
         <div class="control-group">
-            <a class="btn btn-success btncheck" href="#" onclick="binds.canSaveItem('catalogs');">Сохранить</a>
+            <button class="btn btn-success btn-large btncheck" onclick="binds.canSaveItem('catalogs');">
+                Сохранить
+            </button>
         </div>
     </div>
 </div>
 </form>
-<script>valid.validCatalog('#additem', "binds.canSaveItem('catalogs');");</script>
+<script>valid.validCatalog();</script>

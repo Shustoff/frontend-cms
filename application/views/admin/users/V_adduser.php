@@ -9,7 +9,7 @@
     </div>
 </div>
 <h3 class="center">Добавить пользователя</h3>
-<form action="" method="post" id="additem">
+<form action="" method="post" id="additem" onsubmit="return false;">
 <div class="row">
     <div class="span6">
         <div class="control-group">
@@ -87,10 +87,12 @@
                     });
                 </script>
                 <input type="hidden" name="status" value="1">
-                <a class="btn btn-success btncheck" href="#" onclick="req.add('users');">Сохранить</a>
+                <button class="btn btn-success btn-large btncheck" onclick="req.add('users');">
+                    Сохранить
+                </button>
             </div>
         </div>
     </div>
 </div>
 </form>
-<script>valid.validUser('#additem', "req.add('users');");</script>
+<script>valid.validUser();</script>

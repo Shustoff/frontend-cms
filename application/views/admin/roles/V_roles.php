@@ -42,7 +42,7 @@
         <?php endforeach; ?>
     </tbody>
 </table>
-<form action="" method="post" id="save">
+<form action="" method="post" id="save" onsubmit="return false;">
 <div class="row">
     <div class="span4">
         <div class="control-group">
@@ -71,7 +71,9 @@
         </div>
     </div>
     <div class="span3 savepages">
-        <a class="btn btn-success" onclick="req.sortItems('roles');">Применить настройки</a>
+        <button class="btn btn-success" onclick="req.sortItems('roles');">
+            Применить настройки
+        </button>
     </div>
 </div>
 </form>

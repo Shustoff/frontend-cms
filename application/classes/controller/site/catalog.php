@@ -46,8 +46,8 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                $pages_array['alias'] = $page->alias;
                $pages_array['catalog_alias'] = $page->catalogs->alias;
                $pages_array['catalog'] = $page->catalogs->catname;
-               $pages_array['content'] = $page->content;
                $pages_array['author'] = $page->users->username;
+               $pages_array['image'] = $page->image;
                $pages_result[] = $pages_array;
            };
 
@@ -105,11 +105,16 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                $options[$key] = Kohana::$config->load('site.' . $key);
            }
 
+           $count_pages = ORM::factory('page')->find_all()->count();
+
            // Подключаем профайлер
-           if ($options['debug'] === '1') $profiler = View::factory('profiler/stats');
+           if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
 
            $nav = View::factory('site/blocks/V_nav');
-           $footer = View::factory('site/blocks/V_footer');
+
+           $footer = View::factory('site/blocks/V_footer')
+                       ->bind('count_pages', $count_pages);
+
            $view = View::factory('site/index')
                        ->bind('options', $options)
                        ->bind('nav', $nav)

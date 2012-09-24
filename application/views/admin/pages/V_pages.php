@@ -18,7 +18,7 @@
                 <td class="pagename">
                     <form action="" method="post" name="edititem" id="edititem">
                         <input type="hidden" value="<?=$page->id;?>" name="id">
-                        <a href="#edit" onclick="req.editItem('pages',<?=$page->id;?>);">
+                        <a href="#edit" onclick="req.editItem('pages', <?=$page->id;?>);">
                             <?=$page->pagename;?>
                         </a>
                     </form>
@@ -53,7 +53,7 @@
     </tbody>
 </table>
 <?=$failsearch;?>
-<form action="" method="post" id="save">
+<form action="" method="post" id="save" onsubmit="return false;">
 <div class="row">
     <div class="span4">
         <div class="control-group">
@@ -74,8 +74,7 @@
             <label class="control-label" for="select2">Выводить по:</label>
             <div class="controls">
                 <select id="select2" name="limit" class="input-medium">
-                    <option>5</option>
-                    <option>10</option>
+                    <option selected="selected">10</option>
                     <option>15</option>
                     <option>20</option>
                     <option>25</option>
@@ -84,7 +83,9 @@
         </div>
     </div>
     <div class="span3 savepages">
-        <a class="btn btn-success" onclick="req.sortItems('pages');">Применить настройки</a>
+        <button class="btn btn-success" onclick="req.sortItems('pages');">
+            Применить настройки
+        </button>
     </div>
 </div>
 </form>

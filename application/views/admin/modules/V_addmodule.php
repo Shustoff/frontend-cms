@@ -1,7 +1,7 @@
 <div class="wraptooltip">
     <div class="alert alert-success tooltips">
       <button class="close" data-dismiss="alert">×</button>
-      <span class="center">Модуль добавлен!</span>
+      <span class="center">Готово!</span>
     </div>
     <div class="alert alert-danger tooltips">
       <button class="close" data-dismiss="alert">×</button>
@@ -9,7 +9,7 @@
     </div>
 </div>
 <h3 class="center">Добавить Модуль</h3>
-<form action="" method="post" id="additem">
+<form action="" method="post" id="additem" onsubmit="return false;">
 <div class="row">
     <div class="span6">
         <div class="control-group">
@@ -41,8 +41,8 @@
         <script>
             editor = CKEDITOR.editor.replace('editor');
             editor.on('blur', function() {
-                if ($('#additem').valid() && !$('.failmodname').text() && !$('.failsystemname').text()) {
-                    binds.canSave("binds.canSaveItem('modules')");
+                if ($('form').valid() && !$('.failmodname').text() && !$('.failsystemname').text()) {
+                    binds.canSave();
                 }
             });
         </script>
@@ -77,9 +77,12 @@
             <input type="hidden" name="author_id" value="<?=$author_id;?>">
             <input type="hidden" name="status" value="1">
             <input type="hidden" id="content" name="content" value="">
-            <a class="btn btn-success btncheck" href="#" onclick="binds.canSaveItem('modules');">Сохранить</a>
+            <input type="hidden" id="idItem" name="id" value="">
+            <button class="btn btn-success btn-large btncheck" onclick="binds.canSaveItem('modules');">
+                Сохранить
+            </button>
         </div>
     </div>
 </div>
 </form>
-<script>valid.validModule('#additem', "binds.canSaveItem('modules');");</script>
+<script>valid.validModule();</script>
