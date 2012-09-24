@@ -18,7 +18,7 @@
                 <td class="pagename">
                     <form action="" method="post" name="edititem" id="edititem">
                         <input type="hidden" value="<?=$catalog->id;?>" name="id">
-                        <a href="#edit" onclick="req.editItem('catalogs',<?=$catalog->id;?>);">
+                        <a href="#edit" onclick="req.editItem('catalogs', <?=$catalog->id;?>);">
                             <?=$catalog->catname;?>
                         </a>
                     </form>
@@ -53,7 +53,7 @@
     </tbody>
 </table>
 <?=$failsearch;?>
-<form action="" method="post" id="save">
+<form action="" method="post" id="save" onsubmit="return false;">
 <div class="row">
     <div class="span4">
         <div class="control-group">
@@ -84,7 +84,7 @@
         </div>
     </div>
     <div class="span3 savepages">
-        <a class="btn btn-success" onclick="req.sortItems('catalogs');">Применить настройки</a>
+        <button class="btn btn-success" onclick="req.sortItems('catalogs');">Применить настройки</button>
     </div>
 </div>
 </form>

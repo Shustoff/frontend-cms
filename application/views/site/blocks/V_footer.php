@@ -1,12 +1,16 @@
 <!--Футер -->
 <footer class="footer row">
-    <div class="fourcol">
-        <?=Mod::render('mod1');?>
+    <div class="sevencol">
+        <?=Mod::render('audio');?>
     </div>
-    <div class="fourcol">
-        <?=Mod::render('mod2');?>
+    <div class="threecol">
+        <?=Mod::render('countTracks');?>
     </div>
-    <div class="fourcol last">
-        <?=Mod::render('mod3');?>
+    <div class="twocol last">
+        <?=Mod::render('counter');?>
     </div>
 </footer>
+
+<script>
+    document.querySelector('.allTracks').innerHTML = <?=$count_pages;?>;
+</script>

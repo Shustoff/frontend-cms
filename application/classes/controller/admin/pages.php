@@ -94,4 +94,29 @@ class Controller_Admin_Pages extends Controller_Admin_App {
         $unique_alias  = ORM::factory('page')->unique('alias', $_POST['alias']);
         if ( ! $unique_alias) echo 'Такой алиас уже существует';
     }
+
+    // Обработка загруженного изображения
+    public function action_upload()
+    {
+        $uploaddir = 'assets/img/site/big/';
+        $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+
+            Image::factory($uploadfile, 'Imagick')->resize(530, 530, Image::NONE)->save($uploadfile, 95);
+
+            $thumbnail = 'assets/img/site/small/'.basename($_FILES['image']['name']);
+
+            Image::factory($uploadfile, 'Imagick')
+                ->resize(250, 250, Image::NONE)
+                ->save($thumbnail, 80);
+
+            echo basename($_FILES['image']['name']);
+
+        } else {
+          // WARNING! DO NOT USE "FALSE" STRING AS A RESPONSE!
+          // Otherwise onSubmit event will not be fired
+          echo "error";
+        }
+    }
 }

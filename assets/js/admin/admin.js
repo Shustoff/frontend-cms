@@ -3,48 +3,102 @@ $(function(){
     // Корень админки
     var baseURL = '/admin/';
 
-    // Разрешаем php-теги в визуальном редакторе
-    CKEDITOR.config.protectedSource.push(/<\?[\s\S]*?\?>/g);
-
     // Все что связано с Ajax-запросами
     req = {
         // Вид главной страницы
-        index: function() {$(".main").load(baseURL + "home");},
+        index: function() {
+            binds.showLoader();
+            $(".main").load(baseURL + "home");
+        },
 
         // Вид настроек
         options: function() {
+            binds.showLoader();
             $(".main").load(baseURL + "options");
             binds.checkOptions();
         },
 
         // Вид страниц
-        pages: function() {$(".main").load(baseURL + "pages");},
+        pages: function() {
+            binds.showLoader();
+            $(".main").load(baseURL + "pages");
+        },
 
         // Вид каталогов
-        catalogs: function() {$(".main").load(baseURL + "catalogs");},
+        catalogs: function() {
+            binds.showLoader();
+            $(".main").load(baseURL + "catalogs");
+        },
 
         // Вид пользователей
-        users: function() {$(".main").load(baseURL + "users");},
+        users: function() {
+            binds.showLoader();
+            $(".main").load(baseURL + "users");
+        },
 
         // Вид ролей
-        roles: function() {$(".main").load(baseURL + "roles");},
+        roles: function() {
+            binds.showLoader();
+            $(".main").load(baseURL + "roles");
+        },
 
         // Вид модулей
-        modules: function() {$(".main").load(baseURL + "modules");},
+        modules: function() {
+            binds.showLoader();
+            $(".main").load(baseURL + "modules");
+        },
+
+        // Загружает вид для создания материала
+        addItem: function(table) {
+            binds.showLoader();
+            $(".main").load(baseURL +  table + "/add" + table, function() {
+                binds.validFail();
+            });
+        },
+
+        // Загружает вид для редактирование материала
+        editItem: function(table, itemId) {
+            binds.showLoader();
+            $.post(baseURL + table + "/edit" + table + "/" + itemId, $('#edititem').serialize(), function(){
+                $(".main").empty().load(baseURL + table + "/edit" + table + "/" + itemId);
+            });
+        },
 
         // Вид отправки сообщений
         email: function() {
+            binds.showLoader();
             $(".main").load(baseURL + "email", function() {binds.validFail();});
         },
 
         // Вид статистики
-        stats: function() {$(".main").load(baseURL + "stats")},
+        stats: function() {
+            binds.showLoader();
+            $(".main").load(baseURL + "stats");
+        },
 
         // Вид информации о сайте
-        info: function() {$(".main").load(baseURL + "info");},
+        info: function() {
+            binds.showLoader();
+            $(".main").load(baseURL + "info");
+        },
 
         // Вид корзины
-        trash: function() {$(".main").load(baseURL + "trash");},
+        trash: function() {
+            binds.showLoader();
+            $(".main").load(baseURL + "trash", function() {
+                if ( ! $('tbody').has('tr').length) {
+                    $('#deleteAll, select, .btn').attr('disabled', 'disabled');
+                    $('.btn').attr('onclick', 'return false;');
+                }
+            });
+        },
+
+        // Поиск
+        searchItems: function(table) {
+            $.post(baseURL + table + "/search", $('#search' + table).serialize(), function(data){
+                $('.main').empty().append(data);
+            });
+        },
 
         // Сохранить настройки
         saveoptions: function() {
@@ -115,32 +169,33 @@ $(function(){
 
         // Пагинация
         pagination: function(table, selfpage) {
+            var $select1 = $('#select1 option:selected');
+            var $select2 = $('#select2 option:selected');
             localStorage.setItem('selfpage', '.' + $(selfpage).attr('class'));
             // Сохраняет сортировку между запросами
-            var sortby = $('#select1 option:selected').text();
+            var sortby = $select1.text();
             localStorage.setItem('sortby', sortby);
             // Сохраняем кол-во страниц при выводе между запросами
-            var limit = $('#select2 option:selected').text();
+            var limit = $select2.text();
             localStorage.setItem('limit', limit);
             // Количество текущих отображаемых страниц
             var count = $('.pageedit').index() + 1;
             // Номер текущей страницы, начиная с нуля
             var thispage = $(selfpage).text() - 1;
             // Получаем номер откуда начинать вывод страниц
-            var offset = thispage * parseInt( $('#select2 option:selected').text() );
+            var offset = thispage * parseInt( $select2.text() );
             // Имя текущей формы для отправки
             var name = "#" + $(selfpage).parents('form').attr('id');
             // Устанавливаем значения скрытого поля в начальный номер вывода страниц
             $(name).children('input#offset').val(offset);
             // Устанавливаем значения скрытого поля в значение сортировки
-            $(name).children('input#sortby').val( $('#select1 option:selected').val() );
+            $(name).children('input#sortby').val( $select1.val() );
             // Устанавливаем значение cкрытого поля в лимит страниц для вывода
             $(name).children('input#limit').val(localStorage.getItem('limit'));
 
             $.post(baseURL + table, $(name).serialize(), function(data) {
                 // Добавляем возвращаемые данные в документ
                 $('.main').empty().append(data);
-
                 // Сохраняем значение выпадающего списка между переходами по страницам
                 $('#select1 option').each(function() {
                     if ($(this).text() === localStorage.getItem('sortby')) {
@@ -175,42 +230,47 @@ $(function(){
             });
         },
 
-        // Поиск
-        searchItems: function(table) {
-            $.post(baseURL + table + "/search", $('#search' + table).serialize(), function(data){
-                $('.main').empty().append(data);
-            });
-        },
-
-        // Загружает вид для создания материала
-        addItem: function(table) {
-            $(".main").load(baseURL +  table + "/add" + table, function() {
-                binds.validFail();
-            });
+        // Очищаем корзину полностью
+        deleteAll: function () {
+            $.post(baseURL + "trash/deleteall", function() {
+                $('.pageedit').fadeOut(300);
+                binds.completeDelete();
+            })
         },
 
         // Добавляем материал
-        add: function(table) {
+        add: function (table) {
             $.post(baseURL + table + "/add", $('#additem').serialize(), function(data) {
-                if (data != '') {
-                    $('.alert-danger span').html(data);
-                    $('.alert-danger').show().delay(3000).hide(100);
+                if (table == 'users' || table == 'roles') {
+                    if (data != '') {
+                        // Показываем ошибки
+                        $('.alert-danger span').html(data);
+                        $('.alert-danger').show().delay(3000).hide(100);
+                    } else {
+                        // Показываем success!
+                        $('.alert-success').show().delay(3000).hide(100);
+                        binds.completeSave();
+                        $('button').removeClass('btn-success');
+                    }
                 } else {
-                    $('.alert-success').show().delay(3000).hide(100);
-                    binds.completeSave();
+                    if (data != '' && typeof(parseInt(data)) != 'number') {
+                        // Показываем ошибки
+                        $('.alert-danger span').html(data);
+                        $('.alert-danger').show().delay(3000).hide(100);
+                    } else {
+                        $('#idItem').val(data);
+                        // Показываем success!
+                        $('.alert-success').show().delay(3000).hide(100);
+                        $('.btncheck, .btn-success').attr("onclick", "binds.canEditItem('" + table + "');");
+                        binds.completeSave();
+                        $('form').attr('id', 'edititem');
+                    }
                 }
             });
         },
 
-        // Загружает вид для редактирование материала
-        editItem: function(table, itemId) {
-            $.post(baseURL + table + "/edit" + table + "/" + itemId, $('#edititem').serialize(), function(){
-                $(".main").empty().load(baseURL + table + "/edit" + table + "/" + itemId);
-            });
-        },
-
         // Обновляем материал
-        edit: function(table) {
+        edit: function (table) {
             $.post(baseURL + table + "/edit", $("#edititem").serialize(), function(data){
                 if (data != '') {
                     $('.alert-danger span').html(data);
@@ -231,14 +291,6 @@ $(function(){
                     $('.failpagename').text(data);
                     if (data || $('.failalias').text()) {
                         binds.validFail();
-                    } else {
-                        if ( $(parentForm).valid() ) {
-                            if ( $(parentForm).attr('id') == 'additem' ) {
-                                binds.canSave("binds.canSaveItem('pages');");
-                            } else {
-                                binds.canSave("binds.canEditItem('pages');");
-                            }
-                        }
                     }
                 });
             }
@@ -253,14 +305,6 @@ $(function(){
                     $('.failalias').text(data);
                     if (data || $('.failpagename').text()) {
                         binds.validFail();
-                    } else {
-                        if ( $(parentForm).valid() ) {
-                            if ( $(parentForm).attr('id') == 'additem' ) {
-                                binds.canSave("binds.canSaveItem('pages');");
-                            } else {
-                                binds.canSave("binds.canEditItem('pages');");
-                            }
-                        }
                     }
                 });
             }
@@ -275,14 +319,6 @@ $(function(){
                     $('.failcatname').text(data);
                     if (data || $('.failalias').text()) {
                         binds.validFail();
-                    } else {
-                        if ( $(parentForm).valid() ) {
-                            if ( $(parentForm).attr('id') == 'additem' ) {
-                                binds.canSave("binds.canSaveItem('catalogs');");
-                            } else {
-                                binds.canSave("binds.canEditItem('catalogs');");
-                            }
-                        }
                     }
                 });
             }
@@ -297,14 +333,6 @@ $(function(){
                     $('.failalias').text(data);
                     if (data || $('.failcatname').text()) {
                         binds.validFail();
-                    } else {
-                        if ( $(parentForm).valid() ) {
-                            if ( $(parentForm).attr('id') == 'additem' ) {
-                                binds.canSave("binds.canSaveItem('catalogs');");
-                            } else {
-                                binds.canSave("binds.canEditItem('catalogs');");
-                            }
-                        }
                     }
                 });
             }
@@ -319,14 +347,6 @@ $(function(){
                     $('.failmodname').text(data);
                     if (data || $('.failsystemname').text()) {
                         binds.validFail();
-                    } else {
-                        if ( $(parentForm).valid() ) {
-                            if ( $(parentForm).attr('id') == 'additem' ) {
-                                binds.canSave("binds.canSaveItem('modules');");
-                            } else {
-                                binds.canSave("binds.canEditItem('modules');");
-                            }
-                        }
                     }
                 });
             }
@@ -341,14 +361,6 @@ $(function(){
                     $('.failsystemname').text(data);
                     if (data || $('.failmodname').text()) {
                         binds.validFail();
-                    } else {
-                        if ( $(parentForm).valid() ) {
-                            if ( $(parentForm).attr('id') == 'additem' ) {
-                                binds.canSave("binds.canSaveItem('modules');");
-                            } else {
-                                binds.canSave("binds.canEditItem('modules');");
-                            }
-                        }
                     }
                 });
             }
@@ -357,17 +369,14 @@ $(function(){
         // Проверяем уникальность логина и валидацию формы
         checkLogin: function() {
             var el = '#username';
+            var $failName = $('.failusername');
             if ( $(el).val() != '' ) {
                 var parentForm = $(el).parents('form');
                 $.post(baseURL + "users/checklogin", $(parentForm).serialize(), function(data){
-                    $('.failusername').text(data);
+                    $failName.text(data);
                     if (data) binds.validFail();
-                    if (!$('.failusername').text() && !$('.failemail').text() && $(parentForm).valid()) {
-                        if ( $(parentForm).attr('id') == 'additem') {
-                            binds.canSave("req.add('users');");
-                        } else {
-                            binds.canSave("req.edit('users');");
-                        }
+                    if ( ! $failName.text() && ! $('.failemail').text() && $(parentForm).valid()) {
+                        binds.canSave();
                     }
                 });
             }
@@ -376,17 +385,14 @@ $(function(){
         // Проверяем уникальность емейла и валидацию формы
         checkEmail: function() {
             var el = '#email';
+            var $failEmail = $('.failemail');
             if ( $(el).val() != '' ) {
                 var parentForm = $(el).parents('form');
                 $.post(baseURL + "users/checkemail", $(parentForm).serialize(), function(data){
-                    $('.failemail').text(data);
+                    $failEmail.text(data);
                     if (data) binds.validFail();
-                    if (!$('.failusername').text() && !$('.failemail').text() && $(parentForm).valid()) {
-                        if ($(parentForm).attr('id') == 'additem') {
-                            binds.canSave("req.add('users');");
-                        } else {
-                            binds.canSave("req.edit('users');");
-                        }
+                    if ( ! $('.failusername').text() && ! $failEmail.text() && $(parentForm).valid()) {
+                        binds.canSave();
                     }
                 });
             }
@@ -395,17 +401,14 @@ $(function(){
         // Проверяем уникальность названия роли и валидацию формы
         checkRoleName: function() {
             var el = '#name';
+            var $failRole = $('.failrole');
             if ( $(el).val() != '' ) {
                 var parentForm = $(el).parents('form');
                 $.post(baseURL + "roles/checkrole", $(parentForm).serialize(), function(data){
-                    $('.failrole').text(data);
+                    $failRole.text(data);
                     if (data) binds.validFail();
-                    if ( !$('.failrole').text() && $(parentForm).valid()) {
-                        if ($(parentForm).attr('id') == 'additem') {
-                            binds.canSave("req.add('roles');");
-                        } else {
-                            binds.canSave("req.edit('roles');");
-                        }
+                    if ( ! $failRole.text() && $(parentForm).valid()) {
+                        binds.canSave();
                     }
                 });
             }
@@ -413,28 +416,28 @@ $(function(){
 
         // Отправляем сообщение
         sendEmail: function() {
-            if (!editor.getData()) {
+            if ( ! editor.getData()) {
                 $('.editorfail').show().delay(3000).hide(100);
             } else {
                 $('#content').val(editor.getData());
-                $('#sendemailbtn').text('Сообщение отправляется...').attr('onclick', 'return false;').addClass('disabled');
+                $('#sendemailbtn').text('Сообщение отправляется...').attr('disabled', 'disabled');
                 $.post(baseURL + "email/send", $('#email').serialize(), function() {
                     $('#sendemailbtn').text('Сообщение отправлено!');
-                    binds.completeSave();
                 });
             }
         }
     };
 
-    // Биндим события на элементы формы
+    // Биндим события на элементы формы и методы проверки
     binds = {
+
         // Проверка измененных полей в настройках
         checkOptions: function() {
             $('#saveoptions input[type=text], #saveoptions textarea').live('keydown', function() {
-                binds.canSave('req.saveoptions();');
+                binds.canSave();
             });
             $('#saveoptions input[type=radio], #saveoptions select').live('change', function() {
-                binds.canSave('req.saveoptions();');
+                binds.canSave();
             });
         },
 
@@ -447,7 +450,6 @@ $(function(){
         completeSave: function() {
             $('.btncheck, .btn-success')
                   .attr('disabled', 'disabled')
-                  .attr('onclick', 'return false;')
                   .text('Сохранено')
                   .removeClass('btncheck');
         },
@@ -459,17 +461,17 @@ $(function(){
 
         // Делаем кнопку сохранить не активной если не пройдена валидация поля формы
         validFail: function() {
-            $('.btn-success').attr('disabled', 'disabled').attr('onclick', 'return false;');
+            $('.btn-success').attr('disabled', 'disabled');
         },
 
         // Делаем кнопку сохранить активной если вся форма валиднa
-        canSave: function(onclick) {
-            $('.btn-success').removeAttr('disabled').attr('onclick', onclick).text('Сохранить');
+        canSave: function() {
+            $('.btn-success').removeAttr('disabled').text('Сохранить');
         },
 
         // Проверяем можно ли сохранить материал + отсылаем html
         canSaveItem: function(table) {
-            if (!editor.getData()) {
+            if ( ! editor.getData()) {
                 $('.editorfail').show().delay(3000).hide(100);
             } else {
                 $('#content').empty().val(editor.getData());
@@ -479,12 +481,28 @@ $(function(){
 
         // Проверяем можно ли отредактировать материал + отсылаем html
         canEditItem: function(table) {
-            if (!editor.getData()) {
+            if ( ! editor.getData()) {
                 $('.editorfail').show().delay(3000).hide(100);
             } else {
                 $('#content').empty().val(editor.getData());
                 req.edit(table);
             }
+        },
+
+        // Показываем иконку загрузки
+        showLoader: function () {
+            var loader = '<div id="floatingBarsG">' +
+                            '<div class="blockG" id="rotateG_01"></div>' +
+                            '<div class="blockG" id="rotateG_02"></div>' +
+                            '<div class="blockG" id="rotateG_03"></div>' +
+                            '<div class="blockG" id="rotateG_04"></div>' +
+                            '<div class="blockG" id="rotateG_05"></div>' +
+                            '<div class="blockG" id="rotateG_06"></div>' +
+                            '<div class="blockG" id="rotateG_07"></div>' +
+                            '<div class="blockG" id="rotateG_08"></div>' +
+                         '</div>';
+
+            $('.main').html(loader);
         }
     };
 

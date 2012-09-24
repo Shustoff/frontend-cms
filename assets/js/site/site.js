@@ -14,21 +14,25 @@ requirejs.config({
         'text' : '../libs/require/text',
         'domReady' : '../libs/require/domready',
         // Custom
-        'config' : './config'
+        'config' : './config',
+        'player' : './mediaelement-and-player.min'
     },
     shim : {
         'Backbone' : {
             deps : ['jQuery', 'Underscore'],
             exports : 'Backbone'
         },
-        'config' : { deps : ['Underscore'] }
+        'config' : { deps : ['Underscore'] },
+        'player' : { deps : ['jQuery']}
     }
 });
 
-requirejs(['router', 'config'], function (Router) {
+requirejs(['router', 'player', 'config'], function (Router) {
+    // Начинаем запись истории
     var site = Router.initialize();
+
     // Меняем URL без редиректа
-    $(document).on('click', 'a', function(e){
+    $(document).on('click', '.topmenu a, .pagename a, .pagination a', function(e){
         var href = $(this).attr('href');
         var protocol = this.protocol + '//';
         if (href.slice(protocol.length) !== protocol) {
@@ -36,4 +40,5 @@ requirejs(['router', 'config'], function (Router) {
             site.navigate(href, true);
         }
     });
+
 });

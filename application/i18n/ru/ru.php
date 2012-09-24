@@ -31,6 +31,7 @@ return array(
  'metadesc'                                             => 'Поле Meta-описание',
  'metakeywords'                                         => 'Поле Ключевые слова',
  'pagename'                                             => 'Поле Название страницы',
+ 'catname'                                              => 'Поле Название каталога',
  'alias'                                                => 'Поле Алиас',
  'content'                                              => 'Поле HTML-код',
  'date'                                                 => 'Поле Дата',

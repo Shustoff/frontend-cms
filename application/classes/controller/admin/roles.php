@@ -44,7 +44,19 @@ class Controller_Admin_Roles extends Controller_Admin_App {
 
     public function action_add($model = 'role')
     {
-        parent::action_add($model);
+        try
+        {
+            $added = ORM::factory($model)->values($_POST)->save();
+        }
+        catch (ORM_Validation_Exception $e)
+        {
+            $errors = $e->errors('validation');
+            foreach ($errors as $error)
+            {
+                echo $error . '<br>';
+            }
+        }
+
     }
 
     // Проверяем название роли на уникальность

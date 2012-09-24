@@ -18,6 +18,9 @@ function (Backbone, OnePageTemplate) {
             this.model.on('change', function() {
                 self.render();
                 document.title = self.model.attributes.pagename;
+
+                if (typeof listenTracks === 'undefined') listenTracks = [];
+                self.countListenTracks(listenTracks);
             });
         },
 
@@ -31,6 +34,17 @@ function (Backbone, OnePageTemplate) {
             }
             this.$el.html(content);
             return this;
+        },
+
+        // Производим подсчет прослушанных треков
+        countListenTracks: function(listenTracks) {
+            $('.listen').one('click', function() {
+                var track = $(this).attr('id');
+                if ( ! _.include(listenTracks, track)) {
+                    $('.listenTracks').text( parseInt($('.listenTracks').text()) + 1 );
+                    listenTracks.push( track );
+                }
+            });
         }
     });
     return OnePageView;

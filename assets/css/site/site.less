@@ -1,5 +1,10 @@
-/* Основной шаблон */
+/* Подключаем bootstrap, 1140, qunit css, mediaelementplayer */
+@import url("../bootstrap.css");
+@import url("../1140.css");
+@import url("../qunit-1.9.0.css");
+@import url("mediaelementplayer.css");
 
+/* Основной шаблон сайта */
 /* Переменные, миксины etc. */
 @colorBorder: #00B366; // Цвет бордера
 @colorLink: #007D48; // Цвет ссылок
@@ -20,16 +25,45 @@
     color: #fff !important;
 }
 
+.transition (@duration, @effect, @delay) {
+  -webkit-transition: -webkit-transform @duration @effect @delay;
+  -moz-transition: -moz-transform @duration @effect @delay;
+  -o-transition: -o-transform @duration @effect @delay;
+  -ms-transition: -ms-transform @duration @effect @delay;
+  transition: transform @duration @effect @delay;
+}
+
+.transform (@property) {
+  -webkit-transform: @property;
+  -moz-transform: @property;
+  -o-transform: @property;
+  //-ms-transform: @property;
+  transform: @property;
+}
+
+.boxShadow (@left, @top, @radius, @color) {
+  -webkit-box-shadow: @left @top @radius @color;
+  -moz-box-shadow: @left @top @radius @color;
+  -o-box-shadow: @left @top @radius @color;
+  -ms-box-shadow: @left @top @radius @color;
+  box-shadow:  @left @top @radius @color;
+}
+
+.noDelay {
+  -webkit-transition-delay: 0ms !important;
+  -moz-transition-delay: 0ms !important;
+  -o-transition-delay: 0ms !important;
+  -ms-transition-delay: 0ms !important;
+  transition-delay: 0ms !important;
+}
+
+
+
 /* Общие стили */
 html,
 body {
     height: 100%;
     min-height: 100%;
-}
-
-::-moz-selection,
-::selection {
-    background: #60BF96;
 }
 
 a {
@@ -38,10 +72,18 @@ a {
     &:focus {
         outline: none;
     }
+
     &:hover {
         text-shadow: 1px 1px 1px #007D48;
     }
 }
+
+::-moz-selection,
+::selection {
+    background: #60BF96;
+}
+
+
 
 /* Медиа запросы */
 // Для разрешения < 480 пикс
@@ -50,10 +92,12 @@ a {
         .top {
             height: 200px;
         }
+
         .topmenu {
             ul {
                 margin-top: 10px !important;
             }
+
             li {
                 float: left;
                 clear: both;
@@ -66,14 +110,17 @@ a {
                 }
             }
         }
-        .mid {
-            margin-bottom: 60px;
+
+        .twelvecol {
+            p {
+              font-size: 0.8em !important;
+            }
         }
     }
 }
 
 // Для разрешения < 680 пикс
-@media all  and (max-width: 680px) {
+@media all and (max-width: 680px) {
     body {
         .topmenu {
             padding-top: 10px;
@@ -81,17 +128,33 @@ a {
                 font-size: 1em !important;
             }
         }
+
         .threecol,
         .twelvecol {
             padding-left: 0px !important;
             padding-right: 0px !important;
         }
+
+        .twelvecol {
+          text-align: center;
+          margin-bottom: 60px;
+          width: 91.7% !important;
+
+          .centr {
+            width: 13.5% !important;
+            height: 14.1% !important;
+            top: 41.6% !important;
+            left: 43.3% !important;
+          }
+        }
+
         .footer {
             .fourcol {
                 border-right: none !important;
                 border-bottom: 1px dashed #006DAD;
                 padding: 10px 0px;
             }
+
             .last {
                 border-bottom: none;
             }
@@ -108,7 +171,8 @@ a {
                 font-size: 1.6em !important;
             }
         }
-        .row {
+
+        .mid {
             .threecol {
                 width: 46%;
                 float: left;
@@ -117,11 +181,27 @@ a {
                 padding-left: 10px;
                 padding-right: 10px;
             }
+
+            .twelvecol {
+                p {
+                  font-size: 1.3em !important;
+                }
+            }
         }
     }
 }
 
-/* Обертка для верхнего и среднего блока */
+// Для разрешения от 681 пикс.
+@media all and (min-width: 681px) {
+  .pagedesc {
+    width: 43% !important;
+  }
+}
+
+
+
+/* Кастомные стили */
+/* Обертка для верхнего и среднего блока, чтобы прижать футер к низу */
 .wrapper {
     min-height: 100%;
     height: auto !important;
@@ -132,6 +212,10 @@ a {
     .pagination {
         text-align: center;
         padding-bottom: 100px;
+
+        a {
+          width: 15px;
+        }
 
         a:hover,
         .hover {
@@ -161,6 +245,7 @@ a {
                 border-bottom: 1px dotted;
             }
         }
+
         ul {
              margin: 20px auto;
              display: block;
@@ -173,15 +258,19 @@ a {
 .mid {
     padding: 20px;
     background: @bgImg;
-
+    min-height: 600px;
 
     .row {
         .threecol  {
             margin-bottom: 30px;
+            text-align: center;
 
             .pagename {
                 text-align: center;
                 margin-bottom: 10px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
 
                 a {
                    font-size: 1.4em;
@@ -189,34 +278,97 @@ a {
                    border-bottom: 1px dotted @colorBorder;
                 }
             }
+
             .createdDate,
             .author,
             .parentCatalog {
                 color: #5a5a5a;
             }
+
             .content {
                 margin-top: 10px;
             }
+
+            img {
+                margin: 15px 0px;
+                .boxShadow(0px, 0px, 3px, #000);
+            }
+        }
+
+        .twelvecol {
+            p {
+              font-size: 22px;
+              margin: 10px 0px;
+            }
+
+            .content {
+              margin: 30px 0px;
+              a {
+                text-decoration: underline;
+              }
+
+              iframe {
+                margin-top: 20px;
+              }
+            }
+
+            .downloadTrack {
+              a {
+                color: #fff !important;
+              }
+            }
+        }
+
+        .bigimage {
+          position: relative;
+          text-align: right;
+          padding-top: 10px;
+
+          img {
+            .boxShadow(0px, 0px, 7px, #000);
+            margin-bottom: 20px;
+            .transition(600s, linear, 999s);
+          }
+
+          .centr {
+            position: absolute;
+            background: @bgImg;
+            border-radius: 40px;
+            z-index: 2;
+            width: 15%;
+            height: 14.5%;
+            top: 41.80%;
+            left: 43.1%;
+            box-shadow: inset 0px 0px 10px #000;
+          }
+        }
+
+        .pagedesc {
+          font-style: italic;
         }
     }
 
-    .txt {
-        margin-top: 20px;
+    .catalog {
+      padding-left: 3px;
     }
 
     .catalog-desc {
         text-align: center;
         margin-bottom: 25px;
     }
-}
 
+    .txt {
+        margin-top: 20px;
+    }
+
+}
 
 /* Нижний блок */
 .bot {
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     border-top: 1px dashed @colorBorder;
     margin-top: -70px;
-    min-height: 30px;
+    min-height: 40px;
     height: auto;
     background: @bgHeadFoot;
 
@@ -227,8 +379,208 @@ a {
             margin-right: 3.2%;
             .borderBox;
         }
+
+        .sevencol {
+            margin-top: 15px;
+        }
+
+        .threecol {
+            margin-top: 15px;
+            text-align: center;
+            margin-right: 3.3%;
+        }
+
         .last {
+            margin-top: 20px;
             border-right: none;
+            text-align: center;
         }
     }
+}
+
+/* Крутим картинку */
+.rotator {
+  .noDelay;
+  .transform(rotate(12000grad));
+}
+
+/* Стили прелоадера */
+#floatingBarsG {
+  position: relative;
+  width: 200px;
+  height: 248px;
+  margin: 200px auto 0 auto;
+}
+
+.blockG {
+  position: absolute;
+  background-color: #FFFFFF;
+  width: 32px;
+  height: 77px;
+  -moz-border-radius: 26px 26px 0 0;
+  -webkit-border-radius: 26px 26px 0 0;
+  -webkit-transform: scale(0.4);
+  -webkit-animation-name: fadeG;
+  -webkit-animation-duration: 0.8s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: linear;
+  -moz-transform: scale(0.4);
+  -moz-animation-name: fadeG;
+  -moz-animation-duration: 0.8s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: linear;
+  border-radius: 26px 26px 0 0;
+  -o-transform: scale(0.4);
+  -o-animation-name: fadeG;
+  -o-animation-duration: 0.8s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-direction: linear;
+  -ms-transform: scale(0.4);
+  -ms-animation-name: fadeG;
+  -ms-animation-duration: 0.8s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-direction: linear;
+}
+
+#rotateG_01 {
+  left: 0;
+  top: 90px;
+  -webkit-animation-delay: 0.3s;
+  -webkit-transform: rotate(-90deg);
+  -moz-animation-delay: 0.3s;
+  -moz-transform: rotate(-90deg);
+  -o-animation-delay: 0.3s;
+  -o-transform: rotate(-90deg);
+  -ms-animation-delay: 0.3s;
+  -ms-transform: rotate(-90deg);
+}
+
+#rotateG_02 {
+  left: 26px;
+  top: 32px;
+  -webkit-animation-delay: 0.4s;
+  -webkit-transform: rotate(-45deg);
+  -moz-animation-delay: 0.4s;
+  -moz-transform: rotate(-45deg);
+  -o-animation-delay: 0.4s;
+  -o-transform: rotate(-45deg);
+  -ms-animation-delay: 0.4s;
+  -ms-transform: rotate(-45deg);
+}
+
+#rotateG_03 {
+  left: 84px;
+  top: 10px;
+  -webkit-animation-delay: 0.5s;
+  -webkit-transform: rotate(0deg);
+  -moz-animation-delay: 0.5s;
+  -moz-transform: rotate(0deg);
+  -o-animation-delay: 0.5s;
+  -o-transform: rotate(0deg);
+  -ms-animation-delay: 0.5s;
+  -ms-transform: rotate(0deg);
+}
+
+#rotateG_04 {
+  right: 26px;
+  top: 32px;
+  -webkit-animation-delay: 0.6s;
+  -webkit-transform: rotate(45deg);
+  -moz-animation-delay: 0.6s;
+  -moz-transform: rotate(45deg);
+  -o-animation-delay: 0.6s;
+  -o-transform: rotate(45deg);
+  -ms-animation-delay: 0.6s;
+  -ms-transform: rotate(45deg);
+}
+
+#rotateG_05 {
+  right: 0;
+  top: 90px;
+  -webkit-animation-delay: 0.7s;
+  -webkit-transform: rotate(90deg);
+  -moz-animation-delay: 0.7s;
+  -moz-transform: rotate(90deg);
+  -o-animation-delay: 0.7s;
+  -o-transform: rotate(90deg);
+  -ms-animation-delay: 0.7s;
+  -ms-transform: rotate(90deg);
+}
+
+#rotateG_06 {
+  right: 26px;
+  bottom: 23px;
+  -webkit-animation-delay: 0.8s;
+  -webkit-transform: rotate(135deg);
+  -moz-animation-delay: 0.8s;
+  -moz-transform: rotate(135deg);
+  -o-animation-delay: 0.8s;
+  -o-transform: rotate(135deg);
+  -ms-animation-delay: 0.8s;
+  -ms-transform: rotate(135deg);
+}
+
+#rotateG_07 {
+  bottom: 0;
+  left: 84px;
+  -webkit-animation-delay: 0.9s;
+  -webkit-transform: rotate(180deg);
+  -moz-animation-delay: 0.9s;
+  -moz-transform: rotate(180deg);
+  -o-animation-delay: 0.9s;
+  -o-transform: rotate(180deg);
+  -ms-animation-delay: 0.9s;
+  -ms-transform: rotate(180deg);
+}
+
+#rotateG_08 {
+  left: 26px;
+  bottom: 23px;
+  -webkit-animation-delay: 1s;
+  -webkit-transform: rotate(-135deg);
+  -moz-animation-delay: 1s;
+  -moz-transform: rotate(-135deg);
+  -o-animation-delay: 1s;
+  -o-transform: rotate(-135deg);
+  -ms-animation-delay: 1s;
+  -ms-transform: rotate(-135deg);
+}
+
+@-webkit-keyframes fadeG {
+  0% {
+    background-color: #000000
+  }
+  100% {
+    background-color: #FFFFFF
+  }
+}
+
+@-moz-keyframesfadeG {
+  0% {
+    background-color: #000000
+  }
+  100% {
+    background-color: #FFFFFF
+  }
+}
+
+@-o-keyframes fadeG {
+  0%
+  {
+    background-color: #000000
+  }
+  100%
+  {
+    background-color: #FFFFFF
+  }
+}
+
+@-ms-keyframes fadeG {
+  0% {
+    background-color: #000000
+  }
+  100%
+  {
+    background-color: #FFFFFF
+  }
 }

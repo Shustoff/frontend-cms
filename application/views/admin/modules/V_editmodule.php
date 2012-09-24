@@ -1,7 +1,7 @@
 <div class="wraptooltip">
     <div class="alert alert-success tooltips">
       <button class="close" data-dismiss="alert">×</button>
-      <span class="center">Модуль изменен!</span>
+      <span class="center">Готово!</span>
     </div>
     <div class="alert alert-danger tooltips">
       <button class="close" data-dismiss="alert">×</button>
@@ -9,7 +9,7 @@
     </div>
 </div>
 <h3 class="center">Изменить модуль</h3>
-<form action="" method="post" id="edititem">
+<form action="" method="post" id="edititem" onsubmit="return false;">
 <div class="row">
     <div class="span6">
         <div class="control-group">
@@ -41,8 +41,8 @@
         <script>
             editor = CKEDITOR.editor.replace('editor');
             editor.on('blur', function(){
-                if ($('#edititem').valid() && !$('.failmodname').text() && !$('.failsystemname').text()) {
-                    binds.canSave("binds.canEditItem('modules')");
+                if ($('form').valid() && !$('.failmodname').text() && !$('.failsystemname').text()) {
+                    binds.canSave();
                 }
             });
         </script>
@@ -66,6 +66,7 @@
                 <script>
                     $(function() {
                         $( "#datepicker" ).datepicker();
+                        date.today("#datepicker");
                     });
                 </script>
             </div>
@@ -77,9 +78,11 @@
             <input type="hidden" name="status" value="<?=$module->status;?>">
             <input type="hidden" id="content" name="content" value="">
             <input type="hidden" name="id" value="<?=$module->id;?>">
-            <a class="btn btn-success btncheck" href="#" onclick="binds.canEditItem('modules');">Сохранить</a>
+            <button class="btn btn-success btn-large btncheck" href="#" onclick="binds.canEditItem('modules');">
+                Сохранить
+            </button>
         </div>
     </div>
 </div>
 </form>
-<script>valid.validModule('#edititem', "binds.canEditItem('modules');");</script>
+<script>valid.validModule();</script>

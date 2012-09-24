@@ -16,7 +16,7 @@ class Controller_Admin_App extends Controller {
     // Вывод всех материалов
     public function action_main($model) {
         $sortby = Arr::get($_POST, 'sortby', 'id');
-        $limit = Arr::get($_POST, 'limit', '5');
+        $limit = Arr::get($_POST, 'limit', '10');
         $offset = Arr::get($_POST, 'offset', '0');
 
         $allitems = ORM::factory($model)->where('intrash', '=', '0')->find_all();
@@ -84,7 +84,8 @@ class Controller_Admin_App extends Controller {
         // Проверка валидации
         try
         {
-            ORM::factory($model)->values($_POST)->save();
+            $added = ORM::factory($model)->values($_POST)->save();
+            echo $added->id;
         }
         catch (ORM_Validation_Exception $e)
         {
@@ -113,4 +114,4 @@ class Controller_Admin_App extends Controller {
             }
         }
     }
-} // End Admin_App
+}

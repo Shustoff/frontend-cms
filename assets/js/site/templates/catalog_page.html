@@ -1,15 +1,13 @@
 <p class=pagename>
     <a href="{{catalog_alias ? catalog_alias + '/' : ''}}{{alias}}"> {{pagename}} </a>
 </p>
+<img class="img-circle" src="http://music.shustoff.su/assets/img/site/small/{{image ? image : 'default.png'}}" alt="">
 <p class=createdDate>
-    <strong>Дата создания: </strong> {{date}}
+    <strong>Дата добавления: </strong> {{date}}
 </p>
 <p class=author>
-    <strong>Автор: </strong> {{author}}
+    <strong>Добавил: </strong> {{author}}
 </p>
 <p class=parentCatalog>
-    <strong>Каталог: </strong> {{catalog_alias ? catalog : 'нету'}}
+    <strong>Жанр: </strong> {{catalog_alias ? catalog : 'нету'}}
 </p>
-<div class=content>
-    {{content}}
-</div>

@@ -1,7 +1,7 @@
 <div class="wraptooltip">
     <div class="alert alert-success tooltips">
       <button class="close" data-dismiss="alert">×</button>
-      <span class="center">Каталог изменен!</span>
+      <span class="center">Готово!</span>
     </div>
     <div class="alert alert-danger tooltips">
       <button class="close" data-dismiss="alert">×</button>
@@ -9,7 +9,7 @@
     </div>
 </div>
 <h3 class="center">Изменить каталог</h3>
-<form action="" method="post" id="edititem">
+<form action="" method="post" id="edititem" onsubmit="return false;">
 <div class="row">
     <div class="span6">
         <div class="control-group">
@@ -36,9 +36,9 @@
         <textarea id="editor" class="auto"><?=$catalog->content;?></textarea>
         <script>
             editor = CKEDITOR.editor.replace('editor');
-            editor.on('blur', function(){
-                if ($('#edititem').valid() && !$('.failcatname').text() && !$('.failalias').text()) {
-                    binds.canSave("binds.canSaveItem('catalogs')");
+            editor.on('blur', function() {
+                if ($('form').valid() && !$('.failcatname').text() && !$('.failalias').text()) {
+                    binds.canSave();
                 }
             });
         </script>
@@ -67,7 +67,8 @@
     <div class="span3">
         <script>
         	$(function() {
-        		$( "#datepicker" ).datepicker();
+        		$("#datepicker").datepicker();
+                date.today("#datepicker");
         	});
         </script>
         <div class="control-group">
@@ -79,9 +80,11 @@
     </div>
     <div class="span2 savecat">
         <div class="control-group">
-            <a class="btn btn-success btncheck" href="#" onclick="binds.canEditItem('catalogs');">Сохранить</a>
+            <button class="btn btn-success btn-large btncheck" onclick="binds.canEditItem('catalogs');">
+                Сохранить
+            </button>
         </div>
     </div>
 </div>
 </form>
-<script>valid.validCatalog('#edititem', "binds.canEditItem('catalogs');");</script>
+<script>valid.validCatalog();</script>

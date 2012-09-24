@@ -2,7 +2,7 @@
     <button class="close" data-dismiss="alert">×</button>
     <span class="center">Настройки сохранены</span>
 </div>
-<form action="" method="post" id="saveoptions" class="form-horizontal">
+<form action="" method="post" id="saveoptions" class="form-horizontal" onsubmit="return false;">
 <div class="row">
     <div class="span6">
         <div class="control-group">
@@ -145,10 +145,10 @@
         </div>
         <div class="control-group offset1">
             <div class="controls">
-                <a class="btn btn-success btncheck" href="#" onclick="req.saveoptions();">Сохранить</a>
+                <button class="btn btn-success btn-large btncheck" onclick="req.saveoptions();">Сохранить</button>
             </div>
         </div>
     </div>
 </div>
 </form>
-<script>valid.validOptions("#saveoptions", "req.saveoptions();");</script>
+<script>valid.validOptions();</script>

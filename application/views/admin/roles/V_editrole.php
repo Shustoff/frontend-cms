@@ -8,7 +8,7 @@
       <span class="center"></span>
     </div>
 </div>
-<form id="edititem" action="" method="post">
+<form id="edititem" action="" method="post" onsubmit="return false;">
 <div class="row">
     <h3>Изменить роль</h3>
     <div class="span11">
@@ -136,12 +136,16 @@
                 <input type="hidden" name="id" value="<?=$role->id;?>">
                 <input type="hidden" name="status" value="<?=$role->status;?>">
                 <script>
-                    $(function() { date.today('#datepicker') });
+                    $(function() {
+                        date.today('#datepicker');
+                    });
                 </script>
-                <a class="btn btn-success addrole btncheck" href="#" onclick="req.edit('roles');">Сохранить</a>
+                <button class="btn btn-success btn-large addrole btncheck" onclick="req.edit('roles');">
+                    Сохранить
+                </button>
             </div>
         </div>
     </div>
 </div>
 </form>
-<script>valid.validRole('#edititem', "req.edit('roles');");</script>
+<script>valid.validRole();</script>

@@ -8,7 +8,7 @@
       <span class="center"></span>
     </div>
 </div>
-<form id="additem" action="" method="post">
+<form id="additem" action="" method="post" onsubmit="return false;">
 <div class="row">
     <h3>Добавить роль</h3>
     <div class="span11">
@@ -137,10 +137,12 @@
                 <script>
                     $(function() { date.today('#datepicker') });
                 </script>
-                <a class="btn btn-success addrole btncheck" href="#" onclick="req.add('roles');">Сохранить</a>
+                <button class="btn btn-success btn-large addrole btncheck" onclick="req.add('roles');">
+                    Сохранить
+                </button>
             </div>
         </div>
     </div>
 </div>
 </form>
-<script>valid.validRole('#additem', "req.add('roles');");</script>
+<script>valid.validRole();</script>

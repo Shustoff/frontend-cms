@@ -45,7 +45,7 @@
     </tbody>
 </table>
 <?=$failsearch;?>
-<form action="" method="post" id="save">
+<form action="" method="post" id="save" onsubmit="return false;">
 <div class="row">
     <div class="span4">
         <div class="control-group">
@@ -54,8 +54,7 @@
                 <select id="select1" name="sortby" class="input-medium">
                     <option value="id">ID</option>
                     <option value="name">Названию</option>
-                    <option value="desc">Примечанию</option>
-                    <option value="user_id">Создателю</option>
+                    <option value="user_id">Автору</option>
                     <option value="date">Дате</option>
                 </select>
             </div>
@@ -76,7 +75,9 @@
         </div>
     </div>
     <div class="span3 savepages">
-        <a class="btn btn-success" onclick="req.sortItems('modules');">Применить настройки</a>
+        <button class="btn btn-success" onclick="req.sortItems('modules');">
+            Применить настройки
+        </button>
     </div>
 </div>
 </form>
