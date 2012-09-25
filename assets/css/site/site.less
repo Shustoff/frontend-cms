@@ -111,6 +111,15 @@ a {
             }
         }
 
+        .pageWrapper {
+            .pagination {
+              height: auto !important;
+              ul {
+                box-shadow: none;
+              }
+            }
+        }
+
         .twelvecol {
             p {
               font-size: 0.8em !important;
@@ -209,17 +218,18 @@ a {
     background: @bgImg;
     width: 100%;
 
-    .pagination {
-        text-align: center;
+    .pageWrapper {
         padding-bottom: 100px;
 
-        a {
-          width: 15px;
-        }
-
-        a:hover,
-        .hover {
-            .hovered;
+        .pagination {
+            text-align: center;
+            a {
+              width: 15px;
+            }
+            a:hover,
+            .hover {
+                .hovered;
+            }
         }
     }
 }
