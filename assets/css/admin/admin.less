@@ -145,14 +145,15 @@ input {
     }
 
     .logo {
-        margin-top: -5px;
-        font-size: 20px;
-        font-family: Geneva;
-        -moz-transition: -moz-transform 0.2s ease 0.2s;
-        -webkit-transition: -webkit-transform 0.2s ease 0.2s;
-        -o-transition: -o-transform 0.2s ease 0.2s;
-        -ms-transition: -ms-transform 0.2s ease 0.2s;
-        transition: transform 0.2s ease 0.2s;
+        font: 22px Tahoma;
+        text-align: right;
+        margin-top: 0px;
+        font-weight: bold;
+        -moz-transition: -moz-transform 0.2s ease;
+        -webkit-transition: -webkit-transform 0.2s ease;
+        -o-transition: -o-transform 0.2s ease;
+        -ms-transition: -ms-transform 0.2s ease;
+        transition: transform 0.2s ease;
 
         &:hover {
             -moz-transform: scale(1.3, 1.3);
@@ -539,6 +540,12 @@ input {
     #datepicker {
       margin-right: 40px;
     }
+
+    .infoTable {
+      width: 600px !important;
+      margin: 0 auto;
+      overflow: hidden;
+    }
 }
 
 
@@ -596,10 +603,6 @@ input {
       margin-top: 0px;
       text-align: center;
       border-radius: 10px 10px 0px 0px;
-    }
-
-    .container {
-      padding-bottom: 20px;
     }
 }
 
