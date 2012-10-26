@@ -18,7 +18,7 @@
     <!--Антикэш-->
     <meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT">
 
-    <!-- Если браузер IE < 9 -->
+    <!-- Если браузер IE < 9 - давай до свидания! -->
     <script>if (document.all && !document.querySelector || !document.getElementsByClassName) {window.location = 'ie.html';}</script>
 
     <!--Стили-->

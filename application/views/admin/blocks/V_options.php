@@ -139,7 +139,7 @@
             <div class="control-group">
                 <label for="password" class="control-label">Пароль: </label>
                 <div class="controls">
-                   <span id="password" class="input-large uneditable-input"><?=$db['password'];?></span>
+                   <input type="password" disabled id="password" class="input-large uneditable-input" value="<?=$db['password'];?>"/>
                 </div>
             </div>
         </div>

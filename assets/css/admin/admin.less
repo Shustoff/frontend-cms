@@ -36,7 +36,7 @@ body {
 }
 
 a {
-    color: #1F5717;
+    color: #1F5717 !important;
     text-decoration: underline;
 
     .top &:link {
@@ -367,7 +367,7 @@ input {
 
     .datetable {
         width: 120px;
-        font-weight: lighter;
+        font-weight: bold;
     }
 
     .right-table {
@@ -542,9 +542,14 @@ input {
     }
 
     .infoTable {
-      width: 600px !important;
       margin: 0 auto;
-      overflow: hidden;
+      white-space: pre-wrap;
+      .center {
+        margin-top: -80px;
+      }
+      table {
+        word-break: break-all;
+      }
     }
 }
 

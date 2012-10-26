@@ -1,5 +1,2 @@
 .idea/
-.DS_STORE
-logs/
-cache/
-workspace.xml
+application/logs/

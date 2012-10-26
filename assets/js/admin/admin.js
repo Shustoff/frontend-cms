@@ -489,7 +489,6 @@ $(function(){
             }
         },
 
-        // Показываем иконку загрузки
         showLoader: function () {
             var loader = '<div id="floatingBarsG">' +
                             '<div class="blockG" id="rotateG_01"></div>' +

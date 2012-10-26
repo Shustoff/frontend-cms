@@ -58,7 +58,6 @@
 }
 
 
-
 /* Общие стили */
 html,
 body {
@@ -81,132 +80,8 @@ a {
 ::-moz-selection,
 ::selection {
     background: #60BF96;
+    color: #fff !important;
 }
-
-
-
-/* Медиа запросы */
-// Для разрешения < 480 пикс
-@media all and (max-width: 480px) {
-    body {
-        .top {
-            height: 200px;
-        }
-
-        .topmenu {
-            ul {
-                margin-top: 10px !important;
-            }
-
-            li {
-                float: left;
-                clear: both;
-                width: 100% !important;
-                margin-bottom: 10px;
-
-                a {
-                    font-size: 1.6em !important;
-                    width: 100%;
-                }
-            }
-        }
-
-        .pageWrapper {
-            .pagination {
-              height: auto !important;
-              ul {
-                box-shadow: none;
-              }
-            }
-        }
-
-        .twelvecol {
-            p {
-              font-size: 0.8em !important;
-            }
-        }
-    }
-}
-
-// Для разрешения < 680 пикс
-@media all and (max-width: 680px) {
-    body {
-        .topmenu {
-            padding-top: 10px;
-            a {
-                font-size: 1em !important;
-            }
-        }
-
-        .threecol,
-        .twelvecol {
-            padding-left: 0px !important;
-            padding-right: 0px !important;
-        }
-
-        .twelvecol {
-          text-align: center;
-          margin-bottom: 60px;
-          width: 91.7% !important;
-
-          .centr {
-            width: 13.5% !important;
-            height: 14.1% !important;
-            top: 41.6% !important;
-            left: 43.3% !important;
-          }
-        }
-
-        .footer {
-            .fourcol {
-                border-right: none !important;
-                border-bottom: 1px dashed #006DAD;
-                padding: 10px 0px;
-            }
-
-            .last {
-                border-bottom: none;
-            }
-        }
-    }
-}
-
-// Для разрешения от 680 пикс. до 900пикс.
-@media all and (min-width: 681px) and (max-width: 900px) {
-    body {
-        .topmenu {
-            padding-top: 5px;
-            li a {
-                font-size: 1.6em !important;
-            }
-        }
-
-        .mid {
-            .threecol {
-                width: 46%;
-                float: left;
-                margin-left: 0px;
-                margin-right: 0px;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-
-            .twelvecol {
-                p {
-                  font-size: 1.3em !important;
-                }
-            }
-        }
-    }
-}
-
-// Для разрешения от 681 пикс.
-@media all and (min-width: 681px) {
-  .pagedesc {
-    width: 43% !important;
-  }
-}
-
 
 
 /* Кастомные стили */
@@ -337,7 +212,7 @@ a {
           img {
             .boxShadow(0px, 0px, 7px, #000);
             margin-bottom: 20px;
-            .transition(600s, linear, 999s);
+            .transition(600s, linear, 9999s);
           }
 
           .centr {
@@ -565,7 +440,7 @@ a {
   }
 }
 
-@-moz-keyframesfadeG {
+@-moz-keyframesfadeG fadeG {
   0% {
     background-color: #000000
   }
@@ -594,3 +469,129 @@ a {
     background-color: #FFFFFF
   }
 }
+
+
+
+/* Медиа запросы */
+// Для разрешения < 480 пикс
+@media all and (max-width: 480px) {
+    body {
+        .top {
+            height: 200px;
+        }
+
+        .topmenu {
+            ul {
+                margin-top: 10px !important;
+            }
+
+            li {
+                float: left;
+                clear: both;
+                width: 100% !important;
+                margin-bottom: 10px;
+
+                a {
+                    font-size: 1.6em !important;
+                    width: 100%;
+                }
+            }
+        }
+
+        .pageWrapper {
+            .pagination {
+              height: auto !important;
+              margin-left: 20px;
+              ul {
+                box-shadow: none;
+              }
+            }
+        }
+
+        .twelvecol {
+            p {
+              font-size: 0.8em !important;
+            }
+        }
+    }
+}
+
+// Для разрешения < 680 пикс
+@media all and (max-width: 680px) {
+    body {
+        .topmenu {
+            padding-top: 10px;
+            a {
+                font-size: 0.9em !important;
+            }
+        }
+
+        .threecol,
+        .twelvecol {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+
+        .twelvecol {
+          text-align: center;
+          margin-bottom: 60px;
+          width: 91.7% !important;
+
+          .centr {
+            width: 13.5% !important;
+            height: 14.1% !important;
+            top: 41.6% !important;
+            left: 43.3% !important;
+          }
+        }
+
+        .footer {
+            .fourcol {
+                border-right: none !important;
+                border-bottom: 1px dashed #006DAD;
+                padding: 10px 0px;
+            }
+
+            .last {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+// Для разрешения от 681 пикс.
+@media all and (min-width: 681px) {
+  .pagedesc {
+    width: 43% !important;
+  }
+}
+
+// Для разрешения от 680 пикс. до 900пикс.
+@media all and (min-width: 681px) and (max-width: 900px) {
+    body {
+        .topmenu {
+            padding-top: 5px;
+            li a {
+                font-size: 1.6em !important;
+            }
+        }
+
+        .mid {
+            .threecol {
+                width: 46%;
+                float: left;
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .twelvecol {
+                p {
+                  font-size: 1.3em !important;
+                }
+            }
+        }
+    }
+}
+
