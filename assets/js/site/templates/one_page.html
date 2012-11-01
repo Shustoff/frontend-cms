@@ -1,0 +1,32 @@
+<div class="row">
+
+    <div class="sixcol bigimage">
+        <img class="img-circle" src="http://music.shustoff.su/assets/img/site/big/{{image ? image : 'default.png'}}" alt="">
+        <div class="centr"></div>
+    </div>
+
+    <div class="sixcol pagedesc">
+        <p class=pagename>
+            <strong>Название: </strong> {{pagename}}
+        </p>
+        <p class=createdDate>
+            <strong>Дата добавления: </strong> {{date}}
+        </p>
+        <p class=author>
+            <strong>Добавил: </strong> {{author}}
+        </p>
+        <p class=parentCatalog>
+            <strong>Жанр: </strong> {{catalog}}
+        </p>
+        <div class=content>
+            {{content}}
+        </div>
+        <p class="downloadTrack">
+            <a class="btn btn-primary" href="{{link}}" target="_blank"><i class="icon-download-alt icon-white"></i> Скачать трек</a>
+        </p>
+        <p class="listenTrack">
+            <button id="track{{id}}" class="btn listen" onclick="playMusic('{{link}}');"><i class="icon-music"></i> Прослушать трек</button>
+        </p>
+    </div>
+
+</div>

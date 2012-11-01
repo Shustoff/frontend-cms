@@ -1,0 +1,597 @@
+/* Подключаем bootstrap, 1140, qunit css, mediaelementplayer */
+@import "../assets/css/bootstrap.css";
+@import "../assets/css/1140.css";
+@import "../assets/css/qunit.css";
+@import "../assets/css/site/mediaelementplayer.css";
+
+/* Основной шаблон сайта */
+/* Переменные, миксины etc. */
+@colorBorder: #00B366; // Цвет бордера
+@colorLink: #007D48; // Цвет ссылок
+@colorMid: #E6FFF4; // Цвет основного блока
+@bgImg:  url(../../img/site/background.png); // Цвет фона сайта
+@bgHeadFoot: url(../../img/site/bg.jpg) center 0px; // Цвет фона шапки и футера
+
+.borderBox {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.hovered {
+    background-color: #5BB75B;
+    background-image: -moz-linear-gradient(center top , #62C462, #51A351);
+    color: #fff !important;
+}
+
+.transition (@duration, @effect, @delay) {
+  -webkit-transition: -webkit-transform @duration @effect @delay;
+  -moz-transition: -moz-transform @duration @effect @delay;
+  -o-transition: -o-transform @duration @effect @delay;
+  -ms-transition: -ms-transform @duration @effect @delay;
+  transition: transform @duration @effect @delay;
+}
+
+.transform (@property) {
+  -webkit-transform: @property;
+  -moz-transform: @property;
+  -o-transform: @property;
+  //-ms-transform: @property;
+  transform: @property;
+}
+
+.boxShadow (@left, @top, @radius, @color) {
+  -webkit-box-shadow: @left @top @radius @color;
+  -moz-box-shadow: @left @top @radius @color;
+  -o-box-shadow: @left @top @radius @color;
+  -ms-box-shadow: @left @top @radius @color;
+  box-shadow:  @left @top @radius @color;
+}
+
+.noDelay {
+  -webkit-transition-delay: 0ms !important;
+  -moz-transition-delay: 0ms !important;
+  -o-transition-delay: 0ms !important;
+  -ms-transition-delay: 0ms !important;
+  transition-delay: 0ms !important;
+}
+
+
+/* Общие стили */
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+}
+
+a {
+    color: @colorLink !important;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        text-shadow: 1px 1px 2px #fff;
+    }
+}
+
+::-moz-selection,
+::selection {
+    background: #60BF96;
+    color: #fff !important;
+}
+
+
+/* Кастомные стили */
+/* Обертка для верхнего и среднего блока, чтобы прижать футер к низу */
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    background: @bgImg;
+    width: 100%;
+
+    .pageWrapper {
+        padding-bottom: 100px;
+
+        .pagination {
+            text-align: center;
+            a {
+              width: 15px;
+            }
+            a:hover,
+            .hover {
+                .hovered;
+            }
+        }
+    }
+}
+
+/* Верхний блок */
+.top {
+    height: 80px;
+    border-bottom: 1px dashed @colorBorder;
+    background: @bgHeadFoot;
+
+    .topmenu {
+        padding: 0px auto;
+
+        li {
+            float: left;
+            text-align: center;
+            width: 20%;
+            display: inline-block;
+
+            a {
+                font-size: 2em;
+                text-decoration: none;
+                border-bottom: 1px dotted;
+            }
+        }
+
+        ul {
+             margin: 20px auto;
+             display: block;
+             height: 40px;
+        }
+    }
+}
+
+/* Средний блок */
+.mid {
+    padding: 20px;
+    background: @bgImg;
+    min-height: 600px;
+
+    .row {
+        .threecol  {
+            margin-bottom: 30px;
+            text-align: center;
+
+            .pagename {
+                text-align: center;
+                margin-bottom: 10px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                a {
+                   font-size: 1.4em;
+                   text-decoration: none;
+                   border-bottom: 1px dotted @colorBorder;
+                }
+            }
+
+            .createdDate,
+            .author,
+            .parentCatalog {
+                color: #5a5a5a;
+            }
+
+            .content {
+                margin-top: 10px;
+            }
+
+            img {
+                margin: 15px 0px;
+                .boxShadow(0px, 0px, 3px, #000);
+            }
+        }
+
+        .twelvecol {
+            p {
+              font-size: 22px;
+              margin: 10px 0px;
+            }
+
+            .content {
+              margin: 30px 0px;
+              a {
+                text-decoration: underline;
+              }
+
+              iframe {
+                margin-top: 20px;
+              }
+            }
+
+            .downloadTrack {
+              a {
+                color: #fff !important;
+              }
+            }
+        }
+
+        .bigimage {
+          position: relative;
+          text-align: right;
+          padding-top: 10px;
+
+          img {
+            .boxShadow(0px, 0px, 7px, #000);
+            margin-bottom: 20px;
+            .transition(600s, linear, 9999s);
+          }
+
+          .centr {
+            position: absolute;
+            background: @bgImg;
+            border-radius: 40px;
+            z-index: 2;
+            width: 15%;
+            height: 14.5%;
+            top: 41.80%;
+            left: 43.1%;
+            box-shadow: inset 0px 0px 10px #000;
+          }
+        }
+
+        .pagedesc {
+          font-style: italic;
+        }
+    }
+
+    .catalog {
+      padding-left: 3px;
+    }
+
+    .catalog-desc {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .txt {
+        margin-top: 20px;
+    }
+
+}
+
+/* Нижний блок */
+.bot {
+    padding: 0px 20px 20px 20px;
+    border-top: 1px dashed @colorBorder;
+    margin-top: -70px;
+    min-height: 40px;
+    height: auto;
+    background: @bgHeadFoot;
+
+    footer {
+        .fourcol {
+            border-right: 1px dashed @colorBorder;
+            padding-right: 20px;
+            margin-right: 3.2%;
+            .borderBox;
+        }
+
+        .sevencol {
+            margin-top: 15px;
+        }
+
+        .threecol {
+            margin-top: 15px;
+            text-align: center;
+            margin-right: 3.3%;
+        }
+
+        .last {
+            margin-top: 20px;
+            border-right: none;
+            text-align: center;
+        }
+    }
+}
+
+/* Крутим картинку */
+.rotator {
+  .noDelay;
+  .transform(rotate(12000grad));
+}
+
+/* Стили прелоадера */
+#floatingBarsG {
+  position: relative;
+  width: 200px;
+  height: 248px;
+  margin: 200px auto 0 auto;
+}
+
+.blockG {
+  position: absolute;
+  background-color: #FFFFFF;
+  width: 32px;
+  height: 77px;
+  -moz-border-radius: 26px 26px 0 0;
+  -webkit-border-radius: 26px 26px 0 0;
+  -webkit-transform: scale(0.4);
+  -webkit-animation-name: fadeG;
+  -webkit-animation-duration: 0.8s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: linear;
+  -moz-transform: scale(0.4);
+  -moz-animation-name: fadeG;
+  -moz-animation-duration: 0.8s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: linear;
+  border-radius: 26px 26px 0 0;
+  -o-transform: scale(0.4);
+  -o-animation-name: fadeG;
+  -o-animation-duration: 0.8s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-direction: linear;
+  -ms-transform: scale(0.4);
+  -ms-animation-name: fadeG;
+  -ms-animation-duration: 0.8s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-direction: linear;
+}
+
+#rotateG_01 {
+  left: 0;
+  top: 90px;
+  -webkit-animation-delay: 0.3s;
+  -webkit-transform: rotate(-90deg);
+  -moz-animation-delay: 0.3s;
+  -moz-transform: rotate(-90deg);
+  -o-animation-delay: 0.3s;
+  -o-transform: rotate(-90deg);
+  -ms-animation-delay: 0.3s;
+  -ms-transform: rotate(-90deg);
+}
+
+#rotateG_02 {
+  left: 26px;
+  top: 32px;
+  -webkit-animation-delay: 0.4s;
+  -webkit-transform: rotate(-45deg);
+  -moz-animation-delay: 0.4s;
+  -moz-transform: rotate(-45deg);
+  -o-animation-delay: 0.4s;
+  -o-transform: rotate(-45deg);
+  -ms-animation-delay: 0.4s;
+  -ms-transform: rotate(-45deg);
+}
+
+#rotateG_03 {
+  left: 84px;
+  top: 10px;
+  -webkit-animation-delay: 0.5s;
+  -webkit-transform: rotate(0deg);
+  -moz-animation-delay: 0.5s;
+  -moz-transform: rotate(0deg);
+  -o-animation-delay: 0.5s;
+  -o-transform: rotate(0deg);
+  -ms-animation-delay: 0.5s;
+  -ms-transform: rotate(0deg);
+}
+
+#rotateG_04 {
+  right: 26px;
+  top: 32px;
+  -webkit-animation-delay: 0.6s;
+  -webkit-transform: rotate(45deg);
+  -moz-animation-delay: 0.6s;
+  -moz-transform: rotate(45deg);
+  -o-animation-delay: 0.6s;
+  -o-transform: rotate(45deg);
+  -ms-animation-delay: 0.6s;
+  -ms-transform: rotate(45deg);
+}
+
+#rotateG_05 {
+  right: 0;
+  top: 90px;
+  -webkit-animation-delay: 0.7s;
+  -webkit-transform: rotate(90deg);
+  -moz-animation-delay: 0.7s;
+  -moz-transform: rotate(90deg);
+  -o-animation-delay: 0.7s;
+  -o-transform: rotate(90deg);
+  -ms-animation-delay: 0.7s;
+  -ms-transform: rotate(90deg);
+}
+
+#rotateG_06 {
+  right: 26px;
+  bottom: 23px;
+  -webkit-animation-delay: 0.8s;
+  -webkit-transform: rotate(135deg);
+  -moz-animation-delay: 0.8s;
+  -moz-transform: rotate(135deg);
+  -o-animation-delay: 0.8s;
+  -o-transform: rotate(135deg);
+  -ms-animation-delay: 0.8s;
+  -ms-transform: rotate(135deg);
+}
+
+#rotateG_07 {
+  bottom: 0;
+  left: 84px;
+  -webkit-animation-delay: 0.9s;
+  -webkit-transform: rotate(180deg);
+  -moz-animation-delay: 0.9s;
+  -moz-transform: rotate(180deg);
+  -o-animation-delay: 0.9s;
+  -o-transform: rotate(180deg);
+  -ms-animation-delay: 0.9s;
+  -ms-transform: rotate(180deg);
+}
+
+#rotateG_08 {
+  left: 26px;
+  bottom: 23px;
+  -webkit-animation-delay: 1s;
+  -webkit-transform: rotate(-135deg);
+  -moz-animation-delay: 1s;
+  -moz-transform: rotate(-135deg);
+  -o-animation-delay: 1s;
+  -o-transform: rotate(-135deg);
+  -ms-animation-delay: 1s;
+  -ms-transform: rotate(-135deg);
+}
+
+@-webkit-keyframes fadeG {
+  0% {
+    background-color: #000000
+  }
+  100% {
+    background-color: #FFFFFF
+  }
+}
+
+@-moz-keyframes fadeG {
+  0% {
+    background-color: #000000
+  }
+  100% {
+    background-color: #FFFFFF
+  }
+}
+
+@-o-keyframes fadeG {
+  0%
+  {
+    background-color: #000000
+  }
+  100%
+  {
+    background-color: #FFFFFF
+  }
+}
+
+@-ms-keyframes fadeG {
+  0% {
+    background-color: #000000
+  }
+  100%
+  {
+    background-color: #FFFFFF
+  }
+}
+
+
+
+/* Медиа запросы */
+// Для разрешения < 480 пикс
+@media all and (max-width: 480px) {
+    body {
+        .top {
+            height: 200px;
+        }
+
+        .topmenu {
+            ul {
+                margin-top: 10px !important;
+            }
+
+            li {
+                float: left;
+                clear: both;
+                width: 100% !important;
+                margin-bottom: 10px;
+
+                a {
+                    font-size: 1.6em !important;
+                    width: 100%;
+                }
+            }
+        }
+
+        .pageWrapper {
+            .pagination {
+              height: auto !important;
+              margin-left: 20px;
+              ul {
+                box-shadow: none;
+              }
+            }
+        }
+
+        .twelvecol {
+            p {
+              font-size: 0.8em !important;
+            }
+        }
+    }
+}
+
+// Для разрешения < 680 пикс
+@media all and (max-width: 680px) {
+    body {
+        .topmenu {
+            padding-top: 10px;
+            a {
+                font-size: 0.9em !important;
+            }
+        }
+
+        .threecol,
+        .twelvecol {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+
+        .twelvecol {
+          text-align: center;
+          margin-bottom: 60px;
+          width: 91.7% !important;
+
+          .centr {
+            width: 13.5% !important;
+            height: 14.1% !important;
+            top: 41.6% !important;
+            left: 43.3% !important;
+          }
+        }
+
+        .footer {
+            .fourcol {
+                border-right: none !important;
+                border-bottom: 1px dashed #006DAD;
+                padding: 10px 0px;
+            }
+
+            .last {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+// Для разрешения от 681 пикс.
+@media all and (min-width: 681px) {
+  .pagedesc {
+    width: 43% !important;
+  }
+}
+
+// Для разрешения от 680 пикс. до 900пикс.
+@media all and (min-width: 681px) and (max-width: 900px) {
+    body {
+        .topmenu {
+            padding-top: 5px;
+            li a {
+                font-size: 1.6em !important;
+            }
+        }
+
+        .mid {
+            .threecol {
+                width: 46%;
+                float: left;
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .twelvecol {
+                p {
+                  font-size: 1.3em !important;
+                }
+            }
+        }
+    }
+}
+
