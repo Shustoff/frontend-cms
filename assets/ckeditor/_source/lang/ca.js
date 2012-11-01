@@ -31,7 +31,8 @@ CKEDITOR.lang['ca'] =
 	 * Screenreader titles. Please note that screenreaders are not always capable
 	 * of reading non-English words. So be careful while translating it.
 	 */
-	editorTitle : 'Editor de text enriquit, %1, prem ALT 0 per obtenir ajuda.',
+	editorTitle : 'Rich text editor, %1', // MISSING
+	editorHelp : 'Press ALT 0 for help', // MISSING
 
 	// ARIA descriptions.
 	toolbars	: 'Editor toolbars', // MISSING
@@ -119,6 +120,7 @@ CKEDITOR.lang['ca'] =
 		alignTop		: 'Superior',
 		alignMiddle		: 'Centre',
 		alignBottom		: 'Inferior',
+		invalidValue	: 'Invalid value.', // MISSING
 		invalidHeight	: 'L\'alçada ha de ser un nombre.',
 		invalidWidth	: 'L\'amplada ha de ser un nombre.',
 		invalidCssLength	: 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).', // MISSING

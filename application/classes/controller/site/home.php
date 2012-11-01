@@ -5,7 +5,7 @@ class Controller_Site_Home extends Controller_Site_Main {
     public function before()
     {
        $status = Kohana::$config->load('site.status');
-       if ($status == 0) $this->request->redirect('offline');
+       if ($status == 0) HTTP::redirect('offline');
        return parent::before();
     }
 
@@ -22,7 +22,7 @@ class Controller_Site_Home extends Controller_Site_Main {
            {
                if ( ! $pages = Cache::instance()->get('pages'))
                {
-                   $pages = ORM::factory('page')
+                   $pages = ORM::factory('Page')
                        ->where('status', '=', '1')
                        ->order_by('id')
                        ->find_all()
@@ -32,7 +32,7 @@ class Controller_Site_Home extends Controller_Site_Main {
            }
            else
            {
-               $pages = ORM::factory('page')
+               $pages = ORM::factory('Page')
                    ->where('status', '=', '1')
                    ->order_by('id')
                    ->find_all()
@@ -62,7 +62,7 @@ class Controller_Site_Home extends Controller_Site_Main {
                $options[$key] = Kohana::$config->load('site.' . $key);
            }
 
-           $count_pages = ORM::factory('page')->find_all()->count();
+           $count_pages = ORM::factory('Page')->find_all()->count();
 
            // Подключаем профайлер
            if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');

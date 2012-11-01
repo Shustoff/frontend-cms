@@ -31,7 +31,8 @@ CKEDITOR.lang['nl'] =
 	 * Screenreader titles. Please note that screenreaders are not always capable
 	 * of reading non-English words. So be careful while translating it.
 	 */
-	editorTitle : 'Tekstverwerker, %1, druk op ALT 0 voor hulp.',
+	editorTitle : 'Rich text editor, %1', // MISSING
+	editorHelp : 'Press ALT 0 for help', // MISSING
 
 	// ARIA descriptions.
 	toolbars	: 'Werkbalken',
@@ -119,6 +120,7 @@ CKEDITOR.lang['nl'] =
 		alignTop		: 'Boven',
 		alignMiddle		: 'Midden',
 		alignBottom		: 'Onder',
+		invalidValue	: 'Invalid value.', // MISSING
 		invalidHeight	: 'De hoogte moet een getal zijn.',
 		invalidWidth	: 'De breedte moet een getal zijn.',
 		invalidCssLength	: 'Waarde in veld "%1" moet een positief nummer zijn, met of zonder een geldige CSS meeteenheid (px, %, in, cm, mm, em, ex, pt of pc).',

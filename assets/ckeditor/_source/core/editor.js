@@ -465,7 +465,15 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 						|| getNewName();
 
 			if ( this.name in CKEDITOR.instances )
-				throw '[CKEDITOR.editor] The instance "' + this.name + '" already exists.';
+            {
+                var previous = CKEDITOR.instances[ this.name ];
+
+                // Destroy detached editor silently.
+                if ( previous.element.isOffline() || previous.container && previous.container.isOffline() )
+                        previous.destroy( false );
+                else
+                        throw '[CKEDITOR.editor] The instance "' + previous.name + '" already exists.';
+            }
 
 			/**
 			 * A unique random string assigned to each editor instance on the page.

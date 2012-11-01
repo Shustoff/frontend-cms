@@ -413,8 +413,14 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 	{
 		return function( node )
 		{
-			var isWhitespace = node && ( node.type == CKEDITOR.NODE_TEXT )
-							&& !CKEDITOR.tools.trim( node.getText() );
+			var isWhitespace;
+			if ( node && node.type == CKEDITOR.NODE_TEXT )
+			{
+				// whitespace, as well as the text cursor filler node we used in Webkit. (#9384)
+				isWhitespace = !CKEDITOR.tools.trim( node.getText() ) ||
+					CKEDITOR.env.webkit && node.getText() == '\u200b';
+			}
+
 			return !! ( isReject ^ isWhitespace );
 		};
 	};
@@ -428,13 +434,25 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		var whitespace = CKEDITOR.dom.walker.whitespaces();
 		return function( node )
 		{
-			// Nodes that take no spaces in wysiwyg:
-			// 1. White-spaces but not including NBSP;
-			// 2. Empty inline elements, e.g. <b></b> we're checking here
-			// 'offsetHeight' instead of 'offsetWidth' for properly excluding
-			// all sorts of empty paragraph, e.g. <br />.
-			var isInvisible = whitespace( node ) || node.is && !node.$.offsetHeight;
-			return !! ( isReject ^ isInvisible );
+			var invisible;
+
+			if ( whitespace( node ) )
+				invisible = 1;
+			else
+			{
+				// Visibility should be checked on element.
+				if ( node.type == CKEDITOR.NODE_TEXT )
+					node = node.getParent();
+
+				// Nodes that take no spaces in wysiwyg:
+				// 1. White-spaces but not including NBSP;
+				// 2. Empty inline elements, e.g. <b></b> we're checking here
+				// 'offsetHeight' instead of 'offsetWidth' for properly excluding
+				// all sorts of empty paragraph, e.g. <br />.
+				invisible = !node.$.offsetHeight;
+			}
+
+			return !! ( isReject ^ invisible );
 		};
 	};
 
@@ -446,7 +464,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		};
 	};
 
-	CKEDITOR.dom.walker.bogus = function( type, isReject )
+	CKEDITOR.dom.walker.bogus = function( isReject )
 	{
 		function nonEmpty( node )
 		{
@@ -455,11 +473,17 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 		return function( node )
 		{
-			var parent = node.getParent(),
-				isBogus = !CKEDITOR.env.ie ? node.is && node.is( 'br' ) :
+			var isBogus = !CKEDITOR.env.ie ? node.is && node.is( 'br' ) :
 					  node.getText && tailNbspRegex.test( node.getText() );
 
-			isBogus = isBogus && parent.isBlockBoundary() && !!parent.getLast( nonEmpty );
+			if ( isBogus )
+			{
+				var parent = node.getParent(), next = node.getNext( nonEmpty );
+				isBogus = parent.isBlockBoundary() &&
+				          ( !next ||
+				            next.type == CKEDITOR.NODE_ELEMENT &&
+				            next.isBlockBoundary() );
+			}
 
 			return !! ( isReject ^ isBogus );
 		};

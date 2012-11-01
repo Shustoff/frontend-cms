@@ -31,7 +31,8 @@ CKEDITOR.lang['hi'] =
 	 * Screenreader titles. Please note that screenreaders are not always capable
 	 * of reading non-English words. So be careful while translating it.
 	 */
-	editorTitle : 'रिच टेक्स्ट एडिटर, %1, मदद के लिये ALT 0 दबाए.',
+	editorTitle : 'रिच टेक्स्ट एडिटर, %1',
+	editorHelp : 'मदद के लिये ALT 0 दबाए',
 
 	// ARIA descriptions.
 	toolbars	: 'एडिटर टूलबार',
@@ -119,6 +120,7 @@ CKEDITOR.lang['hi'] =
 		alignTop		: 'ऊपर',
 		alignMiddle		: 'मध्य',
 		alignBottom		: 'नीचे',
+		invalidValue	: 'Invalid value.', // MISSING
 		invalidHeight	: 'Height must be a number.', // MISSING
 		invalidWidth	: 'Width must be a number.', // MISSING
 		invalidCssLength	: 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).', // MISSING

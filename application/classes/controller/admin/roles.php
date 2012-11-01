@@ -18,7 +18,7 @@ class Controller_Admin_Roles extends Controller_Admin_App {
 
     public function action_index()
     {
-        parent::action_main($model = 'role');
+        parent::action_main($model = 'Role');
     }
 
     public function action_on($table = 'roles')
@@ -31,7 +31,7 @@ class Controller_Admin_Roles extends Controller_Admin_App {
         parent::action_off($table);
     }
 
-    public function action_intrash($model = 'role')
+    public function action_intrash($model = 'Role')
     {
         parent::action_intrash($model);
     }
@@ -42,11 +42,17 @@ class Controller_Admin_Roles extends Controller_Admin_App {
         $this->response->body($view);
     }
 
-    public function action_add($model = 'role')
+    public function action_add($model = 'Role')
     {
         try
         {
-            $added = ORM::factory($model)->values($_POST)->save();
+            $unique_role  = ORM::factory('Role')->unique('name', $_POST['name']);
+            if ($unique_role) {
+                $added = ORM::factory($model)->values($_POST)->save();
+                echo $added->id;
+            } else {
+                echo 'Это название роли уже существует.';
+            }
         }
         catch (ORM_Validation_Exception $e)
         {
@@ -56,20 +62,19 @@ class Controller_Admin_Roles extends Controller_Admin_App {
                 echo $error . '<br>';
             }
         }
-
     }
 
     // Проверяем название роли на уникальность
     public function action_checkrole()
     {
-        $unique_role  = ORM::factory('role')->unique('name', $_POST['name']);
+        $unique_role  = ORM::factory('Role')->unique('name', $_POST['name']);
         if ( ! $unique_role) echo 'Это название уже используется';
     }
 
     public function action_editroles()
     {
         $id = $this->request->param('id');
-        $role = ORM::factory('role', $id);
+        $role = ORM::factory('Role', $id);
 
         $view = View::factory('admin/roles/V_editrole')
                 ->set('role', $role);
@@ -77,7 +82,7 @@ class Controller_Admin_Roles extends Controller_Admin_App {
 
     }
 
-    public function action_edit($model = 'role')
+    public function action_edit($model = 'Role')
     {
         parent::action_edit($model);
     }

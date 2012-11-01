@@ -30,7 +30,8 @@ CKEDITOR.lang['sv'] =
 	 * Screenreader titles. Please note that screenreaders are not always capable
 	 * of reading non-English words. So be careful while translating it.
 	 */
-	editorTitle : 'Rich text editor, %1, tryck ALT 0 för hjälp.',
+	editorTitle : 'Rich text editor, %1', // MISSING
+	editorHelp : 'Tryck ALT 0 för hjälp',
 
 	// ARIA descriptions.
 	toolbars	: 'Editor toolbars', // MISSING
@@ -118,6 +119,7 @@ CKEDITOR.lang['sv'] =
 		alignTop		: 'Överkant',
 		alignMiddle		: 'Mitten',
 		alignBottom		: 'Nederkant',
+		invalidValue	: 'Invalid value.', // MISSING
 		invalidHeight	: 'Höjd måste vara ett nummer.',
 		invalidWidth	: 'Bredd måste vara ett nummer.',
 		invalidCssLength	: 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).', // MISSING

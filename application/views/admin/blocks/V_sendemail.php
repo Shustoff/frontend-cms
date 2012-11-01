@@ -9,7 +9,8 @@
             <div class="control-group">
                 <label class="control-label" for="subject">Тема: </label>
                 <div class="controls">
-                    <input type="text" id="subject" name="subject" class="input-xlarge required">
+                    <input data-bind="value: subject, valueUpdate: 'afterkeydown'"
+                           type="text" id="subject" name="subject" class="input-xlarge required">
                 </div>
             </div>
         </div>
@@ -35,7 +36,6 @@
                 <label class="editorfail label label-important" for="editor">Пожалуйста введите ваше сообщение</label>
             </h3>
             <textarea id="editor" class="auto"></textarea>
-            <script>editor = CKEDITOR.editor.replace('editor');</script>
         </div>
     </div>
     <div class="row">
@@ -53,28 +53,32 @@
             </div>
         </div>
         <div class="span3">
-            <script>
-                $(function() {
-                    $("#datepicker").datepicker();
-                    date.today("#datepicker");
-                });
-            </script>
             <div class="control-group">
                 <label class="control-label" for="datepicker">Дата отправки:</label>
                 <div class="controls">
                     <input id="datepicker" type="text" name="date" class="input-small">
                 </div>
+                <script>
+                    $(function() {
+                        $("#datepicker").datepicker();
+                        date.today("#datepicker");
+                    });
+                </script>
             </div>
         </div>
         <div class="span3 savecat">
             <div class="control-group">
                 <input type="hidden" name="from" value="<?=$usermail;?>">
                 <input type="hidden" id="content" name="content" value="">
-                <button class="btn btn-success btncheck" id="sendemailbtn" onclick="req.sendEmail();">
+                <button data-bind="enable: isValid" class="btn btn-success btn-email" id="sendemailbtn"
+                        onclick="req.sendEmail();">
                     Отправить сообщение
                 </button>
             </div>
         </div>
     </div>
 </form>
-<script>valid.validSendEmail();</script>
+<script>
+    binds.initEditor();
+    valid.validSendEmail();
+</script>

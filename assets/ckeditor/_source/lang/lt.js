@@ -31,7 +31,8 @@ CKEDITOR.lang['lt'] =
 	 * Screenreader titles. Please note that screenreaders are not always capable
 	 * of reading non-English words. So be careful while translating it.
 	 */
-	editorTitle : 'Pilnas redaktorius, %1, spauskite ALT 0 dėl pagalbos.',
+	editorTitle : 'Pilnas redaktorius, %1',
+	editorHelp : 'Spauskite ALT 0 dėl pagalbos',
 
 	// ARIA descriptions.
 	toolbars	: 'Redaktoriaus įrankiai',
@@ -119,6 +120,7 @@ CKEDITOR.lang['lt'] =
 		alignTop		: 'Viršūnę',
 		alignMiddle		: 'Vidurį',
 		alignBottom		: 'Apačią',
+		invalidValue	: 'Invalid value.', // MISSING
 		invalidHeight	: 'Aukštis turi būti nurodytas skaičiais.',
 		invalidWidth	: 'Plotis turi būti nurodytas skaičiais.',
 		invalidCssLength	: 'Reikšmė nurodyta "%1" laukui, turi būti teigiamas skaičius su arba be tinkamo CSS matavimo vieneto (px, %, in, cm, mm, em, ex, pt arba pc).',

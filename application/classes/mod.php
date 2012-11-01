@@ -2,7 +2,7 @@
 
 class Mod {
     public static function render($systemname, $name = NULL) {
-        $mod = ORM::factory('module')
+        $mod = ORM::factory('Module')
             ->where('systemname', '=', $systemname)
             ->and_where('status', '=', 1)
             ->find();

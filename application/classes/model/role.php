@@ -5,7 +5,7 @@ class Model_Role extends Model_Auth_Role {
 
     protected $_has_many = array(
         'users' => array(
-            'model' => 'user',
+            'model' => 'User',
             'through' => 'roles_users'
         )
     );

@@ -31,7 +31,8 @@ CKEDITOR.lang['nb'] =
 	 * Screenreader titles. Please note that screenreaders are not always capable
 	 * of reading non-English words. So be careful while translating it.
 	 */
-	editorTitle : 'Rikteksteditor, %1, trykk ALT 0 for hjelp.',
+	editorTitle : 'Rikteksteditor, %1',
+	editorHelp : 'Trykk ALT 0 for hjelp',
 
 	// ARIA descriptions.
 	toolbars	: 'Verktøylinjer for editor',
@@ -119,6 +120,7 @@ CKEDITOR.lang['nb'] =
 		alignTop		: 'Topp',
 		alignMiddle		: 'Midten',
 		alignBottom		: 'Bunn',
+		invalidValue	: 'Ugyldig verdi.',
 		invalidHeight	: 'Høyde må være et tall.',
 		invalidWidth	: 'Bredde må være et tall.',
 		invalidCssLength	: 'Den angitte verdien for feltet "%1" må være et positivt tall med eller uten en gyldig CSS-målingsenhet (px, %, in, cm, mm, em, ex, pt, eller pc).',

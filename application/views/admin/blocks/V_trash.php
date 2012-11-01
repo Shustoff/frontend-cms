@@ -28,14 +28,15 @@
     <tbody>
         <?php foreach($items as $item) : ?>
             <tr class="pageedit">
-                <td><?=$item['item_id'];?></td>
+                <td class="pageId">
+                    <?=$item['item_id'];?>
+                    <input type="hidden" value="<?=$item['item_id'];?>" name="id" id="pageId">
+                    <input type="hidden" name="tablename" value="<?=$item['tablename'];?>" id="tableName">
+                </td>
                 <td class="pagename">
-                    <form action="" method="post" name="edititem" id="edititem">
-                        <input type="hidden" value="<?=$item['item_id'];?>" name="id">
-                        <a href="#edit" onclick="req.editItem('<?=$item['tablename']?>', <?=$item['item_id'];?>);">
-                            <?=$item['item_name'];?>
-                        </a>
-                    </form>
+                    <a href="#" onclick="req.editItem('<?=$item['tablename']?>', <?=$item['item_id'];?>);">
+                        <?=$item['item_name'];?>
+                    </a>
                 </td>
                 <td>
                     <?=$item['tablename'] == 'pages' ? 'Страница' : '';?>
@@ -46,38 +47,33 @@
                 </td>
                 <td><?=$item['item_date'];?></td>
                 <td>
-                    <form action="" method="post" id="cngstatus<?=$item['item_id'];?>">
-                        <input type="hidden" name="item_id" value="<?=$item['item_id'];?>">
-                        <input type="hidden" name="tablename" value="<?=$item['tablename'];?>">
-                        <a href="#" onclick='req.recovery(this); return false;'>
-                            <img src='<?=URL::base()?>assets/img/admin/published.png'>
-                        </a>
-                    </form>
+                    <a href="#" onclick='req.recovery(this); return false;'>
+                        <img src='<?=URL::base()?>assets/img/admin/published.png'>
+                    </a>
                 </td>
                 <td>
-                    <form action="" method="post" id="intrash<?=$item['item_id'];?>">
-                        <input type="hidden" name="item_id" value="<?=$item['item_id'];?>">
-                        <input type="hidden" name="tablename" value="<?=$item['tablename'];?>">
-                        <a href="#" onclick="req.deleteItem(this);">
-                            <img src='<?=URL::base()?>assets/img/admin/delete.png'>
-                        </a>
-                    </form>
+                    <a href="#" onclick="req.deleteItem(this); return false;">
+                        <img src='<?=URL::base()?>assets/img/admin/delete.png'>
+                    </a>
                 </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
+
 <?=$failsearch;?>
-<form action="" method="post" id="save" onsubmit="return false;">
+
+<!--Сортировка-->
+<form action="" method="post" id="sort" onsubmit="return false;">
 <div class="row">
     <div class="span4">
         <div class="control-group">
             <label class="control-label" for="select1">Сортировать по:</label>
             <div class="controls">
                 <select id="select1" name="sortby" class="input-medium">
-                    <option value="item_id">ID</option>
-                    <option value="item_name">Материалу</option>
-                    <option value="item_date">Дате</option>
+                    <option value="1">ID</option>
+                    <option value="2">Названию</option>
+                    <option value="3">Дате</option>
                 </select>
             </div>
         </div>
@@ -87,8 +83,7 @@
             <label class="control-label" for="select2">Выводить по:</label>
             <div class="controls">
                 <select id="select2" name="limit" class="input-medium">
-                    <option>5</option>
-                    <option>10</option>
+                    <option selected="selected">10</option>
                     <option>15</option>
                     <option>20</option>
                     <option>25</option>
@@ -101,18 +96,17 @@
     </div>
 </div>
 </form>
+
+<!--Пагинация-->
 <div class="row">
     <div class="span12">
         <div class="pagination">
             <ul>
                 <?php for ($i = 1; $i <= $count; $i++ ) : ?>
                 <li>
-                    <form action="" method="post" id="pagination<?php echo $i; ?>">
-                        <input type="hidden" name="offset" id="offset" value="">
-                        <input type="hidden" name="limit" id="limit" value="">
-                        <input type="hidden" name="sortby" id="sortby" value="">
-                        <a href="#" class="" name="pagination" onclick="req.pagination('trash',this);"><?php echo $i; ?></a>
-                    </form>
+                    <a href="#" class="page<?=$i;?>" name="pagination" onclick="req.pagination('trash', this);">
+                        <?=$i;?>
+                    </a>
                 </li>
                 <?php endfor; ?>
             </ul>
@@ -120,21 +114,3 @@
     </div>
 </div>
 
-<script>
-    $('#deleteAll').click(function(){
-        $("#dialog-confirm").dialog({
-            resizable: false,
-            height:180,
-            modal: true,
-            buttons: {
-                "Очистить": function() {
-                    req.deleteAll();
-                    $( this ).dialog( "close" );
-                },
-                "Отмена": function() {
-                    $( this ).dialog( "close" );
-                }
-            }
-        });
-    });
-</script>

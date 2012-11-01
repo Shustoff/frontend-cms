@@ -5,7 +5,7 @@ class Controller_Site_Page extends Controller_Site_Main {
     public function before()
     {
         $status = Kohana::$config->load('site.status');
-        if ($status == 0) $this->request->redirect('offline');
+        if ($status == 0) HTTP::redirect('offline');
         return parent::before();
     }
 
@@ -20,7 +20,7 @@ class Controller_Site_Page extends Controller_Site_Main {
 
             $pagealias = $this->request->param('pagealias');
 
-            $page = ORM::factory('page')
+            $page = ORM::factory('Page')
                 ->where('alias', '=', $pagealias)
                 ->and_where('status', '=', '1')
                 ->find();
@@ -48,7 +48,7 @@ class Controller_Site_Page extends Controller_Site_Main {
             // Выбираем страницу из БД согласно алиасу
             $pagealias = $this->request->param('pagealias');
 
-            $page = ORM::factory('page')
+            $page = ORM::factory('Page')
                 ->where('alias', '=', $pagealias)
                 ->and_where('status', '=', '1')
                 ->find();
@@ -59,7 +59,7 @@ class Controller_Site_Page extends Controller_Site_Main {
                $options[$key] = Kohana::$config->load('site.' . $key);
             }
 
-            $count_pages = ORM::factory('page')->find_all()->count();
+            $count_pages = ORM::factory('Page')->find_all()->count();
 
             if ( ! empty($page->metadesc))
                 $options['description'] = $page->metadesc;

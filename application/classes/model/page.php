@@ -8,11 +8,11 @@ class Model_Page extends ORM {
 
     protected $_belongs_to = array(
         'catalogs' => array(
-            'model' => 'catalog',
+            'model' => 'Catalog',
             'foreign_key' => 'catalog_id'
         ),
         'users' => array(
-            'model' => 'user',
+            'model' => 'User',
             'foreign_key' => 'author_id'
         )
     );

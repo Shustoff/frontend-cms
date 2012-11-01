@@ -1,4 +1,4 @@
-Front CMS основана на Kohana Framework v3.2.
+Front CMS основана на Kohana Framework v3.3.
 Полностью AJAX CMS.
 Каркас сайта сделан при помощи jQuery, Backbone + Underscore, Require JS.
 Модульная структура сайта благодаря Require JS.

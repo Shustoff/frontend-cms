@@ -1,66 +1,131 @@
+// Правила валидации + привязка биндингов
 valid = {
-    // Правила валидации настроек
     validOptions: function () {
-        binds.validFail();
-        var formname = '#' + $('form').attr('id');
+        var formname = '#' + $('form').attr('id'),
+            startSiteName = $('#sitename').val(),
+            startSiteDesc = $('#desc').html(),
+            startSiteKeywords = $('#keywords').html(),
+            startSiteEmail = $('#email').val(),
+            startSiteAuthor = $('#sender').val(),
+            startSiteCopyright = $('#copyright').html(),
+            startSite404 = $('#page404').html(),
+            startSiteStatus = $('.siteStatus:checked').val(),
+            startSiteProfile = $('.siteProfile:checked').val(),
+            startSiteCache = $('.siteCache:checked').val(),
+            startSiteSession = $('#session').val();
+
         $(formname).validate({
             onfocusout: function(element) {
-                if ($(element).valid()) {
-                    binds.canSave();
-                } else {
-                    binds.validFail();
-                }
+                $(element).valid();
             },
             rules: {sitename: "required"},
-            messages: {sitename: 'Пожалуйста заполните поле'}
+            messages: {sitename: 'Пожалуйста введите название сайта'}
         });
+
+        function OptionModel() {
+            this.siteName = ko.observable( startSiteName );
+            this.siteDesc = ko.observable( startSiteDesc );
+            this.siteKeywords = ko.observable( startSiteKeywords );
+            this.siteRobots = ko.observable();
+            this.siteEmail = ko.observable( startSiteEmail );
+            this.siteAuthor = ko.observable( startSiteAuthor );
+            this.siteCopyright = ko.observable( startSiteCopyright );
+            this.site404 = ko.observable( startSite404 );
+            this.siteStatus = ko.observable( startSiteStatus );
+            this.siteProfile = ko.observable( startSiteProfile );
+            this.siteCache = ko.observable( startSiteCache );
+            this.siteSession = ko.observable( startSiteSession );
+            this.isValid = ko.computed(function() {
+                this.siteDesc();
+                this.siteKeywords();
+                this.siteRobots();
+                this.siteEmail();
+                this.siteAuthor();
+                this.siteCopyright();
+                this.site404();
+                this.siteStatus();
+                this.siteProfile();
+                this.siteCache();
+                this.siteSession();
+                return this.siteName() && $(formname).valid();
+            }, this);
+        }
+        ko.applyBindings(new OptionModel());
+
+        binds.clickDisableButton();
     },
 
-    // Правила валидации формы добавления страницы
     validPages: function () {
-        binds.validFail();
-        var formname = '#' + $('form').attr('id');
-        $(formname).validate({
+        var startPageName = $('#pagename').val(),
+            startPageAlias = $('#alias').val(),
+            startPageMp3 = $('#mp3-link').val(),
+            startPageDesc = $('#metadesc').html(),
+            startPageKeywords = $('#keywords').html(),
+            startPageDate = $('#datepicker').val(),
+            startPageCatalog = $('#pagecatalog').val();
+
+        $('form').validate({
             onfocusout: function(element) {
-                if ($(element).attr('id') === 'pagename') req.checkPageName();
-                if ($(element).attr('id') === 'alias') req.checkPageAlias();
-                if ($(element).valid() && !$('.failpagename').text() && !$('.failalias').text() && $(formname).valid()) {
-                    binds.canSave();
-                } else {
-                    binds.validFail();
-                }
+                $(element).valid();
             },
             rules: {
                 pagename: "required",
                 alias: {
                     required: true,
                     alphanumeric: true
-                },
-                link: "required"
+                }
             },
             messages: {
                 pagename: 'Пожалуйста введите заголовок страницы',
                 alias: {
                     required: 'Пожалуйста введите алиас страницы'
-                },
-                link: "Пожалуйста укажите mp3 файл"
+                }
             }
         });
+
+        function PageModel() {
+            this.pageName = ko.observable( startPageName );
+            this.isPageNameValid = ko.computed(function() {
+                return this.pageName() &&
+                    (this.pageName() !== startPageName
+                        ? req.checkPageName()
+                        : (function() { $('.failpagename').empty(); return true; }()));
+            }, this);
+            this.pageAlias = ko.observable( startPageAlias );
+            this.isPageAliasValid = ko.computed(function() {
+                return this.pageAlias() &&
+                    (this.pageAlias() !== startPageAlias
+                        ? req.checkPageAlias()
+                        : (function() { $('.failalias').empty(); return true; }()));
+            }, this);
+            this.pageMp3 = ko.observable( startPageMp3 );
+            this.pageDesc = ko.observable( startPageDesc );
+            this.pageKeywords = ko.observable( startPageKeywords );
+            this.pageDate = ko.observable( startPageDate );
+            this.pageCat = ko.observable( startPageCatalog );
+            this.isValid = ko.computed(function() {
+                this.pageMp3();
+                this.pageDesc();
+                this.pageKeywords();
+                this.pageDate();
+                this.pageCat();
+                return this.isPageNameValid() && this.isPageAliasValid() && $('form').valid();
+            }, this);
+        }
+
+        pageModel = new PageModel();
+        ko.applyBindings(pageModel);
+        binds.clickDisableButton();
     },
 
-    // Правила валидации формы добавления каталога
     validCatalog: function () {
-        binds.validFail();
-        var formname = '#' + $('form').attr('id');
-        $(formname).validate({
+        var startCatName = $('#catname').val(),
+            startCatAlias = $('#alias').val(),
+            startCatDate = $('#datepicker').val();
+
+        $('form').validate({
             onfocusout: function(element) {
-                if ($(element).attr('id') === 'catname') req.checkCatName();
-                if ($(element).attr('id') === 'alias') req.checkCatAlias();
-                if ($(element).valid() && !$('.failcatname').text() && !$('.failalias').text() && $(formname).valid()) {
-                    binds.canSave();
-                } else {
-                    binds.validFail();
-                }
+                $(element).valid()
             },
             rules: {
                 catname: "required",
@@ -77,21 +142,43 @@ valid = {
             }
         });
 
+        function CatModel() {
+            this.catName = ko.observable( startCatName );
+            this.catAlias = ko.observable( startCatAlias );
+            this.isCatNameValid = ko.computed(function() {
+                return this.catName() &&
+                    (this.catName() !== startCatName
+                        ? req.checkCatName()
+                        : (function() { $('.failcatname').empty(); return true; }()));
+            }, this);
+            this.isCatAliasValid = ko.computed(function() {
+                return this.catAlias() &&
+                    (this.catAlias() !== startCatAlias
+                        ? req.checkCatAlias()
+                        : (function() { $('.failalias').empty(); return true; }()));
+            }, this);
+            this.catParent = ko.observable();
+            this.catDate = ko.observable( startCatDate );
+            this.isValid = ko.computed(function() {
+                this.catParent();
+                this.catDate();
+                return this.isCatNameValid() && this.isCatAliasValid() && $('form').valid();
+            }, this);
+        }
+
+        catModel = new CatModel();
+        ko.applyBindings(catModel);
+        binds.clickDisableButton();
     },
 
-    // Правила валидации формы добавления модуля
     validModule: function () {
-        binds.validFail();
-        var formname = '#' + $('form').attr('id');
-        $(formname).validate({
+        var startModName = $('#name').val(),
+            startSysName = $('#systemname').val(),
+            startModDate = $('#datepicker').val();
+
+        $('form').validate({
             onfocusout: function(element) {
-                if ($(element).attr('id') === 'name') req.checkModuleName();
-                if ($(element).attr('id') === 'systemname') req.checkSystemName();
-                if ($(element).valid() && !$('.failmodname').text() && !$('.failsystemname').text() && $(formname).valid()) {
-                    binds.canSave();
-                } else {
-                    binds.validFail();
-                }
+                $(element).valid();
             },
             rules: {
                 name: "required",
@@ -107,21 +194,46 @@ valid = {
                 }
             }
         });
+
+        function ModModel() {
+            this.modName = ko.observable( startModName );
+            this.modSysName = ko.observable( startSysName );
+            this.isModNameValid = ko.computed(function(){
+                return this.modName() &&
+                    (this.modName() !== startModName
+                        ? req.checkModuleName()
+                        : (function() { $('.failmodname').empty(); return true; }()));
+            }, this);
+            this.isModSysNameValid = ko.computed(function() {
+                return this.modSysName() &&
+                    (this.modSysName() !== startSysName
+                        ? req.checkSystemName()
+                        : (function() { $('.failsystemname').empty(); return true; }()));
+            }, this);
+            this.modType = ko.observable();
+            this.modDate = ko.observable( startModDate );
+            this.isValid = ko.computed(function() {
+                this.modType();
+                this.modDate();
+                return this.isModNameValid() && this.isModSysNameValid() && $('form').valid();
+            }, this);
+        }
+
+        modModel = new ModModel();
+        ko.applyBindings(modModel);
+        binds.clickDisableButton();
     },
 
-    // Правила валидации формы добавления пользователя
     validUser: function () {
-        binds.validFail();
-        var formname = '#' + $('form').attr('id');
-        $(formname).validate({
+        var startUserName = $('#username').val(),
+            startEmail = $('#email').val(),
+            startFirstName = $('#firstname').val(),
+            startLastName = $('#surname').val(),
+            startDate = $('#datepicker').val();
+
+        $('form').validate({
             onfocusout: function(element) {
-                if ($(element).attr('id') === 'username') req.checkLogin();
-                if ($(element).attr('id') === 'email') req.checkEmail();
-                if ($(element).valid() && $(formname).valid() && !$('.failusername').text() && !$('.failemail').text()) {
-                    binds.canSave();
-                } else {
-                    binds.validFail();
-                }
+                $(element).valid();
             },
             rules: {
                 username: {
@@ -161,20 +273,59 @@ valid = {
                 }
             }
         });
+
+        function UserModel() {
+            this.userName = ko.observable( startUserName );
+            this.email = ko.observable( startEmail );
+            this.password = ko.observable();
+            this.passwordConfirm = ko.observable();
+            this.equalsPassword = ko.computed(function() {
+                return this.password() === this.passwordConfirm();
+            }, this);
+            this.isUserNameValid = ko.computed(function() {
+                return this.userName() &&
+                    (this.userName() !== startUserName
+                        ? req.checkLogin()
+                        : (function() {$('.failusername').empty(); return true;}()));
+            }, this);
+            this.isEmailValid = ko.computed(function() {
+                return this.email() &&
+                    (this.email() !== startEmail
+                        ? req.checkEmail()
+                        : (function() {$('.failemail').empty(); return true;}()));
+            }, this);
+            this.userFirstName = ko.observable( startFirstName );
+            this.userLastName = ko.observable( startLastName );
+            this.userRoleName = ko.observable();
+            this.userDate = ko.observable( startDate );
+            this.isValid = ko.computed(function() {
+                this.userFirstName();
+                this.userLastName();
+                this.userRoleName();
+                this.userDate();
+                return this.isUserNameValid() && this.isEmailValid() && this.equalsPassword() && $('form').valid();
+            }, this);
+        }
+
+        ko.applyBindings(new UserModel());
+        binds.clickDisableButton();
     },
 
-    // Правила валидации формы добавления роли
     validRole: function () {
-        binds.validFail();
-        var formname = '#' + $('form').attr('id');
-        $(formname).validate({
+        var startRoleName = $('#name').val(),
+            startRoleDesc = $('#description').val(),
+            startRolePages = $('.rolePages:checked').val(),
+            startRoleCats = $('.roleCats:checked').val(),
+            startRoleUsers = $('.roleUsers:checked').val(),
+            startRoleMods = $('.roleMods:checked').val(),
+            startRoleMails = $('.roleMails:checked').val(),
+            startRoleStats = $('.roleStats:checked').val(),
+            startRoleOpts = $('.roleOpts:checked').val(),
+            startRoleTrash = $('.roleTrash:checked').val();
+
+        $('form').validate({
             onfocusout: function(element) {
-                if ($(element).attr('id') === 'name') req.checkRoleName();
-                if ($(element).valid() && !$('.failrole').text() && $(formname).valid()) {
-                    binds.canSave();
-                } else {
-                    binds.validFail();
-                }
+                $(element).valid();
             },
             rules: {
                 name: {
@@ -192,22 +343,45 @@ valid = {
                 description: 'Пожалуйста введите описание роли (например Администратор)'
             }
         });
-        $('input[type=radio], select').live('change', function() {
-            if ( $(formname).valid() && !$('.failrole').text()) binds.canSave(onclick);
-        });
+
+        function RoleModel() {
+            this.roleName = ko.observable( startRoleName );
+            this.roleDesc = ko.observable( startRoleDesc );
+            this.isRoleNameValid = ko.computed(function(){
+                return this.roleName() &&
+                    (this.roleName() !== startRoleName
+                        ? req.checkRoleName()
+                        : (function() {$('.failrole').empty(); return true;}()));
+            }, this);
+            this.rolePages = ko.observable( startRolePages );
+            this.roleCats = ko.observable( startRoleCats );
+            this.roleUsers = ko.observable( startRoleUsers );
+            this.roleMods = ko.observable( startRoleMods );
+            this.roleMails = ko.observable( startRoleMails );
+            this.roleStats = ko.observable( startRoleStats );
+            this.roleOpts = ko.observable( startRoleOpts );
+            this.roleTrash = ko.observable( startRoleTrash );
+            this.isValid = ko.computed(function() {
+                this.rolePages();
+                this.roleCats();
+                this.roleUsers();
+                this.roleMods();
+                this.roleMails();
+                this.roleStats();
+                this.roleOpts();
+                this.roleTrash();
+                return this.isRoleNameValid() && this.roleDesc() && $('form').valid();
+            }, this);
+        }
+
+        ko.applyBindings(new RoleModel());
+        binds.clickDisableButton();
     },
 
-    // Правила валидации формы отправки емейла
     validSendEmail: function () {
-        binds.validFail();
-        var formname = '#' + $('form').attr('id');
-        $(formname).validate({
+        $('form').validate({
             onfocusout: function(element) {
-                if ($(formname).valid() && $(element).valid() && $(formname).valid()) {
-                    binds.canSend();
-                } else {
-                    binds.validFail();
-                }
+                $(element).valid();
             },
             rules: {
                 subject: "required"
@@ -216,5 +390,16 @@ valid = {
                 subject: "Пожалуйста введите тему"
             }
         });
+
+        function EmailModel() {
+            this.subject = ko.observable();
+            this.isValid = ko.computed(function() {
+                return this.subject() && $('form').valid();
+            }, this);
+        }
+
+        emailModel = new EmailModel();
+        ko.applyBindings(emailModel);
+        binds.clickDisableButton();
     }
 };

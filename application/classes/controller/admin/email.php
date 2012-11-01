@@ -18,11 +18,11 @@ class Controller_Admin_Email extends Controller_Admin_App {
 
     public function action_index()
     {
-        $users = ORM::factory('user')->find_all();
+        $users = ORM::factory('User')->find_all();
 
         $user = Auth::instance()->get_user();
         $usermail = $user->email;
-        $author_id = ORM::factory('user')->where('email', '=', $user)->find();
+        $author_id = ORM::factory('User')->where('email', '=', $user)->find();
 
         $view = View::factory('admin/blocks/V_sendemail')
                       ->bind('users', $users)
@@ -47,7 +47,7 @@ class Controller_Admin_Email extends Controller_Admin_App {
 
         if ($saveemail == 1)
         {
-            ORM::factory('email')
+            ORM::factory('Email')
                 ->set('to', $to)
                 ->set('subject', $subject)
                 ->set('from', $from)

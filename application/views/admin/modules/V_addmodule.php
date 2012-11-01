@@ -15,7 +15,8 @@
         <div class="control-group">
             <label class="control-label" for="name">Название модуля</label>
             <div class="controls">
-                <input type="text" id="name" name="name" class="input-xlarge required">
+                <input data-bind="value: modName, valueUpdate: 'afterkeydown'"
+                       type="text" id="name" name="name" class="input-xlarge required">
                 <label class="fail failmodname"></label>
             </div>
         </div>
@@ -24,7 +25,7 @@
         <div class="control-group">
             <label class="control-label" for="typemodule">Тип модуля</label>
             <div class="controls">
-                <select id="typemodule" name="type" class="input-xlarge">
+                <select data-bind="value: modType" id="typemodule" name="type" class="input-xlarge">
                     <option value="HTML">HTML</option>
                     <option value="JS">JS</option>
                 </select>
@@ -38,14 +39,6 @@
             <label class="editorfail label label-important" for="editor">Пожалуйста введите код модуля</label>
         </h3>
         <textarea id="editor" class="auto"></textarea>
-        <script>
-            editor = CKEDITOR.editor.replace('editor');
-            editor.on('blur', function() {
-                if ($('form').valid() && !$('.failmodname').text() && !$('.failsystemname').text()) {
-                    binds.canSave();
-                }
-            });
-        </script>
     </div>
 </div>
 <div class="row">
@@ -53,7 +46,8 @@
         <div class="control-group">
             <label class="control-label w200" for="systemname">Системное имя модуля:</label>
             <div class="controls">
-                <input type="text" id="systemname" name="systemname" class="input-medium required alphanumeric">
+                <input data-bind="value: modSysName, valueUpdate: 'afterkeydown'"
+                       type="text" id="systemname" name="systemname" class="input-medium required alphanumeric">
                 <label class="fail failsystemname"></label>
             </div>
         </div>
@@ -62,7 +56,7 @@
         <div class="control-group">
             <label class="control-label" for="datepicker">Дата создания:</label>
             <div class="controls">
-                <input id="datepicker" type="text" name="date" class="input-small">
+                <input data-bind="value: modDate" id="datepicker" type="text" name="date" class="input-small">
                 <script>
                     $(function() {
                         $("#datepicker").datepicker();
@@ -78,11 +72,15 @@
             <input type="hidden" name="status" value="1">
             <input type="hidden" id="content" name="content" value="">
             <input type="hidden" id="idItem" name="id" value="">
-            <button class="btn btn-success btn-large btncheck" onclick="binds.canSaveItem('modules');">
+            <button data-bind="enable: isValid" class="btn btn-success btn-large btn-mod"
+                    onclick="binds.checkContent('modules');">
                 Сохранить
             </button>
         </div>
     </div>
 </div>
 </form>
-<script>valid.validModule();</script>
+<script>
+    binds.initEditor();
+    valid.validModule();
+</script>

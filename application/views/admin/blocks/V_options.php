@@ -8,54 +8,69 @@
         <div class="control-group">
             <label for="sitename" class="control-label">Название сайта: </label>
             <div class="controls">
-               <input type="text" id="sitename" name="sitename" class="input-xlarge required" value="<?=$options['sitename'];?>">
+               <input data-bind="value: siteName, valueUpdate: 'afterkeydown'" type="text" id="sitename"
+                      name="sitename" class="input-xlarge required" value="<?=$options['sitename'];?>">
             </div>
         </div>
         <div class="control-group">
             <label for="desc" class="control-label">Описание сайта: </label>
             <div class="controls">
-                <textarea id="desc" cols="20" rows="3" name="description" class="input-xlarge"><?=$options['description'];?></textarea>
+                <textarea data-bind="value: siteDesc, valueUpdate: 'afterkeydown'" id="desc" cols="20" rows="3"
+                          name="description" class="input-xlarge"><?=$options['description'];?></textarea>
             </div>
         </div>
         <div class="control-group">
             <label for="keywords" class="control-label">Ключевые слова: </label>
             <div class="controls">
-                <textarea id="keywords" cols="20" name="keywords" rows="3" class="input-xlarge"><?=$options['keywords'];?></textarea>
+                <textarea data-bind="value: siteKeywords, valueUpdate: 'afterkeydown'" id="keywords" cols="20"
+                          name="keywords" rows="3" class="input-xlarge"><?=$options['keywords'];?></textarea>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="robots">Мета-тег robots: </label>
             <div class="controls docs-input-sizes">
-                <select class="span3" id="robots" name="robots">
-                    <option value="index,follow" <?=$options['robots'] == 'index,follow' ? 'selected' : '';?>>Index, Follow</option>
-                    <option value="index,nofollow" <?=$options['robots'] == 'index,nofollow' ? 'selected' : '';?>>Index, No Follow</option>
-                    <option value="noindex,follow" <?=$options['robots'] == 'noindex,follow' ? 'selected' : '';?>>No Index, Follow</option>
-                    <option value="noindex,nofollow" <?=$options['robots'] == 'noindex,nofollow' ? 'selected' : '';?>>No Index, No Follow</option>
+                <select data-bind="value: siteRobots" class="span3" id="robots" name="robots">
+                    <option value="index,follow" <?=$options['robots'] == 'index,follow' ? 'selected' : '';?>>
+                        Index, Follow
+                    </option>
+                    <option value="index,nofollow" <?=$options['robots'] == 'index,nofollow' ? 'selected' : '';?>>
+                        Index, No Follow
+                    </option>
+                    <option value="noindex,follow" <?=$options['robots'] == 'noindex,follow' ? 'selected' : '';?>>
+                        No Index, Follow
+                    </option>
+                    <option value="noindex,nofollow" <?=$options['robots'] == 'noindex,nofollow' ? 'selected' : '';?>>
+                        No Index, No Follow
+                    </option>
                 </select>
             </div>
         </div>
         <div class="control-group">
             <label for="email" class="control-label">E-mail сайта: </label>
             <div class="controls">
-               <input type="text" id="email" name="email" class="input-xlarge" value="<?=$options['email'];?>">
+               <input data-bind="value: siteEmail, valueUpdate: 'afterkeydown'" type="text" id="email" name="email"
+                      class="input-xlarge" value="<?=$options['email'];?>">
             </div>
         </div>
         <div class="control-group">
             <label for="sender" class="control-label">Тег Автор: </label>
             <div class="controls">
-               <input type="text" id="sender" name="author" class="input-xlarge" value="<?=$options['author'];?>">
+               <input data-bind="value: siteAuthor, valueUpdate: 'afterkeydown'" type="text" id="sender" name="author"
+                      class="input-xlarge" value="<?=$options['author'];?>">
             </div>
         </div>
         <div class="control-group">
             <label for="copyright" class="control-label">Копирайт: </label>
             <div class="controls">
-                <textarea id="copyright" cols="20" rows="3" name="copyright" class="input-xlarge"><?=$options['copyright'];?></textarea>
+                <textarea data-bind="value: siteCopyright, valueUpdate: 'afterkeydown'" id="copyright" cols="20" rows="3"
+                          name="copyright" class="input-xlarge"><?=$options['copyright'];?></textarea>
             </div>
         </div>
         <div class="control-group">
             <label for="page404" class="control-label">404 страница: </label>
             <div class="controls">
-                <textarea id="page404" cols="20" rows="3" name="page404" class="input-xlarge"><?=$options['page404'];?></textarea>
+                <textarea data-bind="value: site404, valueUpdate: 'afterkeydown'" id="page404" cols="20" rows="3"
+                          name="page404" class="input-xlarge"><?=$options['page404'];?></textarea>
             </div>
         </div>
     </div>
@@ -64,11 +79,13 @@
             <label class="control-label">Включен ли сайт: </label>
             <div class="controls">
                 <label class="radio inline">
-                    <input type="radio" id="siteon1" value="1" name="status" <?=$options['status'] == 1 ? 'checked' : '';?>>
+                    <input data-bind="checked: siteStatus" type="radio" class="siteStatus"
+                           value="1" name="status" <?=$options['status'] == 1 ? 'checked' : '';?>>
                     Да
                 </label>
                 <label class="radio inline">
-                    <input type="radio" id="siteon0" value="0" name="status" <?=$options['status'] == 0 ? 'checked' : '';?>>
+                    <input data-bind="checked: siteStatus" type="radio" class="siteStatus"
+                           value="0" name="status" <?=$options['status'] == 0 ? 'checked' : '';?>>
                     Нет
                 </label>
             </div>
@@ -77,11 +94,13 @@
             <label class="control-label">Включить профайлер: </label>
             <div class="controls">
                 <label class="radio inline">
-                    <input type="radio" id="debug1" value="1" name="debug" <?=$options['debug'] == 1 ? 'checked' : '';?>>
+                    <input data-bind="checked: siteProfile" type="radio" class="siteProfile"
+                           value="1" name="debug" <?=$options['debug'] == 1 ? 'checked' : '';?>>
                     Да
                 </label>
                 <label class="radio inline">
-                    <input type="radio" id="debug0" value="0" name="debug" <?=$options['debug'] == 0 ? 'checked' : '';?>>
+                    <input data-bind="checked: siteProfile" type="radio" class="siteProfile"
+                           value="0" name="debug" <?=$options['debug'] == 0 ? 'checked' : '';?>>
                     Нет
                 </label>
             </div>
@@ -90,11 +109,13 @@
             <label class="control-label">Кэширование: </label>
             <div class="controls">
                 <label class="radio inline">
-                    <input type="radio" id="cache1" value="1" name="cache" <?=$options['cache'] == 1 ? 'checked' : '';?>>
+                    <input data-bind="checked: siteCache" type="radio" type="radio" class="siteCache"
+                           value="1" name="cache" <?=$options['cache'] == 1 ? 'checked' : '';?>>
                     Да
                 </label>
                 <label class="radio inline">
-                    <input type="radio" id="cache0" value="0" name="cache" <?=$options['cache'] == 0 ? 'checked' : '';?>>
+                    <input data-bind="checked: siteCache" type="radio" type="radio" class="siteCache"
+                           value="0" name="cache" <?=$options['cache'] == 0 ? 'checked' : '';?>>
                     Нет
                 </label>
             </div>
@@ -103,7 +124,8 @@
             <label for="session" class="control-label">Время жизни сессии: </label>
             <div class="controls">
                <div class="input-append">
-                   <input type="text" id="session" name="session" class="input-small" value="<?=$options['session'];?>">
+                   <input data-bind="value: siteSession, valueUpdate: 'afterkeydown'" type="text" id="session"
+                          name="session" class="input-small" value="<?=$options['session'];?>">
                    <span class="add-on">сек.</span>
                </div>
             </div>
@@ -145,7 +167,8 @@
         </div>
         <div class="control-group offset1">
             <div class="controls">
-                <button class="btn btn-success btn-large btncheck" onclick="req.saveoptions();">Сохранить</button>
+                <button data-bind="enable: isValid" class="btn btn-success btn-large"
+                        onclick="req.saveoptions();">Сохранить</button>
             </div>
         </div>
     </div>

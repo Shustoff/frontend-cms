@@ -5,7 +5,7 @@ class Controller_Site_Main extends Controller {
     public function action_offline()
     {
        $status = Kohana::$config->load('site.status');
-       if ($status != 0) $this->request->redirect();
+       if ($status != 0) HTTP::redirect();
        $this->response->body( View::factory('site/offline') );
     }
 

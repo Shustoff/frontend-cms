@@ -31,7 +31,8 @@ CKEDITOR.lang['bg'] =
 	 * Screenreader titles. Please note that screenreaders are not always capable
 	 * of reading non-English words. So be careful while translating it.
 	 */
-	editorTitle : 'Текстов редактор за форматиран текст, %1, натиснете ALT 0 за помощ.',
+	editorTitle : 'Текстов редактор за форматиран текст, %1',
+	editorHelp : 'натиснете ALT 0 за помощ',
 
 	// ARIA descriptions.
 	toolbars	: 'Ленти с инструменти',
@@ -64,7 +65,7 @@ CKEDITOR.lang['bg'] =
 	// Common messages and labels.
 	common :
 	{
-		browseServer	: 'Избор ор сървъра',
+		browseServer	: 'Избор от сървъра',
 		url				: 'URL',
 		protocol		: 'Протокол',
 		upload			: 'Качване',
@@ -119,6 +120,7 @@ CKEDITOR.lang['bg'] =
 		alignTop		: 'Горе',
 		alignMiddle		: 'По средата',
 		alignBottom		: 'Долу',
+		invalidValue	: 'Invalid value.', // MISSING
 		invalidHeight	: 'Височината трябва да е число.',
 		invalidWidth	: 'Ширина требе да е число.',
 		invalidCssLength	: 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).', // MISSING
@@ -194,7 +196,7 @@ CKEDITOR.lang['bg'] =
 		emailSubject		: 'Тема',
 		emailBody		: 'Съдържание',
 		noAnchors		: '(No anchors available in the document)', // MISSING
-		noUrl			: 'Please type the link URL', // MISSING
+		noUrl			: 'Моля въведете URL адреса',
 		noEmail			: 'Моля въведете e-mail aдрес'
 	},
 

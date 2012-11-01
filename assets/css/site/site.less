@@ -1,8 +1,8 @@
 /* Подключаем bootstrap, 1140, qunit css, mediaelementplayer */
-@import url("../bootstrap.css");
-@import url("../1140.css");
-@import url("../qunit-1.9.0.css");
-@import url("mediaelementplayer.css");
+@import "../assets/css/bootstrap.css";
+@import "../assets/css/1140.css";
+@import "../assets/css/qunit.css";
+@import "../assets/css/site/mediaelementplayer.css";
 
 /* Основной шаблон сайта */
 /* Переменные, миксины etc. */
@@ -73,7 +73,7 @@ a {
     }
 
     &:hover {
-        text-shadow: 1px 1px 1px #007D48;
+        text-shadow: 1px 1px 2px #fff;
     }
 }
 
@@ -440,7 +440,7 @@ a {
   }
 }
 
-@-moz-keyframesfadeG fadeG {
+@-moz-keyframes fadeG {
   0% {
     background-color: #000000
   }

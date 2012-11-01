@@ -31,7 +31,8 @@ CKEDITOR.lang['es'] =
 	 * Screenreader titles. Please note that screenreaders are not always capable
 	 * of reading non-English words. So be careful while translating it.
 	 */
-	editorTitle : 'Editor de texto, %1, pulse ALT 0 para ayuda.',
+	editorTitle : 'Editor de texto, %1',
+	editorHelp : 'Pulse ALT 0 para ayuda',
 
 	// ARIA descriptions.
 	toolbars	: 'Barras de herramientas del editor',
@@ -119,6 +120,7 @@ CKEDITOR.lang['es'] =
 		alignTop		: 'Tope',
 		alignMiddle		: 'Centro',
 		alignBottom		: 'Pie',
+		invalidValue	: 'Invalid value.', // MISSING
 		invalidHeight	: 'Altura debe ser un número.',
 		invalidWidth	: 'Anchura debe ser un número.',
 		invalidCssLength	: 'El valor especificado para el campo "%1" debe ser un número positivo, incluyendo optionalmente una unidad de medida CSS válida (px, %, in, cm, mm, em, ex, pt, o pc).',

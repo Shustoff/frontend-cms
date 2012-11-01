@@ -9,7 +9,7 @@ class Controller_Admin_Main extends Controller_Template {
         $auth = Auth::instance();
         if ( ! $auth->logged_in('login'))
         {
-            $this->request->redirect('admin/auth');
+            HTTP::redirect('admin/auth');
         }
         return parent::before();
     }
@@ -24,8 +24,8 @@ class Controller_Admin_Main extends Controller_Template {
         $sitename = Kohana::$config->load('site.sitename');
         View::bind_global('sitename', $sitename);
 
-        $pages = ORM::factory('page')->order_by('date', 'DESC')->limit(10)->find_all();
-        $catalogs = ORM::factory('catalog')->order_by('date', 'DESC')->limit(10)->find_all();
+        $pages = ORM::factory('Page')->order_by('date', 'DESC')->limit(10)->find_all();
+        $catalogs = ORM::factory('Catalog')->order_by('date', 'DESC')->limit(10)->find_all();
 
         $this->template->main = View::factory('admin/blocks/V_main')
                 ->bind('pages', $pages)

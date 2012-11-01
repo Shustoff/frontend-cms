@@ -18,12 +18,12 @@ class Controller_Admin_Stats extends Controller_Admin_App {
 
     public function action_index()
     {
-        $pages = ORM::factory('page')->find_all()->count();
-        $catalogs = ORM::factory('catalog')->find_all()->count();
-        $users = ORM::factory('user')->find_all()->count();
-        $roles = ORM::factory('role')->find_all()->count();
-        $modules = ORM::factory('module')->find_all()->count();
-        $mails = ORM::factory('email')->find_all()->count();
+        $pages = ORM::factory('Page')->find_all()->count();
+        $catalogs = ORM::factory('Catalog')->find_all()->count();
+        $users = ORM::factory('User')->find_all()->count();
+        $roles = ORM::factory('Role')->find_all()->count();
+        $modules = ORM::factory('Module')->find_all()->count();
+        $mails = ORM::factory('Email')->find_all()->count();
         $mostactive = DB::query(Database::SELECT, 'SELECT username FROM users WHERE logins in
                                (SELECT MAX(logins) FROM users)')->execute()->get('username');
 

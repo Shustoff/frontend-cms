@@ -1,6 +1,6 @@
 <h3 class="center">Статистика сайта</h3>
     <div class="row">
-        <div class="span4 offset2">
+        <div class="span4 offset1">
             <div class="control-group">
                 <label class="control-label">Всего страниц: </label>
                 <div class="controls">

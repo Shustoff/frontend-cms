@@ -18,7 +18,7 @@ class Controller_Admin_Catalogs extends Controller_Admin_App {
 
     public function action_index()
     {
-        parent::action_main($model = 'catalog');
+        parent::action_main($model = 'Catalog');
     }
 
     public function action_on($table = 'catalogs')
@@ -31,12 +31,12 @@ class Controller_Admin_Catalogs extends Controller_Admin_App {
         parent::action_off($table);
     }
 
-    public function action_intrash($model = 'catalog')
+    public function action_intrash($model = 'Catalog')
     {
         parent::action_intrash($model);
     }
 
-    public function action_search($model = 'catalog', $field = 'catname')
+    public function action_search($model = 'Catalog', $field = 'catname')
     {
         parent::action_search($model, $field);
     }
@@ -44,7 +44,7 @@ class Controller_Admin_Catalogs extends Controller_Admin_App {
     // Загружаем вид добавления каталога
     public function action_addcatalogs()
     {
-        $catalogs = ORM::factory('catalog')->find_all();
+        $catalogs = ORM::factory('Catalog')->find_all();
 
         $view = View::factory('admin/catalogs/V_addcatalog')
             ->bind('catalogs', $catalogs);
@@ -52,7 +52,7 @@ class Controller_Admin_Catalogs extends Controller_Admin_App {
         $this->response->body($view);
     }
 
-    public function action_add($model = 'catalog')
+    public function action_add($model = 'Catalog')
     {
         parent::action_add($model);
     }
@@ -60,10 +60,10 @@ class Controller_Admin_Catalogs extends Controller_Admin_App {
     // Загружаем вид редактирования каталога
     public function action_editcatalogs()
     {
-        $catalogs = ORM::factory('catalog')->find_all();
+        $catalogs = ORM::factory('Catalog')->find_all();
 
         $id = $this->request->param('id');
-        $catalog = ORM::factory('catalog', $id);
+        $catalog = ORM::factory('Catalog', $id);
 
         $view = View::factory('admin/catalogs/V_editcatalog')
             ->bind('catalogs', $catalogs)
@@ -72,7 +72,7 @@ class Controller_Admin_Catalogs extends Controller_Admin_App {
         $this->response->body($view);
     }
 
-    public function action_edit($model = 'catalog')
+    public function action_edit($model = 'Catalog')
     {
         parent::action_edit($model);
     }
@@ -80,14 +80,14 @@ class Controller_Admin_Catalogs extends Controller_Admin_App {
     // Проверка уникальности названия каталога
     public function action_checkcatname()
     {
-        $unique_catname  = ORM::factory('catalog')->unique('catname', $_POST['catname']);
+        $unique_catname  = ORM::factory('Catalog')->unique('catname', $_POST['catname']);
         if ( ! $unique_catname) echo 'Такой каталог уже существует';
     }
 
     // Проверка уникальности алиаса каталога
     public function action_checkalias()
     {
-        $unique_alias  = ORM::factory('catalog')->unique('alias', $_POST['alias']);
+        $unique_alias  = ORM::factory('Catalog')->unique('alias', $_POST['alias']);
         if ( ! $unique_alias) echo 'Такой алиас уже существует';
     }
 }

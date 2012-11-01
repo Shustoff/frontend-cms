@@ -90,6 +90,16 @@ CKEDITOR.STYLE_OBJECT = 3;
 
 	CKEDITOR.style = function( styleDefinition, variablesValues )
 	{
+		// Inline style text as attribute should be converted
+		// to styles object.
+		var attrs = styleDefinition.attributes;
+		if ( attrs && attrs.style )
+		{
+			styleDefinition.styles = CKEDITOR.tools.extend( {},
+				styleDefinition.styles, parseStyleText( attrs.style ) );
+			delete attrs.style;
+		}
+
 		if ( variablesValues )
 		{
 			styleDefinition = CKEDITOR.tools.clone( styleDefinition );
@@ -218,9 +228,8 @@ CKEDITOR.STYLE_OBJECT = 3;
 			return true;
 		},
 
-		// Checks if an element, or any of its attributes, is removable by the
-		// current style definition.
-		checkElementRemovable : function( element, fullMatch )
+		// Check if the element matches the current style definition.
+		checkElementMatch : function( element, fullMatch )
 		{
 			var def = this._.definition;
 
@@ -266,10 +275,23 @@ CKEDITOR.STYLE_OBJECT = 3;
 					return true;
 			}
 
-			// Check if the element can be somehow overriden.
+			return false;
+		},
+
+		// Checks if an element, or any of its attributes, is removable by the
+		// current style definition.
+		checkElementRemovable : function( element, fullMatch )
+		{
+			// Check element matches the style itself.
+			if ( this.checkElementMatch( element, fullMatch ) )
+				return true;
+
+			// Check if the element matches the style overrides.
 			var override = getOverrides( this )[ element.getName() ] ;
 			if ( override )
 			{
+				var attribs, attName;
+
 				// If no attributes have been defined, remove the element.
 				if ( !( attribs = override.attributes ) )
 					return true;

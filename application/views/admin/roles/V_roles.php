@@ -12,37 +12,39 @@
     <tbody>
         <?php foreach($roles as $role) : ?>
             <tr class="pageedit">
-                <td><?=$role->id;?></td>
+                <td class="pageId">
+                    <?=$role->id;?>
+                    <input type="hidden" value="<?=$role->id;?>" name="id" id="pageId">
+                </td>
                 <td class="pagename">
-                    <form action="" method="post" name="edititem" id="edititem">
-                        <input type="hidden" value="<?=$role->id;?>" name="id">
-                        <a href="#edit" onclick="req.editItem('roles',<?=$role->id;?>);">
-                            <?=$role->name;?>
-                        </a>
-                    </form>
+                    <a href="#" onclick="req.editItem('roles', <?=$role->id;?>);">
+                        <?=$role->name;?>
+                    </a>
                 </td>
                 <td><?=$role->description;?></td>
                 <td>
-                    <form action="" method="post" id="cngstatus<?=$role->id;?>">
-                        <input type="hidden" name="idpage" value="<?=$role->id;?>">
-                        <?php if ($role->status == 1) : ?>
-                             <a href="#" onclick="req.off('roles',this); return false;"><img src='<?=URL::base()?>assets/img/admin/published.png'></a>
-                        <? else : ?>
-                             <a href="#" onclick="req.on('roles',this); return false;"><img src='<?=URL::base()?>assets/img/admin/not-published.png'></a>
-                        <? endif; ?>
-                    </form>
+                    <?php if ($role->status == 1) : ?>
+                         <a href="#" onclick="req.off('roles',this); return false;">
+                             <img src='<?=URL::base()?>assets/img/admin/published.png'>
+                         </a>
+                    <? else : ?>
+                         <a href="#" onclick="req.on('roles',this); return false;">
+                             <img src='<?=URL::base()?>assets/img/admin/not-published.png'>
+                         </a>
+                    <? endif; ?>
                 </td>
                 <td>
-                    <form action="" method="post" id="intrash<?=$role->id;?>">
-                        <input type="hidden" name="intrash" value="<?=$role->id;?>">
-                        <a href="#" onclick="req.intrash('roles',this);"><img src='<?=URL::base()?>assets/img/admin/delete.png'></a>
-                    </form>
+                    <a href="#" onclick="req.intrash('roles',this); return false;">
+                        <img src='<?=URL::base()?>assets/img/admin/delete.png'>
+                    </a>
                 </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
-<form action="" method="post" id="save" onsubmit="return false;">
+
+<!--Сортировка-->
+<form action="" method="post" id="sort" onsubmit="return false;">
 <div class="row">
     <div class="span4">
         <div class="control-group">
@@ -61,8 +63,7 @@
             <label class="control-label" for="select2">Выводить по:</label>
             <div class="controls">
                 <select id="select2" name="limit" class="input-medium">
-                    <option>5</option>
-                    <option>10</option>
+                    <option selected="selected">10</option>
                     <option>15</option>
                     <option>20</option>
                     <option>25</option>
@@ -77,20 +78,19 @@
     </div>
 </div>
 </form>
+
+<!--Пагинация-->
 <div class="row">
     <div class="span12">
         <div class="pagination">
             <ul>
                 <?php for ($i = 1; $i <= $count; $i++ ) : ?>
                 <li>
-                    <form action="" method="post" id="pagination<?=$i;?>">
-                        <input type="hidden" name="offset" id="offset" value="">
-                        <input type="hidden" name="limit" id="limit" value="">
-                        <input type="hidden" name="sortby" id="sortby" value="">
-                        <a href="#" class="page<?php echo $i; ?>" name="pagination" onclick="req.pagination('roles',this);"><?=$i;?></a>
-                    </form>
+                    <a href="#" class="page<?=$i;?>" name="pagination" onclick="req.pagination('roles',this);">
+                        <?=$i;?>
+                    </a>
                 </li>
-                <? endfor; ?>
+                <?php endfor; ?>
             </ul>
         </div>
     </div>

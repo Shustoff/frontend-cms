@@ -14,14 +14,14 @@
     <tbody>
         <?php foreach($users as $user) : ?>
             <tr class="pageedit">
-                <td><?=$user->id;?></td>
+                <td class="pageId">
+                    <?=$user->id;?>
+                    <input type="hidden" value="<?=$user->id;?>" name="id" id="pageId">
+                </td>
                 <td class="email">
-                    <form action="" method="post" name="edititem" id="edititem">
-                        <input type="hidden" value="<?=$user->id;?>" name="id">
-                        <a href="#edit" onclick="req.editItem('users',<?=$user->id;?>);">
-                            <?=$user->email;?>
-                        </a>
-                    </form>
+                    <a href="#" onclick="req.editItem('users',<?=$user->id;?>);">
+                        <?=$user->email;?>
+                    </a>
                 </td>
                 <td class="username"><?=$user->username;?></td>
                 <td class="role">
@@ -29,27 +29,30 @@
                 </td>
                 <td><?=$user->datereg;?></td>
                 <td>
-                    <form action="" method="post" id="cngstatus<?=$user->id;?>">
-                        <input type="hidden" name="idpage" value="<?=$user->id;?>">
-                        <?php if ($user->status == 1) : ?>
-                             <a href="#" onclick="req.off('users', this); return false;"><img src='<?=URL::base()?>assets/img/admin/published.png'></a>
-                        <? else : ?>
-                             <a href="#" onclick="req.on('users', this); return false;"><img src='<?=URL::base()?>assets/img/admin/not-published.png'></a>
-                        <? endif; ?>
-                    </form>
+                    <?php if ($user->status == 1) : ?>
+                         <a href="#" onclick="req.off('users', this); return false;">
+                             <img src='<?=URL::base()?>assets/img/admin/published.png'>
+                         </a>
+                    <? else : ?>
+                         <a href="#" onclick="req.on('users', this); return false;">
+                             <img src='<?=URL::base()?>assets/img/admin/not-published.png'>
+                         </a>
+                    <? endif; ?>
                 </td>
                 <td>
-                    <form action="" method="post" id="intrash<?=$user->id;?>">
-                        <input type="hidden" name="intrash" value="<?=$user->id;?>">
-                        <a href="#" onclick="req.intrash('users',this);"><img src='<?=URL::base()?>assets/img/admin/delete.png'></a>
-                    </form>
+                    <a href="#" onclick="req.intrash('users',this);">
+                        <img src='<?=URL::base()?>assets/img/admin/delete.png'>
+                    </a>
                 </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
+
 <?=$failsearch;?>
-<form action="" method="post" id="save" onsubmit="return false;">
+
+<!--Сортировка-->
+<form action="" method="post" id="sort" onsubmit="return false;">
 <div class="row">
     <div class="span4">
         <div class="control-group">
@@ -58,6 +61,7 @@
                 <select id="select1" name="sortby" class="input-medium">
                     <option value="id">ID</option>
                     <option value="email">Email</option>
+                    <option value="username">Логин</option>
                     <option value="datereg">Дате регистрации</option>
                 </select>
             </div>
@@ -68,8 +72,7 @@
             <label class="control-label" for="select2">Выводить по:</label>
             <div class="controls">
                 <select id="select2" name="limit" class="input-medium">
-                    <option>5</option>
-                    <option>10</option>
+                    <option selected="selected">10</option>
                     <option>15</option>
                     <option>20</option>
                     <option>25</option>
@@ -85,20 +88,18 @@
 </div>
 </form>
 
+<!--Пагинация-->
 <div class="row">
     <div class="span12">
         <div class="pagination">
             <ul>
                 <?php for ($i = 1; $i <= $count; $i++ ) : ?>
                 <li>
-                    <form action="" method="post" id="pagination<?php echo $i; ?>">
-                        <input type="hidden" name="offset" id="offset" value="">
-                        <input type="hidden" name="limit" id="limit" value="">
-                        <input type="hidden" name="sortby" id="sortby" value="">
-                        <a href="#" class="page<?php echo $i; ?>" name="pagination" onclick="req.pagination('users',this);"><?php echo $i; ?></a>
-                    </form>
+                    <a href="#" class="page<?=$i;?>" name="pagination" onclick="req.pagination('users',this);">
+                        <?=$i;?>
+                    </a>
                 </li>
-                <? endfor; ?>
+                <?php endfor; ?>
             </ul>
         </div>
     </div>

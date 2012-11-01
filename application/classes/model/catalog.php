@@ -6,7 +6,7 @@ class Model_Catalog extends ORM {
 
     protected $_belongs_to = array(
         'catalogs' => array(
-            'model' => 'catalog',
+            'model' => 'Catalog',
             'foreign_key' => 'parent_id'
         )
     );

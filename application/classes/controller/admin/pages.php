@@ -18,7 +18,7 @@ class Controller_Admin_Pages extends Controller_Admin_App {
 
     public function action_index()
     {
-        parent::action_main($model = 'page');
+        parent::action_main($model = 'Page');
     }
 
     public function action_on($table = 'pages')
@@ -31,12 +31,12 @@ class Controller_Admin_Pages extends Controller_Admin_App {
         parent::action_off($table);
     }
 
-    public function action_intrash($model = 'page')
+    public function action_intrash($model = 'Page')
     {
         parent::action_intrash($model);
     }
 
-    public function action_search($model = 'page', $field = 'pagename')
+    public function action_search($model = 'Page', $field = 'pagename')
     {
         parent::action_search($model, $field);
     }
@@ -44,16 +44,16 @@ class Controller_Admin_Pages extends Controller_Admin_App {
     // Загружаем вид добавления каталога
     public function action_addpages()
     {
-        $catalogs = ORM::factory('catalog')->find_all();
+        $catalogs = ORM::factory('Catalog')->find_all();
         $user = Auth::instance()->get_user();
-        $user_id = ORM::factory('user')->where('email', '=', $user->email)->find();
+        $user_id = ORM::factory('User')->where('email', '=', $user->email)->find();
         $view = View::factory('admin/pages/V_addpage')
             ->bind('catalogs', $catalogs)
             ->bind('user_id', $user_id);
         $this->response->body($view);
     }
 
-    public function action_add($model = 'page')
+    public function action_add($model = 'Page')
     {
         parent::action_add($model);
     }
@@ -61,12 +61,12 @@ class Controller_Admin_Pages extends Controller_Admin_App {
     // Загружаем вид редактирования каталога
     public function action_editpages()
     {
-        $catalogs = ORM::factory('catalog')->find_all();
+        $catalogs = ORM::factory('Catalog')->find_all();
         $user = Auth::instance()->get_user();
-        $user_id = ORM::factory('user')->where('email', '=', $user->email)->find();
+        $user_id = ORM::factory('User')->where('email', '=', $user->email)->find();
 
         $id = $this->request->param('id');
-        $page = ORM::factory('page', $id);
+        $page = ORM::factory('Page', $id);
 
         $view = View::factory('admin/pages/V_editpage')
             ->bind('catalogs', $catalogs)
@@ -76,7 +76,7 @@ class Controller_Admin_Pages extends Controller_Admin_App {
         $this->response->body($view);
     }
 
-    public function action_edit($model = 'page')
+    public function action_edit($model = 'Page')
     {
         parent::action_edit($model);
     }
@@ -84,14 +84,14 @@ class Controller_Admin_Pages extends Controller_Admin_App {
     // Проверка уникальности заголовка страницы
     public function action_checkpagename()
     {
-        $unique_pagename  = ORM::factory('page')->unique('pagename', $_POST['pagename']);
+        $unique_pagename  = ORM::factory('Page')->unique('pagename', $_POST['pagename']);
         if ( ! $unique_pagename) echo 'Такая страница уже существует';
     }
 
     // Проверка уникальность алиаса страницы
     public function action_checkalias()
     {
-        $unique_alias  = ORM::factory('page')->unique('alias', $_POST['alias']);
+        $unique_alias  = ORM::factory('Page')->unique('alias', $_POST['alias']);
         if ( ! $unique_alias) echo 'Такой алиас уже существует';
     }
 

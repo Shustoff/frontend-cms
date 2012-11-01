@@ -26,6 +26,7 @@ return array(
  ':field must be a url'                                 => ':field должно быть URL-адресом',
  
  'username'                                             => 'Поле Логин',
+ 'user'                                                 => 'Поле Логин',
  'email'                                                => 'Поле Емейл',
  'message'                                              => 'Поле Текст сообщения',
  'metadesc'                                             => 'Поле Meta-описание',

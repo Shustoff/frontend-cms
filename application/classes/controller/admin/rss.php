@@ -4,7 +4,7 @@ class Controller_Admin_Rss extends Controller_Admin_App {
     // Создаем RSS-поток из таблицы
     public function action_index()
     {
-        $pages = ORM::factory('page')->find_all();
+        $pages = ORM::factory('Page')->find_all();
 
         $info = array('title' => 'RSS подписка на страницы');
 

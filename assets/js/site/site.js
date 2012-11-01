@@ -6,10 +6,10 @@ requirejs.config({
     deps : ['site', 'tests'],
     paths : {
         // Libs
-        'jQuery' : '../libs/jquery/jquery-1.7.2',
+        'jQuery' : '../libs/jquery/jquery',
         'Underscore' : '../libs/underscore',
         'Backbone' : '../libs/backbone',
-        'QUnit' : '../libs/qunit-1.9.0',
+        'QUnit' : '../libs/qunit',
         // Plugins
         'text' : '../libs/require/text',
         'domReady' : '../libs/require/domready',

@@ -5,7 +5,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
     public function before()
     {
         $status = Kohana::$config->load('site.status');
-        if ($status == 0) $this->request->redirect('offline');
+        if ($status == 0) HTTP::redirect('offline');
         return parent::before();
     }
 
@@ -18,7 +18,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
            $this->response->headers('Content-Type', 'application/json');
            $catalias = $this->request->param('catalias');
 
-           $catalog = ORM::factory('catalog')
+           $catalog = ORM::factory('Catalog')
                ->where('alias', '=', $catalias)
                ->and_where('status', '=', '1')
                ->find();
@@ -33,7 +33,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
            $catalog_desc = $catalog->content;
 
            // Выбираем все страницы текущего каталога
-           $pages = ORM::factory('page')
+           $pages = ORM::factory('Page')
                ->where('catalog_id', '=', $catalog_id)
                ->and_where('status', '=', '1')
                ->order_by('id')
@@ -52,7 +52,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
            };
 
            // Выбираем все каталоги у которых parent_id равен id текущего каталога
-           $allcatalogs = ORM::factory('catalog')
+           $allcatalogs = ORM::factory('Catalog')
                ->where('parent_id', '=', $catalog_id)
                ->and_where('status', '=', '1')
                ->find_all();
@@ -63,7 +63,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                // Выбираем страницы вложенные в каталоги текущего каталога
                foreach ($allcatalogs as $cat)
                {
-                   $pages = ORM::factory('page')
+                   $pages = ORM::factory('Page')
                        ->where('catalog_id', '=', $cat->id)
                        ->and_where('status', '=', '1')
                        ->order_by('id')
@@ -105,7 +105,7 @@ class Controller_Site_Catalog extends Controller_Site_Main {
                $options[$key] = Kohana::$config->load('site.' . $key);
            }
 
-           $count_pages = ORM::factory('page')->find_all()->count();
+           $count_pages = ORM::factory('Page')->find_all()->count();
 
            // Подключаем профайлер
            if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');

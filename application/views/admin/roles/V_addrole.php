@@ -1,7 +1,7 @@
 <div class="wraptooltip">
     <div class="alert alert-success tooltips">
       <button class="close" data-dismiss="alert">×</button>
-      <span class="center">Роль добавлена!</span>
+      <span class="center">Готово!</span>
     </div>
     <div class="alert alert-danger tooltips">
       <button class="close" data-dismiss="alert">×</button>
@@ -16,7 +16,8 @@
             <div class="control-group">
                 <label class="control-label" for="name">Название роли:</label>
                 <div class="controls">
-                    <input type="text" id="name" name="name" class="input-large required letersonly minlength">
+                    <input data-bind="value: roleName, valueUpdate: 'afterkeydown'" type="text" id="name" name="name"
+                           class="input-large required letersonly minlength">
                     <label class="fail failrole"></label>
                 </div>
             </div>
@@ -25,7 +26,8 @@
             <div class="control-group">
                 <label class="control-label" for="description">Описание роли:</label>
                 <div class="controls">
-                    <input type="text" id="description" name="description" class="input-large required">
+                    <input data-bind="value: roleDesc, valueUpdate: 'afterkeydown'"
+                           type="text" id="description" name="description" class="input-large required">
                 </div>
             </div>
         </div>
@@ -39,32 +41,38 @@
                 <label class="control-label">Управление страницами:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="pages">Да
+                        <input data-bind="checked: rolePages" type="radio" value="1" name="pages"
+                               class="rolePages">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="pages" checked="checked">Нет
-                </label>
+                        <input data-bind="checked: rolePages" type="radio" value="0" name="pages"
+                               checked="checked" class="rolePages">Нет
+                    </label>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Управление каталогами:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="cats">Да
+                        <input data-bind="checked: roleCats" type="radio" value="1" name="cats"
+                               class="roleCats">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="cats" checked="checked">Нет
-                </label>
+                        <input data-bind="checked: roleCats" type="radio" value="0" name="cats"
+                               checked="checked" class="roleCats">Нет
+                    </label>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Управление пользователями:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="users">Да
+                        <input data-bind="checked: roleUsers" type="radio" value="1" name="users"
+                               class="roleUsers">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="users" checked="checked">Нет
+                        <input data-bind="checked: roleUsers" type="radio" value="0" name="users"
+                               checked="checked" class="roleUsers">Нет
                     </label>
                 </div>
             </div>
@@ -72,10 +80,12 @@
                 <label class="control-label">Управление модулями:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="mods">Да
+                        <input data-bind="checked: roleMods" type="radio" value="1" name="mods"
+                               class="roleMods">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="mods" checked="checked">Нет
+                        <input data-bind="checked: roleMods" type="radio" value="0" name="mods"
+                               checked="checked" class="roleMods">Нет
                     </label>
                 </div>
             </div>
@@ -85,10 +95,12 @@
                 <label class="control-label">Управление письмами:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="mails">Да
+                        <input data-bind="checked: roleMails" type="radio" value="1" name="mails"
+                               class="roleMails">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="mails" checked="checked">Нет
+                        <input data-bind="checked: roleMails" type="radio" value="0" name="mails"
+                               checked="checked" class="roleMails">Нет
                     </label>
                 </div>
             </div>
@@ -96,10 +108,12 @@
                 <label class="control-label">Доступ к статистике:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="stats">Да
+                        <input data-bind="checked: roleStats" type="radio" value="1" name="stats"
+                               class="roleStats">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="stats" checked="checked">Нет
+                        <input data-bind="checked: roleStats" type="radio" value="0" name="stats"
+                               checked="checked" class="roleStats">Нет
                     </label>
                 </div>
             </div>
@@ -107,10 +121,12 @@
                 <label class="control-label">Доступ к настройкам:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="opts">Да
+                        <input data-bind="checked: roleOpts" type="radio" value="1" name="opts"
+                               class="roleOpts">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="opts" checked="checked">Нет
+                        <input data-bind="checked: roleOpts" type="radio" value="0" name="opts"
+                               checked="checked" class="roleOpts">Нет
                     </label>
                 </div>
             </div>
@@ -118,10 +134,12 @@
                 <label class="control-label">Доступ к корзине:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="trash">Да
+                        <input data-bind="checked: roleTrash" type="radio" value="1" name="trash"
+                               class="roleTrash">Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="trash" checked="checked">Нет
+                        <input data-bind="checked: roleTrash" type="radio" value="0" name="trash"
+                               checked="checked" class="roleTrash">Нет
                     </label>
                 </div>
             </div>
@@ -134,10 +152,12 @@
             <div class="controls">
                 <input type="hidden" id="datepicker" name="date" value="">
                 <input type="hidden" name="status" value="1">
+                <input type="hidden" id="idItem" name="id" value="">
                 <script>
                     $(function() { date.today('#datepicker') });
                 </script>
-                <button class="btn btn-success btn-large addrole btncheck" onclick="req.add('roles');">
+                <button data-bind="enable: isValid" class="btn btn-success btn-large addrole"
+                        onclick="req.add('roles');">
                     Сохранить
                 </button>
             </div>

@@ -31,7 +31,8 @@ CKEDITOR.lang['zh'] =
 	 * Screenreader titles. Please note that screenreaders are not always capable
 	 * of reading non-English words. So be careful while translating it.
 	 */
-	editorTitle : '富文本編輯器，%1，按 ALT+0 以獲得幫助。',
+	editorTitle : '富文本編輯器，%1',
+	editorHelp : '按 ALT+0 以獲得幫助',
 
 	// ARIA descriptions.
 	toolbars	: '編輯器工具欄',
@@ -119,6 +120,7 @@ CKEDITOR.lang['zh'] =
 		alignTop		: '靠上對齊',
 		alignMiddle		: '置中對齊',
 		alignBottom		: '靠下對齊',
+		invalidValue	: 'Invalid value.', // MISSING
 		invalidHeight	: '高度必須為數字格式',
 		invalidWidth	: '寬度必須為數字格式',
 		invalidCssLength	: 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).', // MISSING

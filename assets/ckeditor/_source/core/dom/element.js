@@ -105,6 +105,9 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 	}
 };
 
+( function()
+{
+
 CKEDITOR.tools.extend( CKEDITOR.dom.element.prototype,
 	/** @lends CKEDITOR.dom.element.prototype */
 	{
@@ -466,6 +469,11 @@ CKEDITOR.tools.extend( CKEDITOR.dom.element.prototype,
 						case 'style':
 							// IE does not return inline styles via getAttribute(). See #2947.
 							return this.$.style.cssText;
+
+						case 'contenteditable':
+						case 'contentEditable':
+							return this.$.attributes.getNamedItem( 'contentEditable' ).specified ?
+									this.$.getAttribute( 'contentEditable' ) : null;
 					}
 
 					return standard.call( this, name );
@@ -499,7 +507,10 @@ CKEDITOR.tools.extend( CKEDITOR.dom.element.prototype,
 			:
 				function( propertyName )
 				{
-					return this.getWindow().$.getComputedStyle( this.$, '' ).getPropertyValue( propertyName );
+					var style = this.getWindow().$.getComputedStyle( this.$, null );
+
+					// Firefox may return null if we call the above on a hidden iframe. (#9117)
+					return style ? style.getPropertyValue( propertyName ) : '';
 				},
 
 		/**
@@ -731,7 +742,8 @@ CKEDITOR.tools.extend( CKEDITOR.dom.element.prototype,
 					|| this.getComputedStyle( 'display' ) == 'none'
 					|| this.getComputedStyle( 'visibility' ) == 'hidden'
 				 	|| this.is( 'a' ) && this.data( 'cke-saved-name' ) && !this.getChildCount()
-					|| CKEDITOR.dtd.$nonEditable[ name ] )
+					|| CKEDITOR.dtd.$nonEditable[ name ]
+					|| CKEDITOR.dtd.$empty[ name ] )
 			{
 				return false;
 			}
@@ -1069,6 +1081,8 @@ CKEDITOR.tools.extend( CKEDITOR.dom.element.prototype,
 						this.$.tabIndex = value;
 					else if ( name == 'checked' )
 						this.$.checked = value;
+					else if ( name == 'contenteditable' )
+						standard.call( this, 'contentEditable', value );
 					else
 						standard.apply( this, arguments );
 					return this;
@@ -1143,6 +1157,8 @@ CKEDITOR.tools.extend( CKEDITOR.dom.element.prototype,
 						name = 'className';
 					else if ( name == 'tabindex' )
 						name = 'tabIndex';
+					else if ( name == 'contenteditable' )
+						name = 'contentEditable';
 					standard.call( this, name );
 				};
 			}
@@ -1174,9 +1190,19 @@ CKEDITOR.tools.extend( CKEDITOR.dom.element.prototype,
 		 */
 		removeStyle : function( name )
 		{
-			this.setStyle( name, '' );
-			if ( this.$.style.removeAttribute )
-				this.$.style.removeAttribute( CKEDITOR.tools.cssStyleToDomStyle( name ) );
+			// Removes the specified property from the current style object.
+			var $ = this.$.style;
+
+			// "removeProperty" need to be specific on the following styles.
+			if ( !$.removeProperty && ( name == 'border' || name == 'margin' || name == 'padding' ) )
+			{
+				var names = expandedRules( name );
+				for ( var i = 0 ; i < names.length ; i++ )
+					this.removeStyle( names[ i ] );
+				return;
+			}
+
+			$.removeProperty ? $.removeProperty( name ) : $.removeAttribute( CKEDITOR.tools.cssStyleToDomStyle( name ) );
 
 			if ( !this.$.style.cssText )
 				this.removeAttribute( 'style' );
@@ -1227,7 +1253,7 @@ CKEDITOR.tools.extend( CKEDITOR.dom.element.prototype,
 		 */
 		setOpacity : function( opacity )
 		{
-			if ( CKEDITOR.env.ie )
+			if ( CKEDITOR.env.ie && CKEDITOR.env.version < 9 )
 			{
 				opacity = Math.round( opacity * 100 );
 				this.setStyle( 'filter', opacity >= 100 ? '' : 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + opacity + ')' );
@@ -1594,7 +1620,8 @@ CKEDITOR.tools.extend( CKEDITOR.dom.element.prototype,
 				}
 			}
 
-			return $ && new CKEDITOR.dom.document( $.contentWindow.document );
+			//return $ && new CKEDITOR.dom.document( $.contentWindow.document );
+            return $ && $.contentWindow && new CKEDITOR.dom.document( $.contentWindow.document );
 		},
 
 		/**
@@ -1695,6 +1722,12 @@ CKEDITOR.tools.extend( CKEDITOR.dom.element.prototype,
 			return this.$.childNodes.length;
  		},
 
+        isOffline : function()
+        {
+            var root = this.getDocument().getDocumentElement();
+            return !root.contains( this );
+        },
+
 		disableContextMenu : function()
 		{
 			this.on( 'contextmenu', function( event )
@@ -1742,12 +1775,34 @@ CKEDITOR.tools.extend( CKEDITOR.dom.element.prototype,
 		}
 	});
 
-( function()
-{
 	var sides = {
 		width : [ "border-left-width", "border-right-width","padding-left", "padding-right" ],
 		height : [ "border-top-width", "border-bottom-width", "padding-top",  "padding-bottom" ]
 	};
+
+	// Generate list of specific style rules, applicable to margin/padding/border.
+	function expandedRules( style )
+	{
+		var sides = [ 'top', 'left', 'right', 'bottom' ], components;
+
+		if ( style == 'border' )
+				components = [ 'color', 'style', 'width' ];
+
+		var styles = [];
+		for ( var i = 0 ; i < sides.length ; i++ )
+		{
+
+			if ( components )
+			{
+				for ( var j = 0 ; j < components.length ; j++ )
+					styles.push( [ style, sides[ i ], components[j] ].join( '-' ) );
+			}
+			else
+				styles.push( [ style, sides[ i ] ].join( '-' ) );
+		}
+
+		return styles;
+	}
 
 	function marginAndPaddingSize( type )
 	{

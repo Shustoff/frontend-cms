@@ -28,7 +28,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
 
     <!--Скрипты-->
-    <script src="<?=URL::base();?>assets/js/libs/less-1.3.0.js"></script>
+    <script src="<?=URL::base();?>assets/js/libs/less.js"></script>
 </head>
 <body>
 <div class="wrapper">

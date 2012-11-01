@@ -33,6 +33,8 @@ class Controller_Admin_App extends Controller {
 
         if ($count <= 1) $count = NULL;
 
+        $model = strtolower($model);
+
         $view = View::factory('admin/'. $model . 's/V_' . $model . 's')
                 ->bind($model . 's', $items)
                 ->bind('count', $count)
@@ -44,19 +46,19 @@ class Controller_Admin_App extends Controller {
     // Опубликовать
     public function action_on($table)
     {
-        DB::update($table)->set(array('status' => 1))->where('id', '=', $_POST["idpage"])->execute();
+        DB::update($table)->set(array('status' => 1))->where('id', '=', $_POST["id"])->execute();
     }
 
     // Не опубликовать
     public function action_off($table)
     {
-        DB::update($table)->set(array('status' => 0))->where('id', '=', $_POST["idpage"])->execute();
+        DB::update($table)->set(array('status' => 0))->where('id', '=', $_POST["id"])->execute();
     }
 
     // В корзину
     public function action_intrash($model)
     {
-        ORM::factory($model, $_POST['intrash'])->set('intrash', 1)->save();
+        ORM::factory($model, $_POST['id'])->set('intrash', 1)->save();
     }
 
     // Поиск

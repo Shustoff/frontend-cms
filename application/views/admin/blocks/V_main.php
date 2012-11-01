@@ -15,7 +15,7 @@
                     <td>
                         <form action="" method="post" name="edititem" id="edititem">
                             <input type="hidden" value="<?=$page->id;?>" name="id">
-                            <a href="#edit" onclick="req.editItem('pages',<?=$page->id;?>);">
+                            <a href="#edit" onclick="req.editItem('pages', <?=$page->id;?>);">
                                 <?=$page->pagename;?>
                             </a>
                         </form>

@@ -16,7 +16,8 @@
             <div class="control-group">
                 <label class="control-label" for="name">Название роли:</label>
                 <div class="controls">
-                    <input type="text" id="name" name="name" class="input-large required letersonly minlength" value="<?=$role->name;?>">
+                    <input data-bind="value: roleName, valueUpdate: 'afterkeydown'" type="text" id="name" name="name"
+                           class="input-large required letersonly minlength" value="<?=$role->name;?>">
                     <label class="fail failrole"></label>
                 </div>
             </div>
@@ -25,7 +26,8 @@
             <div class="control-group">
                 <label class="control-label" for="description">Описание роли:</label>
                 <div class="controls">
-                    <input type="text" id="description" name="description" class="input-large required" value="<?=$role->description;?>">
+                    <input data-bind="value: roleDesc, valueUpdate: 'afterkeydown'" type="text" id="description"
+                           name="description" class="input-large required" value="<?=$role->description;?>">
                 </div>
             </div>
         </div>
@@ -39,10 +41,12 @@
                 <label class="control-label">Управление страницами:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="pages" <?=$role->pages == 1 ? 'checked="checked"' : '';?>>Да
+                        <input data-bind="checked: rolePages" type="radio" value="1" name="pages"
+                               class="rolePages" <?=$role->pages == 1 ? 'checked="checked"' : '';?>>Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="pages" <?=$role->pages == 0 ? 'checked="checked"' : '';?>>Нет
+                        <input data-bind="checked: rolePages" type="radio" value="0" name="pages"
+                               class="rolePages" <?=$role->pages == 0 ? 'checked="checked"' : '';?>>Нет
                 </label>
                 </div>
             </div>
@@ -50,10 +54,12 @@
                 <label class="control-label">Управление каталогами:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="cats" <?=$role->cats == 1 ? 'checked="checked"' : '';?>>Да
+                        <input data-bind="checked: roleCats" type="radio" value="1" name="cats"
+                               class="roleCats" <?=$role->cats == 1 ? 'checked="checked"' : '';?>>Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="cats" <?=$role->cats == 0 ? 'checked="checked"' : '';?>>Нет
+                        <input data-bind="checked: roleCats" type="radio" value="0" name="cats"
+                               class="roleCats" <?=$role->cats == 0 ? 'checked="checked"' : '';?>>Нет
                 </label>
                 </div>
             </div>
@@ -61,10 +67,12 @@
                 <label class="control-label">Управление пользователями:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="users" <?=$role->users == 1 ? 'checked="checked"' : '';?>>Да
+                        <input data-bind="checked: roleUsers" type="radio" value="1" name="users"
+                               class="roleUsers" <?=$role->users == 1 ? 'checked="checked"' : '';?>>Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="users" <?=$role->users == 0 ? 'checked="checked"' : '';?>>Нет
+                        <input data-bind="checked: roleUsers" type="radio" value="0" name="users"
+                               class="roleUsers" <?=$role->users == 0 ? 'checked="checked"' : '';?>>Нет
                     </label>
                 </div>
             </div>
@@ -72,10 +80,12 @@
                 <label class="control-label">Управление модулями:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="mods" <?=$role->mods == 1 ? 'checked="checked"' : '';?>>Да
+                        <input data-bind="checked: roleMods" type="radio" value="1" name="mods"
+                               class="roleMods" <?=$role->mods == 1 ? 'checked="checked"' : '';?>>Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="mods" <?=$role->mods == 0 ? 'checked="checked"' : '';?>>Нет
+                        <input data-bind="checked: roleMods" type="radio" value="0" name="mods"
+                               class="roleMods" <?=$role->mods == 0 ? 'checked="checked"' : '';?>>Нет
                     </label>
                 </div>
             </div>
@@ -85,10 +95,12 @@
                 <label class="control-label">Управление письмами:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="mails" <?=$role->mails == 1 ? 'checked="checked"' : '';?>>Да
+                        <input data-bind="checked: roleMails" type="radio" value="1" name="mails"
+                               class="roleMails" <?=$role->mails == 1 ? 'checked="checked"' : '';?>>Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="mails" <?=$role->mails == 0 ? 'checked="checked"' : '';?>>Нет
+                        <input data-bind="checked: roleMails" type="radio" value="0" name="mails"
+                               class="roleMails" <?=$role->mails == 0 ? 'checked="checked"' : '';?>>Нет
                     </label>
                 </div>
             </div>
@@ -96,10 +108,12 @@
                 <label class="control-label">Доступ к статистике:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="stats" <?=$role->stats == 1 ? 'checked="checked"' : '';?>>Да
+                        <input data-bind="checked: roleStats" type="radio" value="1" name="stats"
+                               class="roleStats" <?=$role->stats == 1 ? 'checked="checked"' : '';?>>Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="stats" <?=$role->stats == 0 ? 'checked="checked"' : '';?>>Нет
+                        <input data-bind="checked: roleStats" type="radio" value="0" name="stats"
+                               class="roleStats" <?=$role->stats == 0 ? 'checked="checked"' : '';?>>Нет
                     </label>
                 </div>
             </div>
@@ -107,10 +121,12 @@
                 <label class="control-label">Доступ к настройкам:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="opts" <?=$role->opts == 1 ? 'checked="checked"' : '';?>>Да
+                        <input data-bind="checked: roleOpts" type="radio" value="1" name="opts"
+                               class="roleOpts" <?=$role->opts == 1 ? 'checked="checked"' : '';?>>Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="opts" <?=$role->opts == 0 ? 'checked="checked"' : '';?>>Нет
+                        <input data-bind="checked: roleOpts" type="radio" value="0" name="opts"
+                               class="roleOpts" <?=$role->opts == 0 ? 'checked="checked"' : '';?>>Нет
                     </label>
                 </div>
             </div>
@@ -118,10 +134,12 @@
                 <label class="control-label">Доступ к корзине:</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" value="1" name="trash" <?=$role->trash == 1 ? 'checked="checked"' : '';?>>Да
+                        <input data-bind="checked: roleTrash" type="radio" value="1" name="trash"
+                               class="roleTrash" <?=$role->trash == 1 ? 'checked="checked"' : '';?>>Да
                     </label>
                     <label class="radio inline">
-                        <input type="radio" value="0" name="trash" <?=$role->trash == 0 ? 'checked="checked"' : '';?>>Нет
+                        <input data-bind="checked: roleTrash" type="radio" value="0" name="trash"
+                               class="roleTrash" <?=$role->trash == 0 ? 'checked="checked"' : '';?>>Нет
                     </label>
                 </div>
             </div>
@@ -135,12 +153,9 @@
                 <input type="hidden" id="datepicker" name="date" value="">
                 <input type="hidden" name="id" value="<?=$role->id;?>">
                 <input type="hidden" name="status" value="<?=$role->status;?>">
-                <script>
-                    $(function() {
-                        date.today('#datepicker');
-                    });
-                </script>
-                <button class="btn btn-success btn-large addrole btncheck" onclick="req.edit('roles');">
+
+                <button data-bind="enable: isValid" class="btn btn-success btn-large addrole"
+                        onclick="req.edit('roles');">
                     Сохранить
                 </button>
             </div>

@@ -18,7 +18,7 @@ class Controller_Admin_Users extends Controller_Admin_App {
 
     public function action_index()
     {
-        parent::action_main($model = 'user');
+        parent::action_main($model = 'User');
     }
 
     public function action_on($table = 'users')
@@ -31,12 +31,12 @@ class Controller_Admin_Users extends Controller_Admin_App {
         parent::action_off($table);
     }
 
-    public function action_intrash($model = 'user')
+    public function action_intrash($model = 'User')
     {
         parent::action_intrash($model);
     }
 
-    public function action_search($model = 'user', $field = 'email')
+    public function action_search($model = 'User', $field = 'email')
     {
         parent::action_search($model, $field);
     }
@@ -44,32 +44,39 @@ class Controller_Admin_Users extends Controller_Admin_App {
     // Грузим вид добавления пользователя
     public function action_addusers()
     {
-        $roles = ORM::factory('role')->where('status', '=', '1')->find_all();
+        $roles = ORM::factory('Role')->where('status', '=', '1')->find_all();
         $view = View::factory('admin/users/V_adduser')
             ->bind('roles', $roles);
         $this->response->body($view);
     }
 
     // Добавляем пользователя в БД
-    public function action_add($model = 'user')
+    public function action_add($model = 'User')
     {
         try
         {
-            $user = ORM::factory('user');
+            $user = ORM::factory('User');
             $unique_email = $user->unique('email', $_POST['email']);
-            if ($unique_email === true)
+            $unique_username = $user->unique('username', $_POST['username']);
+
+            if ($unique_email && $unique_username)
             {
-                $user->create_user($_POST, NULL)->add('roles', ORM::factory('role', array('name' => 'login')));
+                $user->create_user($_POST, NULL)->add('roles', ORM::factory('Role', array('name' => 'login')));
                 // Проверяем роль пользователя при регистрации
                 if ($_POST['role_name'] !== 'login')
                 {
-                    $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
+                    $user->add('roles', ORM::factory('Role', array('name' => $_POST['role_name'])));
                 }
-                $user->save();
+                $added = $user->save();
+                echo $added->id;
             }
-            else
-            {
-                echo 'Этот email уже занят';
+
+            if ( ! $unique_email) {
+                echo 'Этот емейл уже занят. ';
+            }
+
+            if ( ! $unique_username) {
+                echo 'Этот логин уже занят. ';
             }
         } catch (ORM_Validation_Exception $e)
         {
@@ -84,24 +91,24 @@ class Controller_Admin_Users extends Controller_Admin_App {
     // Проверяем логин  на уникальность
     public function action_checklogin()
     {
-        $unique_username  = ORM::factory('user')->unique('username', $_POST['username']);
+        $unique_username  = ORM::factory('User')->unique('username', $_POST['username']);
         if ( ! $unique_username) echo 'Этот логин уже занят';
     }
 
     // Проверяем емейл на уникальность
     public function action_checkemail()
     {
-        $unique_email  = ORM::factory('user')->unique('email', $_POST['email']);
+        $unique_email  = ORM::factory('User')->unique('email', $_POST['email']);
         if ( ! $unique_email) echo 'Этот email уже занят';
     }
 
     // Грузим вид редактирования пользователя
     public function action_editusers()
     {
-        $roles = ORM::factory('role')->where('status', '=', '1')->find_all();
+        $roles = ORM::factory('Role')->where('status', '=', '1')->find_all();
 
         $id = $this->request->param('id');
-        $user = ORM::factory('user', $id);
+        $user = ORM::factory('User', $id);
 
         foreach($user->roles->find_all() as $role)
         {
@@ -117,7 +124,7 @@ class Controller_Admin_Users extends Controller_Admin_App {
     }
 
     // Обновляем пользователя в БД
-    public function action_edit($model = 'user')
+    public function action_edit($model = 'User')
     {
         try
         {
@@ -126,12 +133,12 @@ class Controller_Admin_Users extends Controller_Admin_App {
                 ->and_where('role_id', '!=', '1')
                 ->execute();
 
-            $user = ORM::factory('user', $_POST['id']);
+            $user = ORM::factory('User', $_POST['id']);
             $user->update_user($_POST, NULL);
             // Проверяем роль пользователя при регистрации
             if ($_POST['role_name'] !== 'login')
             {
-                $user->add('roles', ORM::factory('role', array('name' => $_POST['role_name'])));
+                $user->add('roles', ORM::factory('Role', array('name' => $_POST['role_name'])));
             }
             $user->save();
         }
