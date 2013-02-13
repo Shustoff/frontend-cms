@@ -32,16 +32,22 @@ class Controller_Admin_Stats extends Controller_Admin_App {
         $allusers = DB::select('id')->union($allcatalogs)->from('users')->where('intrash', '=', '1');
         $trashitems = DB::select('id')->union($allusers)->from('modules')->where('intrash', '=', '1')->execute()->count();
 
-        $view = View::factory('admin/blocks/V_stats')
-                    ->set('pages', $pages)
-                    ->set('catalogs', $catalogs)
-                    ->set('users', $users)
-                    ->set('roles', $roles)
-                    ->set('modules', $modules)
-                    ->set('mails', $mails)
-                    ->set('trashitems', $trashitems)
-                    ->set('mostactive', $mostactive);
-
-        $this->response->body($view);
+        if ($this->request->is_ajax())
+        {
+            $json['pages'] = $pages;
+            $json['catalogs'] = $catalogs;
+            $json['users'] = $users;
+            $json['roles'] = $roles;
+            $json['modules'] = $modules;
+            $json['mails'] = $mails;
+            $json['mostactive'] = $mostactive;
+            $json['intrashItems'] = $trashitems;
+            $json = parent::json_encode_cyr($json);
+            $this->response->body($json);
+        }
+        else
+        {
+            $this->response->body(View::factory('admin/index'));
+        }
     }
 }

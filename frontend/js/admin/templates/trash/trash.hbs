@@ -1,0 +1,79 @@
+<div class="w-grid">
+
+    <div class="alert alert-info tooltips">
+        <button class="close" data-dismiss="alert">×</button>
+        <span class="center">Успешно удалено</span>
+    </div>
+
+    <h3 class="center">
+        Корзина <button type="button" id="deleteAll" class="btn btn-danger btn-mini">Очистить</button>
+    </h3>
+
+    <!--Модальное окно-->
+    <div id="dialog-confirm" title="Очистить корзину" style="display: none;">
+        <span>
+            <span class="ui-icon ui-icon-alert"></span>
+            Вы уверены что хотите очистить корзину?
+        </span>
+    </div>
+
+    <table class="table table-bordered table-striped trash">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th width="400">Название</th>
+                <th>Тип</th>
+                <th>Дата создания</th>
+                <th width="50">Восстановить</th>
+                <th width="50">Удалить</th>
+            </tr>
+        </thead>
+        <tbody class="list-items"></tbody>
+    </table>
+
+    {{{ notFound }}}
+
+    <!--Сортировка-->
+    <div class="row">
+        <div class="span4">
+            <div class="control-group">
+                <label class="control-label" for="sortby">Сортировать по:</label>
+                <div class="controls">
+                    <select id="sortby" class="input-medium">
+                        <option value="1">ID</option>
+                        <option value="2">Названию</option>
+                        <option value="4">Дате</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="span4">
+            <div class="control-group">
+                <label class="control-label" for="limit">Выводить по:</label>
+                <div class="controls">
+                    <select id="limit" class="input-medium">
+                        <option>10</option>
+                        <option>15</option>
+                        <option>20</option>
+                        <option>25</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="span3 savepages">
+            <button class="btn btn-success" id="applySettings">Применить настройки</button>
+        </div>
+    </div>
+
+    <!--Пагинация-->
+    <div class="row">
+        <div class="span12">
+            <div class="pagination">
+                <ul>
+                    {{#pagination countItems}}{{/pagination}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

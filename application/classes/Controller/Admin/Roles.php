@@ -2,6 +2,10 @@
 
 class Controller_Admin_Roles extends Controller_Admin_App {
 
+    private static $model = 'Role';
+    private static $table = 'roles';
+    private static $field = 'name';
+
     public function before()
     {
         parent::before();
@@ -18,38 +22,43 @@ class Controller_Admin_Roles extends Controller_Admin_App {
 
     public function action_index()
     {
-        parent::action_main($model = 'Role');
+        parent::action_main(self::$model, self::$field);
     }
 
     public function action_on($table = 'roles')
     {
-        parent::action_on($table);
+        parent::action_on(self::$table);
     }
 
     public function action_off($table = 'roles')
     {
-        parent::action_off($table);
+        parent::action_off(self::$table);
     }
 
-    public function action_intrash($model = 'Role')
+    public function action_intrash($table = 'roles')
     {
-        parent::action_intrash($model);
+        parent::action_intrash(self::$table);
     }
 
-    public function action_addroles()
+    // Грузим вид добавления роли
+    public function action_addrole()
     {
-        $view = View::factory('admin/roles/V_addrole');
-        $this->response->body($view);
+        if ( ! $this->request->is_ajax())
+        {
+            $view = View::factory('admin/index');
+            $this->response->body($view);
+        }
     }
 
+    // Добавляем роль в БД
     public function action_add($model = 'Role')
     {
         try
         {
-            $unique_role  = ORM::factory('Role')->unique('name', $_POST['name']);
+            $json = json_decode( $this->request->body() );
+            $unique_role  = ORM::factory(self::$model)->unique('name', $json->name);
             if ($unique_role) {
-                $added = ORM::factory($model)->values($_POST)->save();
-                echo $added->id;
+                ORM::factory($model)->values( (array)$json )->save();
             } else {
                 echo 'Это название роли уже существует.';
             }
@@ -64,27 +73,40 @@ class Controller_Admin_Roles extends Controller_Admin_App {
         }
     }
 
+    // Грузим вид редактирования пользователя
+    public function action_edititem()
+    {
+        if ($this->request->is_ajax())
+        {
+            $name = $this->request->param('alias');
+            $role = ORM::factory(self::$model)->where('name', '=', $name)->find()->as_array();
+
+            $json = parent::json_encode_cyr( $role );
+            $this->response->body( $json );
+        }
+        else
+        {
+            $view = View::factory('admin/index');
+            $this->response->body($view);
+        }
+    }
+
+    // Обновляем пользователя
+    public function action_save($model = 'Role')
+    {
+        parent::action_save(self::$model);
+    }
+
     // Проверяем название роли на уникальность
     public function action_checkrole()
     {
-        $unique_role  = ORM::factory('Role')->unique('name', $_POST['name']);
+        $name = Arr::get($_POST, 'name');
+        $unique_role  = ORM::factory('Role')->unique('name', $name);
         if ( ! $unique_role) echo 'Это название уже используется';
     }
 
-    public function action_editroles()
-    {
-        $id = $this->request->param('id');
-        $role = ORM::factory('Role', $id);
-
-        $view = View::factory('admin/roles/V_editrole')
-                ->set('role', $role);
-        $this->response->body($view);
-
+    // Удаляем материал
+    public function action_delete($table = 'roles') {
+        parent::action_delete(self::$table);
     }
-
-    public function action_edit($model = 'Role')
-    {
-        parent::action_edit($model);
-    }
-
 }

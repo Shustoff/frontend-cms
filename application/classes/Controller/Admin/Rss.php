@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 class Controller_Admin_Rss extends Controller_Admin_App {
-    // Создаем RSS-поток из таблицы
+    // Создаем RSS-поток из всех страниц
     public function action_index()
     {
         $pages = ORM::factory('Page')->find_all();

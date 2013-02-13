@@ -94,7 +94,7 @@ Kohana::$log->attach(new Log_File(APPPATH.'logs'));
  */
 Kohana::$config->attach(new Config_File);
 
-// Sessions & Cookies
+// Sessions & Cookies & Images
 Session::$default = 'native';
 Cookie::$salt = '4687938';
 
@@ -104,14 +104,14 @@ Cookie::$salt = '4687938';
 Kohana::modules(array(
 	'auth'       => MODPATH.'auth',       // Basic authentication
 	'cache'      => MODPATH.'cache',      // Caching with multiple backends
-    // 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 	'database'   => MODPATH.'database',   // Database access
     'image'      => MODPATH.'image',       // Image manipulation
-	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
-	// 'unittest'   => MODPATH.'unittest',   // Unit testing
-	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
-    'email'   => MODPATH.'email'
-	));
+    'orm'        => MODPATH.'orm',        // Object Relationship Mapping
+    'email'      => MODPATH.'email'
+    // 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
+    // 'unittest'   => MODPATH.'unittest',   // Unit testing
+    // 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+));
 
 Kohana::$config->attach(
     new Config_Database(
@@ -122,26 +122,69 @@ Kohana::$config->attach(
     )
 );
 
-/**
- * Set the routes. Each route must have a minimum of a name, a URI and a set of
- * defaults for the URI.
- */
+
+/****** Админ роуты ********/
+
+// Роут логаута
+Route::set('logout', 'admin/auth/logout')
+    ->defaults(array(
+    'directory' => 'admin',
+    'controller' => 'auth',
+    'action' => 'logout'
+));
+
+// Роут сохранения настроек
+Route::set('settings', 'admin/settings/save')
+    ->defaults(array(
+    'directory' => 'admin',
+    'controller' => 'settings',
+    'action' => 'save'
+));
+
+// Роут В корзину
+Route::set('intrash', 'admin/<controller>/intrash/<id>', array('id' => '\d+'))
+    ->defaults(array(
+    'directory' => 'admin',
+    'controller' => 'main',
+    'action' => 'intrash'
+));
+
+// Роут добавления итема
+Route::set('add', 'admin/<controller>/add')
+    ->defaults(array(
+    'directory' => 'admin',
+    'controller' => 'main',
+    'action' => 'add'
+));
+
+// Роут сохранения итема
+Route::set('save', 'admin/<controller>/save/<id>', array('id' => '\d+'))
+    ->defaults(array(
+    'directory' => 'admin',
+    'controller' => 'main',
+    'action' => 'save'
+));
+
+// Роут редактирования итема (View)
+Route::set('edit', 'admin/<controller>/edit/<alias>', array('alias' => '.+'))
+->defaults(array(
+    'directory' => 'admin',
+    'controller' => 'main',
+    'action' => 'edititem'
+));
 
 // Админ роут по-умолчанию
 Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))', array('id' => '.+'))
 ->defaults(array(
     'directory' => 'admin',
     'controller' => 'main',
-    'action'     => 'index',
+    'action'     => 'index'
 ));
 
-// Роут загрузки файлов
-Route::set('upload', 'admin/pages/upload')
-->defaults(array(
-    'directory' => 'admin',
-    'controller' => 'pages',
-    'action' => 'upload'
-));
+
+
+
+/******* Сайт роуты *******/
 
 // Если сайт оффлайн
 Route::set('offline', 'offline')

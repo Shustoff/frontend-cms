@@ -18,7 +18,14 @@ class Controller_Admin_Info extends Controller_Admin_App {
 
     public function action_index()
     {
-        echo View::factory('admin/blocks/V_info');
+        if ($this->request->is_ajax())
+        {
+            $this->response->body(View::factory('admin/info'));
+        }
+        else
+        {
+            $this->response->body(View::factory('admin/index'));
+        }
     }
 
 }

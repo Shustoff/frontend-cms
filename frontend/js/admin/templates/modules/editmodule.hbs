@@ -1,0 +1,78 @@
+<div class="w-module">
+    <div class="wraptooltip">
+        <div class="alert alert-success tooltips">
+            <button class="close" data-dismiss="alert">×</button>
+            <span class="center">Готово!</span>
+        </div>
+        <div class="alert alert-danger tooltips">
+            <button class="close" data-dismiss="alert">×</button>
+            <span class="center error-body"></span>
+        </div>
+    </div>
+
+    <h3 class="center">Изменить Модуль</h3>
+
+    <form id="editmodule">
+        <div class="row">
+            <div class="span6">
+                <div class="control-group">
+                    <label class="control-label" for="modname">Название модуля</label>
+                    <div class="controls">
+                        <input data-bind="value: modName, valueUpdate: 'afterkeydown'"
+                               type="text" id="modname" name="modname" class="input-xlarge required" value="{{ module.name }}">
+                        <label class="fail failmodname"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="span5 aliasright">
+                <div class="control-group">
+                    <label class="control-label" for="typemodule">Тип модуля</label>
+                    <div class="controls">
+                        <select data-bind="value: modType" id="typemodule" class="input-xlarge">
+                            <option value="HTML" {{selectHtmlModule module.type}}>HTML</option>
+                            <option value="JS" {{selectJsModule module.type}}>JS</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span11 htmlcode">
+                <h3 class="htmlcodelabel">Код модуля:
+                    <label class="editorfail label label-important" for="editor">Пожалуйста введите код модуля</label>
+                </h3>
+                <textarea id="editor" class="auto">{{ module.content }}</textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span5 systemmod">
+                <div class="control-group">
+                    <label class="control-label w200" for="systemname">Системное имя модуля:</label>
+                    <div class="controls">
+                        <input data-bind="value: sysName, valueUpdate: 'afterkeydown'" type="text" id="systemname"
+                               name="systemname" class="input-medium required alphanumeric" value="{{ module.systemname }}">
+                        <label class="fail failsysname"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="span3">
+                <div class="control-group">
+                    <label class="control-label" for="datepicker">Дата создания:</label>
+                    <div class="controls">
+                        <input data-bind="value: modDate" id="datepicker" type="text" name="date"
+                               class="input-small" value="{{ module.date }}">
+                    </div>
+                </div>
+            </div>
+            <div class="span2 savecat">
+                <div class="control-group">
+                    <input type="hidden" id="modId" value="{{ module.id }}">
+                    <input type="hidden" id="authorId" value="{{ module.author_id }}">
+                    <input type="hidden" id="status" value="{{ module.status }}">
+                    <input type="hidden" id="intrash" value="{{ module.intrash }}">
+                    <button data-bind="enable: isValid" class="btn btn-success btn-large">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,66 @@
+<div class="w-grid">
+
+    <h3>Все пользователи</h3>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Логин</th>
+                <th width="250">Роль</th>
+                <th width="100">Дата рег.</th>
+                <th width="50">Состояние</th>
+                <th width="80">В корзину</th>
+            </tr>
+        </thead>
+        <tbody class="list-items"></tbody>
+    </table>
+
+    {{{ notFound }}}
+
+    <!--Сортировка-->
+    <div class="row">
+        <div class="span4">
+            <div class="control-group">
+                <label class="control-label" for="sortby">Сортировать по:</label>
+                <div class="controls">
+                    <select id="sortby" class="input-medium">
+                        <option value="id">ID</option>
+                        <option value="email">Email</option>
+                        <option value="username">Логин</option>
+                        <option value="datereg">Дате регистрации</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="span4">
+            <div class="control-group">
+                <label class="control-label" for="limit">Выводить по:</label>
+                <div class="controls">
+                    <select id="limit" class="input-medium">
+                        <option>10</option>
+                        <option>15</option>
+                        <option>20</option>
+                        <option>25</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="span3 savepages">
+            <input type="hidden" id="itemNameSearch" value="{{ itemNameSearch }}">
+            <button class="btn btn-success" id="applySettings">Применить настройки</button>
+        </div>
+    </div>
+
+    <!--Пагинация-->
+    <div class="row">
+        <div class="span12">
+            <div class="pagination">
+                <ul>
+                    {{#pagination countItems}}{{/pagination}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,10 @@
 
 class Controller_Admin_Modules extends Controller_Admin_App {
 
+    private static $model = 'Module';
+    private static $table = 'modules';
+    private static $field = 'name';
+
     public function before()
     {
         parent::before();
@@ -18,76 +22,93 @@ class Controller_Admin_Modules extends Controller_Admin_App {
 
     public function action_index()
     {
-        parent::action_main($model = 'Module');
+        parent::action_main(self::$model, self::$field);
     }
 
     public function action_on($table = 'modules')
     {
-        parent::action_on($table);
+        parent::action_on(self::$table);
     }
 
     public function action_off($table = 'modules')
     {
-        parent::action_off($table);
+        parent::action_off(self::$table);
     }
 
-    public function action_search($model = 'Module', $field = 'name')
+    public function action_search()
     {
-        parent::action_search($model, $field);
+        parent::action_main(self::$model, self::$field);
     }
 
-    public function action_intrash($model = 'Module')
+    public function action_intrash($table = 'modules')
     {
-        parent::action_intrash($model);
+        parent::action_intrash(self::$table);
     }
 
-    public function action_addmodules()
+    // Загружаем вид добавления модуля
+    public function action_addmodule()
     {
-        $user = Auth::instance()->get_user();
-        $author_id = ORM::factory('User')->where('email', '=', $user->email)->find();
-
-        $view = View::factory('admin/modules/V_addmodule')
-                ->bind('author_id', $author_id);
-
-        $this->response->body($view);
+        if ( ! $this->request->is_ajax())
+        {
+            $view = View::factory('admin/index');
+            $this->response->body($view);
+        }
+        else
+        {
+            $user = Auth::instance()->get_user();
+            $user = ORM::factory('User')->where('email', '=', $user->email)->find();
+            $json['author_id'] = $user->id;
+            $this->response->body( json_encode( $json ) );
+        }
     }
 
     public function action_add($model = 'Module')
     {
-        parent::action_add($model);
+        parent::action_add(self::$model);
     }
 
-    public function action_editmodules()
+    // Загружаем вид редактирования модуля
+    public function action_edititem()
     {
-        $user = Auth::instance()->get_user();
-        $author_id = ORM::factory('User')->where('email', '=', $user->email)->find();
+        if ($this->request->is_ajax())
+        {
+            $sysname = $this->request->param('alias');
+            $cat = ORM::factory(self::$model)->where('systemname', '=', $sysname)->find()->as_array();
+            $json['module'] = $cat;
 
-        $id = $this->request->param('id');
-        $module = ORM::factory('Module', $id);
-
-        $view = View::factory('admin/modules/V_editmodule')
-                ->bind('author_id', $author_id)
-                ->bind('module', $module);
-
-        $this->response->body($view);
+            $json = parent::json_encode_cyr( $json );
+            $this->response->body($json);
+        }
+        else
+        {
+            $view = View::factory('admin/index');
+            $this->response->body($view);
+        }
     }
 
-    public function action_edit($model = 'Module')
+    public function action_save($model = 'Module')
     {
-        parent::action_edit($model);
+        parent::action_save(self::$model);
     }
 
     // проверяем название модуля на уникальность
     public function action_checkmodname()
     {
-        $unique_modname  = ORM::factory('Module')->unique('name', $_POST['name']);
+        $modname = Arr::get($_POST, 'modname');
+        $unique_modname  = ORM::factory('Module')->unique('name', $modname);
         if ( ! $unique_modname) echo 'Такой модуль уже существует';
     }
 
     // проверяем системное имя модуля на уникальность
     public function action_checksysname()
     {
-        $unique_sysname  = ORM::factory('Module')->unique('systemname', $_POST['systemname']);
+        $sysname = Arr::get($_POST, 'sysname');
+        $unique_sysname  = ORM::factory('Module')->unique('systemname', $sysname);
         if ( ! $unique_sysname) echo 'Это системное имя уже используется';
+    }
+
+    // Удаляем материал
+    public function action_delete($table = 'modules') {
+        parent::action_delete(self::$table);
     }
 }

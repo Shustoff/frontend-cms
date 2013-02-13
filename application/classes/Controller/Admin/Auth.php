@@ -5,7 +5,9 @@ class Controller_Admin_Auth extends Controller {
     // Логинимся
     public function action_index()
     {
-        if (Auth::instance()->logged_in()) {HTTP::redirect('admin');}
+        if (Auth::instance()->logged_in()) {
+            HTTP::redirect('admin');
+        }
 
         if ($_POST)
         {
@@ -29,7 +31,7 @@ class Controller_Admin_Auth extends Controller {
             }
             else
             {
-                $faillogin = "<div class='alert alert-error'>Неправильный email или пароль!</div>";
+                $faillogin = "<div class='alert alert-error'>Неправильный логин или пароль!</div>";
                 $this->response->body(View::factory('admin/login')->bind('faillogin', $faillogin));
             }
         }

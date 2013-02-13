@@ -1,8 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Admin_Main extends Controller_Template {
+class Controller_Admin_Main extends Controller_Admin_App {
 
-    public $template = '/admin/index';
     // Проверка на авторизацию
     public function before()
     {
@@ -14,22 +13,35 @@ class Controller_Admin_Main extends Controller_Template {
         return parent::before();
     }
 
-
     // Вывод главной страницы админки
 	public function action_index()
 	{
-        $user = Auth::instance()->get_user();
-        View::bind_global('user', $user);
-
-        $sitename = Kohana::$config->load('site.sitename');
-        View::bind_global('sitename', $sitename);
-
         $pages = ORM::factory('Page')->order_by('date', 'DESC')->limit(10)->find_all();
         $catalogs = ORM::factory('Catalog')->order_by('date', 'DESC')->limit(10)->find_all();
 
-        $this->template->main = View::factory('admin/blocks/V_main')
-                ->bind('pages', $pages)
-                ->bind('catalogs', $catalogs);
+        if ($this->request->is_ajax())
+        {
+            foreach ($pages as $page)
+            {
+                $pages_array['pagename'] = $page->pagename;
+                $pages_array['date'] = $page->date;
+                $pages_array['alias'] = $page->alias;
+                $json['pages'][] = $pages_array;
+            }
+            foreach ($catalogs as $catalog)
+            {
+                $catalogs_array['catname'] = $catalog->catname;
+                $catalogs_array['date'] = $catalog->date;
+                $catalogs_array['alias'] = $catalog->alias;
+                $json['catalogs'][] = $catalogs_array;
+            }
+            $this->response->body( parent::json_encode_cyr($json) );
+        }
+        else
+        {
+            $view = View::factory('admin/index');
+            $this->response->body($view);
+        }
 	}
 
 

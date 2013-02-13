@@ -1,0 +1,166 @@
+<div class="w-role">
+
+    <div class="wraptooltip">
+        <div class="alert alert-success tooltips">
+          <button class="close" data-dismiss="alert">×</button>
+          <span class="center">Готово!</span>
+        </div>
+        <div class="alert alert-danger tooltips">
+          <button class="close" data-dismiss="alert">×</button>
+          <span class="center error-body"></span>
+        </div>
+    </div>
+
+    <form id="editrole">
+        <div class="row">
+            <h3>Изменить роль</h3>
+            <div class="span11">
+                <div class="span5">
+                    <div class="control-group">
+                        <label class="control-label" for="name">Название роли:</label>
+                        <div class="controls">
+                            <input data-bind="value: roleName, valueUpdate: 'afterkeydown'" type="text" id="name" name="name"
+                                   class="input-large required letersonly minlength" value="{{ name }}">
+                            <label class="fail failrole"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="span5">
+                    <div class="control-group">
+                        <label class="control-label" for="description">Описание роли:</label>
+                        <div class="controls">
+                            <input data-bind="value: roleDesc, valueUpdate: 'afterkeydown'"
+                                   type="text" id="description" name="description" class="input-large required"
+                                   value="{{ description }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span11 managerole">
+                <h3>Права на управление</h3>
+                <div class="span5">
+                    <div class="control-group">
+                        <label class="control-label">Управление страницами:</label>
+                        <div class="controls">
+                            <label class="radio inline">
+                                <input data-bind="checked: rolePages" type="radio" value="1" name="pages"
+                                       class="rolePages" {{pagesOn pages}}>Да
+                            </label>
+                            <label class="radio inline">
+                                <input data-bind="checked: rolePages" type="radio" value="0" name="pages"
+                                       class="rolePages" {{pagesOff pages}}>Нет
+                            </label>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Управление каталогами:</label>
+                        <div class="controls">
+                            <label class="radio inline">
+                                <input data-bind="checked: roleCats" type="radio" value="1" name="cats"
+                                       class="roleCats" {{catsOn cats}}>Да
+                            </label>
+                            <label class="radio inline">
+                                <input data-bind="checked: roleCats" type="radio" value="0" name="cats"
+                                       class="roleCats" {{catsOff cats}}>Нет
+                            </label>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Управление пользователями:</label>
+                        <div class="controls">
+                            <label class="radio inline">
+                                <input data-bind="checked: roleUsers" type="radio" value="1" name="users"
+                                       class="roleUsers" {{usersOn users}}>Да
+                            </label>
+                            <label class="radio inline">
+                                <input data-bind="checked: roleUsers" type="radio" value="0" name="users"
+                                       class="roleUsers" {{usersOff users}}>Нет
+                            </label>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Управление модулями:</label>
+                        <div class="controls">
+                            <label class="radio inline">
+                                <input data-bind="checked: roleMods" type="radio" value="1" name="mods"
+                                       class="roleMods" {{modsOn mods}}>Да
+                            </label>
+                            <label class="radio inline">
+                                <input data-bind="checked: roleMods" type="radio" value="0" name="mods"
+                                       class="roleMods" {{modsOff mods}}>Нет
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="span5">
+                    <div class="control-group">
+                        <label class="control-label">Управление письмами:</label>
+                        <div class="controls">
+                            <label class="radio inline">
+                                <input data-bind="checked: roleMails" type="radio" value="1" name="mails"
+                                       class="roleMails" {{mailsOn mails}}>Да
+                            </label>
+                            <label class="radio inline">
+                                <input data-bind="checked: roleMails" type="radio" value="0" name="mails"
+                                       class="roleMails" {{mailsOff mails}}>Нет
+                            </label>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Доступ к статистике:</label>
+                        <div class="controls">
+                            <label class="radio inline">
+                                <input data-bind="checked: roleStats" type="radio" value="1" name="stats"
+                                       class="roleStats" {{statsOn stats}}>Да
+                            </label>
+                            <label class="radio inline">
+                                <input data-bind="checked: roleStats" type="radio" value="0" name="stats"
+                                       class="roleStats" {{statsOff stats}}>Нет
+                            </label>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Доступ к настройкам:</label>
+                        <div class="controls">
+                            <label class="radio inline">
+                                <input data-bind="checked: roleOpts" type="radio" value="1" name="opts"
+                                       class="roleOpts" {{optsOn opts}}>Да
+                            </label>
+                            <label class="radio inline">
+                                <input data-bind="checked: roleOpts" type="radio" value="0" name="opts"
+                                       class="roleOpts" {{optsOff opts}}>Нет
+                            </label>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Доступ к корзине:</label>
+                        <div class="controls">
+                            <label class="radio inline">
+                                <input data-bind="checked: roleTrash" type="radio" value="1" name="trash"
+                                       class="roleTrash" {{trashOn trash}}>Да
+                            </label>
+                            <label class="radio inline">
+                                <input data-bind="checked: roleTrash" type="radio" value="0" name="trash"
+                                       class="roleTrash" {{trashOff trash}}>Нет
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span5 offset6">
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="hidden" id="datepicker" name="date" value="{{ date }}">
+                        <input type="hidden" id="itemId" value="{{ id }}">
+                        <button data-bind="enable: isValid" class="btn btn-success btn-large">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

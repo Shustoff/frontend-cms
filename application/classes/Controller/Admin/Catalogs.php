@@ -2,6 +2,10 @@
 
 class Controller_Admin_Catalogs extends Controller_Admin_App {
 
+    private static $model = 'Catalog';
+    private static $table = 'catalogs';
+    private static $field = 'catname';
+
     public function before()
     {
         parent::before();
@@ -18,76 +22,113 @@ class Controller_Admin_Catalogs extends Controller_Admin_App {
 
     public function action_index()
     {
-        parent::action_main($model = 'Catalog');
+        parent::action_main(self::$model, self::$field);
     }
 
     public function action_on($table = 'catalogs')
     {
-        parent::action_on($table);
+        parent::action_on(self::$table);
     }
 
     public function action_off($table = 'catalogs')
     {
-        parent::action_off($table);
+        parent::action_off(self::$table);
     }
 
-    public function action_intrash($model = 'Catalog')
+    public function action_intrash($table = 'catalogs')
     {
-        parent::action_intrash($model);
+        parent::action_intrash(self::$table);
     }
 
-    public function action_search($model = 'Catalog', $field = 'catname')
+    public function action_search()
     {
-        parent::action_search($model, $field);
+        parent::action_main(self::$model, self::$field);
     }
 
     // Загружаем вид добавления каталога
-    public function action_addcatalogs()
+    public function action_addcatalog()
     {
-        $catalogs = ORM::factory('Catalog')->find_all();
+        if ($this->request->is_ajax())
+        {
+            $catalogs = ORM::factory(self::$model)->find_all();
 
-        $view = View::factory('admin/catalogs/V_addcatalog')
-            ->bind('catalogs', $catalogs);
+            foreach ($catalogs as $catalog)
+            {
+                $catalogs_array['id'] = $catalog->id;
+                $catalogs_array['catname'] = $catalog->catname;
+                $json_result[] = $catalogs_array;
+            }
 
-        $this->response->body($view);
+            $json['catalogs'] = $json_result;
+
+            $json = parent::json_encode_cyr( $json );
+            $this->response->body($json);
+        }
+        else
+        {
+            $view = View::factory('admin/index');
+            $this->response->body($view);
+        }
     }
 
     public function action_add($model = 'Catalog')
     {
-        parent::action_add($model);
+        parent::action_add(self::$model);
     }
 
     // Загружаем вид редактирования каталога
-    public function action_editcatalogs()
+    public function action_edititem()
     {
-        $catalogs = ORM::factory('Catalog')->find_all();
+        if ($this->request->is_ajax())
+        {
+            $catalogs = ORM::factory(self::$model)->find_all();
 
-        $id = $this->request->param('id');
-        $catalog = ORM::factory('Catalog', $id);
+            $alias = $this->request->param('alias');
+            $cat = ORM::factory(self::$model)->where('alias', '=', $alias)->find()->as_array();
 
-        $view = View::factory('admin/catalogs/V_editcatalog')
-            ->bind('catalogs', $catalogs)
-            ->bind('catalog', $catalog);
+            foreach ($catalogs as $catalog)
+            {
+                $catalogs_array['id'] = $catalog->id;
+                $catalogs_array['catname'] = $catalog->catname;
+                $json_result[] = $catalogs_array;
+            }
 
-        $this->response->body($view);
+            $json['catalogs'] = $json_result;
+            $json['catalog'] = $cat;
+
+            $json = parent::json_encode_cyr( $json );
+            $this->response->body($json);
+        }
+        else
+        {
+            $view = View::factory('admin/index');
+            $this->response->body($view);
+        }
     }
 
-    public function action_edit($model = 'Catalog')
+    public function action_save($model = 'Catalog')
     {
-        parent::action_edit($model);
+        parent::action_save(self::$model);
     }
 
     // Проверка уникальности названия каталога
     public function action_checkcatname()
     {
-        $unique_catname  = ORM::factory('Catalog')->unique('catname', $_POST['catname']);
+        $catname = Arr::get($_POST, 'catname');
+        $unique_catname  = ORM::factory(self::$model)->unique('catname', $catname);
         if ( ! $unique_catname) echo 'Такой каталог уже существует';
     }
 
     // Проверка уникальности алиаса каталога
     public function action_checkalias()
     {
-        $unique_alias  = ORM::factory('Catalog')->unique('alias', $_POST['alias']);
+        $alias = Arr::get($_POST, 'alias');
+        $unique_alias  = ORM::factory(self::$model)->unique('alias', $alias);
         if ( ! $unique_alias) echo 'Такой алиас уже существует';
+    }
+
+    // Удаляем материал
+    public function action_delete($table = 'catalogs') {
+        parent::action_delete(self::$table);
     }
 }

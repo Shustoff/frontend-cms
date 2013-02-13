@@ -2,6 +2,10 @@
 
 class Controller_Admin_Pages extends Controller_Admin_App {
 
+    private static $model = 'Page';
+    private static $table = 'pages';
+    private static $field = 'pagename';
+
     public function before()
     {
         parent::before();
@@ -18,97 +22,135 @@ class Controller_Admin_Pages extends Controller_Admin_App {
 
     public function action_index()
     {
-        parent::action_main($model = 'Page');
+        parent::action_main(self::$model, self::$field);
     }
 
     public function action_on($table = 'pages')
     {
-        parent::action_on($table);
+        parent::action_on(self::$table);
     }
 
     public function action_off($table = 'pages')
     {
-        parent::action_off($table);
+        parent::action_off(self::$table);
     }
 
-    public function action_intrash($model = 'Page')
+    public function action_intrash($table = 'pages')
     {
-        parent::action_intrash($model);
+        parent::action_intrash(self::$table);
     }
 
-    public function action_search($model = 'Page', $field = 'pagename')
+    public function action_search()
     {
-        parent::action_search($model, $field);
+        parent::action_main(self::$model, self::$field);
     }
 
-    // Загружаем вид добавления каталога
-    public function action_addpages()
+    // Загружаем вид добавления страницы
+    public function action_addpage()
     {
-        $catalogs = ORM::factory('Catalog')->find_all();
-        $user = Auth::instance()->get_user();
-        $user_id = ORM::factory('User')->where('email', '=', $user->email)->find();
-        $view = View::factory('admin/pages/V_addpage')
-            ->bind('catalogs', $catalogs)
-            ->bind('user_id', $user_id);
-        $this->response->body($view);
+        if ($this->request->is_ajax())
+        {
+            $catalogs = ORM::factory('Catalog')->find_all();
+
+            $user = Auth::instance()->get_user();
+            $user = ORM::factory('User')->where('email', '=', $user->email)->find();
+
+            foreach ($catalogs as $catalog)
+            {
+                $catalogs_array['id'] = $catalog->id;
+                $catalogs_array['catname'] = $catalog->catname;
+                $json_result[] = $catalogs_array;
+            }
+
+            $json['catalogs'] = $json_result;
+            $json['userId'] = $user->id;
+
+            $json = parent::json_encode_cyr( $json );
+            $this->response->body($json);
+        }
+        else
+        {
+            $view = View::factory('admin/index');
+            $this->response->body($view);
+        }
     }
 
+    // Добавляем страницу
     public function action_add($model = 'Page')
     {
-        parent::action_add($model);
+        parent::action_add(self::$model);
     }
 
-    // Загружаем вид редактирования каталога
-    public function action_editpages()
+    // Загружаем вид редактирования страницы
+    public function action_edititem()
     {
-        $catalogs = ORM::factory('Catalog')->find_all();
-        $user = Auth::instance()->get_user();
-        $user_id = ORM::factory('User')->where('email', '=', $user->email)->find();
+        if ($this->request->is_ajax())
+        {
+            $catalogs = ORM::factory('Catalog')->find_all();
 
-        $id = $this->request->param('id');
-        $page = ORM::factory('Page', $id);
+            $user = Auth::instance()->get_user();
+            $user = ORM::factory('User')->where('email', '=', $user->email)->find();
 
-        $view = View::factory('admin/pages/V_editpage')
-            ->bind('catalogs', $catalogs)
-            ->bind('user_id', $user_id)
-            ->bind('page', $page);
+            $alias = $this->request->param('alias');
+            $page = ORM::factory('Page')->where('alias', '=', $alias)->find()->as_array();
 
-        $this->response->body($view);
+            foreach ($catalogs as $catalog)
+            {
+                $catalogs_array['id'] = $catalog->id;
+                $catalogs_array['catname'] = $catalog->catname;
+                $json_result[] = $catalogs_array;
+            }
+
+            $json['catalogs'] = $json_result;
+            $json['userId'] = $user->id;
+            $json['page'] = $page;
+
+            $json = parent::json_encode_cyr( $json );
+            $this->response->body($json);
+        }
+        else
+        {
+            $view = View::factory('admin/index');
+            $this->response->body($view);
+        }
     }
 
-    public function action_edit($model = 'Page')
+    // Сохраняем страницу
+    public function action_save($model = 'Page')
     {
-        parent::action_edit($model);
+        parent::action_save(self::$model);
     }
 
     // Проверка уникальности заголовка страницы
     public function action_checkpagename()
     {
-        $unique_pagename  = ORM::factory('Page')->unique('pagename', $_POST['pagename']);
+        $pagename = Arr::get($_POST, 'pagename');
+        $unique_pagename  = ORM::factory('Page')->unique('pagename', $pagename);
         if ( ! $unique_pagename) echo 'Такая страница уже существует';
     }
 
     // Проверка уникальность алиаса страницы
     public function action_checkalias()
     {
-        $unique_alias  = ORM::factory('Page')->unique('alias', $_POST['alias']);
+        $alias = Arr::get($_POST, 'alias');
+        $unique_alias  = ORM::factory('Page')->unique('alias', $alias);
         if ( ! $unique_alias) echo 'Такой алиас уже существует';
     }
 
     // Обработка загруженного изображения
     public function action_upload()
     {
-        $uploaddir = 'assets/img/site/big/';
+        $uploaddir = 'frontend/img/site/big/';
         $uploadfile = $uploaddir . basename($_FILES['image']['name']);
 
         if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
 
-            Image::factory($uploadfile, 'Imagick')->resize(530, 530, Image::NONE)->save($uploadfile, 95);
+            Image_Imagick::factory($uploadfile)->resize(530, 530, Image_Imagick::NONE)->save($uploadfile, 95);
 
-            $thumbnail = 'assets/img/site/small/'.basename($_FILES['image']['name']);
+            $thumbnail = 'frontend/img/site/small/'.basename($_FILES['image'][ 'name']);
 
-            Image::factory($uploadfile, 'Imagick')
-                ->resize(250, 250, Image::NONE)
+            Image_Imagick::factory($uploadfile)
+                ->resize(250, 250, Image_Imagick::NONE)
                 ->save($thumbnail, 80);
 
             echo basename($_FILES['image']['name']);
@@ -118,5 +160,10 @@ class Controller_Admin_Pages extends Controller_Admin_App {
           // Otherwise onSubmit event will not be fired
           echo "error";
         }
+    }
+
+    // Удаляем материал
+    public function action_delete($table = 'pages') {
+        parent::action_delete(self::$table);
     }
 }

@@ -1,0 +1,18 @@
+<td class="pageId">
+    {{ item.id }}
+</td>
+<td class="pagename">
+    <a href="//{{ item.tablename }}/edit/{{ item.editfield }}">
+        {{ item.name }}
+    </a>
+</td>
+<td>
+    {{printTypeItem item.tablename }}
+</td>
+<td>{{ item.date }}</td>
+<td>
+    <img class="recovery" src='{{ siteURL }}/frontend/img/admin/published.png'>
+</td>
+<td>
+    <img class="delete" src='{{ siteURL }}/frontend/img/admin/delete.png'>
+</td>

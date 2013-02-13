@@ -1,11 +1,10 @@
-Front CMS основана на Kohana Framework v3.3.
-Полностью AJAX CMS.
-Каркас сайта сделан при помощи jQuery, Backbone + Underscore, Require JS.
-Модульная структура сайта благодаря Require JS.
-Используется адаптивная сетка для каркаса 1140.css http://cssgrid.net/. 
+Frontend CMS основана на Backbone + Kohana Framework v3.3.
+Полностью Single Page App.
+Модульная структура сайта и админки благодаря Require JS.
+Используется адаптивная сетка для каркаса сайта 1140.css http://cssgrid.net/. 
 Переход по страницам сайта со сменой URL'ов без перезагрузки самой страницы (только в браузерах с поддержкой pushState и History API).
 Встроенный редактор CKEditor.
-Возможность писать юнит-тесты на JS код, с помощью библиотеки QUnit.
+Возможность писать юнит-тесты на JS код, с помощью библиотеки Jasmine.
 Каркас легко расширяем для разнообразных одностраничных веб-приложений.
 Прекрасно подойдет для представления различных данных в удобном виде.
-Небольшой обзор тут https://github.com/Shustoff/front-cms/wiki/FAQ-Front-CMS
+Подробнее см. вики: https://github.com/Shustoff/frontend-cms/wiki

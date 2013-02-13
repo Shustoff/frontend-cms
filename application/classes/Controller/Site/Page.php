@@ -70,16 +70,11 @@ class Controller_Site_Page extends Controller_Site_Main {
             // Подключаем профайлер
             if ($options['debug'] == 1) $profiler = View::factory('profiler/stats');
 
-            $nav = View::factory('site/blocks/V_nav');
-
-            $footer = View::factory('site/blocks/V_footer')
-                    ->bind('count_pages', $count_pages);;
-
             $main = View::factory('site/index')
-                    ->bind('nav', $nav)
-                    ->bind('footer',$footer)
                     ->bind('options', $options)
-                    ->bind('profiler', $profiler);
+                    ->bind('profiler', $profiler)
+                    ->bind('count_pages', $count_pages);
+
             $this->response->body($main);
         }
     }

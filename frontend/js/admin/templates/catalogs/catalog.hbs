@@ -1,0 +1,17 @@
+<td class="pageId">
+    {{ item.id }}
+</td>
+<td class="pagename">
+    <a href="//catalogs/edit/{{ item.alias }}">{{ item.catname }}</a>
+</td>
+<td class="alias">{{ item.alias }}</td>
+<td class="catname">{{parentCatalog item.parentCatName}}</td>
+<td>{{ item.date }}</td>
+<td>
+    {{#statusPage item.status}}{{/statusPage}}
+</td>
+<td>
+    <span class="intrash">
+        <img src='{{ siteURL }}/frontend/img/admin/delete.png'>
+    </span>
+</td>

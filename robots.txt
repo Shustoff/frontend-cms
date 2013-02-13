@@ -5,3 +5,7 @@ User-agent: *
 Allow: /
 Disallow: /modules/
 Disallow: /system/
+Disallow: /vendor/
+Disallow: .htaccess
+Disallow: ie.html
+Disallow: test.html

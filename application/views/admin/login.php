@@ -2,26 +2,24 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Вход в админку</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <meta name="robots" content=“no-index,no-follow”>
-        <title>Вход в админку</title>
-        <!--Стили-->
-        <link rel="stylesheet/less" type="text/css" href="<?=URL::base();?>assets/css/admin/admin.less">
-        <!--Фавикон-->
-        <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>assets/img/favicon.ico">
-        <!--Скрипты-->
-        <script src="<?=URL::base();?>assets/js/libs/less.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?=URL::base();?>frontend/css/admin/admin.css">
+        <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>frontend/img/favicon.ico">
     </head>
     <body class="adminka">
         <div class="container">
             <?=$faillogin;?>
-            <form action="" method="post" id="login">
-                <h4>Вход в админку:</h4>
+            <form method="post" id="login">
+                <img src="<?=URL::base();?>frontend/img/admin/enter.jpg">
                 <label>Логин: <input type="text" name="username"></label>
                 <label>Пароль: <input type="password" name="password"></label>
-                <input type="hidden" value="0" name="remember">
                 <input type="submit" value="Войти!" name="auth" class="btn btn-success">
+                <label class="checkbox">
+                    <input type="checkbox" value="0" id="remember" name="remember"> Запомнить меня
+                </label>
             </form>
         </div>
     </body>

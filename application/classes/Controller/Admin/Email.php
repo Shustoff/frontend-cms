@@ -22,14 +22,23 @@ class Controller_Admin_Email extends Controller_Admin_App {
 
         $user = Auth::instance()->get_user();
         $usermail = $user->email;
-        $author_id = ORM::factory('User')->where('email', '=', $user)->find();
 
-        $view = View::factory('admin/blocks/V_sendemail')
-                      ->bind('users', $users)
-                      ->bind('author_id', $author_id)
-                      ->bind('usermail', $usermail);
+        if ($this->request->is_ajax())
+        {
+            foreach ($users as $user)
+            {
+                $arr[]['email'] = $user->email;
+            }
+            $json['users'] = $arr;
+            $json['useremail'] = $usermail;
 
-        $this->response->body($view);
+            $json = parent::json_encode_cyr($json);
+            $this->response->body($json);
+        }
+        else
+        {
+            $this->response->body( View::factory('admin/index') );
+        }
     }
 
 
@@ -38,26 +47,21 @@ class Controller_Admin_Email extends Controller_Admin_App {
         $config = Kohana::$config->load('email');
         Email::connect($config);
 
-        $to = $_POST['to'];
-        $subject = $_POST['subject'];
         $from = Kohana::$config->load('site.email');
-        $message = $_POST['content'];
-        $saveemail = $_POST['saveemail'];
-        $date = $_POST['date'];
 
-        if ($saveemail == 1)
+        $json = json_decode($this->request->body());
+
+        if ($json->isSaveEmail == 1)
         {
             ORM::factory('Email')
-                ->set('to', $to)
-                ->set('subject', $subject)
+                ->set('to', $json->to)
+                ->set('subject', $json->subject)
                 ->set('from', $from)
-                ->set('message', $message)
-                ->set('date', $date)
+                ->set('message', $json->message)
+                ->set('date', $json->date)
                 ->save();
         }
 
-        Email::send($to, $from, $subject, $message, $html = TRUE);
+        Email::send($json->to, $from,  $json->subject, $json->message, $html = TRUE);
     }
-
-
 }
