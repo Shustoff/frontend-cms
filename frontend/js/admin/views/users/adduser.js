@@ -101,7 +101,7 @@ define([
                             : (function() { $( self.ui.failEmail ).empty(); return true; }())
                         );
                 }, this);
-                this.userFirstName = ko.observable( $( self.ui.userName ).val() );
+                this.userFirstName = ko.observable( $( self.ui.firstName ).val() );
                 this.userLastName = ko.observable( $( self.ui.lastName ).val() );
                 this.userRoleName = ko.observable( $( self.ui.roleName ).val() );
                 this.userDate = ko.observable( $( self.ui.date ).val() );
