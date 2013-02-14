@@ -1,0 +1,35 @@
+{
+    "name": "frontend-cms",
+    "version": "0.2",
+    "dependencies": {
+        "jquery": "latest",
+        "jquery-ui": "latest",
+        "backbone": "latest",
+        "marionette": "latest",
+        "requirejs": "latest",
+        "jasmine": "latest",
+        "handlebars": "latest",
+        "knockout": "latest"
+    },
+    "install": {
+        "path": "frontend",
+        "sources": {
+            "jquery": "js/libs/jquery/jquery.js",
+            "jquery-ui": [
+                "js/libs/jquery/jquery-ui.js",
+                "css/jquery-ui.css"
+            ],
+            "backbone": "js/libs/backbone/backbone.js",
+            "bootstrap": "css/bootstrap.css",
+            "marionette": "js/libs/backbone/backbone.marionette.js",
+            "requirejs": "js/libs/require/require.js",
+            "jasmine": [
+                "js/libs/jasmine/jasmine.js",
+                "js/libs/jasmine/jasmine-html.js",
+                "css/jasmine.css"
+            ],
+            "handlebars": "js/libs/handlebars.js",
+            "knockout": "js/libs/knockout.js"
+        }
+    }
+}
