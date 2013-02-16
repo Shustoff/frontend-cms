@@ -1,6 +1,6 @@
-@import "/frontend/css/jquery-ui.css";
+@import "../jquery-ui.css";
 
-@import "/frontend/css/bootstrap.css";
+@import "../bootstrap.css";
 /* Variables */
 /* Mixins */
 /* Main styles */
@@ -12,6 +12,10 @@ body {
   background: url(../../img/admin/bg.jpg) repeat;
 }
 a {
+  color: #000;
+  text-decoration: underline;
+}
+a:link {
   color: #000;
   text-decoration: underline;
 }

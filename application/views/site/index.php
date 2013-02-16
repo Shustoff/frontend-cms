@@ -23,7 +23,7 @@
     <link href="http://fonts.googleapis.com/css?family=Cuprum&subset=cyrillic" rel="stylesheet" type="text/css">
 
     <!--Стили-->
-    <link rel="stylesheet" type="text/css" href="<?=URL::base();?>frontend/css/site/site.css">
+    <link rel="stylesheet" type="text/css" href="<?=URL::base();?>frontend/css/site/site.min.css">
 
     <!--Фавикон-->
     <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AJ9KJP+fSiT/n0ok/59KJP+fSiT/8ebhFf///wD///8A////AP///wCgTCf2////AP///wD///8A////AJ9KJP+fSiT/n0ok/59KJP+fSiT/n0ok/59KJP+fSiT/////AP///wD///8An0ok/////wD///8Awo11ip9KJP+fSiT/w493hv///wD///8A////AP///wD///8An0ok/6FOKfP///8A////AJ9KJP////8A////AJ9KJP+fSiT/////AP///wD///8An0ok/Z9KJP/x5N8Z////AP///wCfSiT/////APfx7hGfSiT/////AP///wCfSiT/n0ok/7l7X6j///8A////APPo4xWfSiT/n0ok/////wD///8A////AP///wD///8An0ok/////wD///8A////AP///wD///8A////AP///wD///8An0ok/59KJP+fSiT+////AP///wD///8A////AJ9KJP+fSiT/////AP///wD///8A////AP///wD///8A////AP///wCfSiT/n0ok/////wD///8A////AP///wDcvrBFn0ok/59KJP////8A////AP///wC0clW1////AP///wD///8A/Pr5Ap9KJP+lVjLk////AP///wD///8A////AJ9KJP6fSiT/n0ok/59KJP+fSiT+n0ok/59KJP/HloF+////AP///wCfSiT/n0ok/////wD///8A////AP///wD///8A/v7+AJ9KJP+fSiT/n0ok/59KJP+fSiT/////AP///wD///8An0ok/59KJP////8A////AP///wD///8A////AP///wD///8A////AP///wC4eV2r////AP///wD///8A4sm9OZ9KJP/+/f0A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AJ9KJP+fSiT/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AJ9KJP2fSiT/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AJ9KJP+fSiT/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A//8AAP4PAAC8AwAAsPkAALOdAACxzwAAv8cAAJ/nAADO8wAAwHMAAPBzAAD+9wAA/+cAAP/PAAD/nwAA//8AAA==" rel="icon" type="image/x-icon" />
@@ -86,7 +86,7 @@
 </section>
 
 <!--Скрипты-->
-<script data-main="<?=URL::base();?>frontend/js/site/site" src="<?=URL::base();?>frontend/js/vendor/requirejs/require.js"></script>
+<script data-main="<?=URL::base();?>frontend/js/site/min/site" src="<?=URL::base();?>frontend/js/vendor/requirejs/require.js"></script>
 
 </body>
 </html>

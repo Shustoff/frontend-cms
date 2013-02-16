@@ -1,0 +1,1 @@
+r.js -o cssIn=frontend/css/admin/admin.css out=frontend/css/admin/admin.min.css optimizeCss=default

@@ -2,7 +2,7 @@
     {{ item.id }}
 </td>
 <td class="email">
-    <a href="/users/edit/{{ item.username }}">{{ item.email }}</a>
+    <a href="//users/edit/{{ item.username }}">{{ item.email }}</a>
 </td>
 <td class="username">{{ item.username }}</td>
 <td class="role">
@@ -13,7 +13,5 @@
     {{#statusPage item.status}}{{/statusPage}}
 </td>
 <td>
-    <span class="intrash">
-        <img src='{{ siteURL }}/frontend/img/admin/delete.png'>
-    </span>
+    <span class="intrash"></span>
 </td>

@@ -56,8 +56,8 @@ class Controller_Admin_Settings extends Controller_Admin_App {
         $settings = json_decode( $this->request->body() );
         foreach ($settings as $key => $value)
         {
-            Kohana::$config->_write_config('site', $key, $value);
+            $saved = Kohana::$config->_write_config('site', $key, $value);
         }
-        $this->response->body($settings);
+        $this->response->body(parent::json_encode_cyr($saved));
     }
 }

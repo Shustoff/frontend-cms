@@ -30,6 +30,7 @@ define([
             this.model.save(
                 { status: '0' },
                 {
+                    patch: true,
                     success: function() {
                         $(e.target).replaceWith("<img class='publish' src='" + Frontend.siteURL + "/frontend/img/admin/not-published.png'>");
                     }
@@ -42,6 +43,7 @@ define([
             this.model.save(
                 { status: '1' },
                 {
+                    patch: true,
                     success: function() {
                         $(e.target).replaceWith("<img class='unpublish' src='" + Frontend.siteURL + "/frontend/img/admin/published.png'>");
                     }
@@ -54,6 +56,7 @@ define([
             this.model.save(
                 { intrash: '1' },
                 {
+                    patch: true,
                     success: function() {
                         $(e.target).parents('tr.pageedit').fadeOut(300);
                     }

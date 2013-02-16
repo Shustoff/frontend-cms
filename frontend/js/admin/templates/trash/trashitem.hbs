@@ -2,7 +2,7 @@
     {{ item.id }}
 </td>
 <td class="pagename">
-    <a href="//{{ item.tablename }}/edit/{{ item.editfield }}">
+    <a href="/{{ item.tablename }}/edit/{{ item.editfield }}">
         {{ item.name }}
     </a>
 </td>
@@ -11,8 +11,8 @@
 </td>
 <td>{{ item.date }}</td>
 <td>
-    <img class="recovery" src='{{ siteURL }}/frontend/img/admin/published.png'>
+    <span class="recovery"></span>
 </td>
 <td>
-    <img class="delete" src='{{ siteURL }}/frontend/img/admin/delete.png'>
+    <span class="intrash delete"></span>
 </td>

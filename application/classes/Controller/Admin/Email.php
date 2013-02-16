@@ -63,6 +63,7 @@ class Controller_Admin_Email extends Controller_Admin_App {
             $this->response->body($saved);
         }
 
-        Email::send($json->to, $from,  $json->subject, $json->message, $html = TRUE);
+        $sended = Email::send($json->to, $from,  $json->subject, $json->message, $html = TRUE);
+        $this->response->body($sended);
     }
 }

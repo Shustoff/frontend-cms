@@ -2,7 +2,7 @@
     {{ item.id }}
 </td>
 <td class="pagename">
-    <a href="/roles/edit/{{ item.name }}">{{ item.name }}</a>
+    <a href="//roles/edit/{{ item.name }}">{{ item.name }}</a>
 </td>
 <td>
     {{ item.description }}
@@ -11,7 +11,5 @@
     {{#statusPage item.status}}{{/statusPage}}
 </td>
 <td>
-    <span class="intrash">
-        <img src='{{ siteURL }}/frontend/img/admin/delete.png'>
-    </span>
+    <span class="intrash"></span>
 </td>

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <meta name="robots" content=“no-index,no-follow”>
-        <link rel="stylesheet" type="text/css" href="<?=URL::base();?>frontend/css/admin/admin.css">
+        <link rel="stylesheet" type="text/css" href="<?=URL::base();?>frontend/css/admin/admin.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="<?=URL::base();?>frontend/img/favicon.ico">
     </head>
     <body class="adminka">

@@ -156,7 +156,7 @@ define([
 
         onSave: function(model) {
             Helpers.completeSave();
-            Frontend.Router.navigate('/pages/edit/' + model.get('alias'), true);
+            Frontend.Router.navigate('//pages/edit/' + model.get('alias'), true);
         },
 
         onSaveError: function(model, error) {

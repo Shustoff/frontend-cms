@@ -91,14 +91,8 @@ define([
                 this.roleTrash = ko.observable( $( self.ui.roleTrash ).val() );
                 this.roleDate = ko.observable( $( self.ui.date ).val() );
                 this.isValid = ko.computed(function() {
-                    this.rolePages();
-                    this.roleCats();
-                    this.roleUsers();
-                    this.roleMods();
-                    this.roleMails();
-                    this.roleStats();
-                    this.roleOpts();
-                    this.roleTrash();
+                    this.rolePages(); this.roleCats(); this.roleUsers(); this.roleMods();
+                    this.roleMails(); this.roleStats(); this.roleOpts(); this.roleTrash();
                     return this.isRoleNameValid() && this.roleDesc() && $( self.ui.form ).valid();
                 }, this);
             }
@@ -143,7 +137,7 @@ define([
 
         onSave: function(model) {
             Helpers.completeSave();
-            Frontend.Router.navigate('/roles/edit/' + model.get('name'), true);
+            Frontend.Router.navigate('//roles/edit/' + model.get('name'), true);
         },
 
         onSaveError: function(model, error) {

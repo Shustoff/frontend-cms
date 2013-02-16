@@ -64,9 +64,9 @@ define(['Handlebars'], function(Handlebars) {
     Handlebars.registerHelper('statusPage', function(status) {
         var res = '';
         if (status === '1') {
-            res += '<img class="unpublish" src="' + Frontend.siteURL + '/frontend/img/admin/published.png">';
+            res += '<span class="unpublish"></span>';
         } else {
-            res += '<img class="publish" src="' + Frontend.siteURL + '/frontend/img/admin/not-published.png">';
+            res += '<span class="publish"></span>';
         }
         return res;
     });

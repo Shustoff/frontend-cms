@@ -164,7 +164,7 @@ define([
 
         onSave: function(model) {
             Helpers.completeSave();
-            Frontend.Router.navigate('/users/edit/' + model.get('username'), true);
+            Frontend.Router.navigate('//users/edit/' + model.get('username'), true);
         },
 
         onSaveError: function(model, error) {

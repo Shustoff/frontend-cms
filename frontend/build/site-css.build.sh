@@ -1,0 +1,1 @@
+r.js -o cssIn=frontend/css/site/site.css out=frontend/css/site/site.min.css optimizeCss=default

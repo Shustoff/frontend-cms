@@ -144,7 +144,7 @@ define([
 
         onSave: function(model) {
             Helpers.completeSave();
-            Frontend.Router.navigate('/modules/edit/' + model.get('systemname'), true);
+            Frontend.Router.navigate('//modules/edit/' + model.get('systemname'), true);
         },
 
         onSaveError: function(model, error) {
