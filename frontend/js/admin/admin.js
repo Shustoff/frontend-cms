@@ -1,24 +1,23 @@
 /* Главный файл, конфиг Require. Точка входа в приложение */
 require.config({
     urlArgs: 'bust='+ (new Date()).getMilliseconds(),
-    deps : ['admin', 'jQuery', 'config'],
+    deps : ['jQuery', 'config'],
     paths : {
         // Libs
-        'jQuery' : '../libs/jquery/jquery',
-        'jQueryUI': '../libs/jquery/jquery-ui',
-        'jQueryUIDatepicker': '../libs/jquery/jquery.ui.datepicker-ru',
-        'jQueryValidate': '../libs/jquery/jquery.validate',
-        'addMethods': '../libs/jquery/additional-methods',
-        'ajaxUpload': '../libs/jquery/ajaxupload',
-        'Knockout': '../libs/knockout',
-        'CKEditor': '../../ckeditor/ckeditor',
-        'Underscore' : '../libs/underscore',
-        'Backbone' : '../libs/backbone/backbone',
-        'Marionette': '../libs/backbone/backbone.marionette',
-        'Handlebars': '../libs/handlebars',
+        'jQuery' : '../vendor/jquery/jquery',
+        'jQueryUI': '../vendor/jquery-ui/ui/jquery-ui.custom',
+        'jQueryUIDatepicker': '../vendor/jquery-ui/ui/i18n/jquery.ui.datepicker-ru',
+        'Underscore' : '../vendor/underscore/underscore',
+        'Backbone' : '../vendor/backbone/backbone',
+        'Marionette': '../vendor/marionette/lib/backbone.marionette',
+        'Knockout': '../vendor/knockout/build/output/knockout-latest',
+        'Handlebars': '../vendor/handlebars/handlebars',
 
         // Plugins
-        'text' : '../libs/require/text',
+        'jQueryValidate': '../vendor/plugins/jquery.validate',
+        'addMethods': '../vendor/plugins/additional-methods',
+        'ajaxUpload': '../vendor/plugins/ajaxupload',
+        'text' : '../vendor/plugins/text',
 
         // Custom
         'Helpers': '../admin/helpers',
@@ -38,9 +37,6 @@ require.config({
             deps: ['jQuery', 'jQueryUI','jQueryUIDatepicker', 'jQueryValidate']
         },
         'ajaxUpload': {
-            deps: ['jQuery']
-        },
-        'CKEdtior': {
             deps: ['jQuery']
         },
         'Backbone' : {
@@ -66,7 +62,7 @@ require.config({
     }
 });
 
-requirejs(['Backbone', 'Marionette', 'router', 'config'], function (Backbone, Marionette, Router) {
+requirejs(['Marionette', 'router', 'config'], function (Marionette, Router) {
 
     // Добавляем предварительные настройки
     Frontend.addInitializer(function() {

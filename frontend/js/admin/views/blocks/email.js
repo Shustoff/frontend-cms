@@ -3,14 +3,13 @@ define([
     'Handlebars',
     '../../models/email',
     'text!../../templates/blocks/email.hbs',
-    'CKEditor',
     'Helpers',
     'Knockout',
     'jQueryValidate',
     'addMethods',
     'jQueryUI',
     'jQueryUIDatepicker'
-], function(Marionette, Handlebars, Email, EmailTemplate, CKEDITOR, Helpers, ko) {
+], function(Marionette, Handlebars, Email, EmailTemplate, Helpers, ko) {
     return Frontend.Views.EmailView = Backbone.Marionette.ItemView.extend({
 
         initialize: function() {

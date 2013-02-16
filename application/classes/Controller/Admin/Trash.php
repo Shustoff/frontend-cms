@@ -96,7 +96,8 @@ class Controller_Admin_Trash extends Controller_Admin_App {
     public function action_recovery()
     {
         $json = json_decode( $this->request->body() );
-        DB::update($json->tablename)->set(array('intrash' => 0))->where('id', '=', $json->id)->execute();
+        $updated = DB::update($json->tablename)->set(array('intrash' => 0))->where('id', '=', $json->id)->execute();
+        $this->response->body($updated);
     }
 
     // Очищаем корзину полностью

@@ -5,14 +5,13 @@ define([
     'Handlebars',
     '../../models/catalog',
     'text!../../templates/catalogs/addcatalog.hbs',
-    'CKEditor',
     'Helpers',
     'Knockout',
     'jQueryValidate',
     'addMethods',
     'jQueryUI',
     'jQueryUIDatepicker'
-], function(Marionette, Handlebars, Catalog, AddCatalogTemplate, CKEDITOR, Helpers, ko) {
+], function(Marionette, Handlebars, Catalog, AddCatalogTemplate, Helpers, ko) {
     return Frontend.Views.AddCatalogView = Backbone.Marionette.ItemView.extend({
 
         initialize: function() {
@@ -142,7 +141,7 @@ define([
 
         onSave: function(model) {
             Helpers.completeSave();
-            Frontend.Router.navigate('//catalogs/edit/' + model.get('alias'), true);
+            Frontend.Router.navigate('/catalogs/edit/' + model.get('alias'), true);
         },
 
         onSaveError: function(model, error) {

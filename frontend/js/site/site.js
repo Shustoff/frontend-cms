@@ -3,12 +3,12 @@ requirejs.config({
     urlArgs: 'bust='+ (new Date()).getMilliseconds(),
     paths : {
         // Libs
-        'jQuery' : '../libs/jquery/jquery',
-        'Underscore' : '../libs/underscore',
-        'Backbone' : '../libs/backbone/backbone',
+        'jQuery' : '../vendor/jquery/jquery',
+        'Underscore' : '../vendor/underscore/underscore',
+        'Backbone' : '../vendor/backbone/backbone',
 
         // Plugins
-        'text' : '../libs/require/text',
+        'text' : '../vendor/plugins/text',
 
         // Custom
         'config' : './config',

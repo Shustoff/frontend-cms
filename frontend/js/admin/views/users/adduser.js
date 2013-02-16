@@ -5,14 +5,13 @@ define([
     'Handlebars',
     '../../models/user',
     'text!../../templates/users/adduser.hbs',
-    'CKEditor',
     'Helpers',
     'Knockout',
     'jQueryValidate',
     'addMethods',
     'jQueryUI',
     'jQueryUIDatepicker'
-], function(Marionette, Handlebars, User, AddUserTemplate, CKEDITOR, Helpers, ko) {
+], function(Marionette, Handlebars, User, AddUserTemplate, Helpers, ko) {
     return Frontend.Views.AddUserView = Backbone.Marionette.ItemView.extend({
 
         initialize: function() {
@@ -165,7 +164,7 @@ define([
 
         onSave: function(model) {
             Helpers.completeSave();
-            Frontend.Router.navigate('//users/edit/' + model.get('username'), true);
+            Frontend.Router.navigate('/users/edit/' + model.get('username'), true);
         },
 
         onSaveError: function(model, error) {

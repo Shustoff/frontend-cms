@@ -4,7 +4,6 @@ define([
     '../../models/page',
     './addpage',
     'text!../../templates/pages/editpage.hbs',
-    'CKEditor',
     'Helpers',
     'Knockout',
     'ajaxUpload',
@@ -12,7 +11,7 @@ define([
     'addMethods',
     'jQueryUI',
     'jQueryUIDatepicker'
-], function(Marionette, Handlebars, Page, AddPageView, EditPageTemplate, CKEDITOR, Helpers, ko) {
+], function(Marionette, Handlebars, Page, AddPageView, EditPageTemplate, Helpers, ko) {
     return Frontend.Views.EditPageView = AddPageView.extend({
 
         ui: {

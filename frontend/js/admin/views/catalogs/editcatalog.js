@@ -6,14 +6,13 @@ define([
     '../../models/catalog',
     './addcatalog',
     'text!../../templates/catalogs/editcatalog.hbs',
-    'CKEditor',
     'Helpers',
     'Knockout',
     'jQueryValidate',
     'addMethods',
     'jQueryUI',
     'jQueryUIDatepicker'
-], function(Marionette, Handlebars, Catalog, AddCatalogView, EditCatalogTemplate, CKEDITOR, Helpers, ko) {
+], function(Marionette, Handlebars, Catalog, AddCatalogView, EditCatalogTemplate, Helpers, ko) {
     return Frontend.Views.EditCatalogView = AddCatalogView.extend({
 
         initialize: function() {

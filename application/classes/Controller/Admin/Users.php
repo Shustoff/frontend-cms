@@ -88,7 +88,8 @@ class Controller_Admin_Users extends Controller_Admin_App {
             {
                 $user->add('roles', ORM::factory('Role', array('name' => $json['rolename'])));
             }
-            $user->save();
+            $added = $user->save();
+            $this->response->body($added);
         }
 
         if ( ! $unique_email) echo 'Этот емейл уже занят. ';
@@ -147,7 +148,8 @@ class Controller_Admin_Users extends Controller_Admin_App {
             $user->add('roles', ORM::factory('Role', array('name' => $json['rolename'])));
         }
 
-        $user->save();
+        $saved = $user->save();
+        $this->response->body($saved);
     }
 
     // Проверяем логин  на уникальность

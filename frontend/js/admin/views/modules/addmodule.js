@@ -5,14 +5,13 @@ define([
     'Handlebars',
     '../../models/module',
     'text!../../templates/modules/addmodule.hbs',
-    'CKEditor',
     'Helpers',
     'Knockout',
     'jQueryValidate',
     'addMethods',
     'jQueryUI',
     'jQueryUIDatepicker'
-], function(Marionette, Handlebars, Module, AddModuleTemplate, CKEDITOR, Helpers, ko) {
+], function(Marionette, Handlebars, Module, AddModuleTemplate, Helpers, ko) {
     return Frontend.Views.AddModuleView = Backbone.Marionette.ItemView.extend({
 
         initialize: function() {
@@ -145,7 +144,7 @@ define([
 
         onSave: function(model) {
             Helpers.completeSave();
-            Frontend.Router.navigate('//modules/edit/' + model.get('systemname'), true);
+            Frontend.Router.navigate('/modules/edit/' + model.get('systemname'), true);
         },
 
         onSaveError: function(model, error) {

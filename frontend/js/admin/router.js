@@ -321,9 +321,7 @@ define([
             addRole: function() {
                 Helpers.showLoader();
                 var role = new RoleModel();
-                role.fetch().done(function() {
-                    new AddRoleView({ model: role });
-                });
+                new AddRoleView({ model: role });
             },
             // Редактировать роль
             editRole: function(name) {

@@ -86,7 +86,7 @@
 </section>
 
 <!--Скрипты-->
-<script data-main="<?=URL::base();?>frontend/js/site/site" src="<?=URL::base();?>frontend/js/libs/require/require.js"></script>
+<script data-main="<?=URL::base();?>frontend/js/site/site" src="<?=URL::base();?>frontend/js/vendor/requirejs/require.js"></script>
 
 </body>
 </html>

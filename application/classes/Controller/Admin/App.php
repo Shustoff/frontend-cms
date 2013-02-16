@@ -174,22 +174,25 @@ class Controller_Admin_App extends Controller {
     // Опубликовать
     public function action_on($table)
     {
-        $json = json_decode( $this->request->body() );
-        DB::update($table)->set(array('status' => 1))->where('id', '=', $json->id)->execute();
+        $id = $this->request->param('id');
+        $added = DB::update($table)->set(array('status' => 1))->where('id', '=', $id)->execute();
+        $this->response->body($added);
     }
 
     // Не опубликовать
     public function action_off($table)
     {
-        $json = json_decode( $this->request->body() );
-        DB::update($table)->set(array('status' => 0))->where('id', '=', $json->id)->execute();
+        $id = $this->request->param('id');
+        $added = DB::update($table)->set(array('status' => 0))->where('id', '=', $id)->execute();
+        $this->response->body($added);
     }
 
     // В корзину
     public function action_intrash($table)
     {
-        $json = json_decode( $this->request->body() );
-        DB::update($table)->set(array('intrash' => 1))->where('id', '=', $json->id)->execute();
+        $id = $this->request->param('id');
+        $added = DB::update($table)->set(array('intrash' => 1))->where('id', '=', $id)->execute();
+        $this->response->body($added);
     }
 
     // Добавить материал
@@ -200,7 +203,8 @@ class Controller_Admin_App extends Controller {
         // Проверка валидации
         try
         {
-            ORM::factory($model)->values( $json )->save();
+            $added = ORM::factory($model)->values( $json )->save();
+            $this->response->body($added);
         }
         catch (ORM_Validation_Exception $e)
         {
@@ -219,7 +223,8 @@ class Controller_Admin_App extends Controller {
         // Проверка валидации
         try
         {
-            ORM::factory($model, $json['id'])->values( $json )->save();
+            $saved = ORM::factory($model, $json['id'])->values( $json )->save();
+            $this->response->body($saved);
         }
         catch (ORM_Validation_Exception $e)
         {
@@ -233,6 +238,7 @@ class Controller_Admin_App extends Controller {
     // Удаляем материал
     public function action_delete($table) {
         $id = $this->request->param('id');
-        DB::delete($table)->where('id', '=', $id)->execute();
+        $deleted = DB::delete($table)->where('id', '=', $id)->execute();
+        $this->response->body($deleted);
     }
 }

@@ -6,13 +6,12 @@ define([
     '../../models/module',
     './addmodule',
     'text!../../templates/modules/editmodule.hbs',
-    'CKEditor',
     'Helpers',
     'jQueryValidate',
     'addMethods',
     'jQueryUI',
     'jQueryUIDatepicker'
-], function(Marionette, Handlebars, Module, AddModuleView, EditModuleTemplate, CKEDITOR, Helpers) {
+], function(Marionette, Handlebars, Module, AddModuleView, EditModuleTemplate, Helpers) {
     return Frontend.Views.EditModuleView = AddModuleView.extend({
 
         ui: {

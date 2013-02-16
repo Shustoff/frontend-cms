@@ -53,13 +53,14 @@ class Controller_Admin_Email extends Controller_Admin_App {
 
         if ($json->isSaveEmail == 1)
         {
-            ORM::factory('Email')
+            $saved = ORM::factory('Email')
                 ->set('to', $json->to)
                 ->set('subject', $json->subject)
                 ->set('from', $from)
                 ->set('message', $json->message)
                 ->set('date', $json->date)
                 ->save();
+            $this->response->body($saved);
         }
 
         Email::send($json->to, $from,  $json->subject, $json->message, $html = TRUE);

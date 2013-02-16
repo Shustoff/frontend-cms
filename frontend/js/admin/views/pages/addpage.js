@@ -5,7 +5,6 @@ define([
     'Handlebars',
     '../../models/page',
     'text!../../templates/pages/addpage.hbs',
-    'CKEditor',
     'Helpers',
     'Knockout',
     'ajaxUpload',
@@ -13,7 +12,7 @@ define([
     'addMethods',
     'jQueryUI',
     'jQueryUIDatepicker'
-], function(Marionette, Handlebars, Page, AddPageTemplate, CKEDITOR, Helpers, ko) {
+], function(Marionette, Handlebars, Page, AddPageTemplate, Helpers, ko) {
     return Frontend.Views.AddPageView = Backbone.Marionette.ItemView.extend({
 
         initialize: function() {
@@ -157,7 +156,7 @@ define([
 
         onSave: function(model) {
             Helpers.completeSave();
-            Frontend.Router.navigate('//pages/edit/' + model.get('alias'), true);
+            Frontend.Router.navigate('/pages/edit/' + model.get('alias'), true);
         },
 
         onSaveError: function(model, error) {

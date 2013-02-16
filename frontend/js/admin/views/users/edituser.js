@@ -6,14 +6,13 @@ define([
     '../../models/user',
     './adduser',
     'text!../../templates/users/edituser.hbs',
-    'CKEditor',
     'Helpers',
     'Knockout',
     'jQueryValidate',
     'addMethods',
     'jQueryUI',
     'jQueryUIDatepicker'
-], function(Marionette, Handlebars, User, AddUserView, EditUserTemplate, CKEDITOR, Helpers, ko) {
+], function(Marionette, Handlebars, User, AddUserView, EditUserTemplate, Helpers, ko) {
     return Frontend.Views.EditUserView = AddUserView.extend({
 
         events: {

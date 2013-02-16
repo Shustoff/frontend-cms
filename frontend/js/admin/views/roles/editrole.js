@@ -4,14 +4,13 @@ define([
     '../../models/role',
     './addrole',
     'text!../../templates/roles/editrole.hbs',
-    'CKEditor',
     'Helpers',
     'Knockout',
     'jQueryValidate',
     'addMethods',
     'jQueryUI',
     'jQueryUIDatepicker'
-], function(Marionette, Handlebars, Role, AddRoleView, EditRoleTemplate, CKEDITOR, Helpers, ko) {
+], function(Marionette, Handlebars, Role, AddRoleView, EditRoleTemplate, Helpers, ko) {
     return Frontend.Views.EditRoleView = AddRoleView.extend({
 
         ui: {

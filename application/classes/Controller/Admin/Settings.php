@@ -58,5 +58,6 @@ class Controller_Admin_Settings extends Controller_Admin_App {
         {
             Kohana::$config->_write_config('site', $key, $value);
         }
+        $this->response->body($settings);
     }
 }

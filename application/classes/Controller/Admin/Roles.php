@@ -58,7 +58,8 @@ class Controller_Admin_Roles extends Controller_Admin_App {
             $json = json_decode( $this->request->body() );
             $unique_role  = ORM::factory(self::$model)->unique('name', $json->name);
             if ($unique_role) {
-                ORM::factory($model)->values( (array)$json )->save();
+                $added = ORM::factory($model)->values( (array)$json )->save();
+                $this->response->body($added);
             } else {
                 echo 'Это название роли уже существует.';
             }
@@ -91,7 +92,7 @@ class Controller_Admin_Roles extends Controller_Admin_App {
         }
     }
 
-    // Обновляем пользователя
+    // Обновляем роль
     public function action_save($model = 'Role')
     {
         parent::action_save(self::$model);
